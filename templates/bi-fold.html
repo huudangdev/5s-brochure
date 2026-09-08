@@ -402,15 +402,29 @@
       margin-bottom: 2.5mm;
     }
     .seamless-kpi-card {
-      background: white;
+      background: linear-gradient(145deg, #FFFFFF 0%, #FAFDFE 100%);
       border: 1px solid rgba(0, 102, 204, 0.12);
-      border-radius: var(--radius-sm);
-      padding: 5px 8px;
+      border-radius: 8px;
+      padding: 6px 9px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-shadow: 0 4px 14px rgba(11, 19, 43, 0.04);
+      position: relative;
+      overflow: hidden;
     }
+    .seamless-kpi-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background: var(--5s-blue);
+    }
+    .seamless-kpi-card:nth-child(2)::before { background: var(--5s-green); }
+    .seamless-kpi-card:nth-child(3)::before { background: var(--5s-crimson); }
+    .seamless-kpi-card:nth-child(4)::before { background: var(--5s-amber); }
     .seamless-kpi-top {
       display: flex;
       justify-content: space-between;
@@ -450,50 +464,72 @@
       overflow: visible;
     }
 
-    /* Main Seamless 24h Area Chart directly on the background */
+    /* Main Seamless 24h Area Chart directly on the background (Ultra-modern SaaS) */
     .seamless-chart-box {
-      background: white;
-      border: 1px solid rgba(0, 102, 204, 0.14);
-      border-radius: var(--radius-md);
-      padding: 6px 10px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAFCFE 100%);
+      border: 1px solid rgba(0, 102, 204, 0.16);
+      border-radius: 10px;
+      padding: 8px 12px 6px 12px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 6px 20px rgba(11, 19, 43, 0.05);
+      box-shadow: 0 10px 28px -4px rgba(11, 19, 43, 0.06), 0 1px 3px rgba(11, 19, 43, 0.03);
       margin-bottom: 2.5mm;
-      flex: 1;
+      height: 64mm;
+      flex: none;
+      position: relative;
     }
     .seamless-chart-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 3px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid rgba(0, 102, 204, 0.06);
     }
     .seamless-chart-title {
-      font-size: 6.2pt;
+      font-size: 6.4pt;
       font-weight: 800;
       font-family: 'Montserrat', sans-serif;
       color: var(--ink-primary);
       letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .chart-live-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--5s-green);
+      box-shadow: 0 0 6px var(--5s-green);
+      display: inline-block;
     }
     .seamless-chart-legend {
       display: flex;
-      gap: 8px;
-      font-size: 5.2pt;
+      gap: 6px;
+      font-size: 5pt;
       font-weight: 700;
       color: var(--ink-muted);
+    }
+    .leg-capsule {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 1.5px 6px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
     }
     .leg-circle {
       display: inline-block;
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      margin-right: 2px;
-      vertical-align: middle;
     }
     .seamless-svg-chart {
       width: 100%;
-      height: 100%;
+      height: 52mm;
       overflow: visible;
     }
 
@@ -505,40 +541,83 @@
       flex-shrink: 0;
     }
     .seamless-feat-pill {
-      background: white;
-      border: 1px solid var(--paper-line);
-      border-radius: var(--radius-sm);
-      padding: 4px 6px;
+      background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+      border: 1px solid rgba(0, 102, 204, 0.12);
+      border-radius: 8px;
+      padding: 5px 8px;
       display: flex;
       align-items: center;
-      gap: 5px;
-      box-shadow: var(--shadow-xs);
+      gap: 7px;
+      box-shadow: 0 4px 14px -2px rgba(11, 19, 43, 0.05), 0 0 0 1px rgba(0, 102, 204, 0.04);
+      position: relative;
+      overflow: hidden;
+      min-width: 0;
     }
+    .seamless-feat-pill::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--5s-blue);
+      border-radius: 2px 0 0 2px;
+    }
+    .seamless-feat-pill:nth-child(2)::before { background: var(--5s-crimson); }
+    .seamless-feat-pill:nth-child(3)::before { background: var(--5s-green); }
+    .seamless-feat-pill:nth-child(4)::before { background: #6366F1; }
+
     .feat-icon-badge {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      background: var(--5s-blue-subtle);
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
       color: var(--5s-blue);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 7pt;
+      font-size: 9.5pt;
       flex-shrink: 0;
       font-weight: 800;
+      box-shadow: 0 2px 6px rgba(0, 102, 204, 0.12);
+    }
+    .seamless-feat-pill:nth-child(2) .feat-icon-badge {
+      background: linear-gradient(135deg, #FFF1F2, #FFE4E6);
+      color: var(--5s-crimson);
+      box-shadow: 0 2px 6px rgba(200, 16, 46, 0.12);
+    }
+    .seamless-feat-pill:nth-child(3) .feat-icon-badge {
+      background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+      color: var(--5s-green);
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.12);
+    }
+    .seamless-feat-pill:nth-child(4) .feat-icon-badge {
+      background: linear-gradient(135deg, #EEF2FF, #E0E7FF);
+      color: #6366F1;
+      box-shadow: 0 2px 6px rgba(99, 102, 241, 0.12);
+    }
+
+    .feat-pill-text {
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
     }
     .feat-pill-text h6 {
-      font-size: 5.4pt;
+      font-size: 5.8pt;
       font-weight: 800;
       color: var(--ink-primary);
-      margin-bottom: 0.5px;
-      line-height: 1;
+      margin-bottom: 1px;
+      line-height: 1.15;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: -0.01em;
     }
     .feat-pill-text p {
-      font-size: 4.6pt;
+      font-size: 4.8pt;
       color: var(--ink-muted);
       margin-bottom: 0;
-      line-height: 1;
+      line-height: 1.15;
+      font-weight: 500;
     }
     /* Cover Footer Band */
     .cover-footer {
@@ -1344,8 +1423,8 @@
           <div class="cover-metric-label">Tự động hoá xuất báo cáo định kỳ</div>
         </div>
         <div class="cover-metric-cell">
-          <div class="cover-metric-num" style="color: var(--5s-green);">99.9%</div>
-          <div class="cover-metric-label">Uptime Cloud SLA cam kết</div>
+          <div class="cover-metric-num" style="color: var(--5s-green);">100%</div>
+          <div class="cover-metric-label">Cam kết Uptime Cloud SLA</div>
         </div>
       </div>
 
@@ -1413,12 +1492,15 @@
         <!-- Main 24h Area Chart directly on background -->
         <div class="seamless-chart-box">
           <div class="seamless-chart-header">
-            <span class="seamless-chart-title">BIỂU ĐỒ DIỄN BIẾN NỒNG ĐỘ THỜI GIAN THỰC (24H LIÊN TỤC // NỀN TẢNG CLOUD)</span>
+            <span class="seamless-chart-title">
+              <span class="chart-live-dot"></span>
+              BIỂU ĐỒ DIỄN BIẾN NỒNG ĐỘ THỜI GIAN THỰC (24H LIÊN TỤC // NỀN TẢNG CLOUD)
+            </span>
             <div class="seamless-chart-legend">
-              <span><span class="leg-circle" style="background: #0066CC;"></span> Bụi PM</span>
-              <span><span class="leg-circle" style="background: #059669;"></span> Khí CO</span>
-              <span><span class="leg-circle" style="background: #6366F1;"></span> Khí NOx</span>
-              <span style="color: #C8102E; font-weight: 800;">--- Ngưỡng QCVN 19 (144 mg/Nm³)</span>
+              <span class="leg-capsule"><span class="leg-circle" style="background: #0066CC;"></span> Bụi PM</span>
+              <span class="leg-capsule"><span class="leg-circle" style="background: #059669;"></span> Khí CO</span>
+              <span class="leg-capsule"><span class="leg-circle" style="background: #6366F1;"></span> Khí NOx</span>
+              <span class="leg-capsule" style="color: #C8102E; font-weight: 800; border-color: rgba(200, 16, 46, 0.25); background: #FFF5F6;">--- Ngưỡng QCVN 19 (144)</span>
             </div>
           </div>
 
@@ -1454,13 +1536,9 @@
 
             <!-- NOx Curve (Violet) -->
             <path d="M 30 101 Q 95 95 160 98 T 290 90 T 420 94 T 550 84 T 690 86" fill="none" stroke="#6366F1" stroke-width="1.5" />
-
-            <!-- Interactive Active Hover Tooltip Callout -->
-            <circle cx="550" cy="52" r="4.5" fill="#0066CC" stroke="#FFFFFF" stroke-width="2" />
-            <line x1="550" y1="52" x2="550" y2="108" stroke="#0066CC" stroke-dasharray="2,2" />
-            <rect x="470" y="24" width="150" height="25" rx="4" fill="#FFFFFF" stroke="#0066CC" stroke-width="1.2" filter="drop-shadow(0 2px 6px rgba(0,0,0,0.08))" />
-            <text x="478" y="34" fill="#0B132B" font-size="6.8" font-family="Montserrat" font-weight="bold">14:20 • Lò 02: PM 4.22 mg/Nm³</text>
-            <text x="478" y="44" fill="#059669" font-size="6.2" font-family="Montserrat" font-weight="bold">✓ 100% Đạt chuẩn QCVN 19</text>
+            <rect x="430" y="16" width="195" height="32" rx="6" fill="#0B132B" filter="drop-shadow(0 4px 12px rgba(11,19,43,0.18))" />
+            <text x="444" y="30" fill="#FFFFFF" font-size="8" font-family="Montserrat" font-weight="bold">14:20 • Lò 02: PM 4.22 mg/Nm³</text>
+            <text x="444" y="42" fill="#34D399" font-size="7.2" font-family="Montserrat" font-weight="bold">✓ 100% Đạt chuẩn QCVN 19</text>
 
             <!-- Time-axis Labels -->
             <text x="30" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">00:00</text>
