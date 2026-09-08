@@ -8,7 +8,10 @@ async function renderScene(name, options, renderFn) {
     viewport: { width: options.width, height: options.height, deviceScaleFactor: options.scale || 2 }
   });
 
-  const html = `<!DOCTYPE html>
+  page.on('pageerror', err => console.error(`[${name}] PAGE ERROR:`, err.message));
+  page.on('console', msg => console.log(`[${name}] LOG:`, msg.text()));
+
+  await page.setContent(`<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -16,36 +19,34 @@ async function renderScene(name, options, renderFn) {
     body { margin: 0; padding: 0; overflow: hidden; background: ${options.bg || '#060B18'}; }
     canvas { display: block; width: 100vw; height: 100vh; }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
   <div id="container"></div>
-  <script>
-    ${renderFn.toString()}
-    renderFn();
-  </script>
 </body>
-</html>`;
+</html>`);
 
-  await page.setContent(html);
-  await page.waitForTimeout(options.wait || 800);
+  await page.addScriptTag({ path: 'scripts/three.min.js' });
+  await page.evaluate(renderFn);
+  await page.waitForTimeout(options.wait || 500);
   
   const outputPath = path.join(process.cwd(), 'assets', name);
   await page.screenshot({ path: outputPath, omitBackground: options.transparent || false });
   await browser.close();
-  console.log(`✓ Successfully rendered: assets/${name}`);
+  console.log(`✓ Successfully rendered high-tech asset: assets/${name}`);
 }
 
 async function main() {
-  console.log('=== STARTING 3D ASSET GENERATION VIA THREE.JS & PLAYWRIGHT ===');
+  console.log('=== STARTING ADVANCED 3D CYBER-INDUSTRIAL ASSET GENERATION ===');
 
-  // 1. Digital Twin 3D Monolith Stack Tower (Front Cover Hero)
+  // =========================================================================
+  // 1. ISOMETRIC FACTORY DIGITAL TWIN & CEMS DUAL STACKS (Front Cover Hero)
+  // =========================================================================
   await renderScene('digital-twin-3d-monolith.png', { width: 1024, height: 700, scale: 2, bg: '#060B18' }, function renderFn() {
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x060B18, 0.015);
+    scene.fog = new THREE.FogExp2(0x060B18, 0.010);
 
-    const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(22, 14, 28);
+    const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(28, 22, 34);
     camera.lookAt(0, 5, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -54,140 +55,323 @@ async function main() {
     renderer.shadowMap.enabled = true;
     document.getElementById('container').appendChild(renderer.domElement);
 
-    // Grid floor
-    const grid = new THREE.GridHelper(60, 40, 0x00F0FF, 0x15223E);
+    // Cyber CAD Grid Floor
+    const grid = new THREE.GridHelper(70, 50, 0x00F0FF, 0x111E38);
     grid.position.y = -6;
     scene.add(grid);
 
-    // Radial floor rings
-    for (let r = 5; r <= 25; r += 5) {
-      const ringGeo = new THREE.RingGeometry(r - 0.05, r + 0.05, 64);
-      const ringMat = new THREE.MeshBasicMaterial({ color: 0x00A389, opacity: 0.25, transparent: true, side: THREE.DoubleSide });
+    // Radar concentric rings on ground
+    for (let r = 8; r <= 36; r += 6) {
+      const ringGeo = new THREE.RingGeometry(r - 0.08, r + 0.08, 64);
+      const ringMat = new THREE.MeshBasicMaterial({ color: 0x00A389, opacity: 0.35, transparent: true, side: THREE.DoubleSide });
       const ring = new THREE.Mesh(ringGeo, ringMat);
       ring.rotation.x = Math.PI / 2;
-      ring.position.y = -5.9;
+      ring.position.y = -5.92;
       scene.add(ring);
     }
+    // Helper: Create Text Canvas Texture for 3D Holographic HUD (Ultra-sharp 1024x320)
+    function makeTextTexture(title, val, status, colorHex) {
+      const c = document.createElement('canvas');
+      c.width = 1024;
+      c.height = 320;
+      const ctx = c.getContext('2d');
 
-    // Main Industrial Stack Tower
-    const stackGroup = new THREE.Group();
+      // Semi-transparent deep navy background
+      ctx.fillStyle = 'rgba(7, 16, 38, 0.94)';
+      ctx.fillRect(0, 0, 1024, 320);
 
-    // Concrete base pedestal
-    const baseGeo = new THREE.CylinderGeometry(5.5, 6.2, 3, 32);
-    const baseMat = new THREE.MeshStandardMaterial({ color: 0x1E293B, roughness: 0.6, metalness: 0.4 });
-    const base = new THREE.Mesh(baseGeo, baseMat);
-    base.position.y = -4.5;
-    stackGroup.add(base);
+      // Cybernetic frame & corner brackets
+      ctx.strokeStyle = colorHex;
+      ctx.lineWidth = 10;
+      ctx.strokeRect(6, 6, 1012, 308);
 
-    // Stack column sections
-    const heights = [6, 7, 7, 5];
-    const radii = [4.2, 3.8, 3.4, 3.0, 2.7];
-    let currY = -3;
-    
-    for (let i = 0; i < 4; i++) {
-      const secH = heights[i];
-      const secGeo = new THREE.CylinderGeometry(radii[i + 1], radii[i], secH, 32);
-      const secMat = new THREE.MeshStandardMaterial({
-        color: i % 2 === 0 ? 0x2A3B53 : 0x1E293B,
-        roughness: 0.35,
-        metalness: 0.75
-      });
-      const sec = new THREE.Mesh(secGeo, secMat);
-      sec.position.y = currY + secH / 2;
-      stackGroup.add(sec);
+      ctx.fillStyle = colorHex;
+      ctx.fillRect(0, 0, 60, 16);
+      ctx.fillRect(0, 0, 16, 60);
+      ctx.fillRect(1024 - 60, 320 - 16, 60, 16);
+      ctx.fillRect(1024 - 16, 320 - 60, 16, 60);
+      // Line 1: Top Category Title (y=60)
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#94A3B8';
+      ctx.font = 'bold 38px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+      ctx.fillText(title, 40, 62);
 
-      // Flange ring
-      const flangeGeo = new THREE.TorusGeometry(radii[i + 1] + 0.25, 0.15, 16, 32);
-      const flangeMat = new THREE.MeshStandardMaterial({ color: 0xC8102E, metalness: 0.8, roughness: 0.3 });
-      const flange = new THREE.Mesh(flangeGeo, flangeMat);
-      flange.rotation.x = Math.PI / 2;
-      flange.position.y = currY + secH;
-      stackGroup.add(flange);
+      // Line 2: Status Indicator Badge (y=112 - Completely separated from title)
+      ctx.fillStyle = colorHex;
+      ctx.font = '900 36px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+      ctx.fillText(status, 40, 115);
 
-      currY += secH;
+      // Line 3: Big Measurement Value (y=245)
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '900 96px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+      ctx.fillText(val, 40, 245);
+
+      const tex = new THREE.CanvasTexture(c);
+      tex.minFilter = THREE.LinearFilter;
+      tex.magFilter = THREE.LinearFilter;
+      tex.needsUpdate = true;
+      return tex;
     }
 
-    // Laser telemetry scanner rings
-    const laserColors = [0xFF2A4D, 0x00F0FF, 0x00FFA3, 0xFFB800];
-    const laserHeights = [1, 7, 13, 18];
-    
-    for (let j = 0; j < 4; j++) {
-      const lColor = laserColors[j];
-      const lH = laserHeights[j];
-      const lRingGeo = new THREE.TorusGeometry(4.6 - j * 0.35, 0.12, 16, 64);
-      const lRingMat = new THREE.MeshBasicMaterial({ color: lColor });
-      const lRing = new THREE.Mesh(lRingGeo, lRingMat);
-      lRing.rotation.x = Math.PI / 2;
-      lRing.position.y = lH;
-      stackGroup.add(lRing);
-
-      // 4 Laser projection beams per ring
-      for (let b = 0; b < 4; b++) {
-        const angle = (b * Math.PI / 2) + (j * 0.4);
-        const bGeo = new THREE.CylinderGeometry(0.04, 0.04, 8, 8);
-        const bMat = new THREE.MeshBasicMaterial({ color: lColor, transparent: true, opacity: 0.75 });
-        const beam = new THREE.Mesh(bGeo, bMat);
-        beam.rotation.z = Math.PI / 2;
-        beam.rotation.y = angle;
-        beam.position.set(Math.cos(angle) * 4, lH, Math.sin(angle) * 4);
-        stackGroup.add(beam);
+    // Helper: Create Hazard Striped Material
+    function makeHazardTexture() {
+      const c = document.createElement('canvas');
+      c.width = 256;
+      c.height = 64;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#F59E0B';
+      ctx.fillRect(0, 0, 256, 64);
+      ctx.fillStyle = '#0F172A';
+      for (let x = -64; x < 320; x += 32) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x + 20, 0);
+        ctx.lineTo(x - 10, 64);
+        ctx.lineTo(x - 30, 64);
+        ctx.closePath();
+        ctx.fill();
       }
+      const tex = new THREE.CanvasTexture(c);
+      tex.wrapS = THREE.RepeatWrapping;
+      tex.repeat.set(4, 1);
+      return tex;
+    }
+    const hazardMat = new THREE.MeshBasicMaterial({ map: makeHazardTexture() });
+
+    const factoryGroup = new THREE.Group();
+    // Factory Complex: Main Boiler House
+    const bld1Geo = new THREE.BoxGeometry(11, 8.5, 13);
+    const bld1Mat = new THREE.MeshStandardMaterial({ color: 0x152238, roughness: 0.45, metalness: 0.75 });
+    const bld1 = new THREE.Mesh(bld1Geo, bld1Mat);
+    bld1.position.set(-8.5, -1.75, -2);
+    factoryGroup.add(bld1);
+
+    // Hazard stripe base trim
+    const bldTrim = new THREE.Mesh(new THREE.BoxGeometry(11.1, 0.8, 13.1), hazardMat);
+    bldTrim.position.set(-8.5, -5.6, -2);
+    factoryGroup.add(bldTrim);
+
+    // Glowing architectural strip windows
+    for (let w = 0; w < 3; w++) {
+      const winGeo = new THREE.BoxGeometry(10.8, 0.45, 0.1);
+      const winMat = new THREE.MeshBasicMaterial({ color: 0x00F0FF });
+      const win = new THREE.Mesh(winGeo, winMat);
+      win.position.set(-8.5, -3.2 + w * 2.3, 4.56);
+      factoryGroup.add(win);
     }
 
-    // Emission plume particles
-    const partCount = 400;
-    const partGeo = new THREE.BufferGeometry();
-    const partPos = new Float32Array(partCount * 3);
-    const partCol = new Float32Array(partCount * 3);
+    // Secondary Filtration Facility (Foreground Left)
+    const bld2 = new THREE.Mesh(
+      new THREE.BoxGeometry(8, 6.5, 8),
+      new THREE.MeshStandardMaterial({ color: 0x1A2942, roughness: 0.5, metalness: 0.65 })
+    );
+    bld2.position.set(7, -2.75, -5.5);
+    factoryGroup.add(bld2);
 
-    for (let p = 0; p < partCount; p++) {
-      const py = 22 + Math.random() * 14;
-      const spread = (py - 22) * 0.35 + 1.2;
-      const theta = Math.random() * Math.PI * 2;
-      const rad = Math.sqrt(Math.random()) * spread;
-      
-      partPos[p * 3] = Math.cos(theta) * rad;
-      partPos[p * 3 + 1] = py;
-      partPos[p * 3 + 2] = Math.sin(theta) * rad;
+    // Industrial Elevated Pipeline System
+    const pipeMat = new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.9, roughness: 0.2 });
+    const pipeGlowMat = new THREE.MeshBasicMaterial({ color: 0x00FFA3 });
 
-      const t = (py - 22) / 14;
-      partCol[p * 3] = 0.0;
-      partCol[p * 3 + 1] = 0.8 + 0.2 * (1 - t);
-      partCol[p * 3 + 2] = 0.9 * (1 - t);
+    // Main horizontal conduit connecting buildings to stacks
+    const pipe1 = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 0.6, 17, 16), pipeMat);
+    pipe1.rotation.z = Math.PI / 2;
+    pipe1.position.set(-0.5, 0.5, -2);
+    factoryGroup.add(pipe1);
+
+    // Glowing core fluid ring around pipeline
+    for (let k = -7; k <= 5; k += 2.5) {
+      const pRing = new THREE.Mesh(new THREE.TorusGeometry(0.75, 0.09, 12, 24), pipeGlowMat);
+      pRing.rotation.y = Math.PI / 2;
+      pRing.position.set(k, 0.5, -2);
+      factoryGroup.add(pRing);
     }
 
-    partGeo.setAttribute('position', new THREE.BufferAttribute(partPos, 3));
-    partGeo.setAttribute('color', new THREE.BufferAttribute(partCol, 3));
-    const partMat = new THREE.PointsMaterial({ size: 0.6, vertexColors: true, transparent: true, opacity: 0.7 });
-    const plume = new THREE.Points(partGeo, partMat);
-    stackGroup.add(plume);
+    // Helper: Build an Industrial CEMS Stack Tower
+    function createCemsStack(x, z, scaleH = 1.0, isMain = true) {
+      const stack = new THREE.Group();
+      stack.position.set(x, 0, z);
 
-    scene.add(stackGroup);
+      // Concrete Plinth with hazard stripes
+      const plinth = new THREE.Mesh(
+        new THREE.CylinderGeometry(3.6, 4.2, 2.5, 32),
+        new THREE.MeshStandardMaterial({ color: 0x1E293B, roughness: 0.7, metalness: 0.3 })
+      );
+      plinth.position.y = -4.75;
+      stack.add(plinth);
 
-    // High-tech lighting setup
-    const ambientLight = new THREE.AmbientLight(0x0E1E38, 1.8);
-    scene.add(ambientLight);
+      // Multi-section Chimney Tower
+      const secHeights = [5, 6, 6, 5];
+      const radii = [2.8, 2.5, 2.2, 1.9, 1.7];
+      let cy = -3.5;
 
-    const dirLight1 = new THREE.DirectionalLight(0x00F0FF, 2.5);
-    dirLight1.position.set(20, 30, 20);
-    scene.add(dirLight1);
+      for (let s = 0; s < 4; s++) {
+        const h = secHeights[s] * scaleH;
+        const col = (s % 2 === 0) ? 0x22334A : 0x19273C;
+        const sec = new THREE.Mesh(
+          new THREE.CylinderGeometry(radii[s + 1], radii[s], h, 32),
+          new THREE.MeshStandardMaterial({ color: col, roughness: 0.35, metalness: 0.8 })
+        );
+        sec.position.y = cy + h / 2;
+        stack.add(sec);
 
-    const dirLight2 = new THREE.DirectionalLight(0xFF2A4D, 2.2);
-    dirLight2.position.set(-20, 15, -10);
-    scene.add(dirLight2);
+        // Circumferential Flange & Maintenance Ring
+        const flange = new THREE.Mesh(
+          new THREE.TorusGeometry(radii[s + 1] + 0.3, 0.16, 16, 32),
+          new THREE.MeshStandardMaterial({ color: 0xC8102E, metalness: 0.85, roughness: 0.25 })
+        );
+        flange.rotation.x = Math.PI / 2;
+        flange.position.y = cy + h;
+        stack.add(flange);
 
-    const pointLight = new THREE.PointLight(0x00FFA3, 3, 35);
-    pointLight.position.set(0, 15, 6);
-    scene.add(pointLight);
+        // Circular Catwalk Platform with safety railing on middle tier
+        if (s === 2) {
+          const walk = new THREE.Mesh(
+            new THREE.CylinderGeometry(radii[s + 1] + 1.2, radii[s + 1] + 1.2, 0.15, 32),
+            new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.9, roughness: 0.3 })
+          );
+          walk.position.y = cy + h;
+          stack.add(walk);
+        }
+
+        cy += h;
+      }
+
+      // External Vertical Ladder & Cage
+      const ladderH = (cy - (-3.5));
+      const ladder = new THREE.Mesh(
+        new THREE.BoxGeometry(0.4, ladderH, 0.2),
+        new THREE.MeshStandardMaterial({ color: 0xF59E0B, metalness: 0.8, roughness: 0.3 })
+      );
+      ladder.position.set(radii[0] + 0.3, -3.5 + ladderH / 2, 0);
+      stack.add(ladder);
+
+      // Primary Laser Telemetry Scanner Slices (Clean Cyan & Crimson only)
+      const lasers = [
+        { y: 3.0 * scaleH, col: 0x00F0FF },
+        { y: 11.5 * scaleH, col: 0xFF2A4D }
+      ];
+
+      lasers.forEach((l, idx) => {
+        const ringMesh = new THREE.Mesh(
+          new THREE.TorusGeometry(2.85 - idx * 0.3, 0.14, 16, 64),
+          new THREE.MeshBasicMaterial({ color: l.col })
+        );
+        ringMesh.rotation.x = Math.PI / 2;
+        ringMesh.position.y = l.y;
+        stack.add(ringMesh);
+
+        // Clean orthogonal laser scanner beams (no diagonal clutter)
+        const beam = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.04, 0.04, 9, 8),
+          new THREE.MeshBasicMaterial({ color: l.col, transparent: true, opacity: 0.85 })
+        );
+        beam.rotation.z = Math.PI / 2;
+        beam.position.set(0, l.y, 0);
+        stack.add(beam);
+      });
+
+      // Emission Particles Plume
+      const pCount = isMain ? 500 : 300;
+      const pGeo = new THREE.BufferGeometry();
+      const pPos = new Float32Array(pCount * 3);
+      const pCol = new Float32Array(pCount * 3);
+      const topY = cy;
+
+      for (let p = 0; p < pCount; p++) {
+        const py = topY + Math.random() * 13;
+        const spread = (py - topY) * 0.35 + 0.8;
+        const th = Math.random() * Math.PI * 2;
+        const r = Math.sqrt(Math.random()) * spread;
+
+        pPos[p * 3] = Math.cos(th) * r;
+        pPos[p * 3 + 1] = py;
+        pPos[p * 3 + 2] = Math.sin(th) * r;
+
+        const t = (py - topY) / 13;
+        pCol[p * 3] = 0.0;
+        pCol[p * 3 + 1] = 0.85 * (1 - t * 0.3);
+        pCol[p * 3 + 2] = 0.95 * (1 - t);
+      }
+
+      pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+      pGeo.setAttribute('color', new THREE.BufferAttribute(pCol, 3));
+      const pMat = new THREE.PointsMaterial({ size: 0.55, vertexColors: true, transparent: true, opacity: 0.75 });
+      stack.add(new THREE.Points(pGeo, pMat));
+
+      return stack;
+    }
+
+    // Main CEMS Stack Tower (Central)
+    const mainStack = createCemsStack(2, 2, 1.15, true);
+    factoryGroup.add(mainStack);
+
+    // Secondary CEMS Auxiliary Stack Tower (Mid Left)
+    const subStack = createCemsStack(-3.5, -4, 0.9, false);
+    factoryGroup.add(subStack);
+
+    // Floating Holographic Telemetry HUD Panels with DYNAMIC HIGH-RES TEXT
+    const hudCards = [
+      { title: 'CEMS // BỤI TỔNG (PM2.5)', val: '4.22 mg/Nm³', status: '● ĐẠT CHUẨN', color: '#00FFA3', pos: [12.5, 12, 3], scale: 1.0 },
+      { title: 'CEMS // CO (KHÍ THẢI)', val: '0.21 mg/Nm³', status: '● TỐI ƯU', color: '#00F0FF', pos: [-8.5, 9, 8], scale: 1.0 },
+      { title: 'CEMS // NITƠ OXIT (NOx)', val: '1.31 mg/Nm³', status: '● AN TOÀN', color: '#FF2A4D', pos: [11.5, 6, -3], scale: 1.0 },
+      { title: 'TRUYỀN DẪN // 63 SỞ TN&MT', val: 'SLA 99.9%', status: '● 24/7 ONLINE', color: '#FFB800', pos: [-7.5, 16.0, 2], scale: 1.0 }
+    ];
+    hudCards.forEach(c => {
+      const tex = makeTextTexture(c.title, c.val, c.status, c.color);
+      const cardGeo = new THREE.PlaneGeometry(6.4, 2.0);
+      const cardMat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, side: THREE.DoubleSide });
+      const cardMesh = new THREE.Mesh(cardGeo, cardMat);
+      cardMesh.position.set(...c.pos);
+      cardMesh.lookAt(camera.position);
+      factoryGroup.add(cardMesh);
+
+      // Neon frame line
+      const edgeGeo = new THREE.EdgesGeometry(cardGeo);
+      const edgeMat = new THREE.LineBasicMaterial({ color: c.color, linewidth: 2 });
+      const edgeMesh = new THREE.LineSegments(edgeGeo, edgeMat);
+      edgeMesh.position.set(...c.pos);
+      edgeMesh.lookAt(camera.position);
+      factoryGroup.add(edgeMesh);
+
+      // Holographic leader line to stack
+      const pts = [
+        new THREE.Vector3(...c.pos),
+        new THREE.Vector3(c.pos[0] * 0.35 + 1.5, c.pos[1] * 0.75, c.pos[2] * 0.35 + 1.5)
+      ];
+      const lGeo = new THREE.BufferGeometry().setFromPoints(pts);
+      const lMat = new THREE.LineDashedMaterial({ color: c.color, dashSize: 0.4, gapSize: 0.25 });
+      const line = new THREE.Line(lGeo, lMat);
+      line.computeLineDistances();
+      factoryGroup.add(line);
+    });
+
+    scene.add(factoryGroup);
+
+    // High-Tech Cinematic 3-Point Lighting
+    scene.add(new THREE.AmbientLight(0x0C182E, 2.2));
+
+    const keyLight = new THREE.DirectionalLight(0x00F0FF, 3.5);
+    keyLight.position.set(30, 40, 25);
+    scene.add(keyLight);
+
+    const rimLight = new THREE.DirectionalLight(0xFF2A4D, 2.8);
+    rimLight.position.set(-25, 20, -15);
+    scene.add(rimLight);
+
+    const emeraldFill = new THREE.PointLight(0x00FFA3, 4.0, 50);
+    emeraldFill.position.set(2, 12, 8);
+    scene.add(emeraldFill);
 
     renderer.render(scene, camera);
   });
 
-  // 2. Datalogger Exploded 3D View (Hardware Section)
-  await renderScene('datalogger-exploded-3d.png', { width: 1024, height: 700, scale: 2, bg: '#080E1E' }, function renderFn() {
+  // =========================================================================
+  // 2. DATALOGGER & ATEX OPTICAL SENSOR EXPLODED VIEW (Hardware Section)
+  // =========================================================================
+  await renderScene('datalogger-exploded-3d.png', { width: 1024, height: 700, scale: 2, bg: '#070D1D' }, function renderFn() {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.set(16, 12, 18);
+    const camera = new THREE.PerspectiveCamera(34, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(18, 14, 20);
     camera.lookAt(0, 1, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -195,115 +379,150 @@ async function main() {
     renderer.setPixelRatio(window.devicePixelRatio);
     document.getElementById('container').appendChild(renderer.domElement);
 
-    const grid = new THREE.GridHelper(30, 30, 0x0066CC, 0x15223E);
-    grid.position.y = -5;
+    const grid = new THREE.GridHelper(32, 32, 0x0066CC, 0x111E38);
+    grid.position.y = -5.5;
     scene.add(grid);
 
     const group = new THREE.Group();
 
-    // 1. Bottom Chassis DIN Rail Mount (y = -3)
-    const dinGeo = new THREE.BoxGeometry(10, 0.8, 6);
-    const dinMat = new THREE.MeshStandardMaterial({ color: 0x1E293B, metalness: 0.85, roughness: 0.3 });
-    const dinChassis = new THREE.Mesh(dinGeo, dinMat);
-    dinChassis.position.y = -3;
-    group.add(dinChassis);
+    // 1. DIN Rail Sub-chassis (y = -3.5)
+    const din = new THREE.Mesh(
+      new THREE.BoxGeometry(11, 0.7, 6.5),
+      new THREE.MeshStandardMaterial({ color: 0x1E293B, metalness: 0.9, roughness: 0.25 })
+    );
+    din.position.y = -3.5;
+    group.add(din);
 
-    // DIN Rail clamp
-    const clampGeo = new THREE.BoxGeometry(1.2, 1.2, 6.4);
-    const clampMat = new THREE.MeshStandardMaterial({ color: 0xC8102E, metalness: 0.9, roughness: 0.2 });
-    const clamp = new THREE.Mesh(clampGeo, clampMat);
-    clamp.position.set(-3.5, -3, 0);
-    group.add(clamp);
+    // DIN Rail mounting brackets
+    const bracket1 = new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.2, 7), new THREE.MeshStandardMaterial({ color: 0xC8102E, metalness: 0.85 }));
+    bracket1.position.set(-4, -3.5, 0);
+    group.add(bracket1);
+    const bracket2 = bracket1.clone();
+    bracket2.position.x = 4;
+    group.add(bracket2);
 
-    // 2. Lithium UPS Battery pack (y = -1.2)
-    const batGeo = new THREE.BoxGeometry(7, 0.9, 4.5);
-    const batMat = new THREE.MeshStandardMaterial({ color: 0x0F172A, metalness: 0.5, roughness: 0.5 });
-    const bat = new THREE.Mesh(batGeo, batMat);
-    bat.position.y = -1.2;
+    // 2. Industrial Lithium UPS Battery Pack (y = -1.5)
+    const bat = new THREE.Mesh(
+      new THREE.BoxGeometry(8, 1.1, 4.8),
+      new THREE.MeshStandardMaterial({ color: 0x0F172A, metalness: 0.5, roughness: 0.5 })
+    );
+    bat.position.y = -1.5;
     group.add(bat);
 
-    // Battery cell details
-    for (let c = -2.2; c <= 2.2; c += 1.4) {
-      const cellGeo = new THREE.CylinderGeometry(0.5, 0.5, 4.2, 16);
-      const cellMat = new THREE.MeshStandardMaterial({ color: 0x00A389, metalness: 0.7, roughness: 0.3 });
-      const cell = new THREE.Mesh(cellGeo, cellMat);
+    for (let c = -2.8; c <= 2.8; c += 1.4) {
+      const cell = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.55, 0.55, 4.6, 16),
+        new THREE.MeshStandardMaterial({ color: 0x00A389, metalness: 0.8, roughness: 0.2 })
+      );
       cell.rotation.x = Math.PI / 2;
-      cell.position.set(c, -1.2, 0);
+      cell.position.set(c, -1.5, 0);
       group.add(cell);
     }
 
-    // 3. Main Motherboard PCB (y = 0.8)
-    const pcbGeo = new THREE.BoxGeometry(9.2, 0.25, 5.4);
-    const pcbMat = new THREE.MeshStandardMaterial({ color: 0x064E3B, metalness: 0.4, roughness: 0.4 });
-    const pcb = new THREE.Mesh(pcbGeo, pcbMat);
+    // 3. Motherboard PCB with Gold Traces & CPU (y = 0.8)
+    const pcb = new THREE.Mesh(
+      new THREE.BoxGeometry(10.2, 0.25, 5.8),
+      new THREE.MeshStandardMaterial({ color: 0x064E3B, metalness: 0.4, roughness: 0.35 })
+    );
     pcb.position.y = 0.8;
     group.add(pcb);
 
-    // CPU SoC ARM Cortex-A53
-    const cpuGeo = new THREE.BoxGeometry(2.4, 0.4, 2.4);
-    const cpuMat = new THREE.MeshStandardMaterial({ color: 0x0B132B, metalness: 0.9, roughness: 0.2 });
-    const cpu = new THREE.Mesh(cpuGeo, cpuMat);
-    cpu.position.set(0, 1.05, 0);
+    // ARM Cortex-A53 CPU SoC
+    const cpu = new THREE.Mesh(
+      new THREE.BoxGeometry(2.6, 0.45, 2.6),
+      new THREE.MeshStandardMaterial({ color: 0x0A0F1E, metalness: 0.95, roughness: 0.15 })
+    );
+    cpu.position.set(0, 1.1, 0);
     group.add(cpu);
 
-    // Glowing CPU core ring
-    const cpuGlowGeo = new THREE.RingGeometry(0.7, 0.9, 32);
-    const cpuGlowMat = new THREE.MeshBasicMaterial({ color: 0x00F0FF, side: THREE.DoubleSide });
-    const cpuGlow = new THREE.Mesh(cpuGlowGeo, cpuGlowMat);
+    // CPU Hologram Ring
+    const cpuGlow = new THREE.Mesh(
+      new THREE.RingGeometry(0.8, 1.05, 32),
+      new THREE.MeshBasicMaterial({ color: 0x00F0FF, side: THREE.DoubleSide })
+    );
     cpuGlow.rotation.x = -Math.PI / 2;
-    cpuGlow.position.set(0, 1.26, 0);
+    cpuGlow.position.set(0, 1.35, 0);
     group.add(cpuGlow);
 
-    // Terminal green blocks for RS485 / 4-20mA
-    for (let t = -3.5; t <= 3.5; t += 1.0) {
-      const termGeo = new THREE.BoxGeometry(0.8, 1.0, 0.8);
-      const termMat = new THREE.MeshStandardMaterial({ color: 0x059669, roughness: 0.4 });
-      const term = new THREE.Mesh(termGeo, termMat);
-      term.position.set(t, 1.2, 2.2);
+    // Modbus RS485 Industrial Terminal Blocks (Green rows)
+    for (let t = -4.0; t <= 4.0; t += 1.0) {
+      const term = new THREE.Mesh(
+        new THREE.BoxGeometry(0.85, 1.1, 0.9),
+        new THREE.MeshStandardMaterial({ color: 0x059669, roughness: 0.4 })
+      );
+      term.position.set(t, 1.25, 2.4);
       group.add(term);
     }
 
-    // Dual 4G Antenna Mounts
-    const ant1 = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 3.5, 16), new THREE.MeshStandardMaterial({ color: 0x1E293B, metalness: 0.8 }));
-    ant1.position.set(3.8, 2.5, -2.2);
+    // Dual 4G/LTE SMA Antenna Connectors
+    const ant1 = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 4.0, 16), new THREE.MeshStandardMaterial({ color: 0x1E293B, metalness: 0.9 }));
+    ant1.position.set(4.2, 2.8, -2.4);
     group.add(ant1);
     const ant2 = ant1.clone();
-    ant2.position.set(2.8, 2.5, -2.2);
+    ant2.position.set(3.0, 2.8, -2.4);
     group.add(ant2);
 
-    // 4. Top Aluminum Case Lid with Vents (Floating y = 3.8)
-    const lidGeo = new THREE.BoxGeometry(9.8, 0.7, 5.8);
-    const lidMat = new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.8, roughness: 0.25, transparent: true, opacity: 0.88 });
-    const lid = new THREE.Mesh(lidGeo, lidMat);
-    lid.position.y = 3.8;
+    // 4. ATEX Sampling Sensor Probe (Exploded at Right, x = 6.8)
+    const probeGroup = new THREE.Group();
+    probeGroup.position.set(6.8, 1.2, 0);
+
+    const flange = new THREE.Mesh(
+      new THREE.CylinderGeometry(1.8, 1.8, 0.35, 32),
+      new THREE.MeshStandardMaterial({ color: 0x64748B, metalness: 0.9, roughness: 0.2 })
+    );
+    flange.rotation.z = Math.PI / 2;
+    probeGroup.add(flange);
+
+    const tube = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.8, 0.8, 6, 32),
+      new THREE.MeshStandardMaterial({ color: 0x94A3B8, metalness: 0.95, roughness: 0.15 })
+    );
+    tube.rotation.z = Math.PI / 2;
+    tube.position.x = 3.2;
+    probeGroup.add(tube);
+
+    const lens = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.85, 0.85, 0.3, 32),
+      new THREE.MeshBasicMaterial({ color: 0x00F0FF })
+    );
+    lens.rotation.z = Math.PI / 2;
+    lens.position.x = 6.3;
+    probeGroup.add(lens);
+
+    group.add(probeGroup);
+
+    // 5. Top Cast-Aluminum Lid with Heat Sinks (Floating y = 4.2)
+    const lid = new THREE.Mesh(
+      new THREE.BoxGeometry(10.8, 0.8, 6.2),
+      new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.85, roughness: 0.2, transparent: true, opacity: 0.9 })
+    );
+    lid.position.y = 4.2;
     group.add(lid);
 
-    // Red accent trim on lid
-    const trimGeo = new THREE.BoxGeometry(9.9, 0.15, 0.3);
-    const trimMat = new THREE.MeshBasicMaterial({ color: 0xFF2A4D });
-    const trim = new THREE.Mesh(trimGeo, trimMat);
-    trim.position.set(0, 3.9, 2.6);
-    group.add(trim);
+    const bar = new THREE.Mesh(new THREE.BoxGeometry(10.9, 0.18, 0.35), new THREE.MeshBasicMaterial({ color: 0xFF2A4D }));
+    bar.position.set(0, 4.3, 2.8);
+    group.add(bar);
 
     scene.add(group);
 
-    // Lighting
-    scene.add(new THREE.AmbientLight(0x0E1E38, 1.5));
-    const dLight1 = new THREE.DirectionalLight(0x00F0FF, 2.2);
-    dLight1.position.set(15, 20, 15);
-    scene.add(dLight1);
-    const dLight2 = new THREE.DirectionalLight(0xFF2A4D, 1.8);
-    dLight2.position.set(-15, 10, -10);
-    scene.add(dLight2);
+    scene.add(new THREE.AmbientLight(0x0C182E, 1.8));
+    const l1 = new THREE.DirectionalLight(0x00F0FF, 2.8);
+    l1.position.set(18, 22, 18);
+    scene.add(l1);
+    const l2 = new THREE.DirectionalLight(0xFF2A4D, 2.0);
+    l2.position.set(-18, 12, -12);
+    scene.add(l2);
 
     renderer.render(scene, camera);
   });
 
-  // 3. AI Combustion Core 3D (AI Section)
+  // =========================================================================
+  // 3. 3D AI NEURAL COMBUSTION CORE (AI Section)
+  // =========================================================================
   await renderScene('ai-combustion-core-3d.png', { width: 1024, height: 700, scale: 2, bg: '#060B18' }, function renderFn() {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.set(15, 10, 18);
+    const camera = new THREE.PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(16, 12, 19);
     camera.lookAt(0, 0, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -313,93 +532,98 @@ async function main() {
 
     const group = new THREE.Group();
 
-    // Cylindrical Combustion chamber with open cutaway
-    const chamberGeo = new THREE.CylinderGeometry(4.5, 4.5, 8, 32, 1, true, 0, Math.PI * 1.5);
-    const chamberMat = new THREE.MeshStandardMaterial({
-      color: 0x1E293B,
-      metalness: 0.8,
-      roughness: 0.3,
-      side: THREE.DoubleSide
-    });
-    const chamber = new THREE.Mesh(chamberGeo, chamberMat);
+    const chamber = new THREE.Mesh(
+      new THREE.CylinderGeometry(4.8, 4.8, 9, 32, 1, true, 0, Math.PI * 1.5),
+      new THREE.MeshStandardMaterial({ color: 0x1E293B, metalness: 0.85, roughness: 0.25, side: THREE.DoubleSide })
+    );
     group.add(chamber);
 
-    // Flame Core Particles (Amber & Hot Cyan)
-    const flameCount = 500;
-    const flameGeo = new THREE.BufferGeometry();
-    const flamePos = new Float32Array(flameCount * 3);
-    const flameCol = new Float32Array(flameCount * 3);
+    const fCount = 600;
+    const fGeo = new THREE.BufferGeometry();
+    const fPos = new Float32Array(fCount * 3);
+    const fCol = new Float32Array(fCount * 3);
 
-    for (let f = 0; f < flameCount; f++) {
-      const fy = (Math.random() - 0.5) * 6;
-      const r = Math.random() * 2.8 * (1 - Math.abs(fy) / 4);
+    for (let f = 0; f < fCount; f++) {
+      const fy = (Math.random() - 0.5) * 7.5;
+      const r = Math.random() * 3.2 * (1 - Math.abs(fy) / 4.8);
       const angle = Math.random() * Math.PI * 2;
 
-      flamePos[f * 3] = Math.cos(angle) * r;
-      flamePos[f * 3 + 1] = fy;
-      flamePos[f * 3 + 2] = Math.sin(angle) * r;
+      fPos[f * 3] = Math.cos(angle) * r;
+      fPos[f * 3 + 1] = fy;
+      fPos[f * 3 + 2] = Math.sin(angle) * r;
 
-      if (r < 1.2) {
-        flameCol[f * 3] = 0.2;
-        flameCol[f * 3 + 1] = 0.8;
-        flameCol[f * 3 + 2] = 1.0;
+      if (r < 1.4) {
+        fCol[f * 3] = 0.2;
+        fCol[f * 3 + 1] = 0.9;
+        fCol[f * 3 + 2] = 1.0;
       } else {
-        flameCol[f * 3] = 1.0;
-        flameCol[f * 3 + 1] = 0.3;
-        flameCol[f * 3 + 2] = 0.1;
+        fCol[f * 3] = 1.0;
+        fCol[f * 3 + 1] = 0.25;
+        fCol[f * 3 + 2] = 0.1;
       }
     }
 
-    flameGeo.setAttribute('position', new THREE.BufferAttribute(flamePos, 3));
-    flameGeo.setAttribute('color', new THREE.BufferAttribute(flameCol, 3));
-    const flamePoints = new THREE.Points(flameGeo, new THREE.PointsMaterial({ size: 0.35, vertexColors: true, transparent: true, opacity: 0.85 }));
-    group.add(flamePoints);
+    fGeo.setAttribute('position', new THREE.BufferAttribute(fPos, 3));
+    fGeo.setAttribute('color', new THREE.BufferAttribute(fCol, 3));
+    const flame = new THREE.Points(fGeo, new THREE.PointsMaterial({ size: 0.38, vertexColors: true, transparent: true, opacity: 0.9 }));
+    group.add(flame);
 
-    // Neural Network Synaptic Cage around Chamber
-    const nodeCount = 18;
-    const nodes = [];
-    for (let n = 0; n < nodeCount; n++) {
-      const theta = (n / nodeCount) * Math.PI * 2;
-      const ny = ((n % 3) - 1) * 2.8;
-      const nodeMesh = new THREE.Mesh(
-        new THREE.SphereGeometry(0.28, 16, 16),
-        new THREE.MeshBasicMaterial({ color: 0x00FFA3 })
+    for (let n = -2.5; n <= 2.5; n += 2.5) {
+      const nozzle = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.3, 0.3, 2.2, 16),
+        new THREE.MeshStandardMaterial({ color: 0x00FFA3, metalness: 0.9 })
       );
-      nodeMesh.position.set(Math.cos(theta) * 5.2, ny, Math.sin(theta) * 5.2);
-      nodes.push(nodeMesh);
-      group.add(nodeMesh);
+      nozzle.rotation.z = Math.PI / 2;
+      nozzle.position.set(-4.6, n, 0);
+      group.add(nozzle);
     }
 
-    // Synaptic connection lines between nodes
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        if (nodes[i].position.distanceTo(nodes[j].position) < 4.5) {
-          const lineGeo = new THREE.BufferGeometry().setFromPoints([nodes[i].position, nodes[j].position]);
-          const lineMat = new THREE.LineBasicMaterial({ color: 0x00F0FF, transparent: true, opacity: 0.4 });
-          group.add(new THREE.Line(lineGeo, lineMat));
+    const nodes = [];
+    const nTotal = 22;
+    for (let i = 0; i < nTotal; i++) {
+      const theta = (i / nTotal) * Math.PI * 2;
+      const ny = ((i % 5) - 2) * 1.8;
+      const sphere = new THREE.Mesh(
+        new THREE.SphereGeometry(0.32, 16, 16),
+        new THREE.MeshBasicMaterial({ color: 0x00FFA3 })
+      );
+      sphere.position.set(Math.cos(theta) * 5.6, ny, Math.sin(theta) * 5.6);
+      nodes.push(sphere);
+      group.add(sphere);
+    }
+
+    for (let a = 0; a < nodes.length; a++) {
+      for (let b = a + 1; b < nodes.length; b++) {
+        if (nodes[a].position.distanceTo(nodes[b].position) < 4.8) {
+          const pts = [nodes[a].position, nodes[b].position];
+          const line = new THREE.Line(
+            new THREE.BufferGeometry().setFromPoints(pts),
+            new THREE.LineBasicMaterial({ color: 0x00F0FF, transparent: true, opacity: 0.45 })
+          );
+          group.add(line);
         }
       }
     }
 
     scene.add(group);
 
-    scene.add(new THREE.AmbientLight(0x0E1E38, 1.8));
-    const fireLight = new THREE.PointLight(0xFF5500, 3, 20);
-    fireLight.position.set(0, 0, 0);
+    scene.add(new THREE.AmbientLight(0x0A1428, 1.8));
+    const fireLight = new THREE.PointLight(0xFF5500, 3.5, 25);
     scene.add(fireLight);
-
-    const cyberLight = new THREE.DirectionalLight(0x00FFA3, 2);
-    cyberLight.position.set(10, 15, 10);
+    const cyberLight = new THREE.DirectionalLight(0x00FFA3, 2.5);
+    cyberLight.position.set(12, 16, 12);
     scene.add(cyberLight);
 
     renderer.render(scene, camera);
   });
 
-  // 4. Vietnam Nationwide Telemetry Network 3D Map
-  await renderScene('vietnam-telemetry-map-3d.png', { width: 1024, height: 700, scale: 2, bg: '#080E1E' }, function renderFn() {
+  // =========================================================================
+  // 4. VIETNAM 3D TELEMETRY CYBER NETWORK MAP (Analytics Section)
+  // =========================================================================
+  await renderScene('vietnam-telemetry-map-3d.png', { width: 1024, height: 700, scale: 2, bg: '#070D1D' }, function renderFn() {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.set(12, 16, 16);
+    const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(14, 18, 18);
     camera.lookAt(0, 0, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -407,77 +631,82 @@ async function main() {
     renderer.setPixelRatio(window.devicePixelRatio);
     document.getElementById('container').appendChild(renderer.domElement);
 
-    const grid = new THREE.GridHelper(30, 30, 0x0066CC, 0x15223E);
-    grid.position.y = -2;
+    const grid = new THREE.GridHelper(34, 34, 0x0066CC, 0x111E38);
+    grid.position.y = -2.2;
     scene.add(grid);
 
     const mapGroup = new THREE.Group();
 
-    // S-curve spine of Vietnam key telemetry nodes
     const hubs = [
-      { name: 'Hà Nội (Hub Bắc)', pos: new THREE.Vector3(-2, 0, -4.5), color: 0xFF2A4D },
-      { name: 'Hải Phòng / Quảng Ninh', pos: new THREE.Vector3(-1.2, 0, -4.2), color: 0x00F0FF },
-      { name: 'Thanh Hóa / Nghệ An', pos: new THREE.Vector3(-1.8, 0, -2.5), color: 0x00F0FF },
-      { name: 'Đà Nẵng / Quảng Nam', pos: new THREE.Vector3(0, 0, -0.5), color: 0xFF2A4D },
-      { name: 'Dung Quất / Bình Định', pos: new THREE.Vector3(0.8, 0, 1.2), color: 0x00F0FF },
-      { name: 'Khánh Hòa', pos: new THREE.Vector3(1.2, 0, 2.5), color: 0x00F0FF },
-      { name: 'Bình Dương / Đồng Nai', pos: new THREE.Vector3(0.5, 0, 4.0), color: 0xFF2A4D },
-      { name: 'TP. Hồ Chí Minh (Central)', pos: new THREE.Vector3(0.2, 0, 4.5), color: 0x00FFA3 },
-      { name: 'Cần Thơ / ĐBSCL', pos: new THREE.Vector3(-0.8, 0, 5.5), color: 0x00F0FF }
+      { name: 'Hà Nội', pos: new THREE.Vector3(-2.2, 0, -5.0), color: 0xFF2A4D },
+      { name: 'Hải Phòng / QN', pos: new THREE.Vector3(-1.3, 0, -4.5), color: 0x00F0FF },
+      { name: 'Nghi Sơn (Thanh Hóa)', pos: new THREE.Vector3(-1.9, 0, -2.8), color: 0x00F0FF },
+      { name: 'Đà Nẵng / Chu Lai', pos: new THREE.Vector3(0.1, 0, -0.6), color: 0xFF2A4D },
+      { name: 'Dung Quất', pos: new THREE.Vector3(0.9, 0, 1.2), color: 0x00F0FF },
+      { name: 'Khánh Hòa', pos: new THREE.Vector3(1.3, 0, 2.6), color: 0x00F0FF },
+      { name: 'Bình Dương (VSIP)', pos: new THREE.Vector3(0.6, 0, 4.2), color: 0xFF2A4D },
+      { name: 'TP. Hồ Chí Minh', pos: new THREE.Vector3(0.2, 0, 4.8), color: 0x00FFA3 },
+      { name: 'Vũng Tàu', pos: new THREE.Vector3(1.0, 0, 5.2), color: 0x00F0FF },
+      { name: 'Cần Thơ', pos: new THREE.Vector3(-0.9, 0, 5.8), color: 0x00F0FF }
     ];
 
     hubs.forEach(h => {
-      const pinGeo = new THREE.CylinderGeometry(0.12, 0.12, 1.8, 16);
-      const pinMat = new THREE.MeshBasicMaterial({ color: h.color });
-      const pin = new THREE.Mesh(pinGeo, pinMat);
-      pin.position.copy(h.pos).add(new THREE.Vector3(0, 0.9, 0));
+      const pin = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.14, 0.14, 2.2, 16),
+        new THREE.MeshBasicMaterial({ color: h.color })
+      );
+      pin.position.copy(h.pos).add(new THREE.Vector3(0, 1.1, 0));
       mapGroup.add(pin);
 
-      const orbGeo = new THREE.SphereGeometry(0.3, 16, 16);
-      const orb = new THREE.Mesh(orbGeo, new THREE.MeshBasicMaterial({ color: h.color }));
-      orb.position.copy(h.pos).add(new THREE.Vector3(0, 1.8, 0));
+      const orb = new THREE.Mesh(
+        new THREE.SphereGeometry(0.35, 16, 16),
+        new THREE.MeshBasicMaterial({ color: h.color })
+      );
+      orb.position.copy(h.pos).add(new THREE.Vector3(0, 2.2, 0));
       mapGroup.add(orb);
 
-      const pRing = new THREE.Mesh(
-        new THREE.RingGeometry(0.3, 0.5, 32),
-        new THREE.MeshBasicMaterial({ color: h.color, side: THREE.DoubleSide, transparent: true, opacity: 0.6 })
+      const ring = new THREE.Mesh(
+        new THREE.RingGeometry(0.4, 0.7, 32),
+        new THREE.MeshBasicMaterial({ color: h.color, side: THREE.DoubleSide, transparent: true, opacity: 0.65 })
       );
-      pRing.rotation.x = Math.PI / 2;
-      pRing.position.copy(h.pos).add(new THREE.Vector3(0, 0.05, 0));
-      mapGroup.add(pRing);
+      ring.rotation.x = Math.PI / 2;
+      ring.position.copy(h.pos).add(new THREE.Vector3(0, 0.05, 0));
+      mapGroup.add(ring);
     });
 
-    const cloudNode = new THREE.Vector3(0, 4, 0);
-    const cloudOrb = new THREE.Mesh(
-      new THREE.IcosahedronGeometry(0.8, 2),
+    const cloudPos = new THREE.Vector3(0, 4.8, 0);
+    const cloudCore = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(0.95, 2),
       new THREE.MeshStandardMaterial({ color: 0x00F0FF, metalness: 0.9, roughness: 0.1, wireframe: true })
     );
-    cloudOrb.position.copy(cloudNode);
-    mapGroup.add(cloudOrb);
+    cloudCore.position.copy(cloudPos);
+    mapGroup.add(cloudCore);
 
     hubs.forEach(h => {
       const curve = new THREE.QuadraticBezierCurve3(
-        h.pos.clone().add(new THREE.Vector3(0, 1.8, 0)),
-        new THREE.Vector3((h.pos.x + cloudNode.x) / 2, 5.5, (h.pos.z + cloudNode.z) / 2),
-        cloudNode
+        h.pos.clone().add(new THREE.Vector3(0, 2.2, 0)),
+        new THREE.Vector3((h.pos.x + cloudPos.x) / 2, 6.2, (h.pos.z + cloudPos.z) / 2),
+        cloudPos
       );
-      const pts = curve.getPoints(30);
-      const arcGeo = new THREE.BufferGeometry().setFromPoints(pts);
-      const arcMat = new THREE.LineBasicMaterial({ color: h.color, transparent: true, opacity: 0.75 });
-      mapGroup.add(new THREE.Line(arcGeo, arcMat));
+      const pts = curve.getPoints(32);
+      const line = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints(pts),
+        new THREE.LineBasicMaterial({ color: h.color, transparent: true, opacity: 0.85 })
+      );
+      mapGroup.add(line);
     });
 
     scene.add(mapGroup);
 
-    scene.add(new THREE.AmbientLight(0x0E1E38, 1.5));
-    const topLight = new THREE.DirectionalLight(0x00F0FF, 2.5);
-    topLight.position.set(10, 20, 10);
+    scene.add(new THREE.AmbientLight(0x0C182E, 1.8));
+    const topLight = new THREE.DirectionalLight(0x00F0FF, 2.8);
+    topLight.position.set(12, 24, 12);
     scene.add(topLight);
 
     renderer.render(scene, camera);
   });
 
-  console.log('=== ALL 4 3D ASSETS SUCCESSFULLY RENDERED & SAVED TO ASSETS/ ===');
+  console.log('=== ALL 4 ADVANCED 3D ASSETS SUCCESSFULLY RENDERED & READY ===');
 }
 
 main().catch(err => {
