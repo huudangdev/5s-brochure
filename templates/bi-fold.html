@@ -478,8 +478,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 10px 28px -4px rgba(11, 19, 43, 0.06), 0 1px 3px rgba(11, 19, 43, 0.03);
-      height: 82mm;
+      box-shadow: 0 12px 32px -4px rgba(11, 19, 43, 0.08), 0 2px 6px rgba(11, 19, 43, 0.03);
+      height: 96mm;
       flex: none;
       position: relative;
     }
@@ -533,7 +533,7 @@
     }
     .seamless-svg-chart {
       width: 100%;
-      height: 68mm;
+      height: 82mm;
       overflow: visible;
     }
 
@@ -572,17 +572,15 @@
     .seamless-feat-pill:nth-child(4)::before { background: #6366F1; }
 
     .feat-icon-badge {
-      width: 22px;
-      height: 22px;
-      border-radius: 6px;
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
       background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
       color: var(--5s-blue);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 9.5pt;
       flex-shrink: 0;
-      font-weight: 800;
       box-shadow: 0 2px 6px rgba(0, 102, 204, 0.12);
     }
     .seamless-feat-pill:nth-child(2) .feat-icon-badge {
@@ -1509,57 +1507,78 @@
             </div>
           </div>
 
-          <svg class="seamless-svg-chart" viewBox="0 0 700 130">
+          <svg class="seamless-svg-chart" viewBox="0 0 700 170">
             <defs>
               <linearGradient id="chartGradPM" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#0066CC" stop-opacity="0.25" />
+                <stop offset="0%" stop-color="#0066CC" stop-opacity="0.35" />
+                <stop offset="60%" stop-color="#0066CC" stop-opacity="0.12" />
                 <stop offset="100%" stop-color="#0066CC" stop-opacity="0.0" />
               </linearGradient>
               <linearGradient id="chartGradCO" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#059669" stop-opacity="0.2" />
+                <stop offset="0%" stop-color="#059669" stop-opacity="0.25" />
                 <stop offset="100%" stop-color="#059669" stop-opacity="0.0" />
               </linearGradient>
             </defs>
 
-            <!-- Background Grid Lines -->
-            <line x1="30" y1="20" x2="690" y2="20" stroke="#E2E8F0" stroke-dasharray="3,3" />
-            <line x1="30" y1="50" x2="690" y2="50" stroke="#E2E8F0" stroke-dasharray="3,3" />
-            <line x1="30" y1="80" x2="690" y2="80" stroke="#E2E8F0" stroke-dasharray="3,3" />
-            <line x1="30" y1="108" x2="690" y2="108" stroke="#CBD5E1" />
+            <!-- Y-Axis Scale Values & Units -->
+            <text x="24" y="12" fill="#64748B" font-size="5.8" font-family="JetBrains Mono" font-weight="bold" text-anchor="end">mg/Nm³</text>
+            <text x="24" y="27" fill="#94A3B8" font-size="6.5" font-family="JetBrains Mono" text-anchor="end">150</text>
+            <text x="24" y="67" fill="#94A3B8" font-size="6.5" font-family="JetBrains Mono" text-anchor="end">100</text>
+            <text x="24" y="107" fill="#94A3B8" font-size="6.5" font-family="JetBrains Mono" text-anchor="end">50</text>
+            <text x="24" y="147" fill="#94A3B8" font-size="6.5" font-family="JetBrains Mono" text-anchor="end">0</text>
 
-            <!-- Red Dashed QCVN 19 Limit Line -->
-            <line x1="30" y1="16" x2="690" y2="16" stroke="#C8102E" stroke-width="1.2" stroke-dasharray="4,3" />
-            <text x="540" y="13" fill="#C8102E" font-size="6.5" font-family="JetBrains Mono" font-weight="bold">NGƯỠNG QCVN 19: 144 mg/Nm³</text>
+            <!-- Background Grid Lines -->
+            <line x1="30" y1="24" x2="690" y2="24" stroke="#E2E8F0" stroke-dasharray="3,3" />
+            <line x1="30" y1="64" x2="690" y2="64" stroke="#E2E8F0" stroke-dasharray="3,3" />
+            <line x1="30" y1="104" x2="690" y2="104" stroke="#E2E8F0" stroke-dasharray="3,3" />
+            <line x1="30" y1="144" x2="690" y2="144" stroke="#CBD5E1" stroke-width="1.2" />
+
+            <!-- Red Dashed QCVN 19 Limit Line & Badge -->
+            <line x1="30" y1="27" x2="690" y2="27" stroke="#C8102E" stroke-width="1.4" stroke-dasharray="5,3" />
+            <rect x="488" y="16" width="202" height="19" rx="4" fill="#FFF1F2" stroke="#FECDD3" stroke-width="0.8" />
+            <text x="589" y="29" fill="#C8102E" font-size="7" font-family="JetBrains Mono" font-weight="bold" text-anchor="middle">NGƯỠNG QCVN 19: 144 mg/Nm³</text>
 
             <!-- PM Area & Curve (Blue) -->
-            <path d="M 30 88 Q 95 72 160 80 T 290 62 T 420 76 T 550 52 T 690 60 L 690 108 L 30 108 Z" fill="url(#chartGradPM)" />
-            <path d="M 30 88 Q 95 72 160 80 T 290 62 T 420 76 T 550 52 T 690 60" fill="none" stroke="#0066CC" stroke-width="2.2" />
+            <path d="M 30 118 Q 95 95 160 105 T 290 80 T 420 56 T 550 82 T 690 70 L 690 144 L 30 144 Z" fill="url(#chartGradPM)" />
+            <path d="M 30 118 Q 95 95 160 105 T 290 80 T 420 56 T 550 82 T 690 70" fill="none" stroke="#0066CC" stroke-width="2.6" stroke-linecap="round" />
 
             <!-- CO Area & Curve (Emerald) -->
-            <path d="M 30 96 Q 95 86 160 90 T 290 80 T 420 87 T 550 72 T 690 78 L 690 108 L 30 108 Z" fill="url(#chartGradCO)" />
-            <path d="M 30 96 Q 95 86 160 90 T 290 80 T 420 87 T 550 72 T 690 78" fill="none" stroke="#059669" stroke-width="1.8" />
+            <path d="M 30 128 Q 95 115 160 118 T 290 104 T 420 92 T 550 98 T 690 94 L 690 144 L 30 144 Z" fill="url(#chartGradCO)" />
+            <path d="M 30 128 Q 95 115 160 118 T 290 104 T 420 92 T 550 98 T 690 94" fill="none" stroke="#059669" stroke-width="1.9" stroke-linecap="round" />
 
             <!-- NOx Curve (Violet) -->
-            <path d="M 30 101 Q 95 95 160 98 T 290 90 T 420 94 T 550 84 T 690 86" fill="none" stroke="#6366F1" stroke-width="1.5" />
-            <rect x="430" y="16" width="195" height="32" rx="6" fill="#0B132B" filter="drop-shadow(0 4px 12px rgba(11,19,43,0.18))" />
-            <text x="444" y="30" fill="#FFFFFF" font-size="8" font-family="Montserrat" font-weight="bold">14:20 • Lò 02: PM 4.22 mg/Nm³</text>
-            <text x="444" y="42" fill="#34D399" font-size="7.2" font-family="Montserrat" font-weight="bold">✓ 100% Đạt chuẩn QCVN 19</text>
+            <path d="M 30 134 Q 95 126 160 129 T 290 116 T 420 108 T 550 112 T 690 106" fill="none" stroke="#6366F1" stroke-width="1.6" stroke-linecap="round" />
+
+            <!-- Active Telemetry Marker & Inspection Tooltip at 14:20 -->
+            <line x1="420" y1="29" x2="420" y2="144" stroke="#0066CC" stroke-width="1.2" stroke-dasharray="2,2" opacity="0.6" />
+            <circle cx="420" cy="56" r="8" fill="#0066CC" opacity="0.18" />
+            <circle cx="420" cy="56" r="4.5" fill="#0066CC" opacity="0.35" />
+            <circle cx="420" cy="56" r="2.8" fill="#FFFFFF" stroke="#0066CC" stroke-width="2" />
+
+            <rect x="296" y="34" width="236" height="38" rx="6" fill="#0B132B" filter="drop-shadow(0 6px 18px rgba(11,19,43,0.25))" />
+            <text x="309" y="47" fill="#94A3B8" font-size="6.2" font-family="JetBrains Mono" font-weight="600">● 14:20:00 • ĐIỂM ĐO LÒ 02 // TRỰC TUYẾN</text>
+            <text x="309" y="58.5" fill="#FFFFFF" font-size="7.8" font-family="Montserrat" font-weight="bold">Bụi PM: <tspan fill="#38BDF8">42.2 mg/Nm³</tspan> | CO: <tspan fill="#34D399">18.5</tspan> | NOx: <tspan fill="#A5B4FC">32.1</tspan></text>
+            <text x="309" y="67" fill="#34D399" font-size="6.5" font-family="Montserrat" font-weight="bold">✓ 100% ĐẠT CHUẨN QCVN 19:2009/BTNMT</text>
 
             <!-- Time-axis Labels -->
-            <text x="30" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">00:00</text>
-            <text x="140" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">04:00</text>
-            <text x="250" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">08:00</text>
-            <text x="360" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">12:00</text>
-            <text x="470" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">16:00</text>
-            <text x="580" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">20:00</text>
-            <text x="670" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">24:00</text>
+            <text x="30" y="159" fill="#64748B" font-size="7.2" font-family="JetBrains Mono" font-weight="500">00:00</text>
+            <text x="140" y="159" fill="#64748B" font-size="7.2" font-family="JetBrains Mono" font-weight="500">04:00</text>
+            <text x="250" y="159" fill="#64748B" font-size="7.2" font-family="JetBrains Mono" font-weight="500">08:00</text>
+            <text x="360" y="159" fill="#64748B" font-size="7.2" font-family="JetBrains Mono" font-weight="500">12:00</text>
+            <text x="470" y="159" fill="#64748B" font-size="7.2" font-family="JetBrains Mono" font-weight="500">16:00</text>
+            <text x="580" y="159" fill="#64748B" font-size="7.2" font-family="JetBrains Mono" font-weight="500">20:00</text>
+            <text x="668" y="159" fill="#64748B" font-size="7.2" font-family="JetBrains Mono" font-weight="500">24:00</text>
           </svg>
         </div>
 
         <!-- 4 Floating Software Feature Badges directly on background -->
         <div class="seamless-feature-pills-row">
           <div class="seamless-feat-pill">
-            <div class="feat-icon-badge">⚡</div>
+            <div class="feat-icon-badge">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
             <div class="feat-pill-text">
               <h6>Realtime 100ms</h6>
               <p>Đồng bộ dữ liệu liên tục</p>
@@ -1567,7 +1586,12 @@
           </div>
 
           <div class="seamless-feat-pill">
-            <div class="feat-icon-badge" style="background: var(--5s-crimson-subtle); color: var(--5s-crimson);">🧠</div>
+            <div class="feat-icon-badge" style="background: var(--5s-crimson-subtle); color: var(--5s-crimson);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04Z"></path>
+                <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z"></path>
+              </svg>
+            </div>
             <div class="feat-pill-text">
               <h6>Trợ Lý AI Advisor</h6>
               <p>Cảnh báo sớm &amp; tự động</p>
@@ -1575,7 +1599,14 @@
           </div>
 
           <div class="seamless-feat-pill">
-            <div class="feat-icon-badge" style="background: #ECFDF5; color: var(--5s-green);">📊</div>
+            <div class="feat-icon-badge" style="background: #ECFDF5; color: var(--5s-green);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"></path>
+                <path d="M18 17V9"></path>
+                <path d="M13 17V5"></path>
+                <path d="M8 17v-3"></path>
+              </svg>
+            </div>
             <div class="feat-pill-text">
               <h6>Báo Cáo Sở 1-Click</h6>
               <p>Chuẩn Thông tư 10/2021</p>
@@ -1583,7 +1614,12 @@
           </div>
 
           <div class="seamless-feat-pill">
-            <div class="feat-icon-badge" style="background: #EEF2FF; color: #6366F1;">🏢</div>
+            <div class="feat-icon-badge" style="background: #EEF2FF; color: #6366F1;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
             <div class="feat-pill-text">
               <h6>Multi-Tenant RBAC</h6>
               <p>Phân quyền Tập đoàn</p>
@@ -1616,7 +1652,7 @@
       <div class="spread-masthead">
         <div style="display: flex; align-items: center; gap: 8px;">
           <img src="../assets/logo.png" alt="5S Logo" style="height: 20px; width: auto;" />
-          <h2 class="spread-title">5S CLOUD ENTERPRISE <span>// KIẾN TRÚC PHẦN MỀM &amp; TRUNG TÂM PHÂN TÍCH DỮ LIỆU TẬP TRUNG</span></h2>
+          <h2 class="spread-title">5S ENTERPRISE SOFTWARE SUITE</h2>
         </div>
         <div class="spread-meta-badges">
           <span class="spread-badge red">SaaS Cloud &amp; Hybrid On-Premise</span>
@@ -2136,10 +2172,22 @@
             Nhận ngay buổi tư vấn kiến trúc kỹ thuật 1:1 và khảo sát kết nối hệ thống trạm quan trắc miễn phí.
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 10px; font-size: 5.4pt; color: white;">
-            <div>📞 <strong>Hotline 24/7:</strong> 1900 5858 / 0988 555 588</div>
-            <div>📧 <strong>Email:</strong> sales@5s-service.com</div>
-            <div>🌐 <strong>Portal:</strong> https://5scloud.vn</div>
-            <div>📍 <strong>Văn phòng:</strong> Hà Nội • TP.HCM • Đà Nẵng • Bình Dương</div>
+            <div style="display: inline-flex; align-items: center; gap: 3px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span><strong>Hotline 24/7:</strong> 1900 5858 / 0988 555 588</span>
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 3px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              <span><strong>Email:</strong> sales@5s-service.com</span>
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 3px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" x2="22" y1="12" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <span><strong>Portal:</strong> https://5scloud.vn</span>
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 3px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span><strong>Văn phòng:</strong> Hà Nội • TP.HCM • Đà Nẵng • Bình Dương</span>
+            </div>
           </div>
         </div>
         <div style="display: flex; flex-direction: column; align-items: center; gap: 3px;">
