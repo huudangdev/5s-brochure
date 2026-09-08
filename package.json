@@ -1,0 +1,18 @@
+{
+  "name": "5s-software-brochure",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Print-ready A4 B2B Environmental Software Brochure for 5S Service",
+  "scripts": {
+    "test:brochure": "node scripts/test-brochure.js",
+    "test:audit": "node scripts/audit-ui-ux.js",
+    "test:web": "node scripts/test-web-brochure.js",
+    "export:pdf": "node scripts/export-pdf.js",
+    "export:bifold": "node scripts/export-pdf.js --bifold",
+    "export:trifold": "node scripts/export-pdf.js --trifold",
+    "preview": "python3 -m http.server 3000"
+  },
+  "keywords": ["brochure", "software", "a4", "b2b", "print-ready", "5s-service", "cems"],
+  "author": "5S Service Team",
+  "license": "ISC"
+}

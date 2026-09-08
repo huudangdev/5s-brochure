@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ecoBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066CC"/>
+      <stop offset="100%" stop-color="#00D4B2"/>
+    </linearGradient>
+    <linearGradient id="ecoCrimson" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8102E"/>
+      <stop offset="100%" stop-color="#FF6500"/>
+    </linearGradient>
+    <linearGradient id="ecoGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="ecoCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#F4FAFF" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="glowEco" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="shadowEco" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0B1E36" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Light Background -->
+  <rect width="1000" height="320" rx="8" fill="#F0F8FF" stroke="#BAE0FF" stroke-width="1"/>
+
+  <!-- Orbital Data Tracks -->
+  <ellipse cx="500" cy="160" rx="420" ry="110" fill="none" stroke="#0066CC" stroke-opacity="0.15" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <ellipse cx="500" cy="160" rx="260" ry="75" fill="none" stroke="#00D4B2" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <!-- Center Core: 5S Cloud AI Neural Engine -->
+  <g transform="translate(500, 160)" filter="url(#shadowEco)">
+    <circle r="46" fill="#FFFFFF" stroke="#0066CC" stroke-width="2.5"/>
+    <circle r="38" fill="url(#ecoBlue)" opacity="0.1"/>
+    <circle r="30" fill="none" stroke="#00D4B2" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <circle r="18" fill="#0B1E36"/>
+    <text y="-4" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">5S</text>
+    <text y="8" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#00D4B2">AI CORE</text>
+    <text y="58" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="700" fill="#0B1E36">NEURAL CLOUD ENGINE</text>
+  </g>
+
+  <!-- Node 1: Khí Thải CEMS (Top-Left) -->
+  <g transform="translate(140, 70)" filter="url(#shadowEco)">
+    <line x1="50" y1="35" x2="320" y2="70" stroke="url(#ecoCrimson)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+    <rect width="160" height="70" rx="6" fill="url(#ecoCardBg)" stroke="#FFCCD3" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="6" fill="url(#ecoCrimson)"/>
+    <text x="28" y="19" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="800" fill="#990B22">01. KHÍ THẢI CEMS</text>
+    <text x="14" y="38" font-family="'Inter', sans-serif" font-size="7" fill="#64748B">Ống khói lò hơi, lò nung</text>
+    <text x="14" y="52" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#0B1E36">Bụi • SO2 • NOx • CO • O2</text>
+    <text x="14" y="64" font-family="'JetBrains Mono', monospace" font-size="6" fill="#C8102E">Chuẩn QCVN 19:2009/BTNMT</text>
+  </g>
+
+  <!-- Node 2: Nước Thải &amp; Lấy Mẫu (Bottom-Left) -->
+  <g transform="translate(140, 190)" filter="url(#shadowEco)">
+    <line x1="50" y1="35" x2="320" y2="-10" stroke="url(#ecoBlue)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+    <rect width="160" height="70" rx="6" fill="url(#ecoCardBg)" stroke="#BAE0FF" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="6" fill="url(#ecoBlue)"/>
+    <text x="28" y="19" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="800" fill="#004C99">02. NƯỚC THẢI TỰ ĐỘNG</text>
+    <text x="14" y="38" font-family="'Inter', sans-serif" font-size="7" fill="#64748B">Cửa xả thải KCN &amp; Nhà máy</text>
+    <text x="14" y="52" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#0B1E36">pH • COD • TSS • NH4+ • N, P</text>
+    <text x="14" y="64" font-family="'JetBrains Mono', monospace" font-size="6" fill="#0066CC">Tự động kích hoạt lấy mẫu</text>
+  </g>
+
+  <!-- Node 3: Không Khí Xung Quanh (Top-Right) -->
+  <g transform="translate(700, 70)" filter="url(#shadowEco)">
+    <line x1="-30" y1="35" x2="-160" y2="70" stroke="url(#ecoGreen)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+    <rect width="160" height="70" rx="6" fill="url(#ecoCardBg)" stroke="#A7F3D0" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="6" fill="url(#ecoGreen)"/>
+    <text x="28" y="19" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="800" fill="#065F46">03. KHÔNG KHÍ XUNG QUANH</text>
+    <text x="14" y="38" font-family="'Inter', sans-serif" font-size="7" fill="#64748B">Hàng rào KCN &amp; Đô thị thông minh</text>
+    <text x="14" y="52" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#0B1E36">PM2.5 • PM10 • CO • SO2 • Ồn</text>
+    <text x="14" y="64" font-family="'JetBrains Mono', monospace" font-size="6" fill="#059669">Chuẩn QCVN 05:2023/BTNMT</text>
+  </g>
+
+  <!-- Node 4: Nước Mặt Sông Hồ (Bottom-Right) -->
+  <g transform="translate(700, 190)" filter="url(#shadowEco)">
+    <line x1="-30" y1="35" x2="-160" y2="-10" stroke="url(#ecoBlue)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+    <rect width="160" height="70" rx="6" fill="url(#ecoCardBg)" stroke="#BAE0FF" stroke-width="1.5"/>
+    <circle cx="16" cy="16" r="6" fill="url(#ecoBlue)"/>
+    <text x="28" y="19" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="800" fill="#004C99">04. NƯỚC MẶT TỰ ĐỘNG</text>
+    <text x="14" y="38" font-family="'Inter', sans-serif" font-size="7" fill="#64748B">Sông ngòi, hồ thủy điện, cấp nước</text>
+    <text x="14" y="52" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#0B1E36">DO • Độ đục • Clorua • Kim loại</text>
+    <text x="14" y="64" font-family="'JetBrains Mono', monospace" font-size="6" fill="#0066CC">Bảo vệ nguồn nước sinh hoạt</text>
+  </g>
+
+  <!-- Node 5: Nước Ngầm Đa Tầng (Center Bottom) -->
+  <g transform="translate(420, 240)" filter="url(#shadowEco)">
+    <line x1="80" y1="0" x2="80" y2="-30" stroke="#0066CC" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.6"/>
+    <rect width="160" height="55" rx="5" fill="url(#ecoCardBg)" stroke="#BAE0FF" stroke-width="1.2"/>
+    <text x="10" y="16" font-family="'Space Grotesk', sans-serif" font-size="8.5" font-weight="800" fill="#0B1E36">05. NƯỚC NGẦM ĐA TẦNG</text>
+    <text x="10" y="32" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#0066CC">Mực nước • EC • Độ mặn • Nhiệt độ</text>
+    <text x="10" y="46" font-family="'Inter', sans-serif" font-size="6" fill="#64748B">QCVN 09:2023/BTNMT</text>
+  </g>
+
+  <!-- Floating Connection Particles -->
+  <circle cx="360" cy="120" r="3.5" fill="#00D4B2" filter="url(#glowEco)"/>
+  <circle cx="640" cy="120" r="3.5" fill="#059669" filter="url(#glowEco)"/>
+  <circle cx="360" cy="190" r="3.5" fill="#0066CC" filter="url(#glowEco)"/>
+  <circle cx="640" cy="190" r="3.5" fill="#C8102E" filter="url(#glowEco)"/>
+</svg>

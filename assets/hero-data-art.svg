@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <!-- Background Radial Glows -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0066CC" stop-opacity="0.18"/>
+      <stop offset="45%" stop-color="#00D4B2" stop-opacity="0.10"/>
+      <stop offset="85%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Metal Stack Gradient -->
+    <linearGradient id="stackBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DDE5ED"/>
+      <stop offset="25%" stop-color="#FFFFFF"/>
+      <stop offset="65%" stop-color="#CBD5E1"/>
+      <stop offset="90%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+
+    <!-- Glowing Laser Beams -->
+    <linearGradient id="laserBeamCyan" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0066CC" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#00D4B2" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <linearGradient id="laserBeamCrimson" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8102E" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#FF6500" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#FFBD2E" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <!-- Glass HUD Gradients -->
+    <linearGradient id="glassCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#F2F7FC" stop-opacity="0.90"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="glowGpu" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="shadowElevated" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0B1E36" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- 1. Ambient Lighting -->
+  <circle cx="500" cy="350" r="440" fill="url(#centerGlow)"/>
+
+  <!-- 2. Polar Perspective CAD Coordinate Floor -->
+  <g stroke="#0066CC" stroke-opacity="0.12" stroke-width="1.2" fill="none">
+    <ellipse cx="500" cy="460" rx="460" ry="170"/>
+    <ellipse cx="500" cy="460" rx="360" ry="130" stroke-dasharray="6 4"/>
+    <ellipse cx="500" cy="460" rx="260" ry="95"/>
+    <ellipse cx="500" cy="460" rx="160" ry="60" stroke-dasharray="3 3"/>
+    <ellipse cx="500" cy="460" rx="70" ry="25"/>
+
+    <line x1="40" y1="460" x2="960" y2="460"/>
+    <line x1="500" y1="290" x2="500" y2="630"/>
+    <line x1="170" y1="340" x2="830" y2="580"/>
+    <line x1="170" y1="580" x2="830" y2="340"/>
+  </g>
+
+  <!-- 3. Centerpiece 3D Industrial Digital Twin Stack -->
+  <g id="digitalTwinCenter" transform="translate(440, 200)">
+    <!-- Base Platform -->
+    <ellipse cx="60" cy="270" rx="85" ry="30" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5"/>
+    <ellipse cx="60" cy="264" rx="72" ry="24" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.2"/>
+
+    <!-- Cylinder Stack -->
+    <path d="M 25 264 L 38 40 L 82 40 L 95 264 Z" fill="url(#stackBody)" stroke="#CBD5E1" stroke-width="1.5"/>
+
+    <!-- Stack Top Rim -->
+    <ellipse cx="60" cy="40" rx="22" ry="8" fill="#FFFFFF" stroke="#0066CC" stroke-width="2"/>
+    <ellipse cx="60" cy="40" rx="14" ry="5" fill="#0B1E36"/>
+
+    <!-- 4 Holographic Emission Laser Rings -->
+    <ellipse cx="60" cy="210" rx="44" ry="15" fill="none" stroke="#00D4B2" stroke-width="2.5" stroke-dasharray="7 3" filter="url(#glowGpu)"/>
+    <ellipse cx="60" cy="150" rx="36" ry="12" fill="none" stroke="#0066CC" stroke-width="2" stroke-dasharray="5 3"/>
+    <ellipse cx="60" cy="95" rx="28" ry="9" fill="none" stroke="#C8102E" stroke-width="2" stroke-dasharray="4 2"/>
+    <ellipse cx="60" cy="55" rx="24" ry="7.5" fill="none" stroke="#00D4B2" stroke-width="1.5"/>
+
+    <!-- Purified Air Plume (Glowing Cyan & Emerald Beams) -->
+    <path d="M 60 40 Q 35 -40 85 -110 T 50 -180" fill="none" stroke="url(#laserBeamCyan)" stroke-width="7" stroke-linecap="round" filter="url(#glowGpu)" opacity="0.9"/>
+    <path d="M 56 40 Q 75 -30 45 -100 T 68 -170" fill="none" stroke="#00D4B2" stroke-width="3" stroke-linecap="round" opacity="0.95"/>
+  </g>
+
+  <!-- 4. Dynamic 3D Spline Telemetry Streams -->
+  <path d="M 80 480 C 240 520 320 410 500 420 S 740 370 920 420" fill="none" stroke="url(#laserBeamCyan)" stroke-width="4.5" stroke-linecap="round" filter="url(#glowGpu)"/>
+  <path d="M 120 380 C 280 350 380 450 520 380 S 780 490 940 450" fill="none" stroke="url(#laserBeamCrimson)" stroke-width="2.8" stroke-dasharray="6 3" stroke-linecap="round"/>
+
+  <!-- 5. Floating Glass HUD Holographic Panels -->
+
+  <!-- HUD 1: Real-time CEMS Telemetry (Left Top) -->
+  <g transform="translate(40, 90)" filter="url(#shadowElevated)">
+    <rect width="280" height="165" rx="9" fill="url(#glassCardBg)" stroke="#BAE0FF" stroke-width="1.5"/>
+    <path d="M 0 0 L 280 0 L 280 30 L 0 30 Z" fill="#F0F7FF" rx="9 9 0 0"/>
+    <circle cx="16" cy="15" r="4.5" fill="#059669"/>
+    <text x="28" y="19" font-family="'Space Grotesk', sans-serif" font-size="10.5" font-weight="700" fill="#0B1E36" letter-spacing="0.4">CEMS TELEMETRY // STACK 01</text>
+    <text x="222" y="19" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#059669">● NORMAL</text>
+
+    <!-- Data Rows with Graphic Mini-Curves -->
+    <text x="16" y="52" font-family="'Inter', sans-serif" font-size="9" fill="#64748B">Bụi (PM):</text>
+    <text x="82" y="52" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="800" fill="#0B1E36">4.22 mg/Nm³</text>
+    <text x="175" y="52" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#059669">Max 144</text>
+    <path d="M 215 49 L 230 45 L 245 50 L 265 44" fill="none" stroke="#059669" stroke-width="1.8"/>
+
+    <text x="16" y="77" font-family="'Inter', sans-serif" font-size="9" fill="#64748B">Khí CO:</text>
+    <text x="82" y="77" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="800" fill="#0B1E36">0.21 mg/Nm³</text>
+    <text x="175" y="77" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#059669">Max 800</text>
+    <path d="M 215 74 L 232 75 L 248 72 L 265 73" fill="none" stroke="#059669" stroke-width="1.8"/>
+
+    <text x="16" y="102" font-family="'Inter', sans-serif" font-size="9" fill="#64748B">Khí SO2:</text>
+    <text x="82" y="102" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="800" fill="#0B1E36">0.00 mg/Nm³</text>
+    <text x="175" y="102" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#059669">Max 400</text>
+    <path d="M 215 99 L 235 99 L 250 99 L 265 99" fill="none" stroke="#0066CC" stroke-width="1.8"/>
+
+    <text x="16" y="127" font-family="'Inter', sans-serif" font-size="9" fill="#64748B">Khí NOx:</text>
+    <text x="82" y="127" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="800" fill="#0B1E36">1.31 mg/Nm³</text>
+    <text x="175" y="127" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#059669">Max 680</text>
+    <path d="M 215 127 L 232 121 L 250 128 L 265 122" fill="none" stroke="#059669" stroke-width="1.8"/>
+
+    <!-- Bottom Ticker -->
+    <rect x="0" y="145" width="280" height="20" fill="#E6F4FE" rx="0 0 9 9"/>
+    <text x="14" y="158" font-family="'JetBrains Mono', monospace" font-size="8" fill="#0066CC" font-weight="700">QCVN 19:2009/BTNMT (CỘT B, KP=0.8) COMPLIANT</text>
+  </g>
+
+  <!-- HUD 2: AI Neural Combustion Diagnostic (Right Top) -->
+  <g transform="translate(670, 80)" filter="url(#shadowElevated)">
+    <rect width="280" height="160" rx="9" fill="url(#glassCardBg)" stroke="#FFCCD3" stroke-width="1.5"/>
+    <path d="M 0 0 L 280 0 L 280 30 L 0 30 Z" fill="#FFF0F2" rx="9 9 0 0"/>
+    <circle cx="16" cy="15" r="4.5" fill="#C8102E"/>
+    <text x="28" y="19" font-family="'Space Grotesk', sans-serif" font-size="10.5" font-weight="700" fill="#990B22" letter-spacing="0.4">5S NEURAL ADVISOR // BUỒNG ĐỐT</text>
+
+    <text x="16" y="52" font-family="'Inter', sans-serif" font-size="8.8" font-weight="600" fill="#0F172A">Tỷ Lệ Gió / Nhiên Liệu (λ):</text>
+    <text x="195" y="52" font-family="'JetBrains Mono', monospace" font-size="11.5" font-weight="800" fill="#059669">1.02 [OPTIMAL]</text>
+
+    <text x="16" y="74" font-family="'Inter', sans-serif" font-size="8.8" font-weight="600" fill="#0F172A">Nhiệt Độ Lò &amp; Áp Suất:</text>
+    <text x="195" y="74" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="800" fill="#0066CC">864°C • 100.5kPa</text>
+
+    <!-- Formula snippet -->
+    <rect x="12" y="86" width="256" height="36" rx="4" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="20" y="100" font-family="'JetBrains Mono', monospace" font-size="7.2" fill="#881337">• SCR/SNCR: 4NO + 4NH3 + O2 → 4N2 + 6H2O</text>
+    <text x="20" y="113" font-family="'JetBrains Mono', monospace" font-size="7.2" fill="#881337">• Wet Scrubber: SO2 + 2NaOH → Na2SO3 + H2O</text>
+
+    <!-- Status pill -->
+    <rect x="0" y="139" width="280" height="21" fill="#ECFDF5" rx="0 0 9 9"/>
+    <text x="16" y="153" font-family="'JetBrains Mono', monospace" font-size="8" fill="#059669" font-weight="700">✓ AI CHẨN ĐOÁN: VẬN HÀNH ỔN ĐỊNH 100%</text>
+  </g>
+
+  <!-- HUD 3: Camera-Sensor Fusion Radar Viewport (Left Bottom) -->
+  <g transform="translate(60, 440)" filter="url(#shadowElevated)">
+    <rect width="270" height="135" rx="9" fill="url(#glassCardBg)" stroke="#BAE0FF" stroke-width="1.5"/>
+    <path d="M 0 0 L 270 0 L 270 26 L 0 26 Z" fill="#F0F8FF" rx="9 9 0 0"/>
+    <text x="14" y="17" font-family="'Space Grotesk', sans-serif" font-size="9.5" font-weight="700" fill="#0B1E36">CAMERA-SENSOR FUSION // RTSP</text>
+
+    <!-- Radar Scope -->
+    <circle cx="55" cy="78" r="36" fill="#0B1E36"/>
+    <circle cx="55" cy="78" r="26" fill="none" stroke="#00D4B2" stroke-width="1" stroke-dasharray="2 3"/>
+    <circle cx="55" cy="78" r="14" fill="none" stroke="#0066CC" stroke-width="1"/>
+    <line x1="55" y1="42" x2="55" y2="114" stroke="#00D4B2" stroke-width="0.8"/>
+    <line x1="19" y1="78" x2="91" y2="78" stroke="#00D4B2" stroke-width="0.8"/>
+    <circle cx="68" cy="65" r="3.5" fill="#C8102E" filter="url(#glowGpu)"/>
+
+    <text x="106" y="58" font-family="'Inter', sans-serif" font-size="8.8" font-weight="700" fill="#0F172A">Ống Khói Lò 01 (12 Tấn)</text>
+    <text x="106" y="74" font-family="'JetBrains Mono', monospace" font-size="8.2" fill="#059669">• LIVE STREAM 30 FPS</text>
+    <text x="106" y="90" font-family="'Inter', sans-serif" font-size="7.8" fill="#64748B">SUS316L • IP67 • ATEX Zone 1/21</text>
+    <text x="106" y="106" font-family="'JetBrains Mono', monospace" font-size="8" fill="#0066CC">Zoom Quang 32x • IR 150m</text>
+  </g>
+
+  <!-- HUD 4: Datalogger ARM Gateway Specs (Right Bottom) -->
+  <g transform="translate(660, 420)" filter="url(#shadowElevated)">
+    <rect width="285" height="150" rx="9" fill="url(#glassCardBg)" stroke="#BAE0FF" stroke-width="1.5"/>
+    <path d="M 0 0 L 285 0 L 285 26 L 0 26 Z" fill="#F0F8FF" rx="9 9 0 0"/>
+    <text x="14" y="17" font-family="'Space Grotesk', sans-serif" font-size="9.5" font-weight="700" fill="#0B1E36">INDUSTRIAL DATALOGGER // HARDWARE</text>
+
+    <text x="16" y="48" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#0B1E36">• CPU: Quad-Core ARM Cortex-A53</text>
+    <text x="16" y="66" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#0B1E36">• I/O: 8x RS485 Modbus, 8x 4-20mA</text>
+    <text x="16" y="84" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#0B1E36">• Power: UPS 24VDC 4-8h Backup</text>
+    <text x="16" y="102" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#0B1E36">• Uplink: Dual SIM 4G/LTE + LAN</text>
+
+    <rect x="14" y="114" width="257" height="24" rx="4" fill="#EFF6FF" stroke="#BAE0FF"/>
+    <text x="24" y="130" font-family="'Space Grotesk', sans-serif" font-size="8.5" font-weight="700" fill="#0066CC">THÔNG TƯ 10/2021/TT-BTNMT COMPLIANT</text>
+  </g>
+
+  <!-- Laser Coupling Lines Connecting Centers -->
+  <circle cx="500" cy="240" r="7" fill="#0066CC" filter="url(#glowGpu)"/>
+  <circle cx="500" cy="240" r="3.5" fill="#FFFFFF"/>
+
+  <circle cx="320" cy="180" r="5" fill="#00D4B2" filter="url(#glowGpu)"/>
+  <line x1="320" y1="180" x2="440" y2="240" stroke="#00D4B2" stroke-width="1.8" stroke-dasharray="4 3"/>
+
+  <circle cx="670" cy="170" r="5" fill="#C8102E" filter="url(#glowGpu)"/>
+  <line x1="670" y1="170" x2="560" y2="240" stroke="#C8102E" stroke-width="1.8" stroke-dasharray="4 3"/>
+</svg>
