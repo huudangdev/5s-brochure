@@ -347,98 +347,199 @@
       line-height: 1.25;
     }
 
-    /* SaaS Hero Showcase Stage */
-    .cover-hero-stage {
+    /* Seamless Lightmode Software Data Stage (Directly on Background, Zero Frames) */
+    .cover-seamless-stage {
       height: 132mm;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
-      border: 1.5px solid var(--paper-line);
-      box-shadow: var(--shadow-float);
       position: relative;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
-      flex-shrink: 0;
-    }
-    .cover-stage-topbar {
-      height: 8mm;
-      background: #FAFCFE;
-      border-bottom: 1px solid var(--paper-line);
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0 10px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 5.2pt;
-      color: var(--ink-muted);
+      flex-shrink: 0;
+      background: transparent;
     }
-    .stage-browser-dots {
+
+    /* Top Telemetry Header directly on background */
+    .seamless-telemetry-header {
       display: flex;
-      gap: 4px;
+      justify-content: space-between;
       align-items: center;
+      padding: 0 2px;
+      margin-bottom: 2mm;
     }
-    .stage-browser-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #E2E8F0;
-    }
-    .stage-browser-dot.r { background: #FF5F56; }
-    .stage-browser-dot.y { background: #FFBD2E; }
-    .stage-browser-dot.g { background: #27C93F; }
-
-    .stage-browser-url {
-      background: white;
-      border: 1px solid var(--paper-line);
-      padding: 2px 12px;
-      border-radius: 12px;
-      font-size: 5pt;
-      color: var(--5s-navy);
-      font-weight: 600;
-    }
-
-    .cover-hero-img-wrap {
-      flex: 1;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6px;
-      background: radial-gradient(circle at 50% 40%, rgba(0, 102, 204, 0.04) 0%, rgba(248, 250, 252, 0.8) 100%);
-      position: relative;
-    }
-    .cover-hero-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    /* Floating Feature Badges */
-    .cover-badge-float {
-      position: absolute;
-      bottom: 8px;
-      left: 10px;
-      background: rgba(255, 255, 255, 0.95);
-      border: 1px solid var(--paper-line);
-      backdrop-filter: blur(8px);
-      padding: 5px 10px;
-      border-radius: var(--radius-sm);
-      display: flex;
+    .telemetry-live-pill {
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: var(--shadow-md);
-      font-size: 5.5pt;
-      font-weight: 700;
-      color: var(--ink-primary);
+      font-size: 5.6pt;
+      font-weight: 800;
+      color: var(--5s-navy);
+      background: rgba(0, 102, 204, 0.08);
+      border: 1px solid rgba(0, 102, 204, 0.2);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
     }
-    .badge-status-dot {
+    .pulse-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
       background: var(--5s-green);
       box-shadow: 0 0 6px var(--5s-green);
     }
+    .telemetry-meta-tags {
+      font-size: 5.2pt;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: var(--ink-muted);
+    }
+    .telemetry-meta-tags strong { color: var(--5s-blue); }
 
+    /* 4 Seamless KPI Cards with Sparklines */
+    .seamless-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 2.5mm;
+    }
+    .seamless-kpi-card {
+      background: white;
+      border: 1px solid rgba(0, 102, 204, 0.12);
+      border-radius: var(--radius-sm);
+      padding: 5px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 14px rgba(11, 19, 43, 0.04);
+    }
+    .seamless-kpi-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 5.4pt;
+      font-weight: 800;
+      color: var(--ink-secondary);
+      margin-bottom: 2px;
+    }
+    .seamless-tag-status {
+      font-size: 4.8pt;
+      font-weight: 800;
+      padding: 1.5px 5px;
+      border-radius: 2px;
+    }
+    .seamless-tag-status.pass { background: #ECFDF5; color: var(--5s-green); }
+    .seamless-tag-status.opt { background: #EFF6FF; color: var(--5s-blue); }
+    .seamless-tag-status.safe { background: #FFF0F2; color: var(--5s-crimson); }
+    .seamless-tag-status.sync { background: #FFFBEB; color: var(--5s-amber); }
+    .seamless-kpi-num {
+      font-size: 11pt;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1;
+      color: var(--ink-primary);
+      margin-bottom: 2px;
+    }
+    .seamless-kpi-num span {
+      font-size: 5.4pt;
+      font-weight: 600;
+      color: var(--ink-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .seamless-sparkline {
+      width: 100%;
+      height: 14px;
+      overflow: visible;
+    }
+
+    /* Main Seamless 24h Area Chart directly on the background */
+    .seamless-chart-box {
+      background: white;
+      border: 1px solid rgba(0, 102, 204, 0.14);
+      border-radius: var(--radius-md);
+      padding: 6px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 20px rgba(11, 19, 43, 0.05);
+      margin-bottom: 2.5mm;
+      flex: 1;
+    }
+    .seamless-chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3px;
+    }
+    .seamless-chart-title {
+      font-size: 6.2pt;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--ink-primary);
+      letter-spacing: -0.01em;
+    }
+    .seamless-chart-legend {
+      display: flex;
+      gap: 8px;
+      font-size: 5.2pt;
+      font-weight: 700;
+      color: var(--ink-muted);
+    }
+    .leg-circle {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      margin-right: 2px;
+      vertical-align: middle;
+    }
+    .seamless-svg-chart {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* 4 Floating Software Feature Badges directly on background */
+    .seamless-feature-pills-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .seamless-feat-pill {
+      background: white;
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-sm);
+      padding: 4px 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: var(--shadow-xs);
+    }
+    .feat-icon-badge {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      background: var(--5s-blue-subtle);
+      color: var(--5s-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7pt;
+      flex-shrink: 0;
+      font-weight: 800;
+    }
+    .feat-pill-text h6 {
+      font-size: 5.4pt;
+      font-weight: 800;
+      color: var(--ink-primary);
+      margin-bottom: 0.5px;
+      line-height: 1;
+    }
+    .feat-pill-text p {
+      font-size: 4.6pt;
+      color: var(--ink-muted);
+      margin-bottom: 0;
+      line-height: 1;
+    }
     /* Cover Footer Band */
     .cover-footer {
       height: 8mm;
@@ -1258,24 +1359,165 @@
         </div>
       </div>
 
-      <!-- 4. Central Hero Showcase Stage (MacBook SaaS Dashboard) -->
-      <div class="cover-hero-stage">
-        <div class="cover-stage-topbar">
-          <div class="stage-browser-dots">
-            <div class="stage-browser-dot r"></div>
-            <div class="stage-browser-dot y"></div>
-            <div class="stage-browser-dot g"></div>
-          </div>
-          <div class="stage-browser-url">https://app.5scloud.vn/enterprise/dashboard-cems</div>
-          <div>REALTIME STREAM ENGINE // V4.2</div>
-        </div>
-        <div class="cover-hero-img-wrap">
-          <img src="../assets/software-hero-macbook.png" alt="5S Cloud Enterprise SaaS Dashboard on MacBook Pro" />
-          <div class="cover-badge-float">
-            <div class="badge-status-dot"></div>
+      <!-- 4. Seamless Data Visualization & Software Platform Stage (Directly on Background) -->
+      <div class="cover-seamless-stage">
+        
+        <!-- Top telemetry indicator directly on background -->
+        <div class="seamless-telemetry-header">
+          <div class="telemetry-live-pill">
+            <span class="pulse-dot"></span>
             <span>HỆ THỐNG TRỰC TUYẾN: 1,000+ ĐIỂM DỮ LIỆU ĐANG XỬ LÝ (LATENCY &lt; 150MS)</span>
           </div>
+          <div class="telemetry-meta-tags">
+            TIÊU CHUẨN: <strong>ISO 27001</strong> // ĐỒNG BỘ: <strong>63 SỞ TN&amp;MT</strong>
+          </div>
         </div>
+
+        <!-- 4 KPI Cards directly on background with sparklines -->
+        <div class="seamless-kpi-grid">
+          <div class="seamless-kpi-card">
+            <div class="seamless-kpi-top">
+              <span>BỤI TỔNG (PM)</span>
+              <span class="seamless-tag-status pass">● ĐẠT CHUẨN</span>
+            </div>
+            <div class="seamless-kpi-num">4.22 <span>mg/Nm³</span></div>
+            <svg class="seamless-sparkline" viewBox="0 0 100 16">
+              <path d="M 0 12 Q 25 6 50 9 T 100 4" fill="none" stroke="#0066CC" stroke-width="1.8" />
+            </svg>
+          </div>
+
+          <div class="seamless-kpi-card">
+            <div class="seamless-kpi-top">
+              <span>KHÍ CO</span>
+              <span class="seamless-tag-status opt">● TỐI ƯU</span>
+            </div>
+            <div class="seamless-kpi-num">0.21 <span>mg/Nm³</span></div>
+            <svg class="seamless-sparkline" viewBox="0 0 100 16">
+              <path d="M 0 13 Q 25 10 50 11 T 100 6" fill="none" stroke="#059669" stroke-width="1.8" />
+            </svg>
+          </div>
+
+          <div class="seamless-kpi-card">
+            <div class="seamless-kpi-top">
+              <span>KHÍ NOx</span>
+              <span class="seamless-tag-status safe">● AN TOÀN</span>
+            </div>
+            <div class="seamless-kpi-num">1.31 <span>mg/Nm³</span></div>
+            <svg class="seamless-sparkline" viewBox="0 0 100 16">
+              <path d="M 0 11 Q 25 8 50 10 T 100 5" fill="none" stroke="#C8102E" stroke-width="1.8" />
+            </svg>
+          </div>
+
+          <div class="seamless-kpi-card">
+            <div class="seamless-kpi-top">
+              <span>ĐỒNG BỘ SỞ</span>
+              <span class="seamless-tag-status sync">● THÔNG SUỐT</span>
+            </div>
+            <div class="seamless-kpi-num">99.98% <span>SLA</span></div>
+            <svg class="seamless-sparkline" viewBox="0 0 100 16">
+              <path d="M 0 10 Q 25 4 50 7 T 100 3" fill="none" stroke="#D97706" stroke-width="1.8" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Main 24h Area Chart directly on background -->
+        <div class="seamless-chart-box">
+          <div class="seamless-chart-header">
+            <span class="seamless-chart-title">BIỂU ĐỒ DIỄN BIẾN NỒNG ĐỘ THỜI GIAN THỰC (24H LIÊN TỤC // NỀN TẢNG CLOUD)</span>
+            <div class="seamless-chart-legend">
+              <span><span class="leg-circle" style="background: #0066CC;"></span> Bụi PM</span>
+              <span><span class="leg-circle" style="background: #059669;"></span> Khí CO</span>
+              <span><span class="leg-circle" style="background: #6366F1;"></span> Khí NOx</span>
+              <span style="color: #C8102E; font-weight: 800;">--- Ngưỡng QCVN (144)</span>
+            </div>
+          </div>
+
+          <svg class="seamless-svg-chart" viewBox="0 0 700 130">
+            <defs>
+              <linearGradient id="chartGradPM" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0066CC" stop-opacity="0.25" />
+                <stop offset="100%" stop-color="#0066CC" stop-opacity="0.0" />
+              </linearGradient>
+              <linearGradient id="chartGradCO" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#059669" stop-opacity="0.2" />
+                <stop offset="100%" stop-color="#059669" stop-opacity="0.0" />
+              </linearGradient>
+            </defs>
+
+            <!-- Background Grid Lines -->
+            <line x1="30" y1="20" x2="690" y2="20" stroke="#E2E8F0" stroke-dasharray="3,3" />
+            <line x1="30" y1="50" x2="690" y2="50" stroke="#E2E8F0" stroke-dasharray="3,3" />
+            <line x1="30" y1="80" x2="690" y2="80" stroke="#E2E8F0" stroke-dasharray="3,3" />
+            <line x1="30" y1="108" x2="690" y2="108" stroke="#CBD5E1" />
+
+            <!-- Red Dashed QCVN 19 Limit Line -->
+            <line x1="30" y1="16" x2="690" y2="16" stroke="#C8102E" stroke-width="1.2" stroke-dasharray="4,3" />
+            <text x="590" y="13" fill="#C8102E" font-size="6.5" font-family="JetBrains Mono" font-weight="bold">NGƯỠNG QCVN 19</text>
+
+            <!-- PM Area & Curve (Blue) -->
+            <path d="M 30 88 Q 95 72 160 80 T 290 62 T 420 76 T 550 52 T 690 60 L 690 108 L 30 108 Z" fill="url(#chartGradPM)" />
+            <path d="M 30 88 Q 95 72 160 80 T 290 62 T 420 76 T 550 52 T 690 60" fill="none" stroke="#0066CC" stroke-width="2.2" />
+
+            <!-- CO Area & Curve (Emerald) -->
+            <path d="M 30 96 Q 95 86 160 90 T 290 80 T 420 87 T 550 72 T 690 78 L 690 108 L 30 108 Z" fill="url(#chartGradCO)" />
+            <path d="M 30 96 Q 95 86 160 90 T 290 80 T 420 87 T 550 72 T 690 78" fill="none" stroke="#059669" stroke-width="1.8" />
+
+            <!-- NOx Curve (Violet) -->
+            <path d="M 30 101 Q 95 95 160 98 T 290 90 T 420 94 T 550 84 T 690 86" fill="none" stroke="#6366F1" stroke-width="1.5" />
+
+            <!-- Interactive Active Hover Tooltip Callout -->
+            <circle cx="550" cy="52" r="4.5" fill="#0066CC" stroke="#FFFFFF" stroke-width="2" />
+            <line x1="550" y1="52" x2="550" y2="108" stroke="#0066CC" stroke-dasharray="2,2" />
+            <rect x="470" y="24" width="150" height="25" rx="4" fill="#FFFFFF" stroke="#0066CC" stroke-width="1.2" filter="drop-shadow(0 2px 6px rgba(0,0,0,0.08))" />
+            <text x="478" y="34" fill="#0B132B" font-size="6.8" font-family="Montserrat" font-weight="bold">14:20 • Lò 02: PM 4.22 mg/Nm³</text>
+            <text x="478" y="44" fill="#059669" font-size="6.2" font-family="Montserrat" font-weight="bold">✓ 100% Đạt chuẩn QCVN 19</text>
+
+            <!-- Time-axis Labels -->
+            <text x="30" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">00:00</text>
+            <text x="140" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">04:00</text>
+            <text x="250" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">08:00</text>
+            <text x="360" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">12:00</text>
+            <text x="470" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">16:00</text>
+            <text x="580" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">20:00</text>
+            <text x="670" y="120" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">24:00</text>
+          </svg>
+        </div>
+
+        <!-- 4 Floating Software Feature Badges directly on background -->
+        <div class="seamless-feature-pills-row">
+          <div class="seamless-feat-pill">
+            <div class="feat-icon-badge">⚡</div>
+            <div class="feat-pill-text">
+              <h6>Realtime 100ms</h6>
+              <p>Đồng bộ dữ liệu liên tục</p>
+            </div>
+          </div>
+
+          <div class="seamless-feat-pill">
+            <div class="feat-icon-badge" style="background: var(--5s-crimson-subtle); color: var(--5s-crimson);">🧠</div>
+            <div class="feat-pill-text">
+              <h6>Trợ Lý AI Advisor</h6>
+              <p>Cảnh báo sớm &amp; tự động</p>
+            </div>
+          </div>
+
+          <div class="seamless-feat-pill">
+            <div class="feat-icon-badge" style="background: #ECFDF5; color: var(--5s-green);">📊</div>
+            <div class="feat-pill-text">
+              <h6>Báo Cáo Sở 1-Click</h6>
+              <p>Chuẩn Thông tư 10/2021</p>
+            </div>
+          </div>
+
+          <div class="seamless-feat-pill">
+            <div class="feat-icon-badge" style="background: #EEF2FF; color: #6366F1;">🏢</div>
+            <div class="feat-pill-text">
+              <h6>Multi-Tenant RBAC</h6>
+              <p>Phân quyền Tập đoàn</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- 5. Cover Footer & Compliance -->
