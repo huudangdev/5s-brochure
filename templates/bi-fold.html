@@ -35,6 +35,16 @@
       --5s-amber: #D97706;
       --5s-amber-subtle: #FFFBEB;
 
+      /* Cyber-Industrial & Precision Telemetry */
+      --cyber-cyan: #00F0FF;
+      --cyber-laser: #FF2A4D;
+      --cyber-glow-cyan: 0 0 14px rgba(0, 240, 255, 0.45);
+      --cyber-glow-laser: 0 0 14px rgba(255, 42, 77, 0.45);
+      --cyber-dark-bg: #050811;
+      --cyber-dark-surface: #070D1E;
+      --cyber-dark-card: #0B152B;
+      --cyber-border-cyan: rgba(0, 240, 255, 0.35);
+      --cyber-border-laser: rgba(255, 42, 77, 0.4);
       /* Environmental Pure Paper Canvas */
       --paper-pure: #FFFFFF;
       --paper-canvas: #FAFDFE;
@@ -333,14 +343,14 @@
       letter-spacing: 0.04em;
     }
 
-    /* 3D Visual Stage (136mm) - UNCLIPPED 10:7 WITH HIGH IMPACT */
+    /* 3D Visual Stage (136mm) - CYBER-INDUSTRIAL 3D MONOLITH STAGE */
     .cover-image-stage {
       height: 136mm;
       border-radius: var(--radius-xl);
       overflow: hidden;
-      background: white;
-      box-shadow: var(--shadow-xl);
-      border: 1px solid var(--paper-line);
+      background: #040814;
+      box-shadow: 0 16px 36px -4px rgba(11, 19, 43, 0.25), 0 0 24px rgba(0, 240, 255, 0.2);
+      border: 1.5px solid rgba(0, 240, 255, 0.35);
       position: relative;
       flex-shrink: 0;
       display: flex;
@@ -352,21 +362,90 @@
       height: 100%;
       object-fit: contain;
       display: block;
+      position: relative;
+      z-index: 2;
+    }
+    /* Cyber Corner Reticles */
+    .corner-bracket {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .corner-bracket.tl { top: 7px; left: 7px; border-top: 2px solid var(--cyber-cyan); border-left: 2px solid var(--cyber-cyan); }
+    .corner-bracket.tr { top: 7px; right: 7px; border-top: 2px solid var(--cyber-cyan); border-right: 2px solid var(--cyber-cyan); }
+    .corner-bracket.bl { bottom: 7px; left: 7px; border-bottom: 2px solid var(--cyber-cyan); border-left: 2px solid var(--cyber-cyan); }
+    .corner-bracket.br { bottom: 7px; right: 7px; border-bottom: 2px solid var(--cyber-cyan); border-right: 2px solid var(--cyber-cyan); }
+
+    /* High-Tech Telemetry HUD Top Strip */
+    .cover-hud-top {
+      position: absolute;
+      top: 8px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 5pt;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85);
+      background: rgba(7, 13, 30, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 3.5px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      letter-spacing: 0.04em;
+      z-index: 4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    .hud-left {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--cyber-cyan);
+    }
+    .pulse-dot {
+      width: 5.5px;
+      height: 5.5px;
+      background: var(--cyber-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--cyber-cyan);
+      display: inline-block;
+    }
+    .pulse-dot.laser {
+      background: var(--cyber-laser);
+      box-shadow: 0 0 6px var(--cyber-laser);
+    }
+    .hud-mid {
+      color: #94A3B8;
+    }
+    .hud-right {
+      color: #38BDF8;
+      font-weight: 800;
     }
     .cover-badge-tag {
       position: absolute;
       bottom: 10px;
       left: 12px;
-      background: rgba(11, 19, 43, 0.88);
+      background: rgba(7, 13, 30, 0.9);
       backdrop-filter: blur(8px);
       color: white;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 5.8pt;
-      font-weight: 800;
-      letter-spacing: 0.06em;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 5.2pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       padding: 4px 10px;
       border-radius: var(--radius-sm);
       border-left: 3px solid var(--5s-crimson);
+      border-top: 1px solid rgba(0, 240, 255, 0.25);
+      border-right: 1px solid rgba(0, 240, 255, 0.25);
+      border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     /* Footer Band */
@@ -614,7 +693,7 @@
       background: white;
       border-radius: var(--radius-md);
       border: 1px solid var(--paper-line);
-      padding: 2.5mm 3.5mm;
+      padding: 2.2mm 3mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -631,8 +710,10 @@
     .hw-media-box {
       border-radius: var(--radius-sm);
       overflow: hidden;
-      height: 24mm;
+      height: 23mm;
       border: 1px solid var(--paper-line);
+      background: #040814;
+      position: relative;
     }
     .hw-media-box img {
       width: 100%;
@@ -641,27 +722,38 @@
       display: block;
     }
     .hw-specs-list {
-      font-size: 5.1pt;
+      font-size: 5pt;
       color: var(--ink-secondary);
-      line-height: 1.3;
+      line-height: 1.25;
     }
     .hw-specs-list div { margin-bottom: 1px; }
     .hw-specs-list strong { color: var(--ink-primary); }
+    .hw-chip-tag {
+      font-size: 4.8pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--5s-blue);
+      font-weight: 700;
+      border-top: 1px dashed var(--paper-line);
+      padding-top: 1px;
+      letter-spacing: 0.02em;
+    }
 
     /* ================= RIGHT WING: TRÍ TUỆ NHÂN TẠO & PHÂN TÍCH CHUYÊN SÂU ================= */
     
     /* Section D: AI Buồng Đốt & Công Thức Hóa Học (72mm) */
     .ai-combustion-rich-card {
-      background: var(--5s-navy-surface);
+      background: #070D1E;
+      background-image: radial-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px);
+      background-size: 8px 8px;
       border-radius: var(--radius-md);
-      padding: 3mm 4mm;
+      padding: 2.5mm 3.5mm;
       height: 72mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       color: white;
-      box-shadow: var(--shadow-md);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-md), 0 0 15px rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.25);
     }
     .ai-header-flex {
       display: flex;
@@ -670,20 +762,29 @@
       margin-bottom: 1mm;
     }
     .ai-header-flex h3 {
-      font-size: 7.8pt;
+      font-size: 7.6pt;
       color: white;
+      letter-spacing: -0.01em;
     }
     .ai-split-view {
       display: grid;
-      grid-template-columns: 1.15fr 1fr;
+      grid-template-columns: 1.22fr 1fr;
       gap: 5px;
-      height: 38mm;
+      height: 41mm;
+    }
+    .ai-media-dual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      height: 100%;
     }
     .ai-media-frame {
       border-radius: var(--radius-sm);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(0, 240, 255, 0.3);
       height: 100%;
+      background: #040814;
+      position: relative;
     }
     .ai-media-frame img {
       width: 100%;
@@ -691,27 +792,42 @@
       object-fit: cover;
       display: block;
     }
+    .ai-img-subtag {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(7, 13, 30, 0.9);
+      color: var(--cyber-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 4.2pt;
+      font-weight: 700;
+      padding: 1.5px 2px;
+      text-align: center;
+      letter-spacing: 0.03em;
+      border-top: 1px solid rgba(0, 240, 255, 0.25);
+    }
     .ai-formula-panel {
       background: rgba(200, 16, 46, 0.18);
       border: 1px solid rgba(255, 77, 94, 0.45);
       border-radius: var(--radius-sm);
-      padding: 2.2mm 3mm;
+      padding: 1.8mm 2.5mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      font-size: 5.2pt;
+      font-size: 5pt;
     }
     .formula-txt {
       font-family: 'JetBrains Mono', monospace;
       color: #FFB3BA;
-      line-height: 1.3;
+      line-height: 1.25;
     }
     .formula-txt strong { color: #FFFFFF; }
     .ai-steps-txt {
       color: #F1F5F9;
-      line-height: 1.3;
+      line-height: 1.25;
       border-top: 1px dashed rgba(255, 255, 255, 0.25);
-      padding-top: 2px;
+      padding-top: 1.5px;
     }
     .ai-steps-txt strong { color: #38BDF8; }
 
@@ -720,7 +836,7 @@
       background: white;
       border-radius: var(--radius-md);
       border: 1px solid var(--paper-line);
-      padding: 3mm 4mm;
+      padding: 2.5mm 3.5mm;
       height: 68mm;
       display: flex;
       flex-direction: column;
@@ -734,20 +850,21 @@
       margin-bottom: 1mm;
     }
     .gallery-head h3 {
-      font-size: 7.6pt;
+      font-size: 7.4pt;
       color: var(--ink-primary);
     }
     .analytics-split-imgs {
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
+      grid-template-columns: 1.15fr 1fr;
       gap: 5px;
-      height: 44mm;
+      height: 45mm;
     }
     .analytics-img-box {
       border-radius: var(--radius-sm);
       overflow: hidden;
       border: 1px solid var(--paper-line);
       position: relative;
+      background: #040814;
     }
     .analytics-img-box img {
       width: 100%;
@@ -760,14 +877,15 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      background: rgba(11, 19, 43, 0.85);
+      background: rgba(11, 19, 43, 0.9);
       padding: 1.5px 4px;
       color: white;
-      font-size: 4.6pt;
-      font-family: 'Montserrat', sans-serif;
+      font-size: 4.5pt;
+      font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
+      letter-spacing: 0.03em;
+      border-top: 1px solid rgba(0, 240, 255, 0.2);
     }
-
     /* Section F: Bảng So Sánh Trước vs. Sau 2 Cột (76mm) */
     .roi-comparison-card {
       background: white;
@@ -1268,11 +1386,27 @@
         </div>
       </div>
 
-      <!-- 3D Visual Stage (136mm) - UNCLIPPED 10:7 RATIO -->
+      <!-- 3D Visual Stage (136mm) - CYBERNETIC 3D MONOLITH DIGITAL TWIN -->
       <div class="cover-image-stage">
-        <img src="../assets/banana-cover-hero-2k.png" alt="Mô hình 3D Digital Twin trạm CEMS 5S Cloud" />
+        <div class="corner-bracket tl"></div>
+        <div class="corner-bracket tr"></div>
+        <div class="corner-bracket bl"></div>
+        <div class="corner-bracket br"></div>
+        
+        <div class="cover-hud-top">
+          <div class="hud-left">
+            <span class="pulse-dot"></span>
+            <span>SYS.DIGITAL-TWIN // CEMS-3D-MONOLITH</span>
+          </div>
+          <div class="hud-mid">LAT 10.7769° N • LON 106.7009° E • 100Hz TELEMETRY</div>
+          <div class="hud-right">ONLINE [SYNCED]</div>
+        </div>
+
+        <img src="../assets/digital-twin-3d-monolith.png" alt="Mô hình 3D Digital Twin trạm CEMS 5S Cloud" />
+        
         <div class="cover-badge-tag">
-          MÔ HÌNH 3D DIGITAL TWIN TRẠM CEMS // SLA 99.9% // ĐỘ TRỄ &lt; 150MS
+          <span class="pulse-dot laser"></span>
+          <span>MÔ HÌNH 3D DIGITAL TWIN TRẠM CEMS // SLA 99.9% // ĐỘ TRỄ &lt; 150MS // TT 10/2021/TT-BTNMT</span>
         </div>
       </div>
 
@@ -1479,7 +1613,7 @@
                 <img src="../assets/camera-feeds.png" alt="Camera góc kép nhà trạm CEMS và ống khói" />
               </div>
               <div class="hw-specs-list">
-                <div>• <strong>Góc kép:</strong> Nhà trạm phân tích & Ống khói lò hơi</div>
+                <div>• <strong>Góc kép:</strong> Nhà trạm phân tích &amp; Ống khói lò hơi</div>
                 <div>• <strong>Chuẩn ATEX:</strong> Zone 1/21 Ex d IIC T6, SUS316L, IP67</div>
                 <div>• <strong>Quang học:</strong> Zoom 32x, hồng ngoại 150m, Live 30FPS</div>
               </div>
@@ -1489,17 +1623,17 @@
             <div class="hw-col-card">
               <h4>
                 <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-                Datalogger ARM Gateway
+                Datalogger ARM Gateway (3D)
               </h4>
-              <div class="hw-specs-list" style="margin-top: 1mm;">
-                <div>• <strong>CPU:</strong> Quad-Core ARM Cortex-A53 công nghiệp</div>
-                <div>• <strong>I/O Ports:</strong> 8x RS485 Modbus, 8x 4-20mA, 4x DI/DO</div>
-                <div>• <strong>Truyền nhận:</strong> Dual SIM 4G/LTE + Ethernet LAN</div>
-                <div>• <strong>Lưu trữ đệm:</strong> Flash 32GB, lưu 30 ngày mất mạng</div>
-                <div>• <strong>Nguồn dự phòng:</strong> Pin UPS 24VDC lưu điện 4-8 giờ</div>
-                <div>• <strong>Tuân thủ:</strong> 100% Thông tư 10/2021/TT-BTNMT</div>
+              <div class="hw-media-box">
+                <img src="../assets/datalogger-exploded-3d.png" alt="3D Exploded View Datalogger ARM Gateway" />
               </div>
-              <div style="font-size: 5pt; font-family: 'JetBrains Mono', monospace; color: var(--5s-blue); font-weight: 700; border-top: 1px dashed var(--paper-line); padding-top: 1px;">
+              <div class="hw-specs-list">
+                <div>• <strong>Cấu trúc 3D:</strong> Quad-Core ARM Cortex-A53, Flash 32GB (lưu 30 ngày)</div>
+                <div>• <strong>I/O &amp; Mạng:</strong> 8x RS485 Modbus, 8x 4-20mA, Dual SIM 4G/LTE + LAN</div>
+                <div>• <strong>Nguồn &amp; Chuẩn:</strong> Pin UPS 24VDC lưu 8h, 100% TT10/2021/TT-BTNMT</div>
+              </div>
+              <div class="hw-chip-tag">
                 MQTTS • FTP • REST API • CHỐNG SÉT 4KV
               </div>
             </div>
@@ -1513,13 +1647,20 @@
           <!-- Section D: AI Buồng Đốt & Công Thức Hóa Học (72mm) -->
           <div class="ai-combustion-rich-card">
             <div class="ai-header-flex">
-              <h3>Trợ Lý AI Buồng Đốt & Phản Ứng Khử Khí Thải (5S Neural Engine)</h3>
+              <h3>Trợ Lý AI Buồng Đốt &amp; Phản Ứng Khử Khí Thải (5S Neural Engine)</h3>
               <span class="spread-badge red" style="border: none;">TIẾT KIỆM 5–8% NHIÊN LIỆU</span>
             </div>
 
             <div class="ai-split-view">
-              <div class="ai-media-frame">
-                <img src="../assets/ai-diagnosis.png" alt="AI chẩn đoán nguyên nhân sự cố buồng đốt lò hơi" />
+              <div class="ai-media-dual-grid">
+                <div class="ai-media-frame">
+                  <img src="../assets/ai-combustion-core-3d.png" alt="3D Neural Combustion Core &amp; Phun Hóa Chất" />
+                  <div class="ai-img-subtag">3D COMBUSTION NEURAL CORE</div>
+                </div>
+                <div class="ai-media-frame">
+                  <img src="../assets/ai-diagnosis.png" alt="AI chẩn đoán nguyên nhân sự cố buồng đốt lò hơi" />
+                  <div class="ai-img-subtag">CHẨN ĐOÁN THỜI GIAN THỰC</div>
+                </div>
               </div>
               
               <div class="ai-formula-panel">
@@ -1547,18 +1688,18 @@
           <!-- Section E: Heatmap 24x7 & Đồ Thị Biến Thiên (68mm) -->
           <div class="analytics-gallery-card">
             <div class="gallery-head">
-              <h3>Phân Tích Đa Trục: Heatmap 24x7 & Xu Hướng Vượt Ngưỡng</h3>
+              <h3>Phân Tích Đa Trục: Heatmap 24x7 &amp; Telemetry Mạng Lưới Toàn Quốc</h3>
               <span class="spread-badge" style="color: var(--5s-blue);">THEO CA KÍP SẢN XUẤT</span>
             </div>
 
             <div class="analytics-split-imgs">
               <div class="analytics-img-box">
-                <img src="../assets/heatmap-24x7.png" alt="Bản đồ nhiệt sự cố 24h x 7 ngày" />
-                <div class="img-tag-strip">MA TRẬN NHIỆT MẬT ĐỘ SỰ CỐ 24H × 7 NGÀY</div>
+                <img src="../assets/vietnam-telemetry-map-3d.png" alt="Bản đồ 3D Mạng Lưới Telemetry 63 Sở TN&amp;MT &amp; KCN Toàn Quốc" />
+                <div class="img-tag-strip">MẠNG LƯỚI TELEMETRY 63 SỞ TN&amp;MT &amp; KCN TOÀN QUỐC</div>
               </div>
               <div class="analytics-img-box">
-                <img src="../assets/trends-chart.png" alt="Đồ thị diễn biến chỉ tiêu nồng độ" />
-                <div class="img-tag-strip">BIẾN THIÊN NỒNG ĐỘ THEO GIỜ</div>
+                <img src="../assets/heatmap-24x7.png" alt="Bản đồ nhiệt sự cố 24h x 7 ngày" />
+                <div class="img-tag-strip">MA TRẬN NHIỆT MẬT ĐỘ SỰ CỐ 24H × 7 NGÀY</div>
               </div>
             </div>
 

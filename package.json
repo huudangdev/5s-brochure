@@ -12,7 +12,18 @@
     "export:trifold": "node scripts/export-pdf.js --trifold",
     "preview": "python3 -m http.server 3000"
   },
-  "keywords": ["brochure", "software", "a4", "b2b", "print-ready", "5s-service", "cems"],
+  "keywords": [
+    "brochure",
+    "software",
+    "a4",
+    "b2b",
+    "print-ready",
+    "5s-service",
+    "cems"
+  ],
   "author": "5S Service Team",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "three": "^0.185.1"
+  }
 }
