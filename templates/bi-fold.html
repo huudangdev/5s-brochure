@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5S Cloud – Chuyên Khảo Giải Pháp Quan Trắc Môi Trường & AI Buồng Đốt (Hardcover Monograph)</title>
+  <title>5S Cloud – Chuyên Khảo Kỹ Thuật Quan Trắc Môi Trường & AI Buồng Đốt (Hardcover Monograph)</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,7 +11,7 @@
 
   <style>
     :root {
-      /* Hardcover Luxury Palette */
+      /* Hardcover Monograph Palette */
       --5s-crimson: #C8102E;
       --5s-crimson-dark: #990B22;
       --5s-crimson-subtle: #FFF0F2;
@@ -20,12 +20,13 @@
       --5s-navy-surface: #101B33;
       --5s-navy-dark: #050811;
 
+      --5s-cyan: #00D4B2;
       --5s-blue: #0066CC;
       --5s-green: #059669;
       --5s-amber: #D97706;
 
       --paper-pure: #FFFFFF;
-      --paper-canvas: #FBFDFE;
+      --paper-canvas: #FAFDFE;
       --paper-subtle: #F8FAFC;
       --paper-border: #E2E8F0;
 
@@ -41,7 +42,7 @@
 
       --shadow-sm: 0 1px 3px rgba(11, 19, 43, 0.06);
       --shadow-md: 0 4px 12px rgba(11, 19, 43, 0.08);
-      --shadow-float: 0 16px 36px -4px rgba(11, 19, 43, 0.10);
+      --shadow-float: 0 20px 45px -6px rgba(11, 19, 43, 0.12);
     }
 
     * {
@@ -146,29 +147,29 @@
     .svg-icon.sm { width: 10px; height: 10px; }
 
     /* ==========================================================================
-       PAGE 1: BÌA TRƯỚC (ARCHIVAL SWISS HARDCOVER MONOGRAPH - A4: 210 x 297mm)
+       PAGE 1: BÌA TRƯỚC (ARCHITECTURAL HARDCOVER MONOGRAPH)
        ========================================================================== */
-    .cover-hardcover-monograph {
+    .cover-hardcover-monograph, .cover-editorial, .cover-unboxed {
       height: 297mm;
-      padding: 11mm 13mm 10mm 13mm;
+      padding: 11mm 13mm 8mm 13mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      background: radial-gradient(circle at 75% 20%, #FFFFFF 0%, #FAFDFE 55%, #EDF4FA 100%);
+      background: radial-gradient(circle at 85% 15%, #FFFFFF 0%, #FAFDFE 50%, #EDF4FA 100%);
     }
 
-    /* Masthead */
-    .hardcover-masthead {
+    /* Top Masthead */
+    .cover-masthead-band {
       height: 14mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid var(--ink-primary);
-      padding-bottom: 3mm;
+      padding-bottom: 2.5mm;
       flex-shrink: 0;
     }
-    .hardcover-logo {
+    .cover-brandmark {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -178,19 +179,19 @@
       color: var(--ink-primary);
       text-decoration: none;
     }
-    .hardcover-logo img {
+    .cover-brandmark img {
       height: 38px;
       width: auto;
       object-fit: contain;
     }
-    .hardcover-logo-dot {
+    .brand-accent-dot {
       display: inline-block;
       width: 8px;
       height: 8px;
       background: var(--5s-crimson);
       border-radius: 50%;
     }
-    .hardcover-meta {
+    .cover-edition-tag {
       text-align: right;
       font-size: 5.6pt;
       font-family: 'JetBrains Mono', monospace;
@@ -200,70 +201,60 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
-    .hardcover-meta strong { color: var(--ink-primary); }
+    .cover-edition-tag strong { color: var(--ink-primary); }
 
-    /* Title Block */
-    .hardcover-title-block {
-      margin-top: 4mm;
+    /* Title Architecture */
+    .cover-title-architecture {
+      margin-top: 6mm;
       margin-bottom: 2mm;
       flex-shrink: 0;
     }
-    .hardcover-kicker {
-      font-size: 7pt;
+    .cover-kicker-ribbon {
+      font-size: 7.2pt;
       font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--5s-crimson);
       font-family: 'Montserrat', sans-serif;
-      margin-bottom: 2mm;
+      margin-bottom: 2.5mm;
       display: flex;
       align-items: center;
       gap: 6px;
     }
-    .hardcover-h1 {
+    .cover-monument-title {
       font-size: 32pt;
       font-weight: 900;
       line-height: 0.98;
-      letter-spacing: -0.045em;
+      letter-spacing: -0.04em;
       color: var(--ink-primary);
-      margin-bottom: 2.5mm;
+      margin-bottom: 3mm;
     }
-    .hardcover-h1 span {
+    .cover-monument-title span {
       color: var(--5s-crimson);
     }
-    .hardcover-subhead {
+    .cover-subtitle-desc {
       font-size: 11pt;
       font-weight: 700;
       color: var(--5s-blue);
-      line-height: 1.35;
-      margin-bottom: 3mm;
+      line-height: 1.4;
       font-family: 'Montserrat', sans-serif;
       letter-spacing: -0.02em;
     }
-    .hardcover-lead {
-      font-size: 8pt;
-      color: var(--ink-secondary);
-      line-height: 1.5;
-      border-left: 3px solid var(--5s-crimson);
-      padding-left: 3.5mm;
-      max-width: 180mm;
-    }
 
-    /* Majestic 3D Artwork Stage (168mm) - ZERO BOX BORDER, BLENDS WITH CANVAS */
-    .hardcover-artwork-stage {
-      height: 168mm;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      background: white;
-      box-shadow: var(--shadow-float);
-      border: 1px solid var(--paper-border);
+    /* Expansive 3D Monumental Vector Art Stage (182mm) - Pure Paper Float */
+    .cover-monument-stage, .cover-image-stage {
+      height: 182mm;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
       position: relative;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .hardcover-artwork-stage img {
+    .cover-monument-stage img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -271,16 +262,16 @@
     }
 
     /* Authoritative Hardcover Seal Footer (14mm) */
-    .hardcover-footer-seal {
+    .cover-seal-footer {
       height: 14mm;
       border-top: 2px solid var(--5s-crimson);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding-top: 2.5mm;
+      padding-top: 3mm;
       flex-shrink: 0;
     }
-    .seal-hallmarks {
+    .seal-hallmarks-strip {
       display: flex;
       justify-content: space-between;
       font-size: 5.8pt;
@@ -290,20 +281,20 @@
       text-transform: uppercase;
       color: var(--ink-primary);
     }
-    .seal-hallmarks span.crimson { color: var(--5s-crimson); }
-    .seal-publisher {
+    .seal-hallmarks-strip span.crimson { color: var(--5s-crimson); }
+    .seal-corporate-line {
       display: flex;
       justify-content: space-between;
       font-size: 5.6pt;
       color: var(--ink-muted);
       font-family: 'JetBrains Mono', monospace;
     }
-    .seal-publisher strong { color: var(--ink-primary); font-family: 'Montserrat', sans-serif; }
+    .seal-corporate-line strong { color: var(--ink-primary); font-family: 'Montserrat', sans-serif; }
 
     /* ==========================================================================
        PAGES 2-3: DUAL-TONE SPREAD TRANG ĐÔI (420 x 297mm)
        ========================================================================== */
-    .spread-dual-container {
+    .spread-dual-container, .spread-container, .spread-unboxed-wrap {
       height: 297mm;
       display: flex;
       flex-direction: column;
@@ -621,7 +612,7 @@
     /* ==========================================================================
        PAGE 4: BÌA SAU (EXECUTIVE CLOSING & CONTACT - A4: 210 x 297mm)
        ========================================================================== */
-    .back-closing-page {
+    .back-closing-page, .back-editorial, .back-unboxed-wrap {
       height: 297mm;
       padding: 8mm 11mm 7mm 11mm;
       display: flex;
@@ -949,58 +940,54 @@
 <body>
 
   <!-- ==========================================================================
-       PAGE 1: BÌA TRƯỚC (ARCHIVAL SWISS HARDCOVER MONOGRAPH - A4: 210 x 297mm)
+       PAGE 1: BÌA TRƯỚC (ARCHITECTURAL HARDCOVER MONOGRAPH)
        ========================================================================== -->
   <div class="page-a4">
     <div class="cover-hardcover-monograph cover-editorial cover-unboxed">
       
-      <!-- Masthead -->
-      <div class="hardcover-masthead">
-        <div class="hardcover-logo">
+      <!-- Masthead Band -->
+      <div class="cover-masthead-band">
+        <a href="#" class="cover-brandmark">
           <img src="../assets/logo.png" alt="5S Service Logo" />
-          <span>5S CLOUD</span><span class="hardcover-logo-dot"></span>
-        </div>
-        <div class="hardcover-meta">
+          <span>5S CLOUD</span><span class="brand-accent-dot"></span>
+        </a>
+        <div class="cover-edition-tag">
           <div>CHUYÊN KHẢO KỸ THUẬT MÔI TRƯỜNG // NĂM 2026</div>
           <div>ẤN BẢN BÌA CỨNG DÀNH CHO <strong>C-LEVEL & HỘI ĐỒNG QUẢN TRỊ</strong></div>
         </div>
       </div>
 
-      <!-- Title Block -->
-      <div class="hardcover-title-block">
-        <div class="hardcover-kicker">
+      <!-- Title Architecture -->
+      <div class="cover-title-architecture">
+        <div class="cover-kicker-ribbon">
           <svg class="svg-icon sm" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           BÁO CÁO CHIẾN LƯỢC QUẢN TRỊ PHÁT THẢI CÔNG NGHIỆP & AI BUỒNG ĐỐT
         </div>
 
-        <h1 class="hardcover-h1">
+        <h1 class="cover-monument-title">
           5S CLOUD – <span>QUẢN TRỊ DỮ LIỆU</span><br />
           MÔI TRƯỜNG TOÀN DIỆN
         </h1>
 
-        <div class="hardcover-subhead">
-          Nền tảng IoT quan trắc tự động liên tục & Trợ lý AI chẩn đoán buồng đốt lò hơi
-        </div>
-
-        <div class="hardcover-lead">
-          Số hoá toàn diện hệ thống quan trắc Khí thải (CEMS), Nước thải và Không khí xung quanh. Tự động kết nối 63 Sở TN&MT, tối ưu hoá buồng đốt lò hơi bằng AI và triệt tiêu nguy cơ xử phạt tới 2 tỷ VNĐ theo Nghị định 45/2022/NĐ-CP.
+        <div class="cover-subtitle-desc">
+          Nền tảng IoT quan trắc phát thải tự động liên tục & Trợ lý AI tối ưu hoá buồng đốt lò hơi
         </div>
       </div>
 
-      <!-- Majestic 3D Artwork Stage (168mm) - ZERO BOX BORDER, NATURAL CANVAS BLEND -->
-      <div class="hardcover-artwork-stage cover-image-stage">
-        <img src="../assets/banana-cover-hero-2k.png" alt="Mô hình 3D Digital Twin trạm CEMS 5S Cloud" />
+      <!-- Expansive 3D Monumental Vector Art Stage (182mm) - Pure Paper Float -->
+      <div class="cover-monument-stage cover-image-stage">
+        <img src="../assets/cover-monument-3d.svg" alt="Mô hình 3D Digital Twin Stack & Lưới tọa độ CAD 5S Cloud" />
       </div>
 
       <!-- Authoritative Hardcover Seal Footer (14mm) -->
-      <div class="hardcover-footer-seal">
-        <div class="seal-hallmarks">
+      <div class="cover-seal-footer">
+        <div class="seal-hallmarks-strip">
           <span>✓ 100% ĐẠT CHUẨN NĐ 08/2022/NĐ-CP</span>
           <span class="crimson">✓ THÔNG TƯ 10/2021/TT-BTNMT</span>
           <span>✓ AN TOÀN THÔNG TIN ISO 27001</span>
           <span class="crimson">✓ SLA ĐƯỜNG TRUYỀN 99.9%</span>
         </div>
-        <div class="seal-publisher">
+        <div class="seal-corporate-line">
           <span>XUẤT BẢN BỞI: <strong>CÔNG TY CỔ PHẦN DỊCH VỤ TỰ ĐỘNG HOÁ 5S</strong> (HÀ NỘI • BÌNH DƯƠNG • TP.HCM)</span>
           <span>PORTAL: <strong>www.5s-service.com</strong></span>
         </div>
@@ -1071,7 +1058,7 @@
             </p>
           </div>
 
-          <!-- Real Telemetry Table (98mm) -->
+          <!-- Real Telemetry Table in Left Column -->
           <div class="telemetry-preview-box">
             <div>
               <div class="section-kicker" style="color: var(--5s-blue);">DỮ LIỆU ĐO ĐẠC HIỆN TRƯỜNG</div>
@@ -1159,7 +1146,7 @@
               <!-- Service 2 -->
               <div class="service-card-mini featured">
                 <div class="service-icon-box">
-                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                 </div>
                 <h3>Trợ lý AI buồng đốt lò hơi</h3>
                 <p>Phát hiện sớm cháy không hoàn toàn, cân bằng van gió trước 15p, tiết kiệm 5–8% than/gas.</p>
@@ -1267,7 +1254,7 @@
       <div class="back-header">
         <div class="back-logo">
           <img src="../assets/logo.png" alt="5S Service Logo" />
-          <span>5S SERVICE</span><span class="hardcover-logo-dot"></span>
+          <span>5S SERVICE</span><span class="brand-accent-dot"></span>
         </div>
         <div class="back-title">
           HỆ SINH THÁI QUAN TRẮC MÔI TRƯỜNG <span>5S CLOUD</span>
@@ -1507,7 +1494,7 @@
                 <rect x="14" y="3" width="2" height="2" fill="#0A0A0A"/>
                 <rect x="17" y="4" width="2" height="2" fill="#C8102E"/>
                 <rect x="14" y="7" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="3" y="14" width="2" height="2" fill="#C8102E"/>
+                <rect x="3" y="14" width="2" height="2" fill="#E63946"/>
                 <rect x="13" y="13" width="7" height="7" fill="#C8102E" rx="1"/>
                 <rect x="15" y="15" width="3" height="3" fill="#0A0A0A"/>
                 <rect x="23" y="14" width="2" height="2" fill="#0A0A0A"/>

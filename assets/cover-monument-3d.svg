@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" width="100%" height="100%">
+  <defs>
+    <!-- Background Environmental Aura -->
+    <radialGradient id="monographAura" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#0066CC" stop-opacity="0.16"/>
+      <stop offset="35%" stop-color="#00D4B2" stop-opacity="0.10"/>
+      <stop offset="65%" stop-color="#E63946" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Metal Stack Body Gradient (Raytraced Shading) -->
+    <linearGradient id="stackBodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#CBD5E1"/>
+      <stop offset="20%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#E2E8F0"/>
+      <stop offset="80%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+
+    <!-- Glowing Volumetric Beams -->
+    <linearGradient id="auroraPlume" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0066CC" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#00D4B2" stop-opacity="0.95"/>
+      <stop offset="75%" stop-color="#059669" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="crimsonLaser" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E63946" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#FF6B6B" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Holographic Cyan Beam -->
+    <linearGradient id="cyanGlowLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0066CC" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#00D4B2" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0066CC" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="laserGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="monographShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0B132B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- 1. Ambient Lighting Aura -->
+  <circle cx="500" cy="450" r="480" fill="url(#monographAura)"/>
+
+  <!-- 2. Polar CAD Coordinate System Floor -->
+  <g stroke="#0066CC" stroke-opacity="0.14" stroke-width="1.2" fill="none">
+    <ellipse cx="500" cy="620" rx="460" ry="160"/>
+    <ellipse cx="500" cy="620" rx="380" ry="130" stroke-dasharray="8 6"/>
+    <ellipse cx="500" cy="620" rx="290" ry="100"/>
+    <ellipse cx="500" cy="620" rx="190" ry="65" stroke-dasharray="5 4"/>
+    <ellipse cx="500" cy="620" rx="90" ry="30"/>
+
+    <line x1="40" y1="620" x2="960" y2="620"/>
+    <line x1="500" y1="460" x2="500" y2="780"/>
+    <line x1="160" y1="510" x2="840" y2="730"/>
+    <line x1="160" y1="730" x2="840" y2="510"/>
+
+    <!-- Micro Coordinate Ticks -->
+    <circle cx="500" cy="620" r="3" fill="#0066CC" fill-opacity="0.5"/>
+    <circle cx="210" cy="620" r="2.5" fill="#0066CC" fill-opacity="0.4"/>
+    <circle cx="790" cy="620" r="2.5" fill="#0066CC" fill-opacity="0.4"/>
+  </g>
+
+  <!-- 3. Dynamic 3D Spline Waves (Airflow & Telemetry Stream) -->
+  <path d="M 60 640 C 220 700, 320 540, 500 560 S 760 480, 940 560" fill="none" stroke="url(#auroraPlume)" stroke-width="5" stroke-linecap="round" filter="url(#laserGlow)" opacity="0.9"/>
+  <path d="M 100 520 C 260 480, 380 620, 520 520 S 780 640, 920 600" fill="none" stroke="url(#crimsonLaser)" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- 4. MONUMENTAL 3D DIGITAL TWIN INDUSTRIAL STACK -->
+  <g id="towerAssembly" transform="translate(420, 240)" filter="url(#monographShadow)">
+    
+    <!-- Heavy Foundation Pedestal -->
+    <ellipse cx="80" cy="380" rx="130" ry="42" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="2"/>
+    <ellipse cx="80" cy="372" rx="110" ry="35" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+    <ellipse cx="80" cy="364" rx="90" ry="28" fill="#FFFFFF" stroke="#0066CC" stroke-width="1.2"/>
+
+    <!-- Tapered Architectural Stack Body -->
+    <path d="M 32 364 L 52 40 L 108 40 L 128 364 Z" fill="url(#stackBodyGrad)" stroke="#CBD5E1" stroke-width="2"/>
+
+    <!-- Stack Top Optical Emitter Rim -->
+    <ellipse cx="80" cy="40" rx="30" ry="10" fill="#FFFFFF" stroke="#0066CC" stroke-width="2.5"/>
+    <ellipse cx="80" cy="40" rx="20" ry="6.5" fill="#0B132B"/>
+
+    <!-- 4 Concentric Holographic Telemetry Rings -->
+    <!-- Ring 1: Dust / PM2.5 -->
+    <ellipse cx="80" cy="300" rx="66" ry="22" fill="none" stroke="#00D4B2" stroke-width="3.2" stroke-dasharray="10 4" filter="url(#laserGlow)"/>
+    <!-- Ring 2: Carbon Monoxide (CO) -->
+    <ellipse cx="80" cy="220" rx="54" ry="18" fill="none" stroke="#0066CC" stroke-width="2.8" stroke-dasharray="7 4"/>
+    <!-- Ring 3: Nitrogen Oxides (NOx) - Crimson Critical Alert Ring -->
+    <ellipse cx="80" cy="140" rx="42" ry="14" fill="none" stroke="#E63946" stroke-width="3" stroke-dasharray="5 3" filter="url(#laserGlow)"/>
+    <!-- Ring 4: Sulfur Dioxide (SO2) -->
+    <ellipse cx="80" cy="75" rx="34" ry="11" fill="none" stroke="#00D4B2" stroke-width="2.2"/>
+
+    <!-- Purified Air Plume (Volumetric Double Helix Emission) -->
+    <path d="M 80 40 Q 40 -60 110 -160 T 60 -260" fill="none" stroke="url(#auroraPlume)" stroke-width="9" stroke-linecap="round" filter="url(#laserGlow)" opacity="0.95"/>
+    <path d="M 76 40 Q 110 -50 60 -150 T 95 -250" fill="none" stroke="#00D4B2" stroke-width="4.5" stroke-linecap="round" opacity="0.95"/>
+    <path d="M 84 40 Q 60 -80 130 -170" fill="none" stroke="#E63946" stroke-width="2" stroke-dasharray="4 3" opacity="0.8"/>
+  </g>
+
+  <!-- 5. Floating Architectural Dimension Markings & Calibration Lines -->
+  <!-- Left Dimension Line -->
+  <g stroke="#64748B" stroke-width="1" opacity="0.6">
+    <line x1="320" y1="280" x2="360" y2="280"/>
+    <line x1="340" y1="280" x2="340" y2="600"/>
+    <line x1="320" y1="600" x2="360" y2="600"/>
+    <text x="330" y="445" font-family="'JetBrains Mono', monospace" font-size="10" fill="#0B132B" font-weight="700" transform="rotate(-90, 330, 445)" letter-spacing="1">H = 45.0M CEMS TOWER</text>
+  </g>
+
+  <!-- Right Elevation Gauge -->
+  <g stroke="#0066CC" stroke-width="1" opacity="0.6">
+    <line x1="640" y1="380" x2="680" y2="380"/>
+    <line x1="660" y1="380" x2="660" y2="600"/>
+    <line x1="640" y1="600" x2="680" y2="600"/>
+    <text x="675" y="495" font-family="'JetBrains Mono', monospace" font-size="10" fill="#0066CC" font-weight="700" letter-spacing="0.5">8 SENSORS FUSED</text>
+  </g>
+
+  <!-- Spatial Holographic Data Nodes -->
+  <g filter="url(#softGlow)">
+    <circle cx="500" cy="540" r="8" fill="#0066CC"/>
+    <circle cx="500" cy="540" r="4" fill="#FFFFFF"/>
+
+    <circle cx="340" cy="460" r="6" fill="#00D4B2"/>
+    <circle cx="340" cy="460" r="3" fill="#FFFFFF"/>
+
+    <circle cx="660" cy="440" r="6" fill="#E63946"/>
+    <circle cx="660" cy="440" r="3" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Fiber Optic Interconnect Vector Lines -->
+  <line x1="340" y1="460" x2="470" y2="530" stroke="#00D4B2" stroke-width="1.8" stroke-dasharray="5 3" opacity="0.8"/>
+  <line x1="660" y1="440" x2="530" y2="530" stroke="#E63946" stroke-width="1.8" stroke-dasharray="5 3" opacity="0.8"/>
+</svg>
