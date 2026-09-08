@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5S Cloud – Báo Cáo Giải Pháp Quan Trắc Môi Trường & AI Buồng Đốt Lò Hơi (Executive Edition)</title>
+  <title>5S Cloud – Báo Cáo Chuyên Khảo Giải Pháp Quan Trắc Môi Trường & AI Buồng Đốt Lò Hơi</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,27 +11,52 @@
 
   <style>
     :root {
-      --primary: #0B132B;
-      --secondary: #111C38;
-      --accent: #E63946;
-      --accent-light: #FF6B6B;
-      --accent-cyan: #00D4B2;
-      --accent-blue: #0066CC;
-      --accent-green: #059669;
-      --light: #F8FAFC;
-      --light-gray: #E2E8F0;
-      --medium-gray: #94A3B8;
-      --dark-gray: #475569;
-      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      --shadow-sm: 0 1px 3px rgba(11, 19, 43, 0.08);
-      --shadow-md: 0 4px 12px rgba(11, 19, 43, 0.10);
-      --shadow-lg: 0 10px 25px rgba(11, 19, 43, 0.12);
-      --shadow-xl: 0 20px 50px rgba(11, 19, 43, 0.16);
+      /* Brand Identity: 5S Precision Palette */
+      --5s-crimson: #C8102E;
+      --5s-crimson-dark: #990B22;
+      --5s-crimson-subtle: #FFF0F2;
+      --5s-crimson-border: #FFCCD3;
+
+      --5s-navy: #0B132B;
+      --5s-navy-surface: #101B33;
+      --5s-navy-card: #15223E;
+      --5s-navy-dark: #050811;
+
+      --5s-blue: #0066CC;
+      --5s-blue-subtle: #F0F7FF;
+      --5s-blue-border: #BAE0FF;
+
+      --5s-cyan: #00A389;
+      --5s-cyan-subtle: #E6FAF7;
+
+      --5s-green: #059669;
+      --5s-green-subtle: #ECFDF5;
+
+      --5s-amber: #D97706;
+      --5s-amber-subtle: #FFFBEB;
+
+      /* Environmental Pure Paper Canvas */
+      --paper-pure: #FFFFFF;
+      --paper-canvas: #FAFDFE;
+      --paper-subtle: #F8FAFC;
+      --paper-line: #E2E8F0;
+      --paper-border: #E2E8F0;
+
+      --ink-primary: #0B132B;
+      --ink-secondary: #334155;
+      --ink-muted: #64748B;
+      --ink-tertiary: #94A3B8;
+
       --radius-sm: 4px;
       --radius-md: 8px;
       --radius-lg: 12px;
       --radius-xl: 16px;
       --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(11, 19, 43, 0.06);
+      --shadow-md: 0 4px 12px rgba(11, 19, 43, 0.08);
+      --shadow-lg: 0 10px 25px rgba(11, 19, 43, 0.12);
+      --shadow-float: 0 16px 36px -4px rgba(11, 19, 43, 0.12);
     }
 
     * {
@@ -43,9 +68,8 @@
     }
 
     body {
-      font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--primary);
-      line-height: 1.55;
+      font-family: 'Be Vietnam Pro', -apple-system, sans-serif;
+      color: var(--ink-primary);
       background-color: #334155;
       display: flex;
       flex-direction: column;
@@ -59,10 +83,10 @@
     .page-a4 {
       width: 210mm;
       height: 297mm;
-      background: var(--light);
+      background: var(--paper-pure);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
       page-break-after: always;
       display: flex;
       flex-direction: column;
@@ -72,10 +96,10 @@
     .spread-a3 {
       width: 420mm;
       height: 297mm;
-      background: #FFFFFF;
+      background: #FAFCFE;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
       page-break-after: always;
       display: flex;
       flex-direction: column;
@@ -112,13 +136,13 @@
       }
     }
 
-    /* Typography */
+    /* Typography Classes */
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.03em;
-      color: var(--primary);
+      color: var(--ink-primary);
     }
 
     /* SVG Helpers */
@@ -142,7 +166,7 @@
       align-items: center;
       justify-content: center;
       padding: 10px 20px;
-      background: var(--primary);
+      background: var(--ink-primary);
       color: white;
       border-radius: var(--radius-full);
       font-family: 'Montserrat', sans-serif;
@@ -154,15 +178,26 @@
     }
 
     .btn-accent {
-      background: linear-gradient(45deg, var(--accent), var(--accent-light));
+      background: linear-gradient(45deg, var(--5s-crimson), #FF5A6B);
       color: white;
-      box-shadow: 0 4px 15px rgba(230, 57, 70, 0.35);
+      box-shadow: 0 4px 15px rgba(200, 16, 46, 0.35);
     }
 
     .btn-outline {
       background: transparent;
-      border: 1.5px solid var(--primary);
-      color: var(--primary);
+      border: 1.5px solid var(--ink-primary);
+      color: var(--ink-primary);
+    }
+
+    .section-kicker {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 6.2pt;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--5s-crimson);
+      margin-bottom: 2mm;
+      display: inline-block;
     }
 
     /* ==========================================================================
@@ -184,7 +219,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--primary);
+      border-bottom: 2px solid var(--ink-primary);
       padding-bottom: 2.5mm;
       flex-shrink: 0;
     }
@@ -195,7 +230,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 1.15rem;
       font-weight: 900;
-      color: var(--primary);
+      color: var(--ink-primary);
       text-decoration: none;
     }
     .cover-logo img {
@@ -207,7 +242,7 @@
       display: inline-block;
       width: 7px;
       height: 7px;
-      background: var(--accent);
+      background: var(--5s-crimson);
       border-radius: 50%;
       margin-left: 2px;
     }
@@ -216,11 +251,11 @@
       font-size: 5.5pt;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
-      color: var(--dark-gray);
+      color: var(--ink-muted);
       line-height: 1.35;
       text-transform: uppercase;
     }
-    .cover-meta strong { color: var(--primary); }
+    .cover-meta strong { color: var(--ink-primary); }
 
     /* Cover Hero Typography */
     .cover-hero-content {
@@ -235,8 +270,8 @@
       font-weight: 800;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(230, 57, 70, 0.08);
+      color: var(--5s-crimson);
+      background: rgba(200, 16, 46, 0.08);
       padding: 4px 10px;
       border-radius: var(--radius-full);
       margin-bottom: 2mm;
@@ -246,15 +281,15 @@
       font-weight: 900;
       line-height: 1.05;
       letter-spacing: -0.04em;
-      color: var(--primary);
+      color: var(--ink-primary);
       margin-bottom: 2mm;
     }
     .cover-headline span {
-      color: var(--accent);
+      color: var(--5s-crimson);
     }
     .cover-lead {
       font-size: 7.6pt;
-      color: var(--dark-gray);
+      color: var(--ink-secondary);
       line-height: 1.45;
       margin-bottom: 2.5mm;
       max-width: 184mm;
@@ -275,8 +310,8 @@
     }
     .cover-metric-cell {
       background: white;
-      border: 1px solid var(--light-gray);
-      border-top: 2.5px solid var(--accent);
+      border: 1px solid var(--paper-line);
+      border-top: 2.5px solid var(--5s-crimson);
       border-radius: var(--radius-md);
       padding: 2.2mm 2.5mm;
       text-align: center;
@@ -288,12 +323,12 @@
       font-weight: 900;
       line-height: 1;
       margin-bottom: 2px;
-      color: var(--primary);
+      color: var(--ink-primary);
     }
     .cover-metric-label {
       font-size: 5pt;
       font-weight: 700;
-      color: var(--dark-gray);
+      color: var(--ink-muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
@@ -305,7 +340,7 @@
       overflow: hidden;
       background: white;
       box-shadow: var(--shadow-xl);
-      border: 1px solid var(--light-gray);
+      border: 1px solid var(--paper-line);
       position: relative;
       flex-shrink: 0;
       display: flex;
@@ -331,41 +366,41 @@
       letter-spacing: 0.06em;
       padding: 4px 10px;
       border-radius: var(--radius-sm);
-      border-left: 3px solid var(--accent);
+      border-left: 3px solid var(--5s-crimson);
     }
 
     /* Footer Band */
     .cover-footer {
       height: 11mm;
-      border-top: 1.5px solid var(--primary);
+      border-top: 1.5px solid var(--ink-primary);
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 6pt;
-      color: var(--dark-gray);
+      color: var(--ink-muted);
       flex-shrink: 0;
     }
-    .cover-footer strong { color: var(--primary); font-weight: 700; }
+    .cover-footer strong { color: var(--ink-primary); font-weight: 700; }
     .cover-compliance-tag {
-      color: var(--accent);
+      color: var(--5s-crimson);
       font-weight: 800;
     }
 
     /* ==========================================================================
-       PAGES 2-3: SPREAD TRANG ĐÔI (420 x 297mm)
+       PAGES 2-3: SPREAD TRANG ĐÔI LÀM ĐẦY ĐẶC SẮC (420 x 297mm)
        ========================================================================== */
     .spread-container, .spread-dual-container, .spread-unboxed-wrap {
       height: 297mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 6mm 10mm 5.5mm 10mm;
+      padding: 5mm 10mm 5mm 10mm;
       position: relative;
     }
 
-    /* 420mm Spread Header (14mm) */
+    /* 420mm Spread Header (13mm) */
     .spread-masthead {
-      height: 14mm;
+      height: 13mm;
       background: white;
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
@@ -374,33 +409,81 @@
       justify-content: space-between;
       align-items: center;
       flex-shrink: 0;
-      border-left: 4px solid var(--accent);
+      border-left: 4px solid var(--5s-crimson);
     }
     .spread-title {
-      font-size: 11.5pt;
+      font-size: 11pt;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--ink-primary);
       letter-spacing: -0.02em;
     }
-    .spread-title span { color: var(--accent); }
+    .spread-title span { color: var(--5s-crimson); }
     .spread-meta-badges {
       display: flex;
       gap: 6px;
     }
     .spread-badge {
-      font-size: 5.5pt;
+      font-size: 5.4pt;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
-      padding: 3px 8px;
+      padding: 2.5px 7px;
       border-radius: var(--radius-sm);
-      background: var(--light-gray);
-      color: var(--primary);
+      background: var(--paper-subtle);
+      color: var(--ink-primary);
+      border: 1px solid var(--paper-line);
     }
-    .spread-badge.red { background: #FEE2E2; color: var(--accent); }
+    .spread-badge.red { background: #FFF0F2; color: var(--5s-crimson); border-color: #FFCCD3; }
 
-    /* 420mm Work Surface (236mm) */
-    .spread-grid {
-      height: 236mm;
+    /* 4-Tier Pipeline Banner (15mm) */
+    .pipeline-strip {
+      height: 15mm;
+      background: white;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: 0 8mm;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      align-items: center;
+      flex-shrink: 0;
+      border-bottom: 2px solid var(--5s-blue);
+    }
+    .pipeline-step {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .step-num {
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      background: var(--ink-primary);
+      color: white;
+      font-size: 6.2pt;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      flex-shrink: 0;
+    }
+    .step-num.crimson { background: var(--5s-crimson); }
+    .step-num.blue { background: var(--5s-blue); }
+    .step-desc h6 {
+      font-size: 5.8pt;
+      font-weight: 800;
+      color: var(--ink-primary);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .step-desc p {
+      font-size: 4.8pt;
+      color: var(--ink-muted);
+      line-height: 1.1;
+      margin-bottom: 0;
+    }
+    /* 420mm Work Surface (224mm) */
+    .spread-main-grid {
+      height: 224mm;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14mm;
@@ -414,227 +497,353 @@
       height: 100%;
     }
 
-    /* Left Side: About & Real Telemetry */
-    .about-card-wrap {
+    /* ================= LEFT WING: THIẾT BỊ HIỆN TRƯỜNG & DỮ LIỆU CEMS ================= */
+    
+    /* Section A: Về 5S & Lưới 2x2 Stats (68mm) */
+    .about-rich-card {
       background: white;
-      border-radius: var(--radius-lg);
-      padding: 4mm 5mm;
+      border-radius: var(--radius-md);
+      padding: 3mm 4mm;
+      border: 1px solid var(--paper-line);
       box-shadow: var(--shadow-sm);
-      border: 1px solid var(--light-gray);
-      height: 132mm;
+      height: 68mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .section-kicker {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 6.2pt;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
+    .about-rich-card h2 {
+      font-size: 10pt;
+      margin-bottom: 1mm;
+      color: var(--ink-primary);
+    }
+    .about-rich-desc {
+      font-size: 5.8pt;
+      color: var(--ink-secondary);
+      line-height: 1.35;
       margin-bottom: 1.5mm;
     }
-    .about-card-wrap h2 {
-      font-size: 13pt;
-      margin-bottom: 1.5mm;
-    }
-    .about-desc {
-      font-size: 6.4pt;
-      color: var(--dark-gray);
-      line-height: 1.4;
-      margin-bottom: 2mm;
-    }
-
-    /* 2x2 Stats Grid */
-    .stats-2x2-grid {
+    .stats-2x2-rich {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin-bottom: 2.5mm;
+      gap: 4px;
+      margin-bottom: 1.5mm;
     }
-    .stat-item-box {
-      background: var(--light);
-      padding: 2.5mm 3.5mm;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--light-gray);
-      border-left: 3px solid var(--accent);
+    .stat-box-rich {
+      background: var(--paper-subtle);
+      padding: 2mm 3mm;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--paper-line);
+      border-left: 2.5px solid var(--5s-crimson);
     }
-    .stat-number-val {
+    .stat-val-rich {
       font-family: 'Montserrat', sans-serif;
-      font-size: 14pt;
+      font-size: 11.5pt;
       font-weight: 900;
-      color: var(--accent);
+      color: var(--5s-crimson);
       line-height: 1;
-      margin-bottom: 2px;
-    }
-    .stat-label-text {
-      font-size: 5.4pt;
-      font-weight: 700;
-      color: var(--dark-gray);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    /* Real Telemetry Table in Left Column */
-    .telemetry-preview-box {
-      background: white;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--light-gray);
-      padding: 3mm 4mm;
-      height: 98mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-sm);
-    }
-    .table-clean {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 5.6pt;
-    }
-    .table-clean th {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      color: var(--primary);
-      padding: 2px 4px;
-      border-bottom: 1.5px solid var(--primary);
-      text-align: left;
-    }
-    .table-clean td {
-      padding: 2px 4px;
-      border-bottom: 1px solid var(--light-gray);
-      color: var(--dark-gray);
-    }
-    .status-ok { color: #059669; font-weight: 700; }
-
-    /* Right Side: Dark Services & Portfolio */
-    .services-dark-wrap {
-      background: var(--secondary);
-      border-radius: var(--radius-lg);
-      padding: 4mm 5mm;
-      height: 120mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: white;
-      box-shadow: var(--shadow-md);
-    }
-    .services-dark-wrap h2 {
-      font-size: 11pt;
-      color: white;
       margin-bottom: 1px;
     }
-    .services-dark-wrap p.sub {
-      font-size: 5.8pt;
-      color: var(--medium-gray);
-      margin-bottom: 2mm;
+    .stat-lbl-rich {
+      font-size: 5pt;
+      font-weight: 700;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
-
-    .services-3col {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
-    }
-    .service-card-mini {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius-md);
-      padding: 2.5mm 3mm;
+    .brands-strip {
+      font-size: 5.2pt;
+      color: var(--ink-muted);
+      border-top: 1px dashed var(--paper-line);
+      padding-top: 1.5px;
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
     }
-    .service-card-mini.featured {
-      border-color: rgba(230, 57, 70, 0.45);
-      background: rgba(230, 57, 70, 0.06);
-    }
-    .service-icon-box {
-      width: 26px; height: 26px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      margin-bottom: 2mm;
-    }
-    .service-card-mini h3 {
-      font-size: 6.8pt;
-      color: white;
-      margin-bottom: 1.5px;
-      line-height: 1.2;
-    }
-    .service-card-mini p {
-      font-size: 5.3pt;
-      color: var(--medium-gray);
-      line-height: 1.35;
-      margin-bottom: 0;
-    }
+    .brands-strip strong { color: var(--ink-primary); }
 
-    /* Portfolio Cards (Real Screenshots) */
-    .portfolio-cards-wrap {
+    /* Section B: Bảng Đầy Đủ 8 Chỉ Tiêu Khí Thải CEMS (84mm) */
+    .cems-full-table-card {
       background: white;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--light-gray);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--paper-line);
       padding: 3mm 4mm;
-      height: 110mm;
+      height: 84mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-shadow: var(--shadow-sm);
     }
-    .portfolio-3grid {
+    .table-head-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5mm;
+    }
+    .table-head-row h3 {
+      font-size: 7.6pt;
+      color: var(--ink-primary);
+    }
+    .table-cems-8 {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 5.3pt;
+    }
+    .table-cems-8 th {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: var(--ink-primary);
+      padding: 1.8px 3.5px;
+      border-bottom: 1.5px solid var(--ink-primary);
+      text-align: left;
+      background: #F8FAFC;
+    }
+    .table-cems-8 td {
+      padding: 1.8px 3.5px;
+      border-bottom: 1px solid #EDF2F7;
+      color: var(--ink-secondary);
+    }
+    .val-pass { color: var(--5s-green); font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+
+    /* Section C: Camera ATEX & Datalogger ARM (64mm) */
+    .hardware-rich-split {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 5px;
-      height: 78mm;
+      height: 64mm;
     }
-    .portfolio-item-mini {
-      position: relative;
+    .hw-col-card {
+      background: white;
       border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--light-gray);
-      height: 100%;
+      border: 1px solid var(--paper-line);
+      padding: 2.5mm 3.5mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
     }
-    .portfolio-item-mini img {
+    .hw-col-card h4 {
+      font-size: 6.8pt;
+      color: var(--ink-primary);
+      margin-bottom: 1mm;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .hw-media-box {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      height: 24mm;
+      border: 1px solid var(--paper-line);
+    }
+    .hw-media-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .portfolio-tag-overlay {
+    .hw-specs-list {
+      font-size: 5.1pt;
+      color: var(--ink-secondary);
+      line-height: 1.3;
+    }
+    .hw-specs-list div { margin-bottom: 1px; }
+    .hw-specs-list strong { color: var(--ink-primary); }
+
+    /* ================= RIGHT WING: TRÍ TUỆ NHÂN TẠO & PHÂN TÍCH CHUYÊN SÂU ================= */
+    
+    /* Section D: AI Buồng Đốt & Công Thức Hóa Học (72mm) */
+    .ai-combustion-rich-card {
+      background: var(--5s-navy-surface);
+      border-radius: var(--radius-md);
+      padding: 3mm 4mm;
+      height: 72mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: white;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .ai-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1mm;
+    }
+    .ai-header-flex h3 {
+      font-size: 7.8pt;
+      color: white;
+    }
+    .ai-split-view {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 5px;
+      height: 38mm;
+    }
+    .ai-media-frame {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      height: 100%;
+    }
+    .ai-media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ai-formula-panel {
+      background: rgba(200, 16, 46, 0.18);
+      border: 1px solid rgba(255, 77, 94, 0.45);
+      border-radius: var(--radius-sm);
+      padding: 2.2mm 3mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 5.2pt;
+    }
+    .formula-txt {
+      font-family: 'JetBrains Mono', monospace;
+      color: #FFB3BA;
+      line-height: 1.3;
+    }
+    .formula-txt strong { color: #FFFFFF; }
+    .ai-steps-txt {
+      color: #F1F5F9;
+      line-height: 1.3;
+      border-top: 1px dashed rgba(255, 255, 255, 0.25);
+      padding-top: 2px;
+    }
+    .ai-steps-txt strong { color: #38BDF8; }
+
+    /* Section E: Heatmap 24x7 & Đồ Thị Biến Thiên (68mm) */
+    .analytics-gallery-card {
+      background: white;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--paper-line);
+      padding: 3mm 4mm;
+      height: 68mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+    .gallery-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1mm;
+    }
+    .gallery-head h3 {
+      font-size: 7.6pt;
+      color: var(--ink-primary);
+    }
+    .analytics-split-imgs {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 5px;
+      height: 44mm;
+    }
+    .analytics-img-box {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--paper-line);
+      position: relative;
+    }
+    .analytics-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .img-tag-strip {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      background: linear-gradient(to top, rgba(10, 10, 10, 0.95), transparent);
-      padding: 2mm;
+      background: rgba(11, 19, 43, 0.85);
+      padding: 1.5px 4px;
       color: white;
-    }
-    .portfolio-tag-overlay span {
-      display: inline-block;
-      padding: 1.5px 5px;
-      background: var(--accent);
-      color: white;
-      border-radius: var(--radius-full);
+      font-size: 4.6pt;
       font-family: 'Montserrat', sans-serif;
-      font-size: 4.5pt;
+      font-weight: 700;
+    }
+
+    /* Section F: Bảng So Sánh Trước vs. Sau 2 Cột (76mm) */
+    .roi-comparison-card {
+      background: white;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--paper-line);
+      padding: 3mm 4mm;
+      height: 76mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+    .roi-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1mm;
+    }
+    .roi-head h3 {
+      font-size: 7.6pt;
+      color: var(--ink-primary);
+    }
+    .roi-2col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      height: 54mm;
+    }
+    .roi-col {
+      border-radius: var(--radius-sm);
+      padding: 2mm 3mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .roi-col.before {
+      background: #FEF2F2;
+      border-left: 2.5px solid var(--5s-crimson);
+    }
+    .roi-col.after {
+      background: #ECFDF5;
+      border-left: 2.5px solid var(--5s-green);
+    }
+    .roi-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 5.6pt;
       font-weight: 800;
+      display: flex;
+      justify-content: space-between;
       margin-bottom: 1px;
     }
-    .portfolio-tag-overlay h4 {
-      font-size: 5.4pt;
-      color: white;
-      line-height: 1.2;
+    .roi-col.before .roi-tag { color: var(--5s-crimson); }
+    .roi-col.after .roi-tag { color: var(--5s-green); }
+    .roi-bullets {
+      font-size: 5.2pt;
+      color: var(--ink-secondary);
+      line-height: 1.3;
     }
+    .roi-bullets div { margin-bottom: 1.5px; }
+    .roi-kpi-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 5pt;
+      font-weight: 800;
+      padding: 2px 4px;
+      border-radius: 2px;
+      text-align: center;
+    }
+    .roi-kpi-pill.danger { background: #FEE2E2; color: #991B1B; }
+    .roi-kpi-pill.success { background: #DCFCE7; color: #166534; }
 
     /* Bottom 4-KPI Bar (20mm) */
     .spread-bottom-bar {
       height: 20mm;
       background: white;
       border-radius: var(--radius-md);
-      border: 1px solid var(--light-gray);
+      border: 1px solid var(--paper-line);
       box-shadow: var(--shadow-sm);
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -653,17 +862,17 @@
       font-size: 17pt;
       font-weight: 900;
       line-height: 1;
-      color: var(--accent);
+      color: var(--5s-crimson);
     }
     .kpi-meta-text h6 {
       font-size: 6.2pt;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--ink-primary);
       margin-bottom: 1px;
     }
     .kpi-meta-text p {
       font-size: 5.2pt;
-      color: var(--dark-gray);
+      color: var(--ink-muted);
       line-height: 1.2;
       margin-bottom: 0;
     }
@@ -686,7 +895,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--accent);
+      border-bottom: 2px solid var(--5s-crimson);
       padding-bottom: 2mm;
       flex-shrink: 0;
     }
@@ -697,7 +906,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 1rem;
       font-weight: 900;
-      color: var(--primary);
+      color: var(--ink-primary);
       text-decoration: none;
     }
     .back-logo img {
@@ -707,9 +916,9 @@
     .back-title {
       font-size: 9.5pt;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--ink-primary);
     }
-    .back-title span { color: var(--accent); }
+    .back-title span { color: var(--5s-crimson); }
 
     /* 5-Sphere Constellation Visual & Radar Progress (40mm) */
     .back-ecosystem-box {
@@ -722,7 +931,7 @@
     .constellation-img-frame {
       border-radius: var(--radius-md);
       overflow: hidden;
-      border: 1px solid var(--light-gray);
+      border: 1px solid var(--paper-line);
       background: white;
       height: 100%;
     }
@@ -736,7 +945,7 @@
       background: white;
       border-radius: var(--radius-md);
       padding: 2mm 3.5mm;
-      border: 1px solid var(--light-gray);
+      border: 1px solid var(--paper-line);
       border-left: 3px solid #0066CC;
       display: flex;
       flex-direction: column;
@@ -747,13 +956,13 @@
       align-items: center;
       justify-content: space-between;
       font-size: 5.4pt;
-      color: var(--dark-gray);
+      color: var(--ink-secondary);
     }
-    .radar-row-item strong { color: var(--primary); }
+    .radar-row-item strong { color: var(--ink-primary); }
     .radar-track {
       width: 60px;
       height: 3.5px;
-      background: var(--light-gray);
+      background: var(--paper-line);
       border-radius: var(--radius-full);
       overflow: hidden;
     }
@@ -779,21 +988,21 @@
     .legal-tbl th {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--ink-primary);
       padding: 1.8mm 3mm;
-      border-bottom: 1.5px solid var(--primary);
+      border-bottom: 1.5px solid var(--ink-primary);
       text-align: left;
       background: rgba(255, 255, 255, 0.7);
     }
     .legal-tbl td {
       padding: 1.8mm 3mm;
-      border-bottom: 1px solid var(--light-gray);
-      color: var(--dark-gray);
+      border-bottom: 1px solid var(--paper-line);
+      color: var(--ink-secondary);
       vertical-align: middle;
       background: rgba(255, 255, 255, 0.5);
     }
-    .legal-tbl .law-name { font-weight: 800; color: var(--primary); }
-    .legal-tbl .law-fine { font-weight: 800; color: var(--accent); }
+    .legal-tbl .law-name { font-weight: 800; color: var(--ink-primary); }
+    .legal-tbl .law-fine { font-weight: 800; color: var(--5s-crimson); }
 
     /* 3 Tiers Comparison Table (50mm) */
     .back-tiers-box {
@@ -812,21 +1021,21 @@
     .tiers-tbl th {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--ink-primary);
       padding: 1.8mm 3mm;
       border-bottom: 1.5px solid #0066CC;
       text-align: left;
       background: white;
     }
     .tiers-tbl th.feat {
-      border-bottom-color: var(--accent);
-      color: var(--accent);
+      border-bottom-color: var(--5s-crimson);
+      color: var(--5s-crimson);
       background: #FFF5F6;
     }
     .tiers-tbl td {
       padding: 1.8mm 3mm;
-      border-bottom: 1px solid var(--light-gray);
-      color: var(--dark-gray);
+      border-bottom: 1px solid var(--paper-line);
+      color: var(--ink-secondary);
       vertical-align: middle;
       background: white;
     }
@@ -836,7 +1045,7 @@
       height: 20mm;
       background: white;
       border-radius: var(--radius-md);
-      border: 1px solid var(--light-gray);
+      border: 1px solid var(--paper-line);
       padding: 2mm 4mm;
       display: flex;
       flex-direction: column;
@@ -847,7 +1056,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 5.6pt;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--ink-primary);
       text-transform: uppercase;
       display: flex;
       justify-content: space-between;
@@ -857,9 +1066,9 @@
       flex-wrap: wrap;
       gap: 1.5mm 4mm;
       font-size: 5.5pt;
-      color: var(--dark-gray);
+      color: var(--ink-secondary);
     }
-    .clients-list strong { color: var(--primary); }
+    .clients-list strong { color: var(--ink-primary); }
 
     /* Turnkey Roadmap (25mm) */
     .back-roadmap-box {
@@ -878,7 +1087,7 @@
     .roadmap-card {
       background: white;
       border-radius: var(--radius-sm);
-      border: 1px solid var(--light-gray);
+      border: 1px solid var(--paper-line);
       padding: 1.5mm;
       text-align: center;
       display: flex;
@@ -886,7 +1095,7 @@
       justify-content: space-between;
     }
     .roadmap-card.active {
-      border-top: 2.5px solid var(--accent);
+      border-top: 2.5px solid var(--5s-crimson);
       background: #FFF5F6;
     }
     .roadmap-dot {
@@ -902,29 +1111,29 @@
       margin: 0 auto;
       font-family: 'Montserrat', sans-serif;
     }
-    .roadmap-card.active .roadmap-dot { background: var(--accent); color: white; }
+    .roadmap-card.active .roadmap-dot { background: var(--5s-crimson); color: white; }
     .roadmap-card h6 {
       font-size: 5.5pt;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--ink-primary);
     }
     .roadmap-card p {
       font-size: 4.7pt;
-      color: var(--dark-gray);
+      color: var(--ink-secondary);
       margin-bottom: 0;
     }
 
     /* Contact & Dual QR Card (44mm) */
     .back-contact-card {
       height: 44mm;
-      background: var(--secondary);
+      background: var(--5s-navy);
       border-radius: var(--radius-lg);
       padding: 3mm 5mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: white;
-      border-left: 4px solid var(--accent);
+      border-left: 4px solid var(--5s-crimson);
       flex-shrink: 0;
       box-shadow: var(--shadow-md);
     }
@@ -933,10 +1142,10 @@
       color: white;
       margin-bottom: 1.5px;
     }
-    .contact-text-col h5 span { color: var(--accent); }
+    .contact-text-col h5 span { color: var(--5s-crimson); }
     .contact-text-col p {
       font-size: 5.8pt;
-      color: var(--medium-gray);
+      color: #94A3B8;
       margin-bottom: 2mm;
     }
     .contact-info-grid {
@@ -946,7 +1155,7 @@
       font-size: 5.6pt;
       color: white;
     }
-    .contact-info-grid strong { color: var(--accent-light); }
+    .contact-info-grid strong { color: #38BDF8; }
 
     /* Dual QR Boxes */
     .qr-pair-wrap {
@@ -963,7 +1172,7 @@
       flex-direction: column;
       align-items: center;
       gap: 1px;
-      color: var(--primary);
+      color: var(--ink-primary);
     }
     .qr-svg-holder {
       width: 38px; height: 38px;
@@ -987,12 +1196,12 @@
     /* Footer */
     .back-footer {
       height: 6mm;
-      border-top: 1px solid var(--light-gray);
+      border-top: 1px solid var(--paper-line);
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 5.4pt;
-      color: var(--dark-gray);
+      color: var(--ink-muted);
       flex-shrink: 0;
     }
   </style>
@@ -1042,14 +1251,14 @@
       <!-- 4-Metric Key Numbers Bar -->
       <div class="cover-metrics-grid">
         <div class="cover-metric-cell">
-          <div class="cover-metric-num" style="color: var(--accent);">1,000+</div>
+          <div class="cover-metric-num" style="color: var(--5s-crimson);">1,000+</div>
           <div class="cover-metric-label">Điểm quan trắc</div>
         </div>
         <div class="cover-metric-cell" style="border-top-color: #0066CC;">
           <div class="cover-metric-num" style="color: #0066CC;">600+</div>
           <div class="cover-metric-label">Khách hàng KCN</div>
         </div>
-        <div class="cover-metric-cell" style="border-top-color: var(--primary);">
+        <div class="cover-metric-cell" style="border-top-color: var(--ink-primary);">
           <div class="cover-metric-num">63</div>
           <div class="cover-metric-label">Sở TN&MT</div>
         </div>
@@ -1081,12 +1290,12 @@
   </div>
 
   <!-- ==========================================================================
-       PAGES 2-3: SPREAD TRANG ĐÔI (420 x 297mm)
+       PAGES 2-3: SPREAD TRANG ĐÔI LÀM ĐẦY ĐẶC SẮC (420 x 297mm)
        ========================================================================== -->
   <div class="spread-a3">
     <div class="spread-container spread-dual-container spread-unboxed-wrap">
 
-      <!-- Spread Header (14mm) -->
+      <!-- 420mm Spread Header (13mm) -->
       <div class="spread-masthead">
         <div style="display: flex; align-items: center; gap: 10px;">
           <img src="../assets/logo.png" alt="5S Service Logo" style="height: 24px; width: auto;" />
@@ -1101,188 +1310,301 @@
         </div>
       </div>
 
-      <!-- Spread 2-Column Work Surface (236mm) -->
-      <div class="spread-grid">
+      <!-- 4-Tier Pipeline Ribbon Banner (15mm) -->
+      <div class="pipeline-strip">
+        <div class="pipeline-step">
+          <div class="step-num crimson">1</div>
+          <div class="step-desc">
+            <h6>TẦNG 1: THIẾT BỊ ĐO (CEMS & SENSORS)</h6>
+            <p>Tủ Codel/SICK, sensor pH, COD, TSS, O2 đa hãng</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num blue">2</div>
+          <div class="step-desc">
+            <h6>TẦNG 2: EDGE & TRUYỀN DẪN (DATALOGGER)</h6>
+            <p>ARM Cortex-A53, Camera ATEX kép, máy lấy mẫu tự động</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">3</div>
+          <div class="step-desc">
+            <h6>TẦNG 3: MÁY CHỦ HYBRID (CLOUD SAAS)</h6>
+            <p>Cloud SaaS Enterprise & On-premise bảo mật ISO 27001</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num blue">4</div>
+          <div class="step-desc">
+            <h6>TẦNG 4: AI & KẾT NỐI (APPLICATIONS)</h6>
+            <p>AI buồng đốt, Sổ nhật ký số, kết nối 63 Sở TN&MT</p>
+          </div>
+        </div>
+      </div>
 
-        <!-- ================= LEFT COLUMN: ABOUT 5S & SENSORY TELEMETRY ================= -->
+      <!-- 420mm Main Work Surface (224mm) -->
+      <div class="spread-main-grid">
+
+        <!-- ================= LEFT WING: THIẾT BỊ HIỆN TRƯỜNG & DỮ LIỆU CEMS ================= -->
         <div class="spread-col">
           
-          <!-- About Card with 2x2 Stats (132mm) -->
-          <div class="about-card-wrap">
+          <!-- Section A: Về 5S & Lưới 2x2 Stats (68mm) -->
+          <div class="about-rich-card">
             <div>
-              <div class="section-kicker">TIÊN PHONG CÔNG NGHỆ MÔI TRƯỜNG</div>
-              <h2>Về chúng tôi – 5S Service</h2>
-              <p class="about-desc">
+              <div class="section-kicker">TIÊN PHONG CÔNG NGHỆ QUAN TRẮC MÔI TRƯỜNG</div>
+              <h2>Năng Lực Triển Khai & Vận Hành Chuyên Sâu</h2>
+              <p class="about-rich-desc">
                 Chúng tôi là đội ngũ kỹ sư điều khiển & tự động hoá chuyên sâu, tư vấn và triển khai trọn gói hệ thống quan trắc môi trường tự động liên tục (CEMS khí thải, Nước thải), Datalogger công nghiệp và Trợ lý AI chẩn đoán buồng đốt lò hơi.
               </p>
             </div>
 
             <!-- 2x2 Stats Grid -->
-            <div class="stats-2x2-grid">
-              <div class="stat-item-box">
-                <div class="stat-number-val">1,000+</div>
-                <div class="stat-label-text">Điểm quan trắc kết nối</div>
+            <div class="stats-2x2-rich">
+              <div class="stat-box-rich">
+                <div class="stat-val-rich">1,000+</div>
+                <div class="stat-lbl-rich">Điểm quan trắc kết nối</div>
               </div>
-              <div class="stat-item-box">
-                <div class="stat-number-val">600+</div>
-                <div class="stat-label-text">Khách hàng KCN tin dùng</div>
+              <div class="stat-box-rich">
+                <div class="stat-val-rich">600+</div>
+                <div class="stat-lbl-rich">Khách hàng KCN tin dùng</div>
               </div>
-              <div class="stat-item-box">
-                <div class="stat-number-val">63</div>
-                <div class="stat-label-text">Sở TN&MT thông suốt</div>
+              <div class="stat-box-rich">
+                <div class="stat-val-rich">63</div>
+                <div class="stat-lbl-rich">Sở TN&MT thông suốt</div>
               </div>
-              <div class="stat-item-box">
-                <div class="stat-number-val">99.9%</div>
-                <div class="stat-label-text">SLA đường truyền 24/7</div>
+              <div class="stat-box-rich">
+                <div class="stat-val-rich">99.9%</div>
+                <div class="stat-lbl-rich">SLA đường truyền 24/7</div>
               </div>
             </div>
 
-            <p class="about-desc" style="margin-bottom: 0;">
-              Với hơn 10 năm kinh nghiệm đồng hành cùng các tập đoàn công nghiệp nặng (Nhiệt điện, Xi măng, Thép, Hoá chất), 5S Service cung cấp giải pháp chìa khoá trao tay từ khảo sát tủ CEMS đến hỗ trợ thanh tra.
-            </p>
+            <div class="brands-strip">
+              <span>Tương thích đa hãng: <strong>Codel • SICK • ABB • Siemens • Horiba • Hach • Envea • Xylem</strong></span>
+              <span style="color: var(--5s-blue); font-weight: 700;">10+ NĂM KINH NGHIỆM</span>
+            </div>
           </div>
 
-          <!-- Real Telemetry Table in Left Column -->
-          <div class="telemetry-preview-box">
-            <div>
-              <div class="section-kicker" style="color: #0066CC;">DỮ LIỆU ĐO ĐẠC HIỆN TRƯỜNG</div>
-              <h3 style="font-size: 8pt; margin-bottom: 1.5mm;">Bảng 8 Chỉ Tiêu Khí Thải CEMS (QCVN 19/2009)</h3>
+          <!-- Section B: Bảng Đầy Đủ 8 Chỉ Tiêu Khí Thải CEMS (84mm) -->
+          <div class="cems-full-table-card">
+            <div class="table-head-row">
+              <h3>Bảng 8 Chỉ Tiêu Khí Thải CEMS (QCVN 19/2009/BTNMT)</h3>
+              <span class="spread-badge" style="color: var(--5s-green); border-color: var(--5s-green);">● TRỰC TIẾP TỪ TRẠM</span>
             </div>
 
-            <table class="table-clean">
+            <table class="table-cems-8">
               <thead>
                 <tr>
                   <th>Chỉ Tiêu Đo</th>
                   <th>Giá Trị Đo</th>
                   <th>Ngưỡng QCVN</th>
-                  <th>Phương Pháp Đo</th>
+                  <th>Phương Pháp & Thiết Bị Đo</th>
                   <th>Trạng Thái</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Bụi tổng (PM/Dust)</strong></td>
-                  <td class="status-ok">4.22 mg/Nm³</td>
+                  <td><strong>1. Bụi tổng (PM/Dust)</strong></td>
+                  <td class="val-pass">4.22 mg/Nm³</td>
                   <td>144 mg/Nm³</td>
-                  <td>Tán xạ quang học</td>
-                  <td><span class="status-ok">● ĐẠT CHUẨN</span></td>
+                  <td>Tán xạ quang học (QCVN 19 Cột B Kp=0.8)</td>
+                  <td><span class="val-pass">● ĐẠT CHUẨN</span></td>
                 </tr>
                 <tr>
-                  <td><strong>Carbon monoxide (CO)</strong></td>
-                  <td class="status-ok">0.21 mg/Nm³</td>
+                  <td><strong>2. Carbon monoxide (CO)</strong></td>
+                  <td class="val-pass">0.21 mg/Nm³</td>
                   <td>800 mg/Nm³</td>
-                  <td>Hồng ngoại NDIR</td>
-                  <td><span class="status-ok">● ĐẠT CHUẨN</span></td>
+                  <td>Hấp thụ hồng ngoại NDIR</td>
+                  <td><span class="val-pass">● ĐẠT CHUẨN</span></td>
                 </tr>
                 <tr>
-                  <td><strong>Nitơ oxit (NOx)</strong></td>
-                  <td class="status-ok">1.31 mg/Nm³</td>
+                  <td><strong>3. Nitơ oxit (NOx)</strong></td>
+                  <td class="val-pass">1.31 mg/Nm³</td>
                   <td>680 mg/Nm³</td>
-                  <td>Quang phổ CLD / UV</td>
-                  <td><span class="status-ok">● ĐẠT CHUẨN</span></td>
+                  <td>Quang phổ phát quang CLD / UV</td>
+                  <td><span class="val-pass">● ĐẠT CHUẨN</span></td>
                 </tr>
                 <tr>
-                  <td><strong>Lưu huỳnh dioxit (SO2)</strong></td>
-                  <td class="status-ok">0.00 mg/Nm³</td>
+                  <td><strong>4. Lưu huỳnh dioxit (SO2)</strong></td>
+                  <td class="val-pass">0.00 mg/Nm³</td>
                   <td>400 mg/Nm³</td>
-                  <td>Quang phổ UV-DOAS</td>
-                  <td><span class="status-ok">● ĐẠT CHUẨN</span></td>
+                  <td>Quang phổ tử ngoại UV-DOAS</td>
+                  <td><span class="val-pass">● ĐẠT CHUẨN</span></td>
                 </tr>
                 <tr>
-                  <td><strong>Oxy dư (O2) / Nhiệt độ</strong></td>
-                  <td>20.96 %V / 32.8 °C</td>
-                  <td>Tự do</td>
-                  <td>Zirconia / PT100</td>
-                  <td><span>● BÌNH THƯỜNG</span></td>
+                  <td><strong>5. Oxy dư (O2)</strong></td>
+                  <td>20.96 %V</td>
+                  <td>Tham chiếu</td>
+                  <td>Zirconia Oxide phân tích buồng đốt</td>
+                  <td><span style="color: var(--5s-blue); font-weight: 700;">● TỐI ƯU</span></td>
+                </tr>
+                <tr>
+                  <td><strong>6. Nhiệt độ khí thải (Temp)</strong></td>
+                  <td>32.8 °C</td>
+                  <td>Tiêu chuẩn</td>
+                  <td>Cảm biến nhiệt điện trở PT100</td>
+                  <td><span style="color: var(--5s-blue); font-weight: 700;">● BÌNH THƯỜNG</span></td>
+                </tr>
+                <tr>
+                  <td><strong>7. Áp suất ống khói (Pressure)</strong></td>
+                  <td>101.3 kPa</td>
+                  <td>Tiêu chuẩn</td>
+                  <td>Cảm biến áp suất màng vi sai</td>
+                  <td><span style="color: var(--5s-blue); font-weight: 700;">● BÌNH THƯỜNG</span></td>
+                </tr>
+                <tr>
+                  <td><strong>8. Lưu lượng khí (Gas Flow)</strong></td>
+                  <td class="val-pass">18,450 m³/h</td>
+                  <td>Theo thiết kế</td>
+                  <td>Ống pitot đo lưu lượng liên tục</td>
+                  <td><span class="val-pass">● ĐẠT CHUẨN</span></td>
                 </tr>
               </tbody>
             </table>
 
-            <div style="font-size: 5.4pt; color: var(--dark-gray); border-top: 1px dashed var(--light-gray); padding-top: 1.5px; display: flex; justify-content: space-between;">
-              <span>• Datalogger ARM Cortex-A53 xuất file FTP 5 phút/lần về Sở</span>
-              <span>• Camera ATEX chống nổ truyền luồng kép 24/7</span>
+            <div style="font-size: 5.2pt; color: var(--ink-muted); border-top: 1px dashed var(--paper-line); padding-top: 1.5px; display: flex; justify-content: space-between;">
+              <span>• Dữ liệu đo tức thời chu kỳ 5 phút trích xuất tự động gửi Sở TN&MT</span>
+              <span>• Mã hóa an toàn SHA-256 theo chuẩn Thông tư 10/2021</span>
+            </div>
+          </div>
+
+          <!-- Section C: Camera ATEX & Datalogger ARM (64mm) -->
+          <div class="hardware-rich-split">
+            <!-- Left HW: Camera Feeds -->
+            <div class="hw-col-card">
+              <h4>
+                <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                Camera ATEX Chống Nổ
+              </h4>
+              <div class="hw-media-box">
+                <img src="../assets/camera-feeds.png" alt="Camera góc kép nhà trạm CEMS và ống khói" />
+              </div>
+              <div class="hw-specs-list">
+                <div>• <strong>Góc kép:</strong> Nhà trạm phân tích & Ống khói lò hơi</div>
+                <div>• <strong>Chuẩn ATEX:</strong> Zone 1/21 Ex d IIC T6, SUS316L, IP67</div>
+                <div>• <strong>Quang học:</strong> Zoom 32x, hồng ngoại 150m, Live 30FPS</div>
+              </div>
+            </div>
+
+            <!-- Right HW: Datalogger Specs -->
+            <div class="hw-col-card">
+              <h4>
+                <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                Datalogger ARM Gateway
+              </h4>
+              <div class="hw-specs-list" style="margin-top: 1mm;">
+                <div>• <strong>CPU:</strong> Quad-Core ARM Cortex-A53 công nghiệp</div>
+                <div>• <strong>I/O Ports:</strong> 8x RS485 Modbus, 8x 4-20mA, 4x DI/DO</div>
+                <div>• <strong>Truyền nhận:</strong> Dual SIM 4G/LTE + Ethernet LAN</div>
+                <div>• <strong>Lưu trữ đệm:</strong> Flash 32GB, lưu 30 ngày mất mạng</div>
+                <div>• <strong>Nguồn dự phòng:</strong> Pin UPS 24VDC lưu điện 4-8 giờ</div>
+                <div>• <strong>Tuân thủ:</strong> 100% Thông tư 10/2021/TT-BTNMT</div>
+              </div>
+              <div style="font-size: 5pt; font-family: 'JetBrains Mono', monospace; color: var(--5s-blue); font-weight: 700; border-top: 1px dashed var(--paper-line); padding-top: 1px;">
+                MQTTS • FTP • REST API • CHỐNG SÉT 4KV
+              </div>
             </div>
           </div>
 
         </div>
 
-        <!-- ================= RIGHT COLUMN: SERVICES & PORTFOLIO ================= -->
+        <!-- ================= RIGHT WING: TRÍ TUỆ NHÂN TẠO & PHÂN TÍCH CHUYÊN SÂU ================= -->
         <div class="spread-col">
           
-          <!-- Dark Services Section (120mm) -->
-          <div class="services-dark-wrap">
-            <div>
-              <div class="section-kicker" style="color: var(--accent);">DỊCH VỤ NỔI BẬT</div>
-              <h2>Hệ Sinh Thái Dịch Vụ IoT & AI Buồng Đốt</h2>
-              <p class="sub">Thiết kế chuyên biệt, đáp ứng 100% Nghị định 08/2022 và Thông tư 10/2021.</p>
+          <!-- Section D: AI Buồng Đốt & Công Thức Hóa Học (72mm) -->
+          <div class="ai-combustion-rich-card">
+            <div class="ai-header-flex">
+              <h3>Trợ Lý AI Buồng Đốt & Phản Ứng Khử Khí Thải (5S Neural Engine)</h3>
+              <span class="spread-badge red" style="border: none;">TIẾT KIỆM 5–8% NHIÊN LIỆU</span>
             </div>
 
-            <div class="services-3col">
-              <!-- Service 1 -->
-              <div class="service-card-mini">
-                <div class="service-icon-box">
-                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
-                </div>
-                <h3>Quan trắc khí thải CEMS</h3>
-                <p>Đo 8 thông số, tương thích tủ phân tích Codel, SICK, ABB, Siemens, Horiba, Hach.</p>
+            <div class="ai-split-view">
+              <div class="ai-media-frame">
+                <img src="../assets/ai-diagnosis.png" alt="AI chẩn đoán nguyên nhân sự cố buồng đốt lò hơi" />
               </div>
+              
+              <div class="ai-formula-panel">
+                <div class="formula-txt">
+                  <strong>CƠ CHẾ PHẢN ỨNG HÓA HỌC:</strong><br />
+                  • Cháy không hoàn toàn: λ &lt; 1.0 ➔ 2C + O2 ➔ 2CO ↑<br />
+                  • Khử NOx: 4NO + 4NH3 + O2 ➔ 4N2 + 6H2O<br />
+                  • Khử SO2: SO2 + 2NaOH ➔ Na2SO3 + H2O
+                </div>
+                <div class="ai-steps-txt">
+                  <strong>3 BƯỚC XỬ LÝ TỨC THỜI:</strong><br />
+                  1. Tự động điều chỉnh van gió lò trước 15 phút.<br />
+                  2. Rà soát áp lực bơm dung dịch khử NaOH/Urea.<br />
+                  3. Triệt tiêu vi phạm trước khi Sở ghi nhận 1 giờ.
+                </div>
+              </div>
+            </div>
 
-              <!-- Service 2 -->
-              <div class="service-card-mini featured">
-                <div class="service-icon-box">
-                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                </div>
-                <h3>Trợ lý AI buồng đốt lò hơi</h3>
-                <p>Phát hiện sớm cháy không hoàn toàn, cân bằng van gió trước 15p, tiết kiệm 5–8% than/gas.</p>
-              </div>
-
-              <!-- Service 3 -->
-              <div class="service-card-mini">
-                <div class="service-icon-box">
-                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
-                </div>
-                <h3>Nước thải & lấy mẫu tự động</h3>
-                <p>Giám sát pH, COD, TSS, NH4+. Tự động kích hoạt lấy mẫu niêm phong khi chạm ngưỡng.</p>
-              </div>
+            <div style="font-size: 5.2pt; color: #94A3B8; border-top: 1px dashed rgba(255, 255, 255, 0.15); padding-top: 1.5px; display: flex; justify-content: space-between;">
+              <span>• Chẩn đoán tỷ lệ gió/nhiên liệu thời gian thực</span>
+              <span style="color: #00D4B2; font-weight: 700;">TỐI ƯU HÓA HIỆU SUẤT LÒ 24/7</span>
             </div>
           </div>
 
-          <!-- Portfolio Cards (Real Screenshots) (110mm) -->
-          <div class="portfolio-cards-wrap">
-            <div>
-              <div class="section-kicker">GIAO DIỆN VẬN HÀNH THỰC TẾ</div>
-              <h3 style="font-size: 8pt; margin-bottom: 1.5mm;">Dự Án Tiêu Biểu & Giao Diện 5S Command Portal</h3>
+          <!-- Section E: Heatmap 24x7 & Đồ Thị Biến Thiên (68mm) -->
+          <div class="analytics-gallery-card">
+            <div class="gallery-head">
+              <h3>Phân Tích Đa Trục: Heatmap 24x7 & Xu Hướng Vượt Ngưỡng</h3>
+              <span class="spread-badge" style="color: var(--5s-blue);">THEO CA KÍP SẢN XUẤT</span>
             </div>
 
-            <div class="portfolio-3grid">
-              <div class="portfolio-item-mini">
-                <img src="../assets/sensors-grid.png" alt="CEMS Sensors" />
-                <div class="portfolio-tag-overlay">
-                  <span>CEMS REALTIME</span>
-                  <h4>Bảng 8 Chỉ Tiêu Khí Thải</h4>
-                </div>
+            <div class="analytics-split-imgs">
+              <div class="analytics-img-box">
+                <img src="../assets/heatmap-24x7.png" alt="Bản đồ nhiệt sự cố 24h x 7 ngày" />
+                <div class="img-tag-strip">MA TRẬN NHIỆT MẬT ĐỘ SỰ CỐ 24H × 7 NGÀY</div>
               </div>
-
-              <div class="portfolio-item-mini">
-                <img src="../assets/ai-diagnosis.png" alt="AI Diagnosis" />
-                <div class="portfolio-tag-overlay">
-                  <span>AI BUỒNG ĐỐT</span>
-                  <h4>Chẩn Đoán Lò & Khử NOx</h4>
-                </div>
-              </div>
-
-              <div class="portfolio-item-mini">
-                <img src="../assets/heatmap-24x7.png" alt="Heatmap 24x7" />
-                <div class="portfolio-tag-overlay">
-                  <span>HEATMAP 24X7</span>
-                  <h4>Bản Đồ Nhiệt Theo Ca</h4>
-                </div>
+              <div class="analytics-img-box">
+                <img src="../assets/trends-chart.png" alt="Đồ thị diễn biến chỉ tiêu nồng độ" />
+                <div class="img-tag-strip">BIẾN THIÊN NỒNG ĐỘ THEO GIỜ</div>
               </div>
             </div>
 
-            <div style="font-size: 5.4pt; color: var(--dark-gray); border-top: 1px dashed var(--light-gray); padding-top: 1.5px; display: flex; justify-content: space-between;">
-              <span>• So sánh Trước/Sau: Tiết kiệm 80% thời gian báo cáo</span>
-              <span>• Ngăn chặn mức phạt 2 tỷ VNĐ theo Nghị định 45</span>
+            <div style="font-size: 5.2pt; color: var(--ink-muted); border-top: 1px dashed var(--paper-line); padding-top: 1.5px; display: flex; justify-content: space-between;">
+              <span>• Khoanh vùng khung giờ rủi ro phát sinh ô nhiễm trong tuần</span>
+              <span>• Tích hợp đường giới hạn đỏ nét đứt QCVN 19</span>
+            </div>
+          </div>
+
+          <!-- Section F: Bảng So Sánh Trước vs. Sau 2 Cột (76mm) -->
+          <div class="roi-comparison-card">
+            <div class="roi-head">
+              <h3>Hiệu Quả Định Lượng: Trước & Sau Khi Dùng 5S Cloud AI</h3>
+              <span class="spread-badge red">BẢO VỆ PHÁP LÝ TOÀN DIỆN</span>
+            </div>
+
+            <div class="roi-2col-grid">
+              <!-- Before Column -->
+              <div class="roi-col before">
+                <div class="roi-tag">
+                  <span>⚠ TRƯỚC (THỦ CÔNG / RỦI RO)</span>
+                  <span>RỦI RO CAO</span>
+                </div>
+                <div class="roi-bullets">
+                  <div>• <strong>Ghi chép thủ công:</strong> Tốn 2-3 giờ/ngày lập sổ nhật ký giấy.</div>
+                  <div>• <strong>Nguy cơ phạt 2 tỷ:</strong> Vượt ngưỡng không biết, bị đình chỉ xả thải 3-6 tháng theo NĐ 45.</div>
+                  <div>• <strong>Sensor trôi lệch (Drift):</strong> Không hiệu chuẩn kịp thời, số liệu sai.</div>
+                  <div>• <strong>Mất dữ liệu:</strong> Mất điện không có pin lưu đệm tại trạm.</div>
+                </div>
+                <div class="roi-kpi-pill danger">CHI PHÍ PHẠT TỐI ĐA: 2 TỶ VNĐ</div>
+              </div>
+
+              <!-- After Column -->
+              <div class="roi-col after">
+                <div class="roi-tag">
+                  <span>✓ SAU (5S CLOUD AI)</span>
+                  <span>AN TOÀN 100%</span>
+                </div>
+                <div class="roi-bullets">
+                  <div>• <strong>Tự động 100%:</strong> Xuất báo cáo gửi Sở chỉ với 1-click.</div>
+                  <div>• <strong>Triệt tiêu phạt:</strong> Cảnh báo trước 15 phút khi chạm 80% QCVN.</div>
+                  <div>• <strong>AI buồng đốt:</strong> Cân bằng gió/than, tiết kiệm 5-8% nhiên liệu.</div>
+                  <div>• <strong>Bảo toàn dữ liệu:</strong> UPS lưu 4h, đệm Flash 30 ngày, Cloud 3 năm.</div>
+                </div>
+                <div class="roi-kpi-pill success">TIẾT KIỆM 80% THỜI GIAN • AN TOÀN 100%</div>
+              </div>
             </div>
           </div>
 
@@ -1296,7 +1618,7 @@
           <div class="kpi-big-num">99%</div>
           <div class="kpi-meta-text">
             <h6>TRIỆT TIÊU NGUY CƠ BỊ PHẠT HÀNH CHÍNH</h6>
-            <p>Ngăn chặn mức phạt tới 2 tỷ VNĐ (NĐ 45/2022)</p>
+            <p>Cảnh báo sớm ngăn ngừa mức phạt tới 2 tỷ VNĐ (NĐ 45/2022)</p>
           </div>
         </div>
 
@@ -1352,7 +1674,7 @@
         </div>
 
         <div class="radar-telemetry-card">
-          <div style="font-size: 5.6pt; font-weight: 800; color: var(--primary); display: flex; justify-content: space-between; border-bottom: 1px solid var(--light-gray); padding-bottom: 1px;">
+          <div style="font-size: 5.6pt; font-weight: 800; color: var(--ink-primary); display: flex; justify-content: space-between; border-bottom: 1px solid var(--paper-line); padding-bottom: 1px;">
             <span>CHỈ SỐ ĐÁP ỨNG QUY CHUẨN</span>
             <span style="color: #0066CC; font-family: 'JetBrains Mono', monospace;">SLA: 99.9%</span>
           </div>
@@ -1391,7 +1713,7 @@
 
       <!-- Legal Table (42mm) -->
       <div class="back-legal-box">
-        <div style="font-size: 6.2pt; font-weight: 800; color: var(--primary); text-transform: uppercase;">
+        <div style="font-size: 6.2pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
           <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> CƠ SỞ PHÁP LÝ & KHUNG CHẾ TÀI BẮT BUỘC
         </div>
         <table class="legal-tbl">
@@ -1404,17 +1726,17 @@
           </thead>
           <tbody>
             <tr>
-              <td class="law-name">Nghị định 08/2022/NĐ-CP<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--medium-gray);">Điều 97 & Phụ lục XXVIII</span></td>
+              <td class="law-name">Nghị định 08/2022/NĐ-CP<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--ink-muted);">Điều 97 & Phụ lục XXVIII</span></td>
               <td>Bắt buộc lắp đặt hệ thống quan trắc nước thải, khí thải tự động liên tục trước ngày 31/12.</td>
               <td>Đình chỉ hoạt động nguồn phát sinh chất thải từ 3 - 6 tháng nếu không hoàn thành đúng hạn.</td>
             </tr>
             <tr>
-              <td class="law-name">Thông tư 10/2021/TT-BTNMT<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--medium-gray);">Kỹ thuật & Quản lý dữ liệu</span></td>
+              <td class="law-name">Thông tư 10/2021/TT-BTNMT<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--ink-muted);">Kỹ thuật & Quản lý dữ liệu</span></td>
               <td>Chuẩn kết nối Datalogger, truyền file 5 phút/lần về Sở TN&MT, nhật ký kiểm chuẩn Zero/Span.</td>
               <td>Thu hồi giấy phép môi trường, buộc kiểm định lại toàn bộ hệ thống đo đạc hiện trường.</td>
             </tr>
             <tr>
-              <td class="law-name">Nghị định 45/2022/NĐ-CP<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--medium-gray);">Điều 26: Xử phạt hành chính</span></td>
+              <td class="law-name">Nghị định 45/2022/NĐ-CP<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--ink-muted);">Điều 26: Xử phạt hành chính</span></td>
               <td>Xử phạt hành vi không truyền dữ liệu, làm gián đoạn đường truyền hoặc để chỉ tiêu vượt chuẩn.</td>
               <td class="law-fine">Phạt tiền từ 500.000.000 VNĐ đến 2.000.000.000 VNĐ; truy thu phí BVMT.</td>
             </tr>
@@ -1424,7 +1746,7 @@
 
       <!-- 3 Tiers Comparison Table (50mm) -->
       <div class="back-tiers-box">
-        <div style="font-size: 6.2pt; font-weight: 800; color: var(--primary); text-transform: uppercase;">
+        <div style="font-size: 6.2pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
           <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> CÁC GÓI GIẢI PHÁP 5S CLOUD CEMS
         </div>
         <table class="tiers-tbl">
@@ -1446,8 +1768,8 @@
             <tr>
               <td><strong>Trợ lý AI Buồng đốt</strong></td>
               <td>—</td>
-              <td><span style="color: var(--accent); font-weight: 700;">✓ 5S Neural Engine 24/7</span></td>
-              <td><span style="color: var(--accent); font-weight: 700;">✓ AI Nâng Cao Đa Lò</span></td>
+              <td><span style="color: var(--5s-crimson); font-weight: 700;">✓ 5S Neural Engine 24/7</span></td>
+              <td><span style="color: var(--5s-crimson); font-weight: 700;">✓ AI Nâng Cao Đa Lò</span></td>
             </tr>
             <tr>
               <td><strong>Báo cáo & Phân tích</strong></td>
@@ -1469,7 +1791,7 @@
       <div class="back-clients-strip">
         <div class="clients-head">
           <span>ĐỒNG HÀNH CÙNG CÁC TẬP ĐOÀN CÔNG NGHIỆP HÀNG ĐẦU VIỆT NAM:</span>
-          <span style="color: var(--accent);">200+ DOANH NGHIỆP TIN DÙNG</span>
+          <span style="color: var(--5s-crimson);">200+ DOANH NGHIỆP TIN DÙNG</span>
         </div>
         <div class="clients-list">
           <div>• <strong>Giấy Pulppy</strong></div>
@@ -1487,7 +1809,7 @@
 
       <!-- Turnkey Roadmap (25mm) -->
       <div class="back-roadmap-box">
-        <div style="font-size: 6.2pt; font-weight: 800; color: var(--primary); text-transform: uppercase;">
+        <div style="font-size: 6.2pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
           QUY TRÌNH 5 BƯỚC TRIỂN KHAI CHÌA KHÓA TRAO TAY (TURNKEY DEPLOYMENT)
         </div>
         <div class="roadmap-grid">
@@ -1566,24 +1888,24 @@
           <div class="qr-card-unit">
             <div class="qr-svg-holder">
               <svg width="34" height="34" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="9" height="9" fill="#E63946" rx="1"/>
+                <rect x="2" y="2" width="9" height="9" fill="#C8102E" rx="1"/>
                 <rect x="4" y="4" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="5.5" y="5.5" width="2" height="2" fill="#E63946"/>
-                <rect x="22" y="2" width="9" height="9" fill="#E63946" rx="1"/>
+                <rect x="5.5" y="5.5" width="2" height="2" fill="#C8102E"/>
+                <rect x="22" y="2" width="9" height="9" fill="#C8102E" rx="1"/>
                 <rect x="24" y="4" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="25.5" y="5.5" width="2" height="2" fill="#E63946"/>
-                <rect x="2" y="22" width="9" height="9" fill="#E63946" rx="1"/>
+                <rect x="25.5" y="5.5" width="2" height="2" fill="#C8102E"/>
+                <rect x="2" y="22" width="9" height="9" fill="#C8102E" rx="1"/>
                 <rect x="4" y="24" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="5.5" y="25.5" width="2" height="2" fill="#E63946"/>
+                <rect x="5.5" y="25.5" width="2" height="2" fill="#C8102E"/>
                 <rect x="14" y="3" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="17" y="4" width="2" height="2" fill="#E63946"/>
+                <rect x="17" y="4" width="2" height="2" fill="#C8102E"/>
                 <rect x="14" y="7" width="2" height="2" fill="#0A0A0A"/>
                 <rect x="3" y="14" width="2" height="2" fill="#E63946"/>
-                <rect x="13" y="13" width="7" height="7" fill="#E63946" rx="1"/>
+                <rect x="13" y="13" width="7" height="7" fill="#C8102E" rx="1"/>
                 <rect x="15" y="15" width="3" height="3" fill="#0A0A0A"/>
                 <rect x="23" y="14" width="2" height="2" fill="#0A0A0A"/>
                 <rect x="14" y="23" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="24" y="24" width="2" height="2" fill="#E63946"/>
+                <rect x="24" y="24" width="2" height="2" fill="#C8102E"/>
                 <rect x="26" y="27" width="2" height="2" fill="#0A0A0A"/>
               </svg>
             </div>
