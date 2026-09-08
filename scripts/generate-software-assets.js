@@ -220,14 +220,264 @@ async function generateHeroMacbook(browser) {
       overflow: hidden;
     }
 
-    .dashboard-img {
+    /* Dashboard Inner Application Container */
+    .dashboard-saas-app {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
+      background: #0B132B;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 14px;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+      overflow: hidden;
+      position: relative;
     }
 
+    /* Top Control Bar inside App */
+    .saas-top-ctrl {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 8px;
+      flex-shrink: 0;
+    }
+    .ctrl-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ctrl-logo {
+      font-size: 8.5px;
+      font-weight: 900;
+      background: #C8102E;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .ctrl-tenant {
+      font-size: 9px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .ctrl-tenant span {
+      color: #38BDF8;
+      font-size: 7.5px;
+      font-weight: 500;
+      margin-left: 4px;
+      background: rgba(56, 189, 248, 0.15);
+      padding: 1.5px 5px;
+      border-radius: 3px;
+    }
+    .ctrl-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .time-btn {
+      font-size: 7.5px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #E2E8F0;
+      padding: 2.5px 8px;
+      border-radius: 4px;
+    }
+    .export-saas-btn {
+      font-size: 7.5px;
+      font-weight: 800;
+      background: #0066CC;
+      color: white;
+      padding: 2.5px 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    /* 4 KPI Cards Row */
+    .saas-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-shrink: 0;
+    }
+    .saas-kpi-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 6px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .saas-kpi-box.active {
+      border-color: rgba(0, 240, 255, 0.35);
+      background: rgba(0, 102, 204, 0.08);
+    }
+    .kpi-head-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.5px;
+      font-weight: 700;
+      color: #94A3B8;
+      margin-bottom: 2px;
+    }
+    .kpi-val-row {
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+      margin-bottom: 2px;
+    }
+    .kpi-number {
+      font-size: 15px;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1;
+      color: #FFFFFF;
+    }
+    .kpi-unit-lbl {
+      font-size: 7.5px;
+      color: #64748B;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .kpi-tag-status {
+      font-size: 6.8px;
+      font-weight: 700;
+      padding: 1.5px 5px;
+      border-radius: 3px;
+      align-self: flex-start;
+    }
+    .kpi-tag-status.pass { background: rgba(5, 150, 105, 0.2); color: #34D399; }
+    .kpi-tag-status.opt { background: rgba(0, 102, 204, 0.2); color: #38BDF8; }
+    .kpi-tag-status.safe { background: rgba(200, 16, 46, 0.2); color: #FF6B81; }
+    .kpi-tag-status.sync { background: rgba(217, 119, 6, 0.2); color: #FBBF24; }
+
+    /* Center Big Line/Area Chart */
+    .saas-main-chart-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 8px 10px 6px 10px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 8px;
+    }
+    .chart-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .chart-title-txt {
+      font-size: 8.5px;
+      font-weight: 800;
+      color: #F8FAFC;
+      letter-spacing: -0.01em;
+    }
+    .chart-legend-items {
+      display: flex;
+      gap: 10px;
+      font-size: 7px;
+      font-weight: 600;
+      color: #94A3B8;
+    }
+    .leg-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-right: 3px;
+      vertical-align: middle;
+    }
+    .svg-area-chart {
+      width: 100%;
+      height: 130px;
+      overflow: visible;
+    }
+
+    /* Bottom Widgets Row */
+    .saas-bottom-widgets {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 8px;
+      height: 72px;
+      flex-shrink: 0;
+    }
+    .widget-panel {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 6px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .widget-title {
+      font-size: 7.5px;
+      font-weight: 800;
+      color: #94A3B8;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    /* Mini Bar Chart */
+    .mini-bar-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 7px;
+      color: #E2E8F0;
+    }
+    .bar-track {
+      flex: 1;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      margin: 0 6px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+    /* AI Status Alert */
+    .ai-smart-card {
+      background: rgba(200, 16, 46, 0.08);
+      border: 1px solid rgba(200, 16, 46, 0.25);
+      border-radius: 6px;
+      padding: 5px 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ai-badge-sq {
+      font-size: 8px;
+      font-weight: 900;
+      background: #C8102E;
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ai-smart-txt {
+      font-size: 7px;
+      color: #E2E8F0;
+      line-height: 1.25;
+    }
+    .ai-smart-txt strong { color: #38BDF8; }
     /* Glass Reflection on Screen */
     .screen-glare {
       position: absolute;
@@ -447,7 +697,170 @@ async function generateHeroMacbook(browser) {
             </div>
           </div>
           <div class="dashboard-viewport">
-            <img class="dashboard-img" src="${dashboardHeroB64}" alt="5S Cloud Dashboard" />
+            <!-- 100% Vector SaaS Analytics Multi-Chart Dashboard -->
+            <div class="dashboard-saas-app">
+              <!-- Top In-App Control Bar -->
+              <div class="saas-top-ctrl">
+                <div class="ctrl-left">
+                  <span class="ctrl-logo">5S CLOUD</span>
+                  <span class="ctrl-tenant">Tập Đoàn Thép Sao Việt <span>NHÀ MÁY 01 (CEMS 24/7)</span></span>
+                </div>
+                <div class="ctrl-right">
+                  <span class="time-btn">24 Giờ Qua ▼</span>
+                  <span class="export-saas-btn">📄 Xuất Báo Cáo Sở</span>
+                </div>
+              </div>
+
+              <!-- 4 KPI Cards Row with Sparklines -->
+              <div class="saas-kpi-grid">
+                <div class="saas-kpi-box active">
+                  <div class="kpi-head-row">
+                    <span>BỤI TỔNG (PM)</span>
+                    <span style="color: #38BDF8;">QCVN: 144</span>
+                  </div>
+                  <div class="kpi-val-row">
+                    <span class="kpi-number">4.22</span>
+                    <span class="kpi-unit-lbl">mg/Nm³</span>
+                  </div>
+                  <span class="kpi-tag-status pass">● ĐẠT CHUẨN (-12.4%)</span>
+                </div>
+
+                <div class="saas-kpi-box">
+                  <div class="kpi-head-row">
+                    <span>KHÍ CO</span>
+                    <span style="color: #34D399;">QCVN: 800</span>
+                  </div>
+                  <div class="kpi-val-row">
+                    <span class="kpi-number">0.21</span>
+                    <span class="kpi-unit-lbl">mg/Nm³</span>
+                  </div>
+                  <span class="kpi-tag-status opt">● TỐI ƯU (ỔN ĐỊNH)</span>
+                </div>
+
+                <div class="saas-kpi-box">
+                  <div class="kpi-head-row">
+                    <span>KHÍ NOx</span>
+                    <span style="color: #FF6B81;">QCVN: 680</span>
+                  </div>
+                  <div class="kpi-val-row">
+                    <span class="kpi-number">1.31</span>
+                    <span class="kpi-unit-lbl">mg/Nm³</span>
+                  </div>
+                  <span class="kpi-tag-status safe">● AN TOÀN (-4.8%)</span>
+                </div>
+
+                <div class="saas-kpi-box">
+                  <div class="kpi-head-row">
+                    <span>ĐỒNG BỘ SỞ</span>
+                    <span style="color: #FBBF24;">63 SỞ TN&amp;MT</span>
+                  </div>
+                  <div class="kpi-val-row">
+                    <span class="kpi-number">99.98%</span>
+                    <span class="kpi-unit-lbl">SLA</span>
+                  </div>
+                  <span class="kpi-tag-status sync">● THÔNG SUỐT (5P/LẦN)</span>
+                </div>
+              </div>
+
+              <!-- Main Multi-Series Timeseries Area Chart -->
+              <div class="saas-main-chart-card">
+                <div class="chart-header-row">
+                  <span class="chart-title-txt">BIỂU ĐỒ DIỄN BIẾN NỒNG ĐỘ KHÍ THẢI THEO THỜI GIAN THỰC (24H LIÊN TỤC)</span>
+                  <div class="chart-legend-items">
+                    <span><span class="leg-dot" style="background: #00F0FF;"></span> Bụi PM</span>
+                    <span><span class="leg-dot" style="background: #10B981;"></span> Khí CO</span>
+                    <span><span class="leg-dot" style="background: #818CF8;"></span> Khí NOx</span>
+                    <span style="color: #FF5A6B;">--- Ngưỡng QCVN (144)</span>
+                  </div>
+                </div>
+
+                <!-- SVG Area Chart -->
+                <svg class="svg-area-chart" viewBox="0 0 670 120">
+                  <defs>
+                    <linearGradient id="gradPM" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.4" />
+                      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.0" />
+                    </linearGradient>
+                    <linearGradient id="gradCO" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#10B981" stop-opacity="0.3" />
+                      <stop offset="100%" stop-color="#10B981" stop-opacity="0.0" />
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Horizontal Grid Lines -->
+                  <line x1="30" y1="20" x2="660" y2="20" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3,3" />
+                  <line x1="30" y1="50" x2="660" y2="50" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3,3" />
+                  <line x1="30" y1="80" x2="660" y2="80" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3,3" />
+                  <line x1="30" y1="105" x2="660" y2="105" stroke="rgba(255,255,255,0.12)" />
+
+                  <!-- Red Dashed QCVN Limit Line -->
+                  <line x1="30" y1="15" x2="660" y2="15" stroke="#FF5A6B" stroke-width="1.2" stroke-dasharray="4,3" />
+                  <text x="560" y="12" fill="#FF5A6B" font-size="6.5" font-family="JetBrains Mono" font-weight="bold">NGƯỠNG QCVN 19</text>
+
+                  <!-- PM Area & Curve (Cyan) -->
+                  <path d="M 30 90 Q 90 75 150 82 T 270 65 T 390 78 T 510 55 T 660 62 L 660 105 L 30 105 Z" fill="url(#gradPM)" />
+                  <path d="M 30 90 Q 90 75 150 82 T 270 65 T 390 78 T 510 55 T 660 62" fill="none" stroke="#00F0FF" stroke-width="2" />
+
+                  <!-- CO Area & Curve (Emerald) -->
+                  <path d="M 30 98 Q 90 88 150 92 T 270 82 T 390 89 T 510 74 T 660 80 L 660 105 L 30 105 Z" fill="url(#gradCO)" />
+                  <path d="M 30 98 Q 90 88 150 92 T 270 82 T 390 89 T 510 74 T 660 80" fill="none" stroke="#10B981" stroke-width="1.8" />
+
+                  <!-- NOx Curve (Indigo/Violet) -->
+                  <path d="M 30 102 Q 90 96 150 99 T 270 91 T 390 95 T 510 85 T 660 88" fill="none" stroke="#818CF8" stroke-width="1.5" />
+
+                  <!-- Active Hover Tooltip Callout -->
+                  <circle cx="510" cy="55" r="4" fill="#00F0FF" stroke="#FFFFFF" stroke-width="1.5" />
+                  <line x1="510" y1="55" x2="510" y2="105" stroke="rgba(0, 240, 255, 0.4)" stroke-dasharray="2,2" />
+                  <rect x="440" y="24" width="135" height="25" rx="4" fill="#1E293B" stroke="#00F0FF" stroke-width="1" />
+                  <text x="448" y="34" fill="#FFFFFF" font-size="6.8" font-family="Plus Jakarta Sans" font-weight="bold">14:20 • Lò 02: PM 4.22 mg</text>
+                  <text x="448" y="44" fill="#34D399" font-size="6.2" font-family="Plus Jakarta Sans" font-weight="bold">✓ 100% Đạt chuẩn QCVN 19</text>
+
+                  <!-- Time-axis Labels -->
+                  <text x="30" y="115" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">00:00</text>
+                  <text x="135" y="115" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">04:00</text>
+                  <text x="240" y="115" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">08:00</text>
+                  <text x="345" y="115" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">12:00</text>
+                  <text x="450" y="115" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">16:00</text>
+                  <text x="555" y="115" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">20:00</text>
+                  <text x="640" y="115" fill="#64748B" font-size="6.5" font-family="JetBrains Mono">24:00</text>
+                </svg>
+              </div>
+
+              <!-- Bottom Widgets: Bar Chart & AI Predictive Status -->
+              <div class="saas-bottom-widgets">
+                <!-- Left Widget: Shift Distribution Bars -->
+                <div class="widget-panel">
+                  <div class="widget-title">PHÂN BỔ NỒNG ĐỘ THEO CA KÍP SẢN XUẤT (TRUNG BÌNH)</div>
+                  <div class="mini-bar-row">
+                    <span style="width: 38px;">Ca 1 (Sáng)</span>
+                    <div class="bar-track"><div class="bar-fill" style="width: 32%; background: #38BDF8;"></div></div>
+                    <span style="width: 50px; text-align: right; color: #34D399;">3.82 mg (26%)</span>
+                  </div>
+                  <div class="mini-bar-row">
+                    <span style="width: 38px;">Ca 2 (Chiều)</span>
+                    <div class="bar-track"><div class="bar-fill" style="width: 36%; background: #00F0FF;"></div></div>
+                    <span style="width: 50px; text-align: right; color: #34D399;">4.22 mg (29%)</span>
+                  </div>
+                  <div class="mini-bar-row">
+                    <span style="width: 38px;">Ca 3 (Đêm)</span>
+                    <div class="bar-track"><div class="bar-fill" style="width: 28%; background: #818CF8;"></div></div>
+                    <span style="width: 50px; text-align: right; color: #34D399;">3.45 mg (24%)</span>
+                  </div>
+                </div>
+
+                <!-- Right Widget: 5S Neural Advisor Insight -->
+                <div class="widget-panel">
+                  <div class="widget-title">DỰ BÁO TRỢ LÝ AI 5S NEURAL ENGINE</div>
+                  <div class="ai-smart-card">
+                    <div class="ai-badge-sq">AI</div>
+                    <div class="ai-smart-txt">
+                      <div>Trạng thái buồng đốt: <strong>TỐI ƯU 98.4%</strong></div>
+                      <div style="color: #94A3B8; font-size: 6.2px; margin-top: 1px;">Dự báo 6h tới: Không có nguy cơ vượt ngưỡng QCVN.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="screen-glare"></div>
           </div>
         </div>
