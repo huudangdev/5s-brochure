@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5S Cloud – Báo Cáo Chuyên Khảo Giải Pháp Quan Trắc Môi Trường & AI Buồng Đốt Lò Hơi</title>
+  <title>5S Cloud – Nền Tảng Phần Mềm Quản Lý & Phân Tích Dữ Liệu Tập Trung (Enterprise SaaS)</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,7 +11,7 @@
 
   <style>
     :root {
-      /* Brand Identity: 5S Precision Palette */
+      /* 5S Pure Enterprise Palette */
       --5s-crimson: #C8102E;
       --5s-crimson-dark: #990B22;
       --5s-crimson-subtle: #FFF0F2;
@@ -20,9 +20,10 @@
       --5s-navy: #0B132B;
       --5s-navy-surface: #101B33;
       --5s-navy-card: #15223E;
-      --5s-navy-dark: #050811;
+      --5s-navy-light: #1E293B;
 
       --5s-blue: #0066CC;
+      --5s-blue-dark: #004C99;
       --5s-blue-subtle: #F0F7FF;
       --5s-blue-border: #BAE0FF;
 
@@ -31,24 +32,16 @@
 
       --5s-green: #059669;
       --5s-green-subtle: #ECFDF5;
+      --5s-green-border: #A7F3D0;
 
       --5s-amber: #D97706;
       --5s-amber-subtle: #FFFBEB;
 
-      /* Cyber-Industrial & Precision Telemetry */
-      --cyber-cyan: #00F0FF;
-      --cyber-laser: #FF2A4D;
-      --cyber-glow-cyan: 0 0 14px rgba(0, 240, 255, 0.45);
-      --cyber-glow-laser: 0 0 14px rgba(255, 42, 77, 0.45);
-      --cyber-dark-bg: #050811;
-      --cyber-dark-surface: #070D1E;
-      --cyber-dark-card: #0B152B;
-      --cyber-border-cyan: rgba(0, 240, 255, 0.35);
-      --cyber-border-laser: rgba(255, 42, 77, 0.4);
       /* Environmental Pure Paper Canvas */
       --paper-pure: #FFFFFF;
       --paper-canvas: #FAFDFE;
       --paper-subtle: #F8FAFC;
+      --paper-card: #FFFFFF;
       --paper-line: #E2E8F0;
       --paper-border: #E2E8F0;
 
@@ -57,16 +50,18 @@
       --ink-muted: #64748B;
       --ink-tertiary: #94A3B8;
 
-      --radius-sm: 4px;
+      --radius-xs: 4px;
+      --radius-sm: 6px;
       --radius-md: 8px;
       --radius-lg: 12px;
       --radius-xl: 16px;
       --radius-full: 9999px;
 
+      --shadow-xs: 0 1px 2px rgba(11, 19, 43, 0.04);
       --shadow-sm: 0 1px 3px rgba(11, 19, 43, 0.06);
-      --shadow-md: 0 4px 12px rgba(11, 19, 43, 0.08);
-      --shadow-lg: 0 10px 25px rgba(11, 19, 43, 0.12);
-      --shadow-float: 0 16px 36px -4px rgba(11, 19, 43, 0.12);
+      --shadow-md: 0 4px 12px rgba(11, 19, 43, 0.07);
+      --shadow-lg: 0 10px 25px rgba(11, 19, 43, 0.09);
+      --shadow-float: 0 16px 36px -4px rgba(11, 19, 43, 0.1);
     }
 
     * {
@@ -78,7 +73,7 @@
     }
 
     body {
-      font-family: 'Be Vietnam Pro', -apple-system, sans-serif;
+      font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--ink-primary);
       background-color: #334155;
       display: flex;
@@ -89,7 +84,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Standard A4 Portrait Page: 210mm x 297mm */
+    /* Standard A4 Portrait Page: 210mm x 297mm (1123px height) */
     .page-a4 {
       width: 210mm;
       height: 297mm;
@@ -102,11 +97,11 @@
       flex-direction: column;
     }
 
-    /* Seamless A3 Landscape Spread: 420mm x 297mm */
+    /* Seamless A3 Landscape Spread: 420mm x 297mm (1123px height) */
     .spread-a3 {
       width: 420mm;
       height: 297mm;
-      background: #FAFCFE;
+      background: #F8FAFC;
       position: relative;
       overflow: hidden;
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
@@ -151,7 +146,7 @@
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
       line-height: 1.15;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       color: var(--ink-primary);
     }
 
@@ -167,70 +162,73 @@
       stroke-linejoin: round;
       vertical-align: -1.5px;
     }
-    .svg-icon.lg { width: 22px; height: 22px; }
+    .svg-icon.lg { width: 20px; height: 20px; }
+    .svg-icon.md { width: 14px; height: 14px; }
     .svg-icon.sm { width: 10px; height: 10px; }
 
-    /* Pill Buttons matching Sample */
+    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 20px;
+      padding: 7px 16px;
       background: var(--ink-primary);
       color: white;
       border-radius: var(--radius-full);
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 7.8pt;
+      font-size: 7.2pt;
       border: none;
       box-shadow: var(--shadow-sm);
       text-decoration: none;
+      gap: 6px;
     }
 
     .btn-accent {
-      background: linear-gradient(45deg, var(--5s-crimson), #FF5A6B);
+      background: linear-gradient(135deg, var(--5s-crimson), #E61E40);
       color: white;
-      box-shadow: 0 4px 15px rgba(200, 16, 46, 0.35);
+      box-shadow: 0 4px 12px rgba(200, 16, 46, 0.25);
     }
 
     .btn-outline {
-      background: transparent;
-      border: 1.5px solid var(--ink-primary);
+      background: white;
+      border: 1.2px solid var(--paper-line);
       color: var(--ink-primary);
+      box-shadow: var(--shadow-xs);
     }
 
     .section-kicker {
       font-family: 'Montserrat', sans-serif;
       font-size: 6.2pt;
       font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--5s-crimson);
-      margin-bottom: 2mm;
+      margin-bottom: 1.5mm;
       display: inline-block;
     }
 
     /* ==========================================================================
-       PAGE 1: BÌA TRƯỚC (IMPRESSIVE HIGH-IMPACT COVER - A4: 210 x 297mm)
+       PAGE 1: BÌA TRƯỚC (ENTERPRISE SAAS SOFTWARE COVER - A4: 210 x 297mm)
        ========================================================================== */
-    .cover-editorial, .cover-hardcover-monograph, .cover-unboxed {
+    .cover-editorial, .cover-unboxed {
       height: 297mm;
-      padding: 9mm 11mm 8mm 11mm;
+      padding: 8mm 11mm 7mm 11mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 55%, #EDF2F7 100%);
+      background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 50%, #EFF6FF 100%);
     }
 
-    /* Header Masthead */
+    /* Cover Masthead */
     .cover-header {
-      height: 12mm;
+      height: 11mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--ink-primary);
-      padding-bottom: 2.5mm;
+      border-bottom: 1.5px solid var(--paper-line);
+      padding-bottom: 2mm;
       flex-shrink: 0;
     }
     .cover-logo {
@@ -238,263 +236,263 @@
       align-items: center;
       gap: 8px;
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 900;
       color: var(--ink-primary);
       text-decoration: none;
     }
     .cover-logo img {
-      height: 32px;
+      height: 28px;
       width: auto;
       object-fit: contain;
     }
     .logo-dot {
       display: inline-block;
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       background: var(--5s-crimson);
       border-radius: 50%;
-      margin-left: 2px;
+      margin-left: 1px;
     }
     .cover-meta {
       text-align: right;
-      font-size: 5.5pt;
+      font-size: 5.2pt;
       font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--ink-muted);
       line-height: 1.35;
       text-transform: uppercase;
     }
-    .cover-meta strong { color: var(--ink-primary); }
+    .cover-meta strong { color: var(--5s-navy); }
 
     /* Cover Hero Typography */
     .cover-hero-content {
-      margin-top: 3mm;
+      margin-top: 2.5mm;
       margin-bottom: 2mm;
       flex-shrink: 0;
     }
     .cover-kicker-tag {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       font-family: 'Montserrat', sans-serif;
       font-size: 6.2pt;
       font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--5s-crimson);
-      background: rgba(200, 16, 46, 0.08);
-      padding: 4px 10px;
+      background: rgba(200, 16, 46, 0.06);
+      border: 1px solid var(--5s-crimson-border);
+      padding: 3px 9px;
       border-radius: var(--radius-full);
       margin-bottom: 2mm;
     }
     .cover-headline {
-      font-size: 23pt;
+      font-size: 21pt;
       font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.04em;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
       color: var(--ink-primary);
       margin-bottom: 2mm;
     }
-    .cover-headline span {
+    .cover-headline span.highlight-crimson {
       color: var(--5s-crimson);
     }
+    .cover-headline span.highlight-blue {
+      color: var(--5s-blue);
+    }
     .cover-lead {
-      font-size: 7.6pt;
+      font-size: 7.4pt;
       color: var(--ink-secondary);
       line-height: 1.45;
+      max-width: 95%;
       margin-bottom: 2.5mm;
-      max-width: 184mm;
     }
     .cover-btns-row {
       display: flex;
-      gap: 10px;
-      margin-bottom: 2.5mm;
+      gap: 8px;
     }
 
     /* 4-Metric Key Numbers Bar */
     .cover-metrics-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
-      margin-bottom: 3mm;
+      gap: 7px;
+      margin-bottom: 2.5mm;
       flex-shrink: 0;
     }
     .cover-metric-cell {
       background: white;
       border: 1px solid var(--paper-line);
       border-top: 2.5px solid var(--5s-crimson);
-      border-radius: var(--radius-md);
-      padding: 2.2mm 2.5mm;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-sm);
+      padding: 6px 8px;
+      box-shadow: var(--shadow-xs);
     }
+    .cover-metric-cell:nth-child(2) { border-top-color: var(--5s-blue); }
+    .cover-metric-cell:nth-child(3) { border-top-color: var(--5s-navy); }
+    .cover-metric-cell:nth-child(4) { border-top-color: var(--5s-green); }
+
     .cover-metric-num {
       font-family: 'Montserrat', sans-serif;
       font-size: 11pt;
       font-weight: 900;
-      line-height: 1;
-      margin-bottom: 2px;
-      color: var(--ink-primary);
+      line-height: 1.1;
     }
     .cover-metric-label {
-      font-size: 5pt;
-      font-weight: 700;
+      font-size: 5.2pt;
+      font-weight: 600;
       color: var(--ink-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      margin-top: 2px;
+      line-height: 1.25;
     }
 
-    /* 3D Visual Stage (136mm) - CYBER-INDUSTRIAL 3D MONOLITH STAGE */
-    .cover-image-stage {
-      height: 136mm;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      background: #040814;
-      box-shadow: 0 16px 36px -4px rgba(11, 19, 43, 0.25), 0 0 24px rgba(0, 240, 255, 0.2);
-      border: 1.5px solid rgba(0, 240, 255, 0.35);
+    /* SaaS Hero Showcase Stage */
+    .cover-hero-stage {
+      height: 132mm;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
+      border: 1.5px solid var(--paper-line);
+      box-shadow: var(--shadow-float);
       position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       flex-shrink: 0;
+    }
+    .cover-stage-topbar {
+      height: 8mm;
+      background: #FAFCFE;
+      border-bottom: 1px solid var(--paper-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 5.2pt;
+      color: var(--ink-muted);
+    }
+    .stage-browser-dots {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .stage-browser-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #E2E8F0;
+    }
+    .stage-browser-dot.r { background: #FF5F56; }
+    .stage-browser-dot.y { background: #FFBD2E; }
+    .stage-browser-dot.g { background: #27C93F; }
+
+    .stage-browser-url {
+      background: white;
+      border: 1px solid var(--paper-line);
+      padding: 2px 12px;
+      border-radius: 12px;
+      font-size: 5pt;
+      color: var(--5s-navy);
+      font-weight: 600;
+    }
+
+    .cover-hero-img-wrap {
+      flex: 1;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 6px;
+      background: radial-gradient(circle at 50% 40%, rgba(0, 102, 204, 0.04) 0%, rgba(248, 250, 252, 0.8) 100%);
+      position: relative;
     }
-    .cover-image-stage img {
+    .cover-hero-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      display: block;
-      position: relative;
-      z-index: 2;
     }
-    /* Cyber Corner Reticles */
-    .corner-bracket {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      pointer-events: none;
-      z-index: 5;
-    }
-    .corner-bracket.tl { top: 7px; left: 7px; border-top: 2px solid var(--cyber-cyan); border-left: 2px solid var(--cyber-cyan); }
-    .corner-bracket.tr { top: 7px; right: 7px; border-top: 2px solid var(--cyber-cyan); border-right: 2px solid var(--cyber-cyan); }
-    .corner-bracket.bl { bottom: 7px; left: 7px; border-bottom: 2px solid var(--cyber-cyan); border-left: 2px solid var(--cyber-cyan); }
-    .corner-bracket.br { bottom: 7px; right: 7px; border-bottom: 2px solid var(--cyber-cyan); border-right: 2px solid var(--cyber-cyan); }
 
-    /* High-Tech Telemetry HUD Top Strip */
-    .cover-hud-top {
+    /* Floating Feature Badges */
+    .cover-badge-float {
       position: absolute;
-      top: 8px;
-      left: 12px;
-      right: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 5pt;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.85);
-      background: rgba(7, 13, 30, 0.85);
+      bottom: 8px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--paper-line);
       backdrop-filter: blur(8px);
-      padding: 3.5px 8px;
+      padding: 5px 10px;
       border-radius: var(--radius-sm);
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      letter-spacing: 0.04em;
-      z-index: 4;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-    .hud-left {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: var(--cyber-cyan);
-    }
-    .pulse-dot {
-      width: 5.5px;
-      height: 5.5px;
-      background: var(--cyber-cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 6px var(--cyber-cyan);
-      display: inline-block;
-    }
-    .pulse-dot.laser {
-      background: var(--cyber-laser);
-      box-shadow: 0 0 6px var(--cyber-laser);
-    }
-    .hud-mid {
-      color: #94A3B8;
-    }
-    .hud-right {
-      color: #38BDF8;
-      font-weight: 800;
-    }
-    .cover-badge-tag {
-      position: absolute;
-      bottom: 10px;
-      left: 12px;
-      background: rgba(7, 13, 30, 0.9);
-      backdrop-filter: blur(8px);
-      color: white;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 5.2pt;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      padding: 4px 10px;
-      border-radius: var(--radius-sm);
-      border-left: 3px solid var(--5s-crimson);
-      border-top: 1px solid rgba(0, 240, 255, 0.25);
-      border-right: 1px solid rgba(0, 240, 255, 0.25);
-      border-bottom: 1px solid rgba(0, 240, 255, 0.25);
-      z-index: 4;
       display: flex;
       align-items: center;
       gap: 6px;
+      box-shadow: var(--shadow-md);
+      font-size: 5.5pt;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+    .badge-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--5s-green);
+      box-shadow: 0 0 6px var(--5s-green);
     }
 
-    /* Footer Band */
+    /* Cover Footer Band */
     .cover-footer {
-      height: 11mm;
-      border-top: 1.5px solid var(--ink-primary);
+      height: 8mm;
+      border-top: 1.5px solid var(--paper-line);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      font-size: 6pt;
+      justify-content: space-between;
+      font-size: 5.2pt;
       color: var(--ink-muted);
       flex-shrink: 0;
+      padding-top: 1.5mm;
     }
-    .cover-footer strong { color: var(--ink-primary); font-weight: 700; }
+    .cover-footer strong { color: var(--ink-primary); }
     .cover-compliance-tag {
       color: var(--5s-crimson);
       font-weight: 800;
+      background: rgba(200, 16, 46, 0.05);
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--5s-crimson-border);
     }
 
     /* ==========================================================================
-       PAGES 2-3: SPREAD TRANG ĐÔI LÀM ĐẦY ĐẶC SẮC (420 x 297mm)
+       PAGES 2-3: SPREAD TRANG ĐÔI (420mm x 297mm - 1123px height)
        ========================================================================== */
-    .spread-container, .spread-dual-container, .spread-unboxed-wrap {
+    .spread-container, .spread-unboxed-wrap {
       height: 297mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 5mm 10mm 5mm 10mm;
-      position: relative;
+      padding: 7mm 10mm 6mm 10mm;
+      background: #F8FAFC;
     }
 
-    /* 420mm Spread Header (13mm) */
+    /* 420mm Spread Header */
     .spread-masthead {
-      height: 13mm;
+      height: 10mm;
       background: white;
+      border: 1px solid var(--paper-line);
       border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      padding: 0 8mm;
+      padding: 0 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: var(--shadow-xs);
       flex-shrink: 0;
-      border-left: 4px solid var(--5s-crimson);
     }
     .spread-title {
-      font-size: 11pt;
-      font-weight: 800;
+      font-size: 10pt;
+      font-weight: 900;
       color: var(--ink-primary);
-      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .spread-title span { color: var(--5s-crimson); }
     .spread-meta-badges {
@@ -502,473 +500,308 @@
       gap: 6px;
     }
     .spread-badge {
-      font-size: 5.4pt;
+      font-size: 5.2pt;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
-      padding: 2.5px 7px;
-      border-radius: var(--radius-sm);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
       background: var(--paper-subtle);
-      color: var(--ink-primary);
       border: 1px solid var(--paper-line);
-    }
-    .spread-badge.red { background: #FFF0F2; color: var(--5s-crimson); border-color: #FFCCD3; }
-
-    /* 4-Tier Pipeline Banner (15mm) */
-    .pipeline-strip {
-      height: 15mm;
-      background: white;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      padding: 0 8mm;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      align-items: center;
-      flex-shrink: 0;
-      border-bottom: 2px solid var(--5s-blue);
-    }
-    .pipeline-step {
+      color: var(--ink-secondary);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
     }
-    .step-num {
-      width: 15px; height: 15px;
+    .spread-badge.red {
+      background: var(--5s-crimson-subtle);
+      color: var(--5s-crimson);
+      border-color: var(--5s-crimson-border);
+    }
+    .spread-badge.blue {
+      background: var(--5s-blue-subtle);
+      color: var(--5s-blue);
+      border-color: var(--5s-blue-border);
+    }
+
+    /* 4-Tier Software Pipeline Banner (15mm) */
+    .pipeline-strip {
+      height: 15mm;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      flex-shrink: 0;
+      margin-top: 2mm;
+      margin-bottom: 2mm;
+    }
+    .pipeline-step {
+      background: white;
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-sm);
+      padding: 5px 8px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: var(--shadow-xs);
+      position: relative;
+    }
+    .pipeline-step::after {
+      content: "›";
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12pt;
+      color: var(--5s-blue);
+      font-weight: 900;
+      z-index: 2;
+    }
+    .pipeline-step:last-child::after {
+      display: none;
+    }
+    .step-num-badge {
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      background: var(--ink-primary);
+      background: linear-gradient(135deg, var(--5s-navy), var(--5s-blue));
       color: white;
-      font-size: 6.2pt;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 6.8pt;
       font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Montserrat', sans-serif;
       flex-shrink: 0;
     }
-    .step-num.crimson { background: var(--5s-crimson); }
-    .step-num.blue { background: var(--5s-blue); }
-    .step-desc h6 {
+    .step-num-badge.crimson {
+      background: linear-gradient(135deg, var(--5s-crimson), #FF4D6D);
+    }
+    .step-content {
+      overflow: hidden;
+    }
+    .step-title {
+      font-family: 'Montserrat', sans-serif;
       font-size: 5.8pt;
       font-weight: 800;
       color: var(--ink-primary);
-      text-transform: uppercase;
-      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .step-desc p {
-      font-size: 4.8pt;
+    .step-sub {
+      font-size: 4.6pt;
       color: var(--ink-muted);
-      line-height: 1.1;
-      margin-bottom: 0;
+      line-height: 1.25;
+      margin-top: 1px;
     }
-    /* 420mm Work Surface (224mm) */
+
+    /* 420mm Work Surface Grid: Left & Right Wings */
     .spread-main-grid {
-      height: 224mm;
+      height: 226mm;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14mm;
-      overflow: hidden;
+      gap: 9px;
       flex-shrink: 0;
     }
     .spread-col {
       display: flex;
       flex-direction: column;
+      gap: 7px;
       justify-content: space-between;
-      height: 100%;
     }
 
-    /* ================= LEFT WING: THIẾT BỊ HIỆN TRƯỜNG & DỮ LIỆU CEMS ================= */
-    
-    /* Section A: Về 5S & Lưới 2x2 Stats (68mm) */
-    .about-rich-card {
+    /* Clean Software Card Container */
+    .sw-card {
       background: white;
-      border-radius: var(--radius-md);
-      padding: 3mm 4mm;
       border: 1px solid var(--paper-line);
-      box-shadow: var(--shadow-sm);
-      height: 68mm;
+      border-radius: var(--radius-md);
+      padding: 7px 9px;
+      box-shadow: var(--shadow-xs);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
-    .about-rich-card h2 {
-      font-size: 10pt;
-      margin-bottom: 1mm;
-      color: var(--ink-primary);
-    }
-    .about-rich-desc {
-      font-size: 5.8pt;
-      color: var(--ink-secondary);
-      line-height: 1.35;
-      margin-bottom: 1.5mm;
-    }
-    .stats-2x2-rich {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      margin-bottom: 1.5mm;
-    }
-    .stat-box-rich {
-      background: var(--paper-subtle);
-      padding: 2mm 3mm;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--paper-line);
-      border-left: 2.5px solid var(--5s-crimson);
-    }
-    .stat-val-rich {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11.5pt;
-      font-weight: 900;
-      color: var(--5s-crimson);
-      line-height: 1;
-      margin-bottom: 1px;
-    }
-    .stat-lbl-rich {
-      font-size: 5pt;
-      font-weight: 700;
-      color: var(--ink-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-    .brands-strip {
-      font-size: 5.2pt;
-      color: var(--ink-muted);
-      border-top: 1px dashed var(--paper-line);
-      padding-top: 1.5px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .brands-strip strong { color: var(--ink-primary); }
-
-    /* Section B: Bảng Đầy Đủ 8 Chỉ Tiêu Khí Thải CEMS (84mm) */
-    .cems-full-table-card {
-      background: white;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--paper-line);
-      padding: 3mm 4mm;
-      height: 84mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-sm);
-    }
-    .table-head-row {
+    .sw-card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.5mm;
+      margin-bottom: 4px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--paper-line);
     }
-    .table-head-row h3 {
-      font-size: 7.6pt;
-      color: var(--ink-primary);
-    }
-    .table-cems-8 {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 5.3pt;
-    }
-    .table-cems-8 th {
-      font-family: 'Montserrat', sans-serif;
+    .sw-card-title {
+      font-size: 7.2pt;
       font-weight: 800;
       color: var(--ink-primary);
-      padding: 1.8px 3.5px;
-      border-bottom: 1.5px solid var(--ink-primary);
-      text-align: left;
-      background: #F8FAFC;
-    }
-    .table-cems-8 td {
-      padding: 1.8px 3.5px;
-      border-bottom: 1px solid #EDF2F7;
-      color: var(--ink-secondary);
-    }
-    .val-pass { color: var(--5s-green); font-weight: 700; font-family: 'JetBrains Mono', monospace; }
-
-    /* Section C: Camera ATEX & Datalogger ARM (64mm) */
-    .hardware-rich-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5px;
-      height: 64mm;
-    }
-    .hw-col-card {
-      background: white;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--paper-line);
-      padding: 2.2mm 3mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-sm);
-    }
-    .hw-col-card h4 {
-      font-size: 6.8pt;
-      color: var(--ink-primary);
-      margin-bottom: 1mm;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
     }
-    .hw-media-box {
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      height: 23mm;
-      border: 1px solid var(--paper-line);
-      background: #040814;
-      position: relative;
-    }
-    .hw-media-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .hw-specs-list {
-      font-size: 5pt;
-      color: var(--ink-secondary);
-      line-height: 1.25;
-    }
-    .hw-specs-list div { margin-bottom: 1px; }
-    .hw-specs-list strong { color: var(--ink-primary); }
-    .hw-chip-tag {
+    .sw-card-tag {
       font-size: 4.8pt;
       font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: var(--radius-full);
+      background: var(--paper-subtle);
+      border: 1px solid var(--paper-line);
+      color: var(--ink-secondary);
+    }
+    .sw-card-tag.crimson {
+      background: var(--5s-crimson-subtle);
+      color: var(--5s-crimson);
+      border-color: var(--5s-crimson-border);
+    }
+    .sw-card-tag.blue {
+      background: var(--5s-blue-subtle);
       color: var(--5s-blue);
-      font-weight: 700;
-      border-top: 1px dashed var(--paper-line);
-      padding-top: 1px;
-      letter-spacing: 0.02em;
+      border-color: var(--5s-blue-border);
+    }
+    .sw-card-tag.green {
+      background: var(--5s-green-subtle);
+      color: var(--5s-green);
+      border-color: var(--5s-green-border);
     }
 
-    /* ================= RIGHT WING: TRÍ TUỆ NHÂN TẠO & PHÂN TÍCH CHUYÊN SÂU ================= */
-    
-    /* Section D: AI Buồng Đốt & Công Thức Hóa Học (72mm) */
-    .ai-combustion-rich-card {
-      background: #070D1E;
-      background-image: radial-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px);
-      background-size: 8px 8px;
-      border-radius: var(--radius-md);
-      padding: 2.5mm 3.5mm;
-      height: 72mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: white;
-      box-shadow: var(--shadow-md), 0 0 15px rgba(0, 240, 255, 0.08);
-      border: 1px solid rgba(0, 240, 255, 0.25);
-    }
-    .ai-header-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1mm;
-    }
-    .ai-header-flex h3 {
-      font-size: 7.6pt;
-      color: white;
-      letter-spacing: -0.01em;
-    }
-    .ai-split-view {
+    /* Sub-sections within cards */
+    .sw-feature-grid-3 {
       display: grid;
-      grid-template-columns: 1.22fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 5px;
-      height: 41mm;
+      margin-top: 4px;
     }
-    .ai-media-dual-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      height: 100%;
-    }
-    .ai-media-frame {
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      height: 100%;
-      background: #040814;
-      position: relative;
-    }
-    .ai-media-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .ai-img-subtag {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(7, 13, 30, 0.9);
-      color: var(--cyber-cyan);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 4.2pt;
-      font-weight: 700;
-      padding: 1.5px 2px;
-      text-align: center;
-      letter-spacing: 0.03em;
-      border-top: 1px solid rgba(0, 240, 255, 0.25);
-    }
-    .ai-formula-panel {
-      background: rgba(200, 16, 46, 0.18);
-      border: 1px solid rgba(255, 77, 94, 0.45);
-      border-radius: var(--radius-sm);
-      padding: 1.8mm 2.5mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      font-size: 5pt;
-    }
-    .formula-txt {
-      font-family: 'JetBrains Mono', monospace;
-      color: #FFB3BA;
-      line-height: 1.25;
-    }
-    .formula-txt strong { color: #FFFFFF; }
-    .ai-steps-txt {
-      color: #F1F5F9;
-      line-height: 1.25;
-      border-top: 1px dashed rgba(255, 255, 255, 0.25);
-      padding-top: 1.5px;
-    }
-    .ai-steps-txt strong { color: #38BDF8; }
-
-    /* Section E: Heatmap 24x7 & Đồ Thị Biến Thiên (68mm) */
-    .analytics-gallery-card {
-      background: white;
-      border-radius: var(--radius-md);
+    .sw-feature-box {
+      background: var(--paper-subtle);
       border: 1px solid var(--paper-line);
-      padding: 2.5mm 3.5mm;
-      height: 68mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-sm);
-    }
-    .gallery-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1mm;
-    }
-    .gallery-head h3 {
-      font-size: 7.4pt;
-      color: var(--ink-primary);
-    }
-    .analytics-split-imgs {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 5px;
-      height: 45mm;
-    }
-    .analytics-img-box {
       border-radius: var(--radius-sm);
-      overflow: hidden;
-      border: 1px solid var(--paper-line);
-      position: relative;
-      background: #040814;
+      padding: 5px 6px;
     }
-    .analytics-img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .img-tag-strip {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(11, 19, 43, 0.9);
-      padding: 1.5px 4px;
-      color: white;
-      font-size: 4.5pt;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      border-top: 1px solid rgba(0, 240, 255, 0.2);
-    }
-    /* Section F: Bảng So Sánh Trước vs. Sau 2 Cột (76mm) */
-    .roi-comparison-card {
-      background: white;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--paper-line);
-      padding: 3mm 4mm;
-      height: 76mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-sm);
-    }
-    .roi-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1mm;
-    }
-    .roi-head h3 {
-      font-size: 7.6pt;
-      color: var(--ink-primary);
-    }
-    .roi-2col-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5px;
-      height: 54mm;
-    }
-    .roi-col {
-      border-radius: var(--radius-sm);
-      padding: 2mm 3mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .roi-col.before {
-      background: #FEF2F2;
-      border-left: 2.5px solid var(--5s-crimson);
-    }
-    .roi-col.after {
-      background: #ECFDF5;
-      border-left: 2.5px solid var(--5s-green);
-    }
-    .roi-tag {
-      font-family: 'Montserrat', sans-serif;
+    .sw-feature-title {
       font-size: 5.6pt;
       font-weight: 800;
+      color: var(--ink-primary);
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 1px;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 2px;
     }
-    .roi-col.before .roi-tag { color: var(--5s-crimson); }
-    .roi-col.after .roi-tag { color: var(--5s-green); }
-    .roi-bullets {
-      font-size: 5.2pt;
+    .sw-feature-desc {
+      font-size: 4.7pt;
       color: var(--ink-secondary);
       line-height: 1.3;
     }
-    .roi-bullets div { margin-bottom: 1.5px; }
-    .roi-kpi-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 5pt;
-      font-weight: 800;
-      padding: 2px 4px;
-      border-radius: 2px;
-      text-align: center;
-    }
-    .roi-kpi-pill.danger { background: #FEE2E2; color: #991B1B; }
-    .roi-kpi-pill.success { background: #DCFCE7; color: #166534; }
 
-    /* Bottom 4-KPI Bar (20mm) */
-    .spread-bottom-bar {
-      height: 20mm;
-      background: white;
-      border-radius: var(--radius-md);
+    /* 8-Parameter Realtime Table */
+    .sw-table-8p {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 4.7pt;
+      margin-top: 4px;
+    }
+    .sw-table-8p th {
+      background: #F1F5F9;
+      color: var(--ink-secondary);
+      font-weight: 700;
+      padding: 3px 4px;
+      text-align: left;
       border: 1px solid var(--paper-line);
-      box-shadow: var(--shadow-sm);
+    }
+    .sw-table-8p td {
+      padding: 2.5px 4px;
+      border: 1px solid var(--paper-line);
+      color: var(--ink-primary);
+    }
+    .sw-table-8p tr:nth-child(even) td {
+      background: #FAFCFE;
+    }
+    .sw-badge-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 4.3pt;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+    .sw-badge-pill.normal {
+      background: var(--5s-green-subtle);
+      color: var(--5s-green);
+      border: 1px solid var(--5s-green-border);
+    }
+    .sw-badge-pill.warning {
+      background: var(--5s-amber-subtle);
+      color: var(--5s-amber);
+      border: 1px solid #FDE68A;
+    }
+
+    /* Image Containers inside cards */
+    .sw-img-container {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--paper-line);
+      background: #FAFCFE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sw-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ROI Comparison Table */
+    .roi-compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .roi-box {
+      border-radius: var(--radius-sm);
+      padding: 5px 7px;
+      border: 1px solid var(--paper-line);
+    }
+    .roi-box.before {
+      background: #FFF5F5;
+      border-color: #FED7D7;
+    }
+    .roi-box.after {
+      background: #F0FDF4;
+      border-color: #BBF7D0;
+    }
+    .roi-header {
+      font-size: 5.6pt;
+      font-weight: 800;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .roi-box.before .roi-header { color: #C53030; }
+    .roi-box.after .roi-header { color: #15803D; }
+    .roi-item {
+      font-size: 4.7pt;
+      line-height: 1.35;
+      margin-bottom: 2px;
+      display: flex;
+      gap: 4px;
+      align-items: flex-start;
+    }
+    .roi-box.before .roi-item { color: #742A2A; }
+    .roi-box.after .roi-item { color: #166534; font-weight: 600; }
+
+    /* Bottom 4-KPI Bar (16mm) */
+    .spread-bottom-bar {
+      height: 16mm;
+      background: white;
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-md);
+      padding: 5px 12px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 10px;
       align-items: center;
-      padding: 0 8mm;
+      box-shadow: var(--shadow-xs);
       flex-shrink: 0;
+      margin-top: 2mm;
     }
     .kpi-unit {
       display: flex;
@@ -977,446 +810,481 @@
     }
     .kpi-big-num {
       font-family: 'Montserrat', sans-serif;
-      font-size: 17pt;
+      font-size: 13pt;
       font-weight: 900;
       line-height: 1;
       color: var(--5s-crimson);
     }
-    .kpi-meta-text h6 {
-      font-size: 6.2pt;
-      font-weight: 800;
-      color: var(--ink-primary);
-      margin-bottom: 1px;
+    .kpi-unit:nth-child(2) .kpi-big-num { color: var(--5s-blue); }
+    .kpi-unit:nth-child(3) .kpi-big-num { color: var(--5s-navy); }
+    .kpi-unit:nth-child(4) .kpi-big-num { color: var(--5s-green); }
+
+    .kpi-meta-text {
+      font-size: 5pt;
+      line-height: 1.25;
+      color: var(--ink-secondary);
+      font-weight: 600;
     }
-    .kpi-meta-text p {
-      font-size: 5.2pt;
+    .kpi-meta-text strong {
+      display: block;
+      color: var(--ink-primary);
+      font-size: 5.6pt;
+    }
+
+    /* Spread Bottom Footer Note */
+    .spread-footer {
+      height: 6mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 5pt;
       color: var(--ink-muted);
-      line-height: 1.2;
-      margin-bottom: 0;
+      border-top: 1px solid var(--paper-line);
+      padding-top: 1mm;
+      flex-shrink: 0;
     }
 
     /* ==========================================================================
-       PAGE 4: BÌA SAU (EXECUTIVE CLOSING & CONTACT - A4: 210 x 297mm)
+       PAGE 4: BÌA SAU (ECOSYSTEM & LICENSING - A4: 210 x 297mm - 1123px height)
        ========================================================================== */
-    .back-editorial, .back-closing-page, .back-unboxed-wrap {
+    .back-editorial, .back-unboxed-wrap {
       height: 297mm;
-      padding: 8mm 11mm 7mm 11mm;
+      padding: 7mm 10mm 6mm 10mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #EEF2F6 100%);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
     }
 
+    /* Back Header */
     .back-header {
-      height: 12mm;
+      height: 9mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--5s-crimson);
+      border-bottom: 1.5px solid var(--paper-line);
       padding-bottom: 2mm;
       flex-shrink: 0;
     }
     .back-logo {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 900;
       color: var(--ink-primary);
       text-decoration: none;
     }
     .back-logo img {
-      height: 28px;
+      height: 25px;
       width: auto;
     }
     .back-title {
-      font-size: 9.5pt;
+      font-size: 8.5pt;
       font-weight: 800;
       color: var(--ink-primary);
     }
     .back-title span { color: var(--5s-crimson); }
 
-    /* 5-Sphere Constellation Visual & Radar Progress (40mm) */
-    .back-ecosystem-box {
-      height: 40mm;
+    /* Back Section 1: Multi-Platform & Security (36mm) */
+    .back-security-box {
+      height: 38mm;
+      background: white;
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-md);
+      padding: 6px 9px;
+      box-shadow: var(--shadow-xs);
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-    .constellation-img-frame {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--paper-line);
-      background: white;
-      height: 100%;
-    }
-    .constellation-img-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .radar-telemetry-card {
-      background: white;
-      border-radius: var(--radius-md);
-      padding: 2mm 3.5mm;
-      border: 1px solid var(--paper-line);
-      border-left: 3px solid #0066CC;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .radar-row-item {
-      display: flex;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 8px;
       align-items: center;
-      justify-content: space-between;
-      font-size: 5.4pt;
-      color: var(--ink-secondary);
+      flex-shrink: 0;
+      margin-top: 1.5mm;
     }
-    .radar-row-item strong { color: var(--ink-primary); }
-    .radar-track {
-      width: 60px;
-      height: 3.5px;
-      background: var(--paper-line);
-      border-radius: var(--radius-full);
-      overflow: hidden;
-    }
-    .radar-fill {
+    .back-security-img {
       height: 100%;
-      background: linear-gradient(90deg, #0066CC, #00D4B2);
-    }
-
-    /* Legal Table (42mm) */
-    .back-legal-box {
-      height: 42mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-    .legal-tbl {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 5.6pt;
-      height: 36mm;
-    }
-    .legal-tbl th {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      color: var(--ink-primary);
-      padding: 1.8mm 3mm;
-      border-bottom: 1.5px solid var(--ink-primary);
-      text-align: left;
-      background: rgba(255, 255, 255, 0.7);
-    }
-    .legal-tbl td {
-      padding: 1.8mm 3mm;
-      border-bottom: 1px solid var(--paper-line);
-      color: var(--ink-secondary);
-      vertical-align: middle;
-      background: rgba(255, 255, 255, 0.5);
-    }
-    .legal-tbl .law-name { font-weight: 800; color: var(--ink-primary); }
-    .legal-tbl .law-fine { font-weight: 800; color: var(--5s-crimson); }
-
-    /* 3 Tiers Comparison Table (50mm) */
-    .back-tiers-box {
-      height: 50mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-    .tiers-tbl {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 5.6pt;
-      height: 44mm;
-    }
-    .tiers-tbl th {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      color: var(--ink-primary);
-      padding: 1.8mm 3mm;
-      border-bottom: 1.5px solid #0066CC;
-      text-align: left;
-      background: white;
-    }
-    .tiers-tbl th.feat {
-      border-bottom-color: var(--5s-crimson);
-      color: var(--5s-crimson);
-      background: #FFF5F6;
-    }
-    .tiers-tbl td {
-      padding: 1.8mm 3mm;
-      border-bottom: 1px solid var(--paper-line);
-      color: var(--ink-secondary);
-      vertical-align: middle;
-      background: white;
-    }
-
-    /* Client Marquee Strip (20mm) */
-    .back-clients-strip {
-      height: 20mm;
-      background: white;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--paper-line);
-      padding: 2mm 4mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-    .clients-head {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 5.6pt;
-      font-weight: 800;
-      color: var(--ink-primary);
-      text-transform: uppercase;
-      display: flex;
-      justify-content: space-between;
-    }
-    .clients-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5mm 4mm;
-      font-size: 5.5pt;
-      color: var(--ink-secondary);
-    }
-    .clients-list strong { color: var(--ink-primary); }
-
-    /* Turnkey Roadmap (25mm) */
-    .back-roadmap-box {
-      height: 25mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-    .roadmap-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 4px;
-      height: 19mm;
-    }
-    .roadmap-card {
-      background: white;
       border-radius: var(--radius-sm);
+      overflow: hidden;
       border: 1px solid var(--paper-line);
-      padding: 1.5mm;
-      text-align: center;
+      background: #FAFCFE;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .roadmap-card.active {
-      border-top: 2.5px solid var(--5s-crimson);
-      background: #FFF5F6;
-    }
-    .roadmap-dot {
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      background: #EFF6FF;
-      color: #0066CC;
-      font-size: 5.4pt;
-      font-weight: 800;
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto;
-      font-family: 'Montserrat', sans-serif;
     }
-    .roadmap-card.active .roadmap-dot { background: var(--5s-crimson); color: white; }
-    .roadmap-card h6 {
-      font-size: 5.5pt;
-      font-weight: 800;
-      color: var(--ink-primary);
+    .back-security-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
-    .roadmap-card p {
-      font-size: 4.7pt;
-      color: var(--ink-secondary);
-      margin-bottom: 0;
-    }
-
-    /* Contact & Dual QR Card (44mm) */
-    .back-contact-card {
-      height: 44mm;
-      background: var(--5s-navy);
-      border-radius: var(--radius-lg);
-      padding: 3mm 5mm;
+    .back-security-content {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-      border-left: 4px solid var(--5s-crimson);
-      flex-shrink: 0;
-      box-shadow: var(--shadow-md);
+      flex-direction: column;
+      gap: 3px;
     }
-    .contact-text-col h5 {
-      font-size: 9pt;
-      color: white;
-      margin-bottom: 1.5px;
-    }
-    .contact-text-col h5 span { color: var(--5s-crimson); }
-    .contact-text-col p {
-      font-size: 5.8pt;
-      color: #94A3B8;
-      margin-bottom: 2mm;
-    }
-    .contact-info-grid {
+    .back-sec-badge-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5px 8px;
-      font-size: 5.6pt;
-      color: white;
+      gap: 4px;
+      margin-top: 3px;
     }
-    .contact-info-grid strong { color: #38BDF8; }
+    .back-sec-pill {
+      background: var(--paper-subtle);
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-xs);
+      padding: 3px 5px;
+      font-size: 4.6pt;
+      color: var(--ink-secondary);
+      line-height: 1.25;
+    }
+    .back-sec-pill strong {
+      display: block;
+      color: var(--ink-primary);
+      font-size: 5.2pt;
+    }
 
-    /* Dual QR Boxes */
-    .qr-pair-wrap {
-      display: flex;
-      gap: 6px;
-      flex-shrink: 0;
-      margin-left: 6px;
-    }
-    .qr-card-unit {
+    /* Back Section 2: 3-Tier Licensing Matrix (48mm) */
+    .back-licensing-box {
+      height: 48mm;
       background: white;
-      padding: 2mm;
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-md);
+      padding: 6px 9px;
+      box-shadow: var(--shadow-xs);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-shrink: 0;
+      margin-top: 1.5mm;
+    }
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      height: calc(100% - 14px);
+    }
+    .tier-card {
+      border: 1px solid var(--paper-line);
       border-radius: var(--radius-sm);
+      padding: 5px 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #FAFCFE;
+      position: relative;
+    }
+    .tier-card.featured {
+      background: white;
+      border-color: var(--5s-crimson);
+      box-shadow: 0 2px 8px rgba(200, 16, 46, 0.12);
+    }
+    .tier-popular-tag {
+      position: absolute;
+      top: -5px;
+      right: 6px;
+      background: var(--5s-crimson);
+      color: white;
+      font-size: 4pt;
+      font-weight: 800;
+      padding: 1px 5px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tier-title {
+      font-size: 6.2pt;
+      font-weight: 800;
+      color: var(--ink-primary);
+    }
+    .tier-target {
+      font-size: 4.5pt;
+      color: var(--ink-muted);
+      margin-bottom: 3px;
+    }
+    .tier-features {
+      list-style: none;
+      font-size: 4.6pt;
+      color: var(--ink-secondary);
+      line-height: 1.35;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .tier-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 3px;
+    }
+    .tier-features li::before {
+      content: "✓";
+      color: var(--5s-green);
+      font-weight: 800;
+      font-size: 5pt;
+    }
+
+    /* Back Section 3: Enterprise Clients Marquee (18mm) */
+    .back-clients-box {
+      height: 18mm;
+      background: white;
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-md);
+      padding: 4px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-shrink: 0;
+      margin-top: 1.5mm;
+    }
+    .client-logos-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4px;
+      align-items: center;
+    }
+    .client-logo-pill {
+      background: var(--paper-subtle);
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-xs);
+      padding: 3px 2px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 4.8pt;
+      font-weight: 800;
+      color: var(--ink-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Back Section 4: Turnkey Deployment Roadmap (22mm) */
+    .back-roadmap-box {
+      height: 22mm;
+      background: white;
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-md);
+      padding: 4px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-shrink: 0;
+      margin-top: 1.5mm;
+    }
+    .roadmap-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 5px;
+      position: relative;
+    }
+    .roadmap-step-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1px;
-      color: var(--ink-primary);
+      text-align: center;
     }
-    .qr-svg-holder {
-      width: 38px; height: 38px;
+    .roadmap-step-circle {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--5s-blue), var(--5s-navy));
+      color: white;
+      font-size: 5.5pt;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2px;
+    }
+    .roadmap-step-circle.accent {
+      background: linear-gradient(135deg, var(--5s-crimson), #FF4D6D);
+    }
+    .roadmap-step-text {
+      font-size: 4.5pt;
+      color: var(--ink-secondary);
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    /* Back Section 5: Free Trial Contact & QR Card (40mm) */
+    .back-contact-box {
+      height: 40mm;
+      background: linear-gradient(135deg, #0B132B 0%, #15223E 100%);
+      border-radius: var(--radius-md);
+      padding: 7px 11px;
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+      flex-shrink: 0;
+      margin-top: 1.5mm;
+    }
+    .contact-left-col h4 {
+      color: white;
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+    .contact-left-col h4 span { color: #FF4D6D; }
+    .contact-sub-text {
+      font-size: 5.2pt;
+      color: #94A3B8;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+    .contact-info-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .contact-info-pill {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-full);
+      padding: 2px 7px;
+      font-size: 4.8pt;
+      color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .contact-info-pill strong { color: white; }
+
+    .contact-qr-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .contact-qr-wrap {
+      width: 25mm;
+      height: 25mm;
+      background: white;
+      border-radius: var(--radius-sm);
+      padding: 2px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .qr-card-unit span {
-      font-size: 4.5pt;
-      font-weight: 800;
-      text-transform: uppercase;
-      font-family: 'Montserrat', sans-serif;
+    .contact-qr-wrap svg {
+      width: 100%;
+      height: 100%;
     }
-    .qr-card-unit .qr-link {
-      font-size: 4.2pt;
+    .contact-qr-label {
+      font-size: 4.3pt;
       font-family: 'JetBrains Mono', monospace;
-      color: #0066CC;
-      font-weight: 700;
+      color: #94A3B8;
+      text-transform: uppercase;
+      text-align: center;
     }
 
-    /* Footer */
+    /* Back Footer */
     .back-footer {
       height: 6mm;
-      border-top: 1px solid var(--paper-line);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 5.4pt;
+      font-size: 4.8pt;
       color: var(--ink-muted);
+      border-top: 1px solid var(--paper-line);
+      padding-top: 1mm;
       flex-shrink: 0;
     }
   </style>
 </head>
+
 <body>
 
   <!-- ==========================================================================
-       PAGE 1: BÌA TRƯỚC (IMPRESSIVE HIGH-IMPACT COVER - A4: 210 x 297mm)
+       PAGE 1: TRANG BÌA (ENTERPRISE SAAS SOFTWARE COVER - A4: 210 x 297mm)
        ========================================================================== -->
   <div class="page-a4">
-    <div class="cover-editorial cover-hardcover-monograph cover-unboxed">
+    <div class="cover-editorial cover-unboxed">
       
-      <!-- Header Masthead -->
+      <!-- 1. Masthead Header -->
       <div class="cover-header">
         <a href="#" class="cover-logo">
           <img src="../assets/logo.png" alt="5S Service Logo" />
           <span>5S CLOUD</span><span class="logo-dot"></span>
         </a>
         <div class="cover-meta">
-          <div>BÁO CÁO GIẢI PHÁP QUAN TRẮC MÔI TRƯỜNG // 2026</div>
-          <div>ẤN BẢN ĐẶC BIỆT DÀNH CHO <strong>C-LEVEL & GIÁM ĐỐC NHÀ MÁY</strong></div>
+          NỀN TẢNG PHẦN MỀM QUẢN LÝ & PHÂN TÍCH DỮ LIỆU TẬP TRUNG // <strong>ENTERPRISE SAAS</strong><br />
+          TÀI LIỆU GIỚI THIỆU GIẢI PHÁP DÀNH CHO C-LEVEL & GIÁM ĐỐC VẬN HÀNH // <strong>2026 EDITION</strong>
         </div>
       </div>
 
-      <!-- Hero Typography Content -->
+      <!-- 2. Hero Typography & CTAs -->
       <div class="cover-hero-content">
         <div class="cover-kicker-tag">
           <svg class="svg-icon sm" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-          NỀN TẢNG QUAN TRẮC MÔI TRƯỜNG & AI BUỒNG ĐỐT THẾ HỆ MỚI
+          GIẢI PHÁP PHẦN MỀM CHUYỂN ĐỔI SỐ DOANH NGHIỆP & KCN
         </div>
-
         <h1 class="cover-headline">
-          Giải pháp công nghệ<br />
-          <span>quan trắc môi trường</span> & AI buồng đốt
+          Giải pháp phần mềm <span class="highlight-crimson">chuyển đổi số</span> & <br />
+          <span class="highlight-blue">điều hành dữ liệu môi trường</span> thế hệ mới
         </h1>
-
         <p class="cover-lead">
-          5S Cloud giúp doanh nghiệp số hoá hệ thống quan trắc Khí thải (CEMS), Nước thải và Không khí xung quanh. Tự động truyền 5 phút/lần về 63 Sở TN&MT, tối ưu hoá buồng đốt lò hơi bằng AI và triệt tiêu nguy cơ xử phạt tới 2 tỷ VNĐ.
+          Giúp doanh nghiệp & KCN số hoá 100% hệ thống dữ liệu, tự động xuất báo cáo chuẩn Sở TN&MT, phân quyền đa cấp, cảnh báo vi phạm tức thời và quản lý thông suốt đa chi nhánh trên một nền tảng Cloud duy nhất.
         </p>
-
         <div class="cover-btns-row">
-          <a href="#" class="btn btn-accent"><span>Khảo sát hiện trường ngay</span></a>
-          <a href="#" class="btn btn-outline"><span>Tìm hiểu dịch vụ</span></a>
+          <a href="#" class="btn btn-accent">
+            <svg class="svg-icon sm" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Trải nghiệm Demo phần mềm
+          </a>
+          <a href="#" class="btn btn-outline">
+            <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Tài liệu kỹ thuật API
+          </a>
         </div>
       </div>
 
-      <!-- 4-Metric Key Numbers Bar -->
+      <!-- 3. 4 Key Software Metrics -->
       <div class="cover-metrics-grid">
         <div class="cover-metric-cell">
           <div class="cover-metric-num" style="color: var(--5s-crimson);">1,000+</div>
-          <div class="cover-metric-label">Điểm quan trắc</div>
+          <div class="cover-metric-label">Điểm kết nối dữ liệu phần mềm</div>
         </div>
-        <div class="cover-metric-cell" style="border-top-color: #0066CC;">
-          <div class="cover-metric-num" style="color: #0066CC;">600+</div>
-          <div class="cover-metric-label">Khách hàng KCN</div>
+        <div class="cover-metric-cell">
+          <div class="cover-metric-num" style="color: var(--5s-blue);">600+</div>
+          <div class="cover-metric-label">Doanh nghiệp & KCN tin dùng</div>
         </div>
-        <div class="cover-metric-cell" style="border-top-color: var(--ink-primary);">
-          <div class="cover-metric-num">63</div>
-          <div class="cover-metric-label">Sở TN&MT</div>
+        <div class="cover-metric-cell">
+          <div class="cover-metric-num" style="color: var(--ink-primary);">100%</div>
+          <div class="cover-metric-label">Tự động hoá xuất báo cáo định kỳ</div>
         </div>
-        <div class="cover-metric-cell" style="border-top-color: #059669;">
-          <div class="cover-metric-num" style="color: #059669;">99.9%</div>
-          <div class="cover-metric-label">SLA 24/7</div>
+        <div class="cover-metric-cell">
+          <div class="cover-metric-num" style="color: var(--5s-green);">99.9%</div>
+          <div class="cover-metric-label">Uptime Cloud SLA cam kết</div>
         </div>
       </div>
 
-      <!-- 3D Visual Stage (136mm) - CYBERNETIC 3D MONOLITH DIGITAL TWIN -->
-      <div class="cover-image-stage">
-        <div class="corner-bracket tl"></div>
-        <div class="corner-bracket tr"></div>
-        <div class="corner-bracket bl"></div>
-        <div class="corner-bracket br"></div>
-        
-        <div class="cover-hud-top">
-          <div class="hud-left">
-            <span class="pulse-dot"></span>
-            <span>SYS.DIGITAL-TWIN // CEMS-3D-MONOLITH</span>
+      <!-- 4. Central Hero Showcase Stage (MacBook SaaS Dashboard) -->
+      <div class="cover-hero-stage">
+        <div class="cover-stage-topbar">
+          <div class="stage-browser-dots">
+            <div class="stage-browser-dot r"></div>
+            <div class="stage-browser-dot y"></div>
+            <div class="stage-browser-dot g"></div>
           </div>
-          <div class="hud-mid">LAT 10.7769° N • LON 106.7009° E • 100Hz TELEMETRY</div>
-          <div class="hud-right">ONLINE [SYNCED]</div>
+          <div class="stage-browser-url">https://app.5scloud.vn/enterprise/dashboard-cems</div>
+          <div>REALTIME STREAM ENGINE // V4.2</div>
         </div>
-
-        <img src="../assets/digital-twin-3d-monolith.png" alt="Mô hình 3D Digital Twin trạm CEMS 5S Cloud" />
-        
-        <div class="cover-badge-tag">
-          <span class="pulse-dot laser"></span>
-          <span>MÔ HÌNH 3D DIGITAL TWIN TRẠM CEMS // SLA 99.9% // ĐỘ TRỄ &lt; 150MS // TT 10/2021/TT-BTNMT</span>
+        <div class="cover-hero-img-wrap">
+          <img src="../assets/software-hero-macbook.png" alt="5S Cloud Enterprise SaaS Dashboard on MacBook Pro" />
+          <div class="cover-badge-float">
+            <div class="badge-status-dot"></div>
+            <span>HỆ THỐNG TRỰC TUYẾN: 1,000+ ĐIỂM DỮ LIỆU ĐANG XỬ LÝ (LATENCY &lt; 150MS)</span>
+          </div>
         </div>
       </div>
 
-      <!-- Footer Band -->
+      <!-- 5. Cover Footer & Compliance -->
       <div class="cover-footer">
-        <div class="cover-compliance-tag">
-          ✓ 100% NGHỊ ĐỊNH 08/2022/NĐ-CP (ĐIỀU 97) & THÔNG TƯ 10/2021/TT-BTNMT
-        </div>
         <div>
-          CÔNG TY CỔ PHẦN DỊCH VỤ TỰ ĐỘNG HOÁ 5S | <strong>www.5s-service.com</strong>
+          Bảo mật điện toán đám mây theo tiêu chuẩn <strong>ISO 27001</strong> // Kiến trúc Microservices sẵn sàng mở rộng
+        </div>
+        <div class="cover-compliance-tag">
+          CHUẨN KẾT XUẤT THÔNG TƯ 10/2021/TT-BTNMT &amp; NGHỊ ĐỊNH 08/2022/NĐ-CP
         </div>
       </div>
 
@@ -1424,327 +1292,303 @@
   </div>
 
   <!-- ==========================================================================
-       PAGES 2-3: SPREAD TRANG ĐÔI LÀM ĐẦY ĐẶC SẮC (420 x 297mm)
+       PAGES 2-3: SPREAD TRANG ĐÔI (A3 LANDSCAPE: 420mm x 297mm)
        ========================================================================== -->
   <div class="spread-a3">
-    <div class="spread-container spread-dual-container spread-unboxed-wrap">
+    <div class="spread-container spread-unboxed-wrap">
 
-      <!-- 420mm Spread Header (13mm) -->
+      <!-- 1. Spread Masthead Header -->
       <div class="spread-masthead">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <img src="../assets/logo.png" alt="5S Service Logo" style="height: 24px; width: auto;" />
-          <h2 class="spread-title">
-            5S COMMAND PORTAL // TRUNG TÂM ĐIỀU HÀNH & HỆ SINH THÁI QUAN TRẮC <span>TẬP TRUNG</span>
-          </h2>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <img src="../assets/logo.png" alt="5S Logo" style="height: 20px; width: auto;" />
+          <h2 class="spread-title">5S CLOUD ENTERPRISE <span>// KIẾN TRÚC PHẦN MỀM &amp; TRUNG TÂM PHÂN TÍCH DỮ LIỆU TẬP TRUNG</span></h2>
         </div>
         <div class="spread-meta-badges">
-          <span class="spread-badge red">SLA TRUYỀN DẪN 99.9%</span>
-          <span class="spread-badge">LƯU TRỮ CLOUD 3 NĂM</span>
-          <span class="spread-badge red">ISO 27001</span>
+          <span class="spread-badge red">SaaS Cloud &amp; Hybrid On-Premise</span>
+          <span class="spread-badge blue">Open REST API &amp; Webhooks</span>
+          <span class="spread-badge">Uptime SLA 99.9%</span>
         </div>
       </div>
 
-      <!-- 4-Tier Pipeline Ribbon Banner (15mm) -->
+      <!-- 2. 4-Module Software Pipeline Banner -->
       <div class="pipeline-strip">
         <div class="pipeline-step">
-          <div class="step-num crimson">1</div>
-          <div class="step-desc">
-            <h6>TẦNG 1: THIẾT BỊ ĐO (CEMS & SENSORS)</h6>
-            <p>Tủ Codel/SICK, sensor pH, COD, TSS, O2 đa hãng</p>
+          <div class="step-num-badge">01</div>
+          <div class="step-content">
+            <div class="step-title">1. Thu Thập Dữ Liệu Tự Động</div>
+            <div class="step-sub">Multi-Protocol Ingestion: Modbus, OPC-UA, MQTT, REST API, FTP (1s - 5p/lần)</div>
           </div>
         </div>
         <div class="pipeline-step">
-          <div class="step-num blue">2</div>
-          <div class="step-desc">
-            <h6>TẦNG 2: EDGE & TRUYỀN DẪN (DATALOGGER)</h6>
-            <p>ARM Cortex-A53, Camera ATEX kép, máy lấy mẫu tự động</p>
+          <div class="step-num-badge">02</div>
+          <div class="step-content">
+            <div class="step-title">2. Xử Lý Stream Thời Gian Thực</div>
+            <div class="step-sub">Khử nhiễu, chuẩn hóa, phát hiện dị thường &amp; vi phạm ngưỡng trong &lt; 150ms</div>
           </div>
         </div>
         <div class="pipeline-step">
-          <div class="step-num">3</div>
-          <div class="step-desc">
-            <h6>TẦNG 3: MÁY CHỦ HYBRID (CLOUD SAAS)</h6>
-            <p>Cloud SaaS Enterprise & On-premise bảo mật ISO 27001</p>
+          <div class="step-num-badge crimson">03</div>
+          <div class="step-content">
+            <div class="step-title">3. Phân Tích AI &amp; Báo Cáo</div>
+            <div class="step-sub">Tự động kết xuất báo cáo Sở TN&amp;MT, dự báo xu hướng vượt ngưỡng 24h</div>
           </div>
         </div>
         <div class="pipeline-step">
-          <div class="step-num blue">4</div>
-          <div class="step-desc">
-            <h6>TẦNG 4: AI & KẾT NỐI (APPLICATIONS)</h6>
-            <p>AI buồng đốt, Sổ nhật ký số, kết nối 63 Sở TN&MT</p>
+          <div class="step-num-badge">04</div>
+          <div class="step-content">
+            <div class="step-title">4. Tích Hợp API &amp; Cổng Portal</div>
+            <div class="step-sub">Open APIs, Webhooks, Cổng Portal Doanh nghiệp, Mobile App iOS/Android</div>
           </div>
         </div>
       </div>
 
-      <!-- 420mm Main Work Surface (224mm) -->
+      <!-- 3. Main 2-Column Work Surface -->
       <div class="spread-main-grid">
 
-        <!-- ================= LEFT WING: THIẾT BỊ HIỆN TRƯỜNG & DỮ LIỆU CEMS ================= -->
+        <!-- ==================== LEFT WING: CÁC PHÂN HỆ PHẦN MỀM CỐT LÕI ==================== -->
         <div class="spread-col">
-          
-          <!-- Section A: Về 5S & Lưới 2x2 Stats (68mm) -->
-          <div class="about-rich-card">
-            <div>
-              <div class="section-kicker">TIÊN PHONG CÔNG NGHỆ QUAN TRẮC MÔI TRƯỜNG</div>
-              <h2>Năng Lực Triển Khai & Vận Hành Chuyên Sâu</h2>
-              <p class="about-rich-desc">
-                Chúng tôi là đội ngũ kỹ sư điều khiển & tự động hoá chuyên sâu, tư vấn và triển khai trọn gói hệ thống quan trắc môi trường tự động liên tục (CEMS khí thải, Nước thải), Datalogger công nghiệp và Trợ lý AI chẩn đoán buồng đốt lò hơi.
-              </p>
-            </div>
 
-            <!-- 2x2 Stats Grid -->
-            <div class="stats-2x2-rich">
-              <div class="stat-box-rich">
-                <div class="stat-val-rich">1,000+</div>
-                <div class="stat-lbl-rich">Điểm quan trắc kết nối</div>
+          <!-- Card 1: Khối Giới Thiệu Phần Mềm 5S Cloud (Overview) -->
+          <div class="sw-card" style="height: 52mm;">
+            <div class="sw-card-header">
+              <div class="sw-card-title">
+                <svg class="svg-icon md" style="color: var(--5s-crimson);" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                PHÂN HỆ QUẢN TRỊ &amp; ĐIỀU HÀNH DỮ LIỆU TẬP TRUNG (5S CLOUD SAAS)
               </div>
-              <div class="stat-box-rich">
-                <div class="stat-val-rich">600+</div>
-                <div class="stat-lbl-rich">Khách hàng KCN tin dùng</div>
-              </div>
-              <div class="stat-box-rich">
-                <div class="stat-val-rich">63</div>
-                <div class="stat-lbl-rich">Sở TN&MT thông suốt</div>
-              </div>
-              <div class="stat-box-rich">
-                <div class="stat-val-rich">99.9%</div>
-                <div class="stat-lbl-rich">SLA đường truyền 24/7</div>
-              </div>
+              <span class="sw-card-tag crimson">KIẾN TRÚC ENTERPRISE</span>
             </div>
-
-            <div class="brands-strip">
-              <span>Tương thích đa hãng: <strong>Codel • SICK • ABB • Siemens • Horiba • Hach • Envea • Xylem</strong></span>
-              <span style="color: var(--5s-blue); font-weight: 700;">10+ NĂM KINH NGHIỆM</span>
-            </div>
-          </div>
-
-          <!-- Section B: Bảng Đầy Đủ 8 Chỉ Tiêu Khí Thải CEMS (84mm) -->
-          <div class="cems-full-table-card">
-            <div class="table-head-row">
-              <h3>Bảng 8 Chỉ Tiêu Khí Thải CEMS (QCVN 19/2009/BTNMT)</h3>
-              <span class="spread-badge" style="color: var(--5s-green); border-color: var(--5s-green);">● TRỰC TIẾP TỪ TRẠM</span>
-            </div>
-
-            <table class="table-cems-8">
-              <thead>
-                <tr>
-                  <th>Chỉ Tiêu Đo</th>
-                  <th>Giá Trị Đo</th>
-                  <th>Ngưỡng QCVN</th>
-                  <th>Phương Pháp & Thiết Bị Đo</th>
-                  <th>Trạng Thái</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>1. Bụi tổng (PM/Dust)</strong></td>
-                  <td class="val-pass">4.22 mg/Nm³</td>
-                  <td>144 mg/Nm³</td>
-                  <td>Tán xạ quang học (QCVN 19 Cột B Kp=0.8)</td>
-                  <td><span class="val-pass">● ĐẠT CHUẨN</span></td>
-                </tr>
-                <tr>
-                  <td><strong>2. Carbon monoxide (CO)</strong></td>
-                  <td class="val-pass">0.21 mg/Nm³</td>
-                  <td>800 mg/Nm³</td>
-                  <td>Hấp thụ hồng ngoại NDIR</td>
-                  <td><span class="val-pass">● ĐẠT CHUẨN</span></td>
-                </tr>
-                <tr>
-                  <td><strong>3. Nitơ oxit (NOx)</strong></td>
-                  <td class="val-pass">1.31 mg/Nm³</td>
-                  <td>680 mg/Nm³</td>
-                  <td>Quang phổ phát quang CLD / UV</td>
-                  <td><span class="val-pass">● ĐẠT CHUẨN</span></td>
-                </tr>
-                <tr>
-                  <td><strong>4. Lưu huỳnh dioxit (SO2)</strong></td>
-                  <td class="val-pass">0.00 mg/Nm³</td>
-                  <td>400 mg/Nm³</td>
-                  <td>Quang phổ tử ngoại UV-DOAS</td>
-                  <td><span class="val-pass">● ĐẠT CHUẨN</span></td>
-                </tr>
-                <tr>
-                  <td><strong>5. Oxy dư (O2)</strong></td>
-                  <td>20.96 %V</td>
-                  <td>Tham chiếu</td>
-                  <td>Zirconia Oxide phân tích buồng đốt</td>
-                  <td><span style="color: var(--5s-blue); font-weight: 700;">● TỐI ƯU</span></td>
-                </tr>
-                <tr>
-                  <td><strong>6. Nhiệt độ khí thải (Temp)</strong></td>
-                  <td>32.8 °C</td>
-                  <td>Tiêu chuẩn</td>
-                  <td>Cảm biến nhiệt điện trở PT100</td>
-                  <td><span style="color: var(--5s-blue); font-weight: 700;">● BÌNH THƯỜNG</span></td>
-                </tr>
-                <tr>
-                  <td><strong>7. Áp suất ống khói (Pressure)</strong></td>
-                  <td>101.3 kPa</td>
-                  <td>Tiêu chuẩn</td>
-                  <td>Cảm biến áp suất màng vi sai</td>
-                  <td><span style="color: var(--5s-blue); font-weight: 700;">● BÌNH THƯỜNG</span></td>
-                </tr>
-                <tr>
-                  <td><strong>8. Lưu lượng khí (Gas Flow)</strong></td>
-                  <td class="val-pass">18,450 m³/h</td>
-                  <td>Theo thiết kế</td>
-                  <td>Ống pitot đo lưu lượng liên tục</td>
-                  <td><span class="val-pass">● ĐẠT CHUẨN</span></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div style="font-size: 5.2pt; color: var(--ink-muted); border-top: 1px dashed var(--paper-line); padding-top: 1.5px; display: flex; justify-content: space-between;">
-              <span>• Dữ liệu đo tức thời chu kỳ 5 phút trích xuất tự động gửi Sở TN&MT</span>
-              <span>• Mã hóa an toàn SHA-256 theo chuẩn Thông tư 10/2021</span>
+            <p style="font-size: 5pt; color: var(--ink-secondary); line-height: 1.35; margin-bottom: 4px;">
+              5S Cloud được thiết kế chuyên biệt cho các tập đoàn sản xuất, nhà máy công nghiệp và ban quản lý KCN. Nền tảng hợp nhất toàn bộ dữ liệu quan trắc khí thải, nước thải, điện năng và thông số vận hành vào một giao diện điều hành duy nhất.
+            </p>
+            <div class="sw-feature-grid-3">
+              <div class="sw-feature-box">
+                <div class="sw-feature-title" style="color: var(--5s-navy);">
+                  <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                  Mô Hình Triển Khai
+                </div>
+                <div class="sw-feature-desc">Linh hoạt lựa chọn 100% Cloud SaaS hoặc Hybrid On-Premise bảo mật dữ liệu nội bộ.</div>
+              </div>
+              <div class="sw-feature-box">
+                <div class="sw-feature-title" style="color: var(--5s-blue);">
+                  <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  Phân Quyền RBAC Đa Cấp
+                </div>
+                <div class="sw-feature-desc">Phân quyền chi tiết cho Giám đốc, Kỹ sư trưởng, Vận hành và Đơn vị kiểm toán độc lập.</div>
+              </div>
+              <div class="sw-feature-box">
+                <div class="sw-feature-title" style="color: var(--5s-green);">
+                  <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                  Multi-Tenant Cô Lập
+                </div>
+                <div class="sw-feature-desc">Kiến trúc đa chi nhánh, quản lý hàng trăm nhà máy độc lập với phân vùng dữ liệu an toàn.</div>
+              </div>
             </div>
           </div>
 
-          <!-- Section C: Camera ATEX & Datalogger ARM (64mm) -->
-          <div class="hardware-rich-split">
-            <!-- Left HW: Camera Feeds -->
-            <div class="hw-col-card">
-              <h4>
-                <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                Camera ATEX Chống Nổ
-              </h4>
-              <div class="hw-media-box">
-                <img src="../assets/camera-feeds.png" alt="Camera góc kép nhà trạm CEMS và ống khói" />
+          <!-- Card 2: Dashboard Giám Sát Thời Gian Thực & 8 Chỉ Tiêu -->
+          <div class="sw-card" style="height: 84mm;">
+            <div class="sw-card-header">
+              <div class="sw-card-title">
+                <svg class="svg-icon md" style="color: var(--5s-blue);" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                DASHBOARD GIÁM SÁT THỜI GIAN THỰC &amp; MA TRẬN 8 CHỈ TIÊU
               </div>
-              <div class="hw-specs-list">
-                <div>• <strong>Góc kép:</strong> Nhà trạm phân tích &amp; Ống khói lò hơi</div>
-                <div>• <strong>Chuẩn ATEX:</strong> Zone 1/21 Ex d IIC T6, SUS316L, IP67</div>
-                <div>• <strong>Quang học:</strong> Zoom 32x, hồng ngoại 150m, Live 30FPS</div>
+              <span class="sw-card-tag blue">STREAMING &lt; 150MS</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 7px; height: calc(100% - 16px); align-items: center;">
+              <div class="sw-img-container" style="height: 100%;">
+                <img src="../assets/sensor-board-8p.png" alt="Realtime 8-Parameter Sensor Board on 5S Cloud" />
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <div style="font-size: 4.8pt; color: var(--ink-secondary); line-height: 1.3; margin-bottom: 2px;">
+                  Phần mềm tự động đồng bộ và tính toán trung bình 1 giờ, 24 giờ, đối soát giới hạn quy chuẩn QCVN 19:2009/BTNMT &amp; QCVN 40:2011/BTNMT:
+                </div>
+                <table class="sw-table-8p">
+                  <thead>
+                    <tr>
+                      <th>Chỉ tiêu</th>
+                      <th>Giá trị</th>
+                      <th>Giới hạn</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Bụi tổng (Dust)</strong></td>
+                      <td>42.5 mg/Nm³</td>
+                      <td>&le; 100</td>
+                      <td><span class="sw-badge-pill normal">Đạt chuẩn</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Khí SO₂</strong></td>
+                      <td>148.2 mg/Nm³</td>
+                      <td>&le; 500</td>
+                      <td><span class="sw-badge-pill normal">Đạt chuẩn</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Khí NOₓ</strong></td>
+                      <td>215.6 mg/Nm³</td>
+                      <td>&le; 850</td>
+                      <td><span class="sw-badge-pill normal">Đạt chuẩn</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Khí CO</strong></td>
+                      <td>320.0 mg/Nm³</td>
+                      <td>&le; 1000</td>
+                      <td><span class="sw-badge-pill normal">Đạt chuẩn</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Khí O₂ dư</strong></td>
+                      <td>6.8 %</td>
+                      <td>4.0 - 9.0</td>
+                      <td><span class="sw-badge-pill normal">Tối ưu</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Nhiệt độ khí</strong></td>
+                      <td>165.4 °C</td>
+                      <td>&le; 220</td>
+                      <td><span class="sw-badge-pill normal">Ổn định</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Lưu lượng</strong></td>
+                      <td>85,420 Nm³/h</td>
+                      <td>&mdash;</td>
+                      <td><span class="sw-badge-pill normal">Hoạt động</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Áp suất âm</strong></td>
+                      <td>-145 Pa</td>
+                      <td>-500 .. 0</td>
+                      <td><span class="sw-badge-pill normal">Ổn định</span></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
+          </div>
 
-            <!-- Right HW: Datalogger Specs -->
-            <div class="hw-col-card">
-              <h4>
-                <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-                Datalogger ARM Gateway (3D)
-              </h4>
-              <div class="hw-media-box">
-                <img src="../assets/datalogger-exploded-3d.png" alt="3D Exploded View Datalogger ARM Gateway" />
+          <!-- Card 3: Kiến Trúc Đám Mây & Tích Hợp Đa Nền Tảng -->
+          <div class="sw-card" style="height: 84mm;">
+            <div class="sw-card-header">
+              <div class="sw-card-title">
+                <svg class="svg-icon md" style="color: var(--5s-navy);" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                KIẾN TRÚC ĐÁM MÂY CLOUD &amp; TÍCH HỢP ĐA HỆ THỐNG
               </div>
-              <div class="hw-specs-list">
-                <div>• <strong>Cấu trúc 3D:</strong> Quad-Core ARM Cortex-A53, Flash 32GB (lưu 30 ngày)</div>
-                <div>• <strong>I/O &amp; Mạng:</strong> 8x RS485 Modbus, 8x 4-20mA, Dual SIM 4G/LTE + LAN</div>
-                <div>• <strong>Nguồn &amp; Chuẩn:</strong> Pin UPS 24VDC lưu 8h, 100% TT10/2021/TT-BTNMT</div>
+              <span class="sw-card-tag green">OPEN API / REST / WEBHOOK</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 7px; height: calc(100% - 16px); align-items: center;">
+              <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <div style="font-size: 4.8pt; color: var(--ink-secondary); line-height: 1.35;">
+                  Kiến trúc Microservices xử lý phân tán với khả năng chịu tải hàng triệu bản ghi/giây. Dễ dàng tích hợp 2 chiều với hệ thống ERP, SAP, MES, SCADA sẵn có của nhà máy.
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 3px; margin-top: 3px;">
+                  <div style="background: var(--paper-subtle); padding: 3px 5px; border-radius: var(--radius-xs); border: 1px solid var(--paper-line); font-size: 4.6pt;">
+                    <strong style="color: var(--5s-navy);">Time-Series Database:</strong> Lưu trữ dữ liệu cảm biến tối ưu, truy vấn lịch sử 5-10 năm tức thì.
+                  </div>
+                  <div style="background: var(--paper-subtle); padding: 3px 5px; border-radius: var(--radius-xs); border: 1px solid var(--paper-line); font-size: 4.6pt;">
+                    <strong style="color: var(--5s-blue);">Data Forwarding:</strong> Tự động truyền dữ liệu đồng thời về Sở TN&amp;MT qua FTP và máy chủ doanh nghiệp.
+                  </div>
+                  <div style="background: var(--paper-subtle); padding: 3px 5px; border-radius: var(--radius-xs); border: 1px solid var(--paper-line); font-size: 4.6pt;">
+                    <strong style="color: var(--5s-crimson);">Webhooks &amp; Push:</strong> Kích hoạt cảnh báo tức thời qua Zalo OA, SMS, Telegram Bot, Mobile Push.
+                  </div>
+                </div>
               </div>
-              <div class="hw-chip-tag">
-                MQTTS • FTP • REST API • CHỐNG SÉT 4KV
+              <div class="sw-img-container" style="height: 100%;">
+                <img src="../assets/software-cloud-architecture.png" alt="5S Cloud Microservices & Integration Architecture" />
               </div>
             </div>
           </div>
 
         </div>
 
-        <!-- ================= RIGHT WING: TRÍ TUỆ NHÂN TẠO & PHÂN TÍCH CHUYÊN SÂU ================= -->
+        <!-- ==================== RIGHT WING: TRÍ TUỆ NHÂN TẠO & BÁO CÁO THÔNG MINH ==================== -->
         <div class="spread-col">
-          
-          <!-- Section D: AI Buồng Đốt & Công Thức Hóa Học (72mm) -->
-          <div class="ai-combustion-rich-card">
-            <div class="ai-header-flex">
-              <h3>Trợ Lý AI Buồng Đốt &amp; Phản Ứng Khử Khí Thải (5S Neural Engine)</h3>
-              <span class="spread-badge red" style="border: none;">TIẾT KIỆM 5–8% NHIÊN LIỆU</span>
-            </div>
 
-            <div class="ai-split-view">
-              <div class="ai-media-dual-grid">
-                <div class="ai-media-frame">
-                  <img src="../assets/ai-combustion-core-3d.png" alt="3D Neural Combustion Core &amp; Phun Hóa Chất" />
-                  <div class="ai-img-subtag">3D COMBUSTION NEURAL CORE</div>
+          <!-- Card 4: Trợ Lý AI Chẩn Đoán & Tối Ưu Vận Hành -->
+          <div class="sw-card" style="height: 80mm;">
+            <div class="sw-card-header">
+              <div class="sw-card-title">
+                <svg class="svg-icon md" style="color: var(--5s-crimson);" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-4.5a1 1 0 0 1-2 0V7a1 1 0 0 1 2 0z"></path></svg>
+                TRỢ LÝ AI CHẨN ĐOÁN &amp; TỰ ĐỘNG HÓA VẬN HÀNH
+              </div>
+              <span class="sw-card-tag crimson">AI DIAGNOSTICS 24/7</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 7px; height: calc(100% - 16px); align-items: center;">
+              <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <div style="font-size: 4.8pt; color: var(--ink-secondary); line-height: 1.35;">
+                  Mô hình AI liên tục phân tích chuỗi thời gian, phát hiện sớm các dấu hiệu suy giảm hiệu suất hoặc nguy cơ vượt ngưỡng trước 30 - 60 phút:
                 </div>
-                <div class="ai-media-frame">
-                  <img src="../assets/ai-diagnosis.png" alt="AI chẩn đoán nguyên nhân sự cố buồng đốt lò hơi" />
-                  <div class="ai-img-subtag">CHẨN ĐOÁN THỜI GIAN THỰC</div>
+                <div style="display: flex; flex-direction: column; gap: 3px; margin-top: 2px;">
+                  <div style="border-left: 2px solid var(--5s-crimson); padding-left: 4px; font-size: 4.6pt; color: var(--ink-secondary);">
+                    <strong style="color: var(--ink-primary);">1. Nhận diện bất thường:</strong> Phát hiện trôi số liệu sensor, nghẹt ống lấy mẫu hoặc đốt thiếu khí.
+                  </div>
+                  <div style="border-left: 2px solid var(--5s-blue); padding-left: 4px; font-size: 4.6pt; color: var(--ink-secondary);">
+                    <strong style="color: var(--ink-primary);">2. Cảnh báo đa kênh:</strong> Gửi thông báo kèm nguyên nhân chẩn đoán trực tiếp đến đội ngũ bảo trì.
+                  </div>
+                  <div style="border-left: 2px solid var(--5s-green); padding-left: 4px; font-size: 4.6pt; color: var(--ink-secondary);">
+                    <strong style="color: var(--ink-primary);">3. Khuyến nghị điều chỉnh:</strong> Gợi ý tỷ lệ phối gió - nhiên liệu giúp tiết kiệm 5-8% chi phí vận hành.
+                  </div>
                 </div>
               </div>
-              
-              <div class="ai-formula-panel">
-                <div class="formula-txt">
-                  <strong>CƠ CHẾ PHẢN ỨNG HÓA HỌC:</strong><br />
-                  • Cháy không hoàn toàn: λ &lt; 1.0 ➔ 2C + O2 ➔ 2CO ↑<br />
-                  • Khử NOx: 4NO + 4NH3 + O2 ➔ 4N2 + 6H2O<br />
-                  • Khử SO2: SO2 + 2NaOH ➔ Na2SO3 + H2O
-                </div>
-                <div class="ai-steps-txt">
-                  <strong>3 BƯỚC XỬ LÝ TỨC THỜI:</strong><br />
-                  1. Tự động điều chỉnh van gió lò trước 15 phút.<br />
-                  2. Rà soát áp lực bơm dung dịch khử NaOH/Urea.<br />
-                  3. Triệt tiêu vi phạm trước khi Sở ghi nhận 1 giờ.
-                </div>
+              <div class="sw-img-container" style="height: 100%;">
+                <img src="../assets/ai-diagnosis.png" alt="5S Cloud AI Diagnostics & Anomaly Detection Screen" />
               </div>
-            </div>
-
-            <div style="font-size: 5.2pt; color: #94A3B8; border-top: 1px dashed rgba(255, 255, 255, 0.15); padding-top: 1.5px; display: flex; justify-content: space-between;">
-              <span>• Chẩn đoán tỷ lệ gió/nhiên liệu thời gian thực</span>
-              <span style="color: #00D4B2; font-weight: 700;">TỐI ƯU HÓA HIỆU SUẤT LÒ 24/7</span>
             </div>
           </div>
 
-          <!-- Section E: Heatmap 24x7 & Đồ Thị Biến Thiên (68mm) -->
-          <div class="analytics-gallery-card">
-            <div class="gallery-head">
-              <h3>Phân Tích Đa Trục: Heatmap 24x7 &amp; Telemetry Mạng Lưới Toàn Quốc</h3>
-              <span class="spread-badge" style="color: var(--5s-blue);">THEO CA KÍP SẢN XUẤT</span>
-            </div>
-
-            <div class="analytics-split-imgs">
-              <div class="analytics-img-box">
-                <img src="../assets/vietnam-telemetry-map-3d.png" alt="Bản đồ 3D Mạng Lưới Telemetry 63 Sở TN&amp;MT &amp; KCN Toàn Quốc" />
-                <div class="img-tag-strip">MẠNG LƯỚI TELEMETRY 63 SỞ TN&amp;MT &amp; KCN TOÀN QUỐC</div>
+          <!-- Card 5: Phân Tích Chuyên Sâu Đa Chiều (Heatmap & Trends) -->
+          <div class="sw-card" style="height: 78mm;">
+            <div class="sw-card-header">
+              <div class="sw-card-title">
+                <svg class="svg-icon md" style="color: var(--5s-blue);" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                PHÂN TÍCH CHUYÊN SÂU ĐA CHIỀU (HEATMAP 24X7 &amp; TRENDS)
               </div>
-              <div class="analytics-img-box">
-                <img src="../assets/heatmap-24x7.png" alt="Bản đồ nhiệt sự cố 24h x 7 ngày" />
-                <div class="img-tag-strip">MA TRẬN NHIỆT MẬT ĐỘ SỰ CỐ 24H × 7 NGÀY</div>
-              </div>
+              <span class="sw-card-tag blue">DATA ANALYTICS</span>
             </div>
-
-            <div style="font-size: 5.2pt; color: var(--ink-muted); border-top: 1px dashed var(--paper-line); padding-top: 1.5px; display: flex; justify-content: space-between;">
-              <span>• Khoanh vùng khung giờ rủi ro phát sinh ô nhiễm trong tuần</span>
-              <span>• Tích hợp đường giới hạn đỏ nét đứt QCVN 19</span>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; height: calc(100% - 16px);">
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 4.6pt; font-weight: 700; color: var(--ink-secondary);">Bản đồ nhiệt tải phát thải 24x7 theo kíp:</div>
+                <div class="sw-img-container" style="flex: 1;">
+                  <img src="../assets/heatmap-24x7.png" alt="24x7 Emission Heatmap by shifts" />
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 4.6pt; font-weight: 700; color: var(--ink-secondary);">Tương quan thông số &amp; đường giới hạn:</div>
+                <div class="sw-img-container" style="flex: 1;">
+                  <img src="../assets/trends-chart.png" alt="Multi-parameter Trends Chart" />
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Section F: Bảng So Sánh Trước vs. Sau 2 Cột (76mm) -->
-          <div class="roi-comparison-card">
-            <div class="roi-head">
-              <h3>Hiệu Quả Định Lượng: Trước & Sau Khi Dùng 5S Cloud AI</h3>
-              <span class="spread-badge red">BẢO VỆ PHÁP LÝ TOÀN DIỆN</span>
-            </div>
-
-            <div class="roi-2col-grid">
-              <!-- Before Column -->
-              <div class="roi-col before">
-                <div class="roi-tag">
-                  <span>⚠ TRƯỚC (THỦ CÔNG / RỦI RO)</span>
-                  <span>RỦI RO CAO</span>
-                </div>
-                <div class="roi-bullets">
-                  <div>• <strong>Ghi chép thủ công:</strong> Tốn 2-3 giờ/ngày lập sổ nhật ký giấy.</div>
-                  <div>• <strong>Nguy cơ phạt 2 tỷ:</strong> Vượt ngưỡng không biết, bị đình chỉ xả thải 3-6 tháng theo NĐ 45.</div>
-                  <div>• <strong>Sensor trôi lệch (Drift):</strong> Không hiệu chuẩn kịp thời, số liệu sai.</div>
-                  <div>• <strong>Mất dữ liệu:</strong> Mất điện không có pin lưu đệm tại trạm.</div>
-                </div>
-                <div class="roi-kpi-pill danger">CHI PHÍ PHẠT TỐI ĐA: 2 TỶ VNĐ</div>
+          <!-- Card 6: Bảng So Sánh Giá Trị Phần Mềm (ROI Matrix) -->
+          <div class="sw-card" style="height: 62mm;">
+            <div class="sw-card-header">
+              <div class="sw-card-title">
+                <svg class="svg-icon md" style="color: var(--5s-green);" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                HIỆU QUẢ KINH TẾ &amp; GIÁ TRỊ VẬN HÀNH (TRƯỚC &amp; SAU KHI DÙNG 5S CLOUD)
               </div>
-
-              <!-- After Column -->
-              <div class="roi-col after">
-                <div class="roi-tag">
-                  <span>✓ SAU (5S CLOUD AI)</span>
-                  <span>AN TOÀN 100%</span>
+              <span class="sw-card-tag green">TIẾT KIỆM 80% THỜI GIAN</span>
+            </div>
+            <div class="roi-compare-grid">
+              <div class="roi-box before">
+                <div class="roi-header">
+                  <svg class="svg-icon sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                  TRƯỚC KHI DÙNG 5S CLOUD
                 </div>
-                <div class="roi-bullets">
-                  <div>• <strong>Tự động 100%:</strong> Xuất báo cáo gửi Sở chỉ với 1-click.</div>
-                  <div>• <strong>Triệt tiêu phạt:</strong> Cảnh báo trước 15 phút khi chạm 80% QCVN.</div>
-                  <div>• <strong>AI buồng đốt:</strong> Cân bằng gió/than, tiết kiệm 5-8% nhiên liệu.</div>
-                  <div>• <strong>Bảo toàn dữ liệu:</strong> UPS lưu 4h, đệm Flash 30 ngày, Cloud 3 năm.</div>
+                <div class="roi-item">✕ Ghi chép sổ sách thủ công tốn 2h/ngày.</div>
+                <div class="roi-item">✕ Dễ thất lạc số liệu, sai sót tính toán trung bình.</div>
+                <div class="roi-item">✕ Phát hiện trễ khi có sự cố vượt ngưỡng.</div>
+                <div class="roi-item">✕ Nguy cơ bị xử phạt hành chính do gián đoạn truyền.</div>
+              </div>
+              <div class="roi-box after">
+                <div class="roi-header">
+                  <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  SAU KHI TRIỂN KHAI 5S CLOUD
                 </div>
-                <div class="roi-kpi-pill success">TIẾT KIỆM 80% THỜI GIAN • AN TOÀN 100%</div>
+                <div class="roi-item">✓ Tự động hóa 100% dữ liệu, xuất báo cáo 1 click.</div>
+                <div class="roi-item">✓ Giảm 80% thời gian tổng hợp và kiểm toán số liệu.</div>
+                <div class="roi-item">✓ Cảnh báo sự cố tức thời &lt; 1s qua App/Zalo/SMS.</div>
+                <div class="roi-item">✓ An tâm tuân thủ 100% quy chuẩn pháp lý môi trường.</div>
               </div>
             </div>
           </div>
@@ -1753,313 +1597,284 @@
 
       </div>
 
-      <!-- Bottom 4-KPI Bar (20mm) -->
+      <!-- 4. Bottom 4-KPI Bar -->
       <div class="spread-bottom-bar">
         <div class="kpi-unit">
-          <div class="kpi-big-num">99%</div>
+          <div class="kpi-big-num">100%</div>
           <div class="kpi-meta-text">
-            <h6>TRIỆT TIÊU NGUY CƠ BỊ PHẠT HÀNH CHÍNH</h6>
-            <p>Cảnh báo sớm ngăn ngừa mức phạt tới 2 tỷ VNĐ (NĐ 45/2022)</p>
+            <strong>KHÔNG DÙNG SỔ GIẤY</strong>
+            Số hóa toàn diện dữ liệu vận hành
           </div>
         </div>
-
         <div class="kpi-unit">
-          <div class="kpi-big-num" style="color: #0066CC;">-80%</div>
+          <div class="kpi-big-num">-80%</div>
           <div class="kpi-meta-text">
-            <h6>TIẾT KIỆM THỜI GIAN LẬP BÁO CÁO</h6>
-            <p>Trích xuất báo cáo gửi Sở TN&MT chỉ với 1 cú click</p>
+            <strong>THỜI GIAN BÁO CÁO</strong>
+            Xuất báo cáo Sở chỉ với 1 click
           </div>
         </div>
-
         <div class="kpi-unit">
-          <div class="kpi-big-num" style="color: #059669;">99.9%</div>
+          <div class="kpi-big-num">&lt; 150ms</div>
           <div class="kpi-meta-text">
-            <h6>CAM KẾT SLA TRUYỀN NHẬN LIÊN TỤC</h6>
-            <p>Hạ tầng Cloud Enterprise, dự phòng đa tầng 24/7</p>
+            <strong>ĐỘ TRỄ XỬ LÝ STREAM</strong>
+            Phát hiện vi phạm tức thời
           </div>
         </div>
-
         <div class="kpi-unit">
-          <div class="kpi-big-num">&lt; 15p</div>
+          <div class="kpi-big-num">99.9%</div>
           <div class="kpi-meta-text">
-            <h6>KỸ SƯ HIỆN TRƯỜNG PHẢN HỒI 24/7</h6>
-            <p>Đội ngũ 5S Service túc trực xử lý sự cố thiết bị</p>
+            <strong>CAM KẾT CLOUD SLA</strong>
+            Hạ tầng sẵn sàng cao, sao lưu kép
           </div>
         </div>
+      </div>
+
+      <!-- 5. Spread Footer -->
+      <div class="spread-footer">
+        <div>5S Cloud Enterprise Software Suite // Phân hệ Quản trị &amp; Điều hành Dữ liệu Môi trường Doanh nghiệp</div>
+        <div>Hỗ trợ kỹ thuật 24/7 // Hotline: 1900 5858 // Website: https://5scloud.vn</div>
       </div>
 
     </div>
   </div>
 
   <!-- ==========================================================================
-       PAGE 4: BÌA SAU (EXECUTIVE CLOSING & CONTACT - A4: 210 x 297mm)
+       PAGE 4: BÌA SAU (ECOSYSTEM & SOFTWARE LICENSING - A4: 210 x 297mm)
        ========================================================================== -->
   <div class="page-a4">
-    <div class="back-editorial back-closing-page back-unboxed-wrap">
+    <div class="back-editorial back-unboxed-wrap">
 
-      <!-- Header -->
+      <!-- 1. Back Header -->
       <div class="back-header">
         <a href="#" class="back-logo">
           <img src="../assets/logo.png" alt="5S Service Logo" />
           <span>5S SERVICE</span><span class="logo-dot"></span>
         </a>
         <div class="back-title">
-          HỆ SINH THÁI QUAN TRẮC MÔI TRƯỜNG <span>5S CLOUD</span>
+          HỆ SINH THÁI PHẦN MỀM B2B &amp; <span>GÓI BẢN QUYỀN DOANH NGHIỆP</span>
         </div>
       </div>
 
-      <!-- 5-Sphere Constellation Visual & Radar Progress (40mm) -->
-      <div class="back-ecosystem-box">
-        <div class="constellation-img-frame">
-          <img src="../assets/banana-back-ecosystem-2k.png" alt="5-Sphere Environmental Data Constellation" />
+      <!-- 2. Multi-Platform & Enterprise Security Architecture -->
+      <div class="back-security-box">
+        <div class="back-security-img">
+          <img src="../assets/software-multi-platform.png" alt="5S Cloud Responsive Multi-Platform Ecosystem" />
         </div>
-
-        <div class="radar-telemetry-card">
-          <div style="font-size: 5.6pt; font-weight: 800; color: var(--ink-primary); display: flex; justify-content: space-between; border-bottom: 1px solid var(--paper-line); padding-bottom: 1px;">
-            <span>CHỈ SỐ ĐÁP ỨNG QUY CHUẨN</span>
-            <span style="color: #0066CC; font-family: 'JetBrains Mono', monospace;">SLA: 99.9%</span>
-          </div>
-
-          <div class="radar-row-item">
-            <span>1. Khí Thải CEMS (QCVN 19/22)</span>
-            <div class="radar-track"><div class="radar-fill" style="width: 99.9%;"></div></div>
-            <strong>99.9%</strong>
-          </div>
-
-          <div class="radar-row-item">
-            <span>2. Nước Thải KCN (QCVN 40)</span>
-            <div class="radar-track"><div class="radar-fill" style="width: 99.8%;"></div></div>
-            <strong>99.8%</strong>
-          </div>
-
-          <div class="radar-row-item">
-            <span>3. Không Khí Xung Quanh (QCVN 05)</span>
-            <div class="radar-track"><div class="radar-fill" style="width: 99.5%;"></div></div>
-            <strong>99.5%</strong>
-          </div>
-
-          <div class="radar-row-item">
-            <span>4. Tiếng Ồn & Độ Rung (QCVN 26/27)</span>
-            <div class="radar-track"><div class="radar-fill" style="width: 99.2%; background: #F59E0B;"></div></div>
-            <strong>99.2%</strong>
-          </div>
-
-          <div class="radar-row-item">
-            <span>5. Nước Ngầm (QCVN 09)</span>
-            <div class="radar-track"><div class="radar-fill" style="width: 99.7%;"></div></div>
-            <strong>99.7%</strong>
+        <div class="back-security-content">
+          <span class="section-kicker" style="margin-bottom: 1px;">AN TOÀN THÔNG TIN &amp; ĐA NỀN TẢNG</span>
+          <h4 style="font-size: 7.2pt; font-weight: 800; color: var(--ink-primary); line-height: 1.2;">
+            Truy Cập Thông Suốt Từ Desktop Đến Thiết Bị Di Động
+          </h4>
+          <p style="font-size: 4.6pt; color: var(--ink-secondary); line-height: 1.3;">
+            Giao diện Web responsive tối ưu cho màn hình trung tâm giám sát NOC, kết hợp ứng dụng Mobile App (iOS / Android) nhận thông báo khẩn cấp mọi lúc mọi nơi.
+          </p>
+          <div class="back-sec-badge-grid">
+            <div class="back-sec-pill">
+              <strong>ISO 27001 Security</strong>
+              Mã hóa dữ liệu AES-256 &amp; TLS 1.3
+            </div>
+            <div class="back-sec-pill">
+              <strong>Open REST API</strong>
+              Tích hợp 2 chiều ERP, MES, SCADA
+            </div>
+            <div class="back-sec-pill">
+              <strong>Multi-Region DR</strong>
+              Tự động sao lưu dự phòng đám mây
+            </div>
+            <div class="back-sec-pill">
+              <strong>Mobile Push &amp; Zalo</strong>
+              Cảnh báo vi phạm tức thì &lt; 1s
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Legal Table (42mm) -->
-      <div class="back-legal-box">
-        <div style="font-size: 6.2pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
-          <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> CƠ SỞ PHÁP LÝ & KHUNG CHẾ TÀI BẮT BUỘC
+      <!-- 3. 3-Tier Enterprise Software Licensing Matrix -->
+      <div class="back-licensing-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+          <div style="font-size: 6.2pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
+            <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            CÁC GÓI BẢN QUYỀN PHẦN MỀM 5S CLOUD
+          </div>
+          <span style="font-size: 4.8pt; color: var(--5s-crimson); font-weight: 700;">Linh hoạt thuê bao hàng năm hoặc vĩnh viễn</span>
         </div>
-        <table class="legal-tbl">
-          <thead>
-            <tr>
-              <th style="width: 25%;">Văn Bản Pháp Luật</th>
-              <th style="width: 45%;">Quy Định Trọng Yếu Đối Với Doanh Nghiệp</th>
-              <th style="width: 30%;">Khung Chế Tài Xử Phạt</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="law-name">Nghị định 08/2022/NĐ-CP<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--ink-muted);">Điều 97 & Phụ lục XXVIII</span></td>
-              <td>Bắt buộc lắp đặt hệ thống quan trắc nước thải, khí thải tự động liên tục trước ngày 31/12.</td>
-              <td>Đình chỉ hoạt động nguồn phát sinh chất thải từ 3 - 6 tháng nếu không hoàn thành đúng hạn.</td>
-            </tr>
-            <tr>
-              <td class="law-name">Thông tư 10/2021/TT-BTNMT<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--ink-muted);">Kỹ thuật & Quản lý dữ liệu</span></td>
-              <td>Chuẩn kết nối Datalogger, truyền file 5 phút/lần về Sở TN&MT, nhật ký kiểm chuẩn Zero/Span.</td>
-              <td>Thu hồi giấy phép môi trường, buộc kiểm định lại toàn bộ hệ thống đo đạc hiện trường.</td>
-            </tr>
-            <tr>
-              <td class="law-name">Nghị định 45/2022/NĐ-CP<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--ink-muted);">Điều 26: Xử phạt hành chính</span></td>
-              <td>Xử phạt hành vi không truyền dữ liệu, làm gián đoạn đường truyền hoặc để chỉ tiêu vượt chuẩn.</td>
-              <td class="law-fine">Phạt tiền từ 500.000.000 VNĐ đến 2.000.000.000 VNĐ; truy thu phí BVMT.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- 3 Tiers Comparison Table (50mm) -->
-      <div class="back-tiers-box">
-        <div style="font-size: 6.2pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
-          <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> CÁC GÓI GIẢI PHÁP 5S CLOUD CEMS
-        </div>
-        <table class="tiers-tbl">
-          <thead>
-            <tr>
-              <th style="width: 26%;">Tính Năng Cung Cấp</th>
-              <th style="width: 24%;">GÓI STANDARD<br><span style="font-size: 4.8pt; font-weight: 400;">Trạm Đơn Lẻ</span></th>
-              <th class="feat" style="width: 25%;">GÓI ENTERPRISE<br><span style="font-size: 4.8pt; font-weight: 400;">Nhà Máy Toàn Diện</span></th>
-              <th style="width: 25%;">GÓI MULTI-PLANT<br><span style="font-size: 4.8pt; font-weight: 400;">Tập Đoàn & KCN</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Giám sát Realtime</strong></td>
-              <td>8 Chỉ tiêu khí hoặc nước thải</td>
-              <td>Đa trạm khí + nước thải</td>
-              <td>Không giới hạn điểm xả</td>
-            </tr>
-            <tr>
-              <td><strong>Trợ lý AI Buồng đốt</strong></td>
-              <td>—</td>
-              <td><span style="color: var(--5s-crimson); font-weight: 700;">✓ 5S Neural Engine 24/7</span></td>
-              <td><span style="color: var(--5s-crimson); font-weight: 700;">✓ AI Nâng Cao Đa Lò</span></td>
-            </tr>
-            <tr>
-              <td><strong>Báo cáo & Phân tích</strong></td>
-              <td>Báo cáo chuẩn Sở TN&MT</td>
-              <td>Heatmap 24x7 + Phân tích ca</td>
-              <td>Multi-Tenant Analytics + API ERP</td>
-            </tr>
-            <tr>
-              <td><strong>Hỗ trợ kỹ thuật</strong></td>
-              <td>Từ xa 24/7</td>
-              <td>Sổ nhật ký 2 chiều trực tuyến</td>
-              <td>Kỹ sư chuyên trách On-site</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Clients Marquee (20mm) -->
-      <div class="back-clients-strip">
-        <div class="clients-head">
-          <span>ĐỒNG HÀNH CÙNG CÁC TẬP ĐOÀN CÔNG NGHIỆP HÀNG ĐẦU VIỆT NAM:</span>
-          <span style="color: var(--5s-crimson);">200+ DOANH NGHIỆP TIN DÙNG</span>
-        </div>
-        <div class="clients-list">
-          <div>• <strong>Giấy Pulppy</strong></div>
-          <div>• <strong>Thép Sao Việt</strong></div>
-          <div>• <strong>Tuệ Minh CEMS</strong></div>
-          <div>• <strong>Nước Sạch Sawaco</strong></div>
-          <div>• <strong>Xi Măng Hà Tiên</strong></div>
-          <div>• <strong>Hòa Phát Dung Quất</strong></div>
-          <div>• <strong>KCN Becamex</strong></div>
-          <div>• <strong>KCN Amata</strong></div>
-          <div>• <strong>KCN VSIP</strong></div>
-          <div>• <strong>Formosa</strong></div>
+        <div class="tiers-grid">
+          <!-- Tier 1 -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-title">GÓI STANDARD</div>
+              <div class="tier-target">Dành cho trạm quan trắc đơn lẻ</div>
+              <ul class="tier-features">
+                <li>Kết nối 1 trạm quan trắc CEMS / Nước thải</li>
+                <li>Dashboard giám sát realtime cơ bản</li>
+                <li>Lưu trữ dữ liệu đám mây 12 tháng</li>
+                <li>Tự động truyền dữ liệu về Sở TN&amp;MT</li>
+                <li>Báo cáo định kỳ mẫu chuẩn cơ bản</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Tier 2 (Featured) -->
+          <div class="tier-card featured">
+            <span class="tier-popular-tag">PHỔ BIẾN NHẤT</span>
+            <div>
+              <div class="tier-title" style="color: var(--5s-crimson);">GÓI ENTERPRISE</div>
+              <div class="tier-target">Dành cho toàn bộ nhà máy / cơ sở sản xuất</div>
+              <ul class="tier-features">
+                <li>Kết nối đa điểm không giới hạn trong 1 nhà máy</li>
+                <li>Trợ lý AI chẩn đoán &amp; dự báo bất thường</li>
+                <li>Phân quyền RBAC đa cấp độ bảo mật</li>
+                <li>Mở cổng Open API &amp; Webhook tích hợp ERP</li>
+                <li>Lưu trữ lịch sử 5 năm &amp; SLA Uptime 99.9%</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Tier 3 -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-title">GÓI MULTI-PLANT</div>
+              <div class="tier-target">Dành cho tập đoàn &amp; BQL Khu Công Nghiệp</div>
+              <ul class="tier-features">
+                <li>Quản lý tập trung không giới hạn nhà máy/KCN</li>
+                <li>Tùy biến thương hiệu (White-label) &amp; Domain riêng</li>
+                <li>Tùy chọn hạ tầng Dedicated Cloud / On-Premise</li>
+                <li>Module phân tích chuyên sâu Business Intelligence</li>
+                <li>Kỹ sư chuyên trách hỗ trợ 24/7 &amp; SLA 99.99%</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Turnkey Roadmap (25mm) -->
+      <!-- 4. Enterprise Clients Marquee -->
+      <div class="back-clients-box">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 5.5pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
+            ĐƯỢC TIN DÙNG BỞI 600+ DOANH NGHIỆP &amp; KHU CÔNG NGHIỆP TRÊN TOÀN QUỐC
+          </span>
+          <span style="font-size: 4.8pt; color: var(--5s-blue); font-weight: 700;">Hơn 1,000 trạm kết nối thành công</span>
+        </div>
+        <div class="client-logos-row">
+          <div class="client-logo-pill">VINACHEM</div>
+          <div class="client-logo-pill">PETROVIETNAM</div>
+          <div class="client-logo-pill">HOA SEN GROUP</div>
+          <div class="client-logo-pill">VICEM CEMENT</div>
+          <div class="client-logo-pill">KCN VSIP</div>
+          <div class="client-logo-pill">SABECO BREWERY</div>
+        </div>
+      </div>
+
+      <!-- 5. 5-Step Turnkey Deployment Roadmap -->
       <div class="back-roadmap-box">
-        <div style="font-size: 6.2pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
-          QUY TRÌNH 5 BƯỚC TRIỂN KHAI CHÌA KHÓA TRAO TAY (TURNKEY DEPLOYMENT)
+        <div style="font-size: 5.5pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
+          QUY TRÌNH TRIỂN KHAI PHẦN MỀM 5 BƯỚC NHANH CHÓNG (GO-LIVE TRONG 48 GIỜ)
         </div>
-        <div class="roadmap-grid">
-          <div class="roadmap-card">
-            <div class="roadmap-dot">1</div>
-            <h6>Khảo Sát Trạm</h6>
-            <p>Rà soát tủ CEMS, sensor và đường truyền.</p>
+        <div class="roadmap-steps-grid">
+          <div class="roadmap-step-item">
+            <div class="roadmap-step-circle">1</div>
+            <div class="roadmap-step-text"><strong>Khảo sát dữ liệu</strong><br />Đánh giá giao thức kết nối</div>
           </div>
-          <div class="roadmap-card">
-            <div class="roadmap-dot">2</div>
-            <h6>Tích Hợp Cloud</h6>
-            <p>Cài đặt phần mềm, thiết lập ngưỡng QCVN.</p>
+          <div class="roadmap-step-item">
+            <div class="roadmap-step-circle">2</div>
+            <div class="roadmap-step-text"><strong>Cấu hình Cloud</strong><br />Khởi tạo tài khoản &amp; RBAC</div>
           </div>
-          <div class="roadmap-card active">
-            <div class="roadmap-dot">3</div>
-            <h6>Thông Tuyến Sở</h6>
-            <p>Chạy thử nghiệm truyền dữ liệu về Sở TNMT.</p>
+          <div class="roadmap-step-item">
+            <div class="roadmap-step-circle">3</div>
+            <div class="roadmap-step-text"><strong>Kết nối luồng stream</strong><br />Thông tuyến dữ liệu &lt; 1s</div>
           </div>
-          <div class="roadmap-card">
-            <div class="roadmap-dot">4</div>
-            <h6>Đào Tạo</h6>
-            <p>Bàn giao tài khoản, hướng dẫn kỹ sư Web/App.</p>
+          <div class="roadmap-step-item">
+            <div class="roadmap-step-circle accent">4</div>
+            <div class="roadmap-step-text"><strong>Đào tạo vận hành</strong><br />Chuyển giao hướng dẫn sử dụng</div>
           </div>
-          <div class="roadmap-card">
-            <div class="roadmap-dot">5</div>
-            <h6>Bảo Trì 24/7</h6>
-            <p>Kỹ sư túc trực theo dõi và hiệu chuẩn Zero/Span.</p>
+          <div class="roadmap-step-item">
+            <div class="roadmap-step-circle">5</div>
+            <div class="roadmap-step-text"><strong>Nghiệm thu &amp; SLA</strong><br />Kích hoạt hỗ trợ 24/7</div>
           </div>
         </div>
       </div>
 
-      <!-- Contact & Dual QR Card (44mm) -->
-      <div class="back-contact-card">
-        <div class="contact-text-col">
-          <h5>SẴN SÀNG SỐ HOÁ <span>TRẠM QUAN TRẮC CEMS?</span></h5>
-          <p>Đăng ký ngay hôm nay để nhận buổi <strong>Khảo sát kỹ thuật 1:1 miễn phí</strong> & Dùng thử 30 ngày.</p>
-          <div class="contact-info-grid">
-            <div>📍 <strong>VP:</strong> Hà Nội • Bình Dương • TP.HCM</div>
-            <div>📧 <strong>Email:</strong> sales@5s-service.com</div>
-            <div>📞 <strong>Hotline 24/7:</strong> 1900 5858 / 0988 555 588</div>
-            <div>🌐 <strong>Portal:</strong> www.5s-service.com</div>
+      <!-- 6. Free Trial Contact & Dual QR Card -->
+      <div class="back-contact-box">
+        <div class="contact-left-col">
+          <div style="font-size: 5.2pt; font-family: 'Montserrat', sans-serif; font-weight: 800; color: #FF4D6D; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px;">
+            DÙNG THỬ MIỄN PHÍ 30 NGÀY // FREE TRIAL PORTAL
+          </div>
+          <h4>Sẵn sàng chuyển đổi số dữ liệu cùng <span>5S Cloud?</span></h4>
+          <p class="contact-sub-text">
+            Đăng ký nhận tài khoản Demo trải nghiệm đầy đủ tính năng hoặc yêu cầu chuyên gia 5S khảo sát kiến trúc hệ thống trực tiếp tại nhà máy của bạn.
+          </p>
+          <div class="contact-info-pills">
+            <div class="contact-info-pill">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              Hotline: <strong>1900 5858 // 0903 000 555</strong>
+            </div>
+            <div class="contact-info-pill">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              Email: <strong>contact@5scloud.vn</strong>
+            </div>
+            <div class="contact-info-pill">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              Website: <strong>https://5scloud.vn</strong>
+            </div>
           </div>
         </div>
-
-        <!-- Dual Authentic QR Blocks -->
-        <div class="qr-pair-wrap">
-          <div class="qr-card-unit">
-            <div class="qr-svg-holder">
-              <svg width="34" height="34" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="9" height="9" fill="#00D4B2" rx="1"/>
-                <rect x="4" y="4" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="5.5" y="5.5" width="2" height="2" fill="#00D4B2"/>
-                <rect x="22" y="2" width="9" height="9" fill="#00D4B2" rx="1"/>
-                <rect x="24" y="4" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="25.5" y="5.5" width="2" height="2" fill="#00D4B2"/>
-                <rect x="2" y="22" width="9" height="9" fill="#00D4B2" rx="1"/>
-                <rect x="4" y="24" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="5.5" y="25.5" width="2" height="2" fill="#00D4B2"/>
-                <rect x="14" y="3" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="17" y="3" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="14" y="6" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="3" y="14" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="7" y="14" width="2" height="2" fill="#00D4B2"/>
-                <rect x="13" y="13" width="7" height="7" fill="#00D4B2" rx="1"/>
-                <rect x="15" y="15" width="3" height="3" fill="#0A0A0A"/>
-                <rect x="23" y="14" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="14" y="23" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="23" y="23" width="2" height="2" fill="#00D4B2"/>
-                <rect x="27" y="27" width="2" height="2" fill="#0A0A0A"/>
-              </svg>
-            </div>
-            <span>VIDEO DEMO</span>
-            <div class="qr-link">5s-service.com/demo</div>
+        <div class="contact-qr-col">
+          <div class="contact-qr-wrap">
+            <svg viewBox="0 0 100 100" fill="none">
+              <!-- Crisp SVG QR Code Representation -->
+              <rect x="5" y="5" width="28" height="28" rx="2" fill="#0B132B"/>
+              <rect x="9" y="9" width="20" height="20" rx="1" fill="#FFFFFF"/>
+              <rect x="13" y="13" width="12" height="12" rx="1" fill="#0B132B"/>
+              
+              <rect x="67" y="5" width="28" height="28" rx="2" fill="#0B132B"/>
+              <rect x="71" y="9" width="20" height="20" rx="1" fill="#FFFFFF"/>
+              <rect x="75" y="13" width="12" height="12" rx="1" fill="#0B132B"/>
+              
+              <rect x="5" y="67" width="28" height="28" rx="2" fill="#0B132B"/>
+              <rect x="9" y="71" width="20" height="20" rx="1" fill="#FFFFFF"/>
+              <rect x="13" y="75" width="12" height="12" rx="1" fill="#0B132B"/>
+              
+              <!-- Data modules -->
+              <rect x="38" y="8" width="6" height="6" fill="#C8102E"/>
+              <rect x="48" y="8" width="6" height="6" fill="#0B132B"/>
+              <rect x="58" y="8" width="5" height="6" fill="#0B132B"/>
+              <rect x="38" y="18" width="16" height="6" fill="#0B132B"/>
+              <rect x="58" y="18" width="5" height="6" fill="#C8102E"/>
+              <rect x="38" y="27" width="6" height="6" fill="#0B132B"/>
+              <rect x="48" y="27" width="15" height="6" fill="#0B132B"/>
+              
+              <rect x="8" y="38" width="6" height="6" fill="#0B132B"/>
+              <rect x="18" y="38" width="15" height="6" fill="#0B132B"/>
+              <rect x="8" y="48" width="15" height="6" fill="#C8102E"/>
+              <rect x="8" y="58" width="6" height="6" fill="#0B132B"/>
+              <rect x="18" y="58" width="6" height="6" fill="#0B132B"/>
+              
+              <rect x="38" y="38" width="8" height="8" fill="#C8102E"/>
+              <rect x="52" y="38" width="12" height="6" fill="#0B132B"/>
+              <rect x="70" y="38" width="6" height="12" fill="#0B132B"/>
+              <rect x="82" y="38" width="10" height="6" fill="#0B132B"/>
+              
+              <rect x="38" y="50" width="18" height="6" fill="#0B132B"/>
+              <rect x="60" y="50" width="8" height="12" fill="#C8102E"/>
+              <rect x="74" y="50" width="18" height="6" fill="#0B132B"/>
+              
+              <rect x="38" y="62" width="6" height="16" fill="#0B132B"/>
+              <rect x="48" y="62" width="8" height="8" fill="#0B132B"/>
+              <rect x="60" y="68" width="14" height="6" fill="#0B132B"/>
+              <rect x="80" y="62" width="12" height="14" fill="#0B132B"/>
+              
+              <rect x="38" y="82" width="16" height="10" fill="#0B132B"/>
+              <rect x="58" y="80" width="10" height="12" fill="#C8102E"/>
+              <rect x="74" y="82" width="18" height="10" fill="#0B132B"/>
+            </svg>
           </div>
-
-          <div class="qr-card-unit">
-            <div class="qr-svg-holder">
-              <svg width="34" height="34" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="9" height="9" fill="#C8102E" rx="1"/>
-                <rect x="4" y="4" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="5.5" y="5.5" width="2" height="2" fill="#C8102E"/>
-                <rect x="22" y="2" width="9" height="9" fill="#C8102E" rx="1"/>
-                <rect x="24" y="4" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="25.5" y="5.5" width="2" height="2" fill="#C8102E"/>
-                <rect x="2" y="22" width="9" height="9" fill="#C8102E" rx="1"/>
-                <rect x="4" y="24" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="5.5" y="25.5" width="2" height="2" fill="#C8102E"/>
-                <rect x="14" y="3" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="17" y="4" width="2" height="2" fill="#C8102E"/>
-                <rect x="14" y="7" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="3" y="14" width="2" height="2" fill="#E63946"/>
-                <rect x="13" y="13" width="7" height="7" fill="#C8102E" rx="1"/>
-                <rect x="15" y="15" width="3" height="3" fill="#0A0A0A"/>
-                <rect x="23" y="14" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="14" y="23" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="24" y="24" width="2" height="2" fill="#C8102E"/>
-                <rect x="26" y="27" width="2" height="2" fill="#0A0A0A"/>
-              </svg>
-            </div>
-            <span>ĐẶT HẸN 1:1</span>
-            <div class="qr-link">5s-service.com/contact</div>
-          </div>
+          <div class="contact-qr-label">QUÉT MÃ ĐĂNG KÝ</div>
         </div>
       </div>
 
-      <!-- Footer -->
+      <!-- 7. Back Footer -->
       <div class="back-footer">
-        <div>© 2026 CÔNG TY CỔ PHẦN DỊCH VỤ TỰ ĐỘNG HOÁ 5S (5S SERVICE). TẤT CẢ QUYỀN ĐƯỢC BẢO LƯU.</div>
-        <div>Tiêu chuẩn an toàn thông tin ISO 27001 // Hotline 24/7: 1900 5858</div>
+        <div>Tiêu chuẩn an toàn thông tin ISO 27001 // Quản lý chất lượng ISO 9001:2015</div>
+        <div>Bản quyền phần mềm &copy; 2026 5S Cloud - Công ty Cổ phần Dịch vụ Tự động hóa 5S (5S Service)</div>
       </div>
 
     </div>
