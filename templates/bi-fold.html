@@ -3,35 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5S Cloud – Báo Cáo Giải Pháp Quan Trắc Môi Trường & AI Buồng Đốt Lò Hơi (Executive Edition)</title>
+  <title>5S Cloud – Chuyên Khảo Giải Pháp Quan Trắc Môi Trường & AI Buồng Đốt (Hardcover Monograph)</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Montserrat:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&subset=vietnamese&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Montserrat:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&subset=vietnamese&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Brand Identity: 5S Dark Luxury & Precision Palette */
-      --5s-crimson: #E63946;
-      --5s-crimson-glow: #FF4D5E;
-      --5s-crimson-subtle: rgba(230, 57, 70, 0.12);
+      /* Hardcover Luxury Palette */
+      --5s-crimson: #C8102E;
+      --5s-crimson-dark: #990B22;
+      --5s-crimson-subtle: #FFF0F2;
 
-      --5s-obsidian: #050811;
-      --5s-obsidian-card: #0A1122;
-      --5s-obsidian-surface: #101B33;
-      --5s-obsidian-border: rgba(255, 255, 255, 0.12);
+      --5s-navy: #0B132B;
+      --5s-navy-surface: #101B33;
+      --5s-navy-dark: #050811;
 
-      --5s-cyan: #00D4B2;
       --5s-blue: #0066CC;
       --5s-green: #059669;
       --5s-amber: #D97706;
 
       --paper-pure: #FFFFFF;
+      --paper-canvas: #FBFDFE;
       --paper-subtle: #F8FAFC;
-      --paper-line: #E2E8F0;
+      --paper-border: #E2E8F0;
 
-      --ink-dark: #0B132B;
-      --ink-body: #334155;
+      --ink-primary: #0B132B;
+      --ink-secondary: #334155;
       --ink-muted: #64748B;
 
       --radius-sm: 4px;
@@ -39,6 +38,10 @@
       --radius-lg: 12px;
       --radius-xl: 16px;
       --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(11, 19, 43, 0.06);
+      --shadow-md: 0 4px 12px rgba(11, 19, 43, 0.08);
+      --shadow-float: 0 16px 36px -4px rgba(11, 19, 43, 0.10);
     }
 
     * {
@@ -51,7 +54,7 @@
 
     body {
       font-family: 'Be Vietnam Pro', -apple-system, sans-serif;
-      color: var(--paper-pure);
+      color: var(--ink-primary);
       background-color: #1E293B;
       display: flex;
       flex-direction: column;
@@ -65,6 +68,7 @@
     .page-a4 {
       width: 210mm;
       height: 297mm;
+      background: var(--paper-pure);
       position: relative;
       overflow: hidden;
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
@@ -77,6 +81,7 @@
     .spread-a3 {
       width: 420mm;
       height: 297mm;
+      background: #FAFCFE;
       position: relative;
       overflow: hidden;
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
@@ -122,6 +127,7 @@
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.03em;
+      color: var(--ink-primary);
     }
 
     /* SVG Helpers */
@@ -139,114 +145,73 @@
     .svg-icon.lg { width: 22px; height: 22px; }
     .svg-icon.sm { width: 10px; height: 10px; }
 
-    /* Buttons */
-    .btn-luxury {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 11px 22px;
-      border-radius: var(--radius-full);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 8pt;
-      text-decoration: none;
-    }
-    .btn-luxury.crimson {
-      background: linear-gradient(135deg, var(--5s-crimson), #FF5A6B);
-      color: white;
-      box-shadow: 0 4px 18px rgba(230, 57, 70, 0.45);
-    }
-    .btn-luxury.outline {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: white;
-    }
-
     /* ==========================================================================
-       PAGE 1: BÌA TRƯỚC (DEEP OBSIDIAN DARK LUXURY MONOGRAPH - A4: 210 x 297mm)
+       PAGE 1: BÌA TRƯỚC (ARCHIVAL SWISS HARDCOVER MONOGRAPH - A4: 210 x 297mm)
        ========================================================================== */
-    .cover-dark-monograph {
+    .cover-hardcover-monograph {
       height: 297mm;
-      padding: 10mm 12mm 9mm 12mm;
+      padding: 11mm 13mm 10mm 13mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      overflow: hidden;
-      background: radial-gradient(circle at 80% 20%, #17274D 0%, #0A1224 50%, #040711 100%);
-      color: white;
-    }
-
-    /* Ambient Optical Glow */
-    .cover-ambient-glow {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 85% 20%, rgba(0, 102, 204, 0.18) 0%, rgba(230, 57, 70, 0.08) 45%, transparent 70%);
-      pointer-events: none;
-      z-index: 1;
+      background: radial-gradient(circle at 75% 20%, #FFFFFF 0%, #FAFDFE 55%, #EDF4FA 100%);
     }
 
     /* Masthead */
-    .cover-masthead {
+    .hardcover-masthead {
       height: 14mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      border-bottom: 2px solid var(--ink-primary);
       padding-bottom: 3mm;
-      position: relative;
-      z-index: 2;
       flex-shrink: 0;
     }
-    .cover-logo {
+    .hardcover-logo {
       display: flex;
       align-items: center;
       gap: 10px;
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 900;
-      color: white;
+      color: var(--ink-primary);
+      text-decoration: none;
     }
-    .cover-logo img {
-      height: 34px;
+    .hardcover-logo img {
+      height: 38px;
       width: auto;
       object-fit: contain;
     }
-    .logo-dot-glow {
+    .hardcover-logo-dot {
       display: inline-block;
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       background: var(--5s-crimson);
       border-radius: 50%;
-      box-shadow: 0 0 10px var(--5s-crimson-glow);
     }
-    .cover-meta {
+    .hardcover-meta {
       text-align: right;
       font-size: 5.6pt;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
-      color: #94A3B8;
+      color: var(--ink-muted);
       line-height: 1.4;
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
-    .cover-meta strong { color: white; }
+    .hardcover-meta strong { color: var(--ink-primary); }
 
-    /* Headline Area */
-    .cover-title-area {
-      margin-top: 3mm;
+    /* Title Block */
+    .hardcover-title-block {
+      margin-top: 4mm;
       margin-bottom: 2mm;
-      position: relative;
-      z-index: 2;
       flex-shrink: 0;
     }
-    .cover-kicker {
-      font-size: 6.8pt;
+    .hardcover-kicker {
+      font-size: 7pt;
       font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--5s-crimson);
       font-family: 'Montserrat', sans-serif;
@@ -255,131 +220,104 @@
       align-items: center;
       gap: 6px;
     }
-    .cover-h1 {
-      font-size: 24pt;
+    .hardcover-h1 {
+      font-size: 32pt;
       font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      color: white;
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      color: var(--ink-primary);
       margin-bottom: 2.5mm;
     }
-    .cover-h1 span {
-      background: linear-gradient(90deg, #FFFFFF 0%, #E2E8F0 60%, var(--5s-crimson-glow) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .hardcover-h1 span {
+      color: var(--5s-crimson);
     }
-    .cover-lead {
+    .hardcover-subhead {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--5s-blue);
+      line-height: 1.35;
+      margin-bottom: 3mm;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: -0.02em;
+    }
+    .hardcover-lead {
       font-size: 8pt;
-      color: #CBD5E1;
+      color: var(--ink-secondary);
       line-height: 1.5;
-      margin-bottom: 3.5mm;
+      border-left: 3px solid var(--5s-crimson);
+      padding-left: 3.5mm;
       max-width: 180mm;
     }
-    .cover-action-btns {
-      display: flex;
-      gap: 10px;
-    }
 
-    /* 4-Column Key Metrics Bar on Dark */
-    .cover-metrics-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
-      margin-bottom: 3.5mm;
-      position: relative;
-      z-index: 2;
-      flex-shrink: 0;
-    }
-    .cover-metric-box {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-top: 2.5px solid var(--5s-crimson);
-      border-radius: var(--radius-md);
-      padding: 2.2mm 3mm;
-      text-align: center;
-    }
-    .cover-metric-val {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11.5pt;
-      font-weight: 900;
-      color: white;
-      line-height: 1;
-      margin-bottom: 1.5px;
-    }
-    .cover-metric-val.red { color: var(--5s-crimson-glow); }
-    .cover-metric-val.blue { color: #38BDF8; }
-    .cover-metric-val.green { color: var(--5s-cyan); }
-    .cover-metric-lbl {
-      font-size: 5pt;
-      font-weight: 700;
-      color: #94A3B8;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    /* Illuminated 3D Visual Stage (132mm - Unclipped 10:7) */
-    .cover-visual-stage {
-      height: 132mm;
+    /* Majestic 3D Artwork Stage (168mm) - ZERO BOX BORDER, BLENDS WITH CANVAS */
+    .hardcover-artwork-stage {
+      height: 168mm;
       border-radius: var(--radius-xl);
       overflow: hidden;
-      background: #FFFFFF;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: white;
+      box-shadow: var(--shadow-float);
+      border: 1px solid var(--paper-border);
       position: relative;
-      z-index: 2;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .cover-visual-stage img {
+    .hardcover-artwork-stage img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       display: block;
     }
 
-    /* Footer Band */
-    .cover-footer-band {
-      height: 11mm;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    /* Authoritative Hardcover Seal Footer (14mm) */
+    .hardcover-footer-seal {
+      height: 14mm;
+      border-top: 2px solid var(--5s-crimson);
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: center;
-      font-size: 6pt;
-      color: #94A3B8;
-      position: relative;
-      z-index: 2;
+      padding-top: 2.5mm;
       flex-shrink: 0;
     }
-    .cover-footer-band strong { color: white; font-weight: 700; }
-    .cover-compliance-tag {
-      color: var(--5s-crimson-glow);
-      font-weight: 800;
+    .seal-hallmarks {
       display: flex;
-      align-items: center;
-      gap: 5px;
+      justify-content: space-between;
+      font-size: 5.8pt;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-primary);
     }
+    .seal-hallmarks span.crimson { color: var(--5s-crimson); }
+    .seal-publisher {
+      display: flex;
+      justify-content: space-between;
+      font-size: 5.6pt;
+      color: var(--ink-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .seal-publisher strong { color: var(--ink-primary); font-family: 'Montserrat', sans-serif; }
 
     /* ==========================================================================
-       PAGES 2-3: DUAL-TONE PANORAMIC SPREAD (420 x 297mm)
-       Left Page: Clean Swiss Light Paper // Right Page: Dark AI Neural Center
+       PAGES 2-3: DUAL-TONE SPREAD TRANG ĐÔI (420 x 297mm)
        ========================================================================== */
-    .spread-dual-tone {
+    .spread-dual-container {
       height: 297mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 6mm 10mm 5.5mm 10mm;
       position: relative;
-      background: #FAFCFE;
     }
 
-    /* 420mm Continuous Top Command Header (14mm) */
-    .spread-top-header {
+    /* 420mm Spread Header (14mm) */
+    .spread-masthead {
       height: 14mm;
       background: white;
       border-radius: var(--radius-md);
-      box-shadow: 0 1px 4px rgba(11, 19, 43, 0.06);
+      box-shadow: var(--shadow-sm);
       padding: 0 8mm;
       display: flex;
       justify-content: space-between;
@@ -387,30 +325,31 @@
       flex-shrink: 0;
       border-left: 4px solid var(--5s-crimson);
     }
-    .spread-top-title {
+    .spread-title {
       font-size: 11.5pt;
       font-weight: 800;
-      color: var(--ink-dark);
+      color: var(--ink-primary);
       letter-spacing: -0.02em;
     }
-    .spread-top-title span { color: var(--5s-crimson); }
-    .spread-badges-wrap {
+    .spread-title span { color: var(--5s-crimson); }
+    .spread-meta-badges {
       display: flex;
       gap: 6px;
     }
-    .spread-pill {
+    .spread-badge {
       font-size: 5.5pt;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
       padding: 3px 8px;
       border-radius: var(--radius-sm);
-      background: #F1F5F9;
-      color: var(--ink-dark);
+      background: var(--paper-subtle);
+      color: var(--ink-primary);
+      border: 1px solid var(--paper-border);
     }
-    .spread-pill.red { background: #FFF0F2; color: var(--5s-crimson); }
+    .spread-badge.red { background: #FFF0F2; color: var(--5s-crimson); border-color: #FFCCD3; }
 
-    /* 420mm Main Work Surface (236mm) */
-    .spread-main-surface {
+    /* 420mm Work Surface (236mm) */
+    .spread-main-grid {
       height: 236mm;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -418,63 +357,60 @@
       overflow: hidden;
       flex-shrink: 0;
     }
-
-    /* LEFT WING: Clean Architectural Light Canvas (210mm) */
-    .wing-light-col {
+    .spread-col {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
-      color: var(--ink-dark);
     }
 
-    .light-about-card {
+    /* Left Side: About & Real Telemetry */
+    .about-card-wrap {
       background: white;
       border-radius: var(--radius-lg);
       padding: 4mm 5mm;
-      box-shadow: 0 1px 4px rgba(11, 19, 43, 0.05);
-      border: 1px solid var(--paper-line);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--paper-border);
       height: 132mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .light-kicker {
+    .section-kicker {
+      font-family: 'Montserrat', sans-serif;
       font-size: 6.2pt;
       font-weight: 800;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--5s-crimson);
       margin-bottom: 1.5mm;
-      font-family: 'Montserrat', sans-serif;
     }
-    .light-about-card h2 {
+    .about-card-wrap h2 {
       font-size: 13pt;
-      color: var(--ink-dark);
       margin-bottom: 1.5mm;
     }
-    .light-desc {
+    .about-desc {
       font-size: 6.4pt;
-      color: var(--ink-body);
-      line-height: 1.42;
+      color: var(--ink-secondary);
+      line-height: 1.4;
       margin-bottom: 2mm;
     }
 
     /* 2x2 Stats Grid */
-    .light-stats-grid {
+    .stats-2x2-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6px;
       margin-bottom: 2.5mm;
     }
-    .light-stat-box {
-      background: #F8FAFC;
+    .stat-item-box {
+      background: var(--paper-subtle);
       padding: 2.5mm 3.5mm;
       border-radius: var(--radius-md);
-      border: 1px solid var(--paper-line);
+      border: 1px solid var(--paper-border);
       border-left: 3px solid var(--5s-crimson);
     }
-    .light-stat-num {
+    .stat-number-val {
       font-family: 'Montserrat', sans-serif;
       font-size: 14pt;
       font-weight: 900;
@@ -482,7 +418,7 @@
       line-height: 1;
       margin-bottom: 2px;
     }
-    .light-stat-lbl {
+    .stat-label-text {
       font-size: 5.4pt;
       font-weight: 700;
       color: var(--ink-muted);
@@ -491,16 +427,16 @@
     }
 
     /* Real Telemetry Table in Left Column */
-    .light-telemetry-box {
+    .telemetry-preview-box {
       background: white;
       border-radius: var(--radius-md);
-      border: 1px solid var(--paper-line);
+      border: 1px solid var(--paper-border);
       padding: 3mm 4mm;
       height: 98mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 1px 4px rgba(11, 19, 43, 0.05);
+      box-shadow: var(--shadow-sm);
     }
     .table-clean {
       width: 100%;
@@ -510,56 +446,48 @@
     .table-clean th {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      color: var(--ink-dark);
+      color: var(--ink-primary);
       padding: 2px 4px;
-      border-bottom: 1.5px solid var(--ink-dark);
+      border-bottom: 1.5px solid var(--ink-primary);
       text-align: left;
     }
     .table-clean td {
       padding: 2px 4px;
-      border-bottom: 1px solid var(--paper-line);
-      color: var(--ink-body);
+      border-bottom: 1px solid var(--paper-border);
+      color: var(--ink-secondary);
     }
     .status-ok { color: var(--5s-green); font-weight: 700; }
 
-    /* RIGHT WING: Deep Dark Titanium AI Neural Center (210mm) */
-    .wing-dark-col {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      color: white;
-    }
-
-    .dark-services-card {
-      background: var(--5s-obsidian-card);
-      border: 1px solid var(--5s-obsidian-border);
+    /* Right Side: Dark Services & Portfolio */
+    .services-dark-wrap {
+      background: var(--5s-navy-surface);
       border-radius: var(--radius-lg);
       padding: 4mm 5mm;
       height: 120mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      color: white;
+      box-shadow: 0 10px 25px rgba(11, 19, 43, 0.2);
     }
-    .dark-services-card h2 {
+    .services-dark-wrap h2 {
       font-size: 11pt;
       color: white;
       margin-bottom: 1px;
     }
-    .dark-services-card p.sub {
+    .services-dark-wrap p.sub {
       font-size: 5.8pt;
       color: #94A3B8;
       margin-bottom: 2mm;
     }
 
-    .dark-services-3col {
+    .services-3col {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 5px;
     }
-    .dark-service-item {
-      background: rgba(255, 255, 255, 0.03);
+    .service-card-mini {
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-md);
       padding: 2.5mm 3mm;
@@ -567,11 +495,11 @@
       flex-direction: column;
       justify-content: space-between;
     }
-    .dark-service-item.featured {
-      border-color: rgba(230, 57, 70, 0.5);
-      background: rgba(230, 57, 70, 0.08);
+    .service-card-mini.featured {
+      border-color: rgba(200, 16, 46, 0.5);
+      background: rgba(200, 16, 46, 0.08);
     }
-    .dark-service-icon {
+    .service-icon-box {
       width: 26px; height: 26px;
       background: rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-sm);
@@ -581,30 +509,30 @@
       color: var(--5s-crimson);
       margin-bottom: 2mm;
     }
-    .dark-service-item h3 {
+    .service-card-mini h3 {
       font-size: 6.8pt;
       color: white;
       margin-bottom: 1.5px;
       line-height: 1.2;
     }
-    .dark-service-item p {
+    .service-card-mini p {
       font-size: 5.3pt;
       color: #94A3B8;
       line-height: 1.35;
       margin-bottom: 0;
     }
 
-    /* Portfolio Cards on Dark Side */
-    .dark-portfolio-box {
-      background: var(--5s-obsidian-card);
-      border: 1px solid var(--5s-obsidian-border);
+    /* Portfolio Cards (Real Screenshots) */
+    .portfolio-cards-wrap {
+      background: white;
       border-radius: var(--radius-lg);
+      border: 1px solid var(--paper-border);
       padding: 3mm 4mm;
       height: 110mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      box-shadow: var(--shadow-sm);
     }
     .portfolio-3grid {
       display: grid;
@@ -616,7 +544,7 @@
       position: relative;
       border-radius: var(--radius-md);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--paper-border);
       height: 100%;
     }
     .portfolio-item-mini img {
@@ -630,7 +558,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      background: linear-gradient(to top, rgba(5, 8, 17, 0.98), transparent);
+      background: linear-gradient(to top, rgba(11, 19, 43, 0.95), transparent);
       padding: 2mm;
       color: white;
     }
@@ -656,8 +584,8 @@
       height: 20mm;
       background: white;
       border-radius: var(--radius-md);
-      border: 1px solid var(--paper-line);
-      box-shadow: 0 1px 4px rgba(11, 19, 43, 0.05);
+      border: 1px solid var(--paper-border);
+      box-shadow: var(--shadow-sm);
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
@@ -680,7 +608,7 @@
     .kpi-meta-text h6 {
       font-size: 6.2pt;
       font-weight: 800;
-      color: var(--ink-dark);
+      color: var(--ink-primary);
       margin-bottom: 1px;
     }
     .kpi-meta-text p {
@@ -691,25 +619,24 @@
     }
 
     /* ==========================================================================
-       PAGE 4: BÌA SAU (EXECUTIVE OBSIDIAN DARK CLOSING - A4: 210 x 297mm)
+       PAGE 4: BÌA SAU (EXECUTIVE CLOSING & CONTACT - A4: 210 x 297mm)
        ========================================================================== */
-    .back-dark-closing {
+    .back-closing-page {
       height: 297mm;
       padding: 8mm 11mm 7mm 11mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      background: radial-gradient(circle at 50% 10%, #152342 0%, #080D1A 50%, #03060E 100%);
-      color: white;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #EEF2F6 100%);
     }
 
-    .back-masthead {
+    .back-header {
       height: 12mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      border-bottom: 2px solid var(--5s-crimson);
       padding-bottom: 2mm;
       flex-shrink: 0;
     }
@@ -718,23 +645,22 @@
       align-items: center;
       gap: 8px;
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 900;
-      color: white;
+      color: var(--ink-primary);
     }
     .back-logo img {
       height: 28px;
       width: auto;
     }
     .back-title {
-      font-size: 9pt;
+      font-size: 9.5pt;
       font-weight: 800;
-      color: white;
-      font-family: 'Montserrat', sans-serif;
+      color: var(--ink-primary);
     }
-    .back-title span { color: var(--5s-crimson-glow); }
+    .back-title span { color: var(--5s-crimson); }
 
-    /* 5-Sphere Radar & Ecosystem (40mm) */
+    /* 5-Sphere Constellation Visual & Radar Progress (40mm) */
     .back-ecosystem-box {
       height: 40mm;
       display: grid;
@@ -742,50 +668,50 @@
       gap: 6px;
       flex-shrink: 0;
     }
-    .constellation-frame {
+    .constellation-img-frame {
       border-radius: var(--radius-md);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: #0A1122;
+      border: 1px solid var(--paper-border);
+      background: white;
       height: 100%;
     }
-    .constellation-frame img {
+    .constellation-img-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .radar-stats-card {
-      background: rgba(255, 255, 255, 0.04);
+    .radar-telemetry-card {
+      background: white;
       border-radius: var(--radius-md);
       padding: 2mm 3.5mm;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-left: 3px solid #38BDF8;
+      border: 1px solid var(--paper-border);
+      border-left: 3px solid var(--5s-blue);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .radar-stat-row {
+    .radar-row-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-size: 5.4pt;
-      color: #CBD5E1;
+      color: var(--ink-secondary);
     }
-    .radar-stat-row strong { color: white; }
+    .radar-row-item strong { color: var(--ink-primary); }
     .radar-track {
       width: 60px;
       height: 3.5px;
-      background: rgba(255, 255, 255, 0.1);
+      background: var(--paper-border);
       border-radius: var(--radius-full);
       overflow: hidden;
     }
     .radar-fill {
       height: 100%;
-      background: linear-gradient(90deg, #0066CC, var(--5s-cyan));
+      background: linear-gradient(90deg, var(--5s-blue), #00D4B2);
     }
 
-    /* Legal Table on Dark (42mm) */
+    /* Legal Table (42mm) */
     .back-legal-box {
       height: 42mm;
       display: flex;
@@ -793,32 +719,32 @@
       justify-content: space-between;
       flex-shrink: 0;
     }
-    .legal-tbl-dark {
+    .legal-tbl {
       width: 100%;
       border-collapse: collapse;
       font-size: 5.6pt;
       height: 36mm;
     }
-    .legal-tbl-dark th {
+    .legal-tbl th {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      color: white;
+      color: var(--ink-primary);
       padding: 1.8mm 3mm;
-      border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1.5px solid var(--ink-primary);
       text-align: left;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.7);
     }
-    .legal-tbl-dark td {
+    .legal-tbl td {
       padding: 1.8mm 3mm;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      color: #CBD5E1;
+      border-bottom: 1px solid var(--paper-border);
+      color: var(--ink-secondary);
       vertical-align: middle;
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.5);
     }
-    .legal-tbl-dark .law-name { font-weight: 800; color: white; }
-    .legal-tbl-dark .law-fine { font-weight: 800; color: var(--5s-crimson-glow); }
+    .legal-tbl .law-name { font-weight: 800; color: var(--ink-primary); }
+    .legal-tbl .law-fine { font-weight: 800; color: var(--5s-crimson); }
 
-    /* 3 Tiers Comparison Table on Dark (50mm) */
+    /* 3 Tiers Comparison Table (50mm) */
     .back-tiers-box {
       height: 50mm;
       display: flex;
@@ -826,40 +752,40 @@
       justify-content: space-between;
       flex-shrink: 0;
     }
-    .tiers-tbl-dark {
+    .tiers-tbl {
       width: 100%;
       border-collapse: collapse;
       font-size: 5.6pt;
       height: 44mm;
     }
-    .tiers-tbl-dark th {
+    .tiers-tbl th {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      color: white;
+      color: var(--ink-primary);
       padding: 1.8mm 3mm;
-      border-bottom: 1.5px solid #38BDF8;
+      border-bottom: 1.5px solid var(--5s-blue);
       text-align: left;
-      background: rgba(255, 255, 255, 0.06);
+      background: white;
     }
-    .tiers-tbl-dark th.feat {
+    .tiers-tbl th.feat {
       border-bottom-color: var(--5s-crimson);
-      color: var(--5s-crimson-glow);
-      background: rgba(230, 57, 70, 0.12);
+      color: var(--5s-crimson);
+      background: #FFF5F6;
     }
-    .tiers-tbl-dark td {
+    .tiers-tbl td {
       padding: 1.8mm 3mm;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      color: #CBD5E1;
+      border-bottom: 1px solid var(--paper-border);
+      color: var(--ink-secondary);
       vertical-align: middle;
-      background: rgba(255, 255, 255, 0.02);
+      background: white;
     }
 
     /* Client Marquee Strip (20mm) */
     .back-clients-strip {
       height: 20mm;
-      background: rgba(255, 255, 255, 0.03);
+      background: white;
       border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--paper-border);
       padding: 2mm 4mm;
       display: flex;
       flex-direction: column;
@@ -870,7 +796,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 5.6pt;
       font-weight: 800;
-      color: white;
+      color: var(--ink-primary);
       text-transform: uppercase;
       display: flex;
       justify-content: space-between;
@@ -880,9 +806,9 @@
       flex-wrap: wrap;
       gap: 1.5mm 4mm;
       font-size: 5.5pt;
-      color: #94A3B8;
+      color: var(--ink-secondary);
     }
-    .clients-list strong { color: white; }
+    .clients-list strong { color: var(--ink-primary); }
 
     /* Turnkey Roadmap (25mm) */
     .back-roadmap-box {
@@ -899,9 +825,9 @@
       height: 19mm;
     }
     .roadmap-card {
-      background: rgba(255, 255, 255, 0.03);
+      background: white;
       border-radius: var(--radius-sm);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--paper-border);
       padding: 1.5mm;
       text-align: center;
       display: flex;
@@ -910,13 +836,13 @@
     }
     .roadmap-card.active {
       border-top: 2.5px solid var(--5s-crimson);
-      background: rgba(230, 57, 70, 0.1);
+      background: #FFF5F6;
     }
     .roadmap-dot {
       width: 12px; height: 12px;
       border-radius: 50%;
-      background: rgba(56, 189, 248, 0.2);
-      color: #38BDF8;
+      background: #EFF6FF;
+      color: var(--5s-blue);
       font-size: 5.4pt;
       font-weight: 800;
       display: inline-flex;
@@ -929,19 +855,18 @@
     .roadmap-card h6 {
       font-size: 5.5pt;
       font-weight: 800;
-      color: white;
+      color: var(--ink-primary);
     }
     .roadmap-card p {
       font-size: 4.7pt;
-      color: #94A3B8;
+      color: var(--ink-secondary);
       margin-bottom: 0;
     }
 
-    /* VIP Contact & Dual QR Block (44mm) */
+    /* Contact & Dual QR Card (44mm) */
     .back-contact-card {
       height: 44mm;
-      background: linear-gradient(135deg, rgba(230, 57, 70, 0.15) 0%, rgba(10, 17, 34, 0.9) 100%);
-      border: 1px solid rgba(230, 57, 70, 0.35);
+      background: var(--5s-navy);
       border-radius: var(--radius-lg);
       padding: 3mm 5mm;
       display: flex;
@@ -950,17 +875,17 @@
       color: white;
       border-left: 4px solid var(--5s-crimson);
       flex-shrink: 0;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: var(--shadow-md);
     }
     .contact-text-col h5 {
       font-size: 9pt;
       color: white;
       margin-bottom: 1.5px;
     }
-    .contact-text-col h5 span { color: var(--5s-crimson-glow); }
+    .contact-text-col h5 span { color: var(--5s-crimson); }
     .contact-text-col p {
       font-size: 5.8pt;
-      color: #CBD5E1;
+      color: #94A3B8;
       margin-bottom: 2mm;
     }
     .contact-info-grid {
@@ -987,7 +912,7 @@
       flex-direction: column;
       align-items: center;
       gap: 1px;
-      color: var(--ink-dark);
+      color: var(--ink-primary);
     }
     .qr-svg-holder {
       width: 38px; height: 38px;
@@ -1011,12 +936,12 @@
     /* Footer */
     .back-footer {
       height: 6mm;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-top: 1px solid var(--paper-border);
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 5.4pt;
-      color: #94A3B8;
+      color: var(--ink-muted);
       flex-shrink: 0;
     }
   </style>
@@ -1024,79 +949,60 @@
 <body>
 
   <!-- ==========================================================================
-       PAGE 1: BÌA TRƯỚC (DEEP OBSIDIAN DARK LUXURY MONOGRAPH - A4: 210 x 297mm)
+       PAGE 1: BÌA TRƯỚC (ARCHIVAL SWISS HARDCOVER MONOGRAPH - A4: 210 x 297mm)
        ========================================================================== -->
   <div class="page-a4">
-    <div class="cover-dark-monograph cover-editorial cover-unboxed">
-      <div class="cover-ambient-glow"></div>
+    <div class="cover-hardcover-monograph cover-editorial cover-unboxed">
       
       <!-- Masthead -->
-      <div class="cover-masthead">
-        <div class="cover-logo">
+      <div class="hardcover-masthead">
+        <div class="hardcover-logo">
           <img src="../assets/logo.png" alt="5S Service Logo" />
-          <span>5S CLOUD</span><span class="logo-dot-glow"></span>
+          <span>5S CLOUD</span><span class="hardcover-logo-dot"></span>
         </div>
-        <div class="cover-meta">
-          <div>BÁO CÁO GIẢI PHÁP QUAN TRẮC MÔI TRƯỜNG // 2026</div>
-          <div>ẤN BẢN ĐẶC BIỆT DÀNH CHO <strong>C-LEVEL & GIÁM ĐỐC NHÀ MÁY</strong></div>
+        <div class="hardcover-meta">
+          <div>CHUYÊN KHẢO KỸ THUẬT MÔI TRƯỜNG // NĂM 2026</div>
+          <div>ẤN BẢN BÌA CỨNG DÀNH CHO <strong>C-LEVEL & HỘI ĐỒNG QUẢN TRỊ</strong></div>
         </div>
       </div>
 
-      <!-- Hero Typography Content -->
-      <div class="cover-title-area">
-        <div class="cover-kicker">
+      <!-- Title Block -->
+      <div class="hardcover-title-block">
+        <div class="hardcover-kicker">
           <svg class="svg-icon sm" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-          HỆ THỐNG QUAN TRẮC PHÁT THẢI THÔNG MINH & AI BUỒNG ĐỐT THẾ HỆ MỚI
+          BÁO CÁO CHIẾN LƯỢC QUẢN TRỊ PHÁT THẢI CÔNG NGHIỆP & AI BUỒNG ĐỐT
         </div>
 
-        <h1 class="cover-h1">
+        <h1 class="hardcover-h1">
           5S CLOUD – <span>QUẢN TRỊ DỮ LIỆU</span><br />
-          MÔI TRƯỜNG & AI BUỒNG ĐỐT
+          MÔI TRƯỜNG TOÀN DIỆN
         </h1>
 
-        <p class="cover-lead">
-          Số hoá toàn diện hệ thống quan trắc Khí thải (CEMS), Nước thải và Không khí xung quanh. Tự động kết nối 63 Sở TN&MT, tối ưu hoá buồng đốt lò hơi bằng AI và triệt tiêu nguy cơ xử phạt tới 2 tỷ VNĐ theo Nghị định 45/2022.
-        </p>
+        <div class="hardcover-subhead">
+          Nền tảng IoT quan trắc tự động liên tục & Trợ lý AI chẩn đoán buồng đốt lò hơi
+        </div>
 
-        <div class="cover-action-btns">
-          <a href="#" class="btn-luxury crimson">Khảo sát hiện trường ngay</a>
-          <a href="#" class="btn-luxury outline">Tìm hiểu dịch vụ</a>
+        <div class="hardcover-lead">
+          Số hoá toàn diện hệ thống quan trắc Khí thải (CEMS), Nước thải và Không khí xung quanh. Tự động kết nối 63 Sở TN&MT, tối ưu hoá buồng đốt lò hơi bằng AI và triệt tiêu nguy cơ xử phạt tới 2 tỷ VNĐ theo Nghị định 45/2022/NĐ-CP.
         </div>
       </div>
 
-      <!-- 4-Column Key Metrics Bar on Dark -->
-      <div class="cover-metrics-bar">
-        <div class="cover-metric-box">
-          <div class="cover-metric-val red">1,000+</div>
-          <div class="cover-metric-lbl">Điểm quan trắc</div>
-        </div>
-        <div class="cover-metric-box">
-          <div class="cover-metric-val blue">600+</div>
-          <div class="cover-metric-lbl">Khách hàng KCN</div>
-        </div>
-        <div class="cover-metric-box">
-          <div class="cover-metric-val">63</div>
-          <div class="cover-metric-lbl">Sở TN&MT</div>
-        </div>
-        <div class="cover-metric-box">
-          <div class="cover-metric-val green">99.9%</div>
-          <div class="cover-metric-lbl">SLA 24/7</div>
-        </div>
-      </div>
-
-      <!-- Illuminated 3D Visual Stage (132mm - Unclipped 10:7) -->
-      <div class="cover-visual-stage cover-image-stage">
+      <!-- Majestic 3D Artwork Stage (168mm) - ZERO BOX BORDER, NATURAL CANVAS BLEND -->
+      <div class="hardcover-artwork-stage cover-image-stage">
         <img src="../assets/banana-cover-hero-2k.png" alt="Mô hình 3D Digital Twin trạm CEMS 5S Cloud" />
       </div>
 
-      <!-- Footer Band -->
-      <div class="cover-footer-band">
-        <div class="cover-compliance-tag">
-          <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          100% ĐẠT CHUẨN NGHỊ ĐỊNH 08/2022/NĐ-CP (ĐIỀU 97) & THÔNG TƯ 10/2021/TT-BTNMT
+      <!-- Authoritative Hardcover Seal Footer (14mm) -->
+      <div class="hardcover-footer-seal">
+        <div class="seal-hallmarks">
+          <span>✓ 100% ĐẠT CHUẨN NĐ 08/2022/NĐ-CP</span>
+          <span class="crimson">✓ THÔNG TƯ 10/2021/TT-BTNMT</span>
+          <span>✓ AN TOÀN THÔNG TIN ISO 27001</span>
+          <span class="crimson">✓ SLA ĐƯỜNG TRUYỀN 99.9%</span>
         </div>
-        <div>
-          CÔNG TY CỔ PHẦN DỊCH VỤ TỰ ĐỘNG HOÁ 5S | <strong>www.5s-service.com</strong>
+        <div class="seal-publisher">
+          <span>XUẤT BẢN BỞI: <strong>CÔNG TY CỔ PHẦN DỊCH VỤ TỰ ĐỘNG HOÁ 5S</strong> (HÀ NỘI • BÌNH DƯƠNG • TP.HCM)</span>
+          <span>PORTAL: <strong>www.5s-service.com</strong></span>
         </div>
       </div>
 
@@ -1104,71 +1010,71 @@
   </div>
 
   <!-- ==========================================================================
-       PAGES 2-3: DUAL-TONE PANORAMIC SPREAD (420 x 297mm)
+       PAGES 2-3: DUAL-TONE SPREAD TRANG ĐÔI (420 x 297mm)
        ========================================================================== -->
   <div class="spread-a3">
-    <div class="spread-dual-tone spread-container spread-unboxed-wrap">
+    <div class="spread-dual-container spread-container spread-unboxed-wrap">
 
       <!-- Spread Header (14mm) -->
-      <div class="spread-top-header">
+      <div class="spread-masthead">
         <div style="display: flex; align-items: center; gap: 10px;">
           <img src="../assets/logo.png" alt="5S Service Logo" style="height: 24px; width: auto;" />
-          <h2 class="spread-top-title">
+          <h2 class="spread-title">
             5S COMMAND PORTAL // TRUNG TÂM ĐIỀU HÀNH & HỆ SINH THÁI QUAN TRẮC <span>TẬP TRUNG</span>
           </h2>
         </div>
-        <div class="spread-badges-wrap">
-          <span class="spread-pill red">SLA TRUYỀN DẪN 99.9%</span>
-          <span class="spread-pill">LƯU TRỮ CLOUD 3 NĂM</span>
-          <span class="spread-pill red">ISO 27001</span>
+        <div class="spread-meta-badges">
+          <span class="spread-badge red">SLA TRUYỀN DẪN 99.9%</span>
+          <span class="spread-badge">LƯU TRỮ CLOUD 3 NĂM</span>
+          <span class="spread-badge red">ISO 27001</span>
         </div>
       </div>
 
       <!-- Spread 2-Column Work Surface (236mm) -->
-      <div class="spread-main-surface">
+      <div class="spread-main-grid">
 
-        <!-- ================= LEFT WING: ABOUT 5S & SENSORY TELEMETRY (LIGHT CANVAS) ================= -->
-        <div class="wing-light-col">
+        <!-- ================= LEFT COLUMN: ABOUT 5S & SENSORY TELEMETRY ================= -->
+        <div class="spread-col">
           
           <!-- About Card with 2x2 Stats (132mm) -->
-          <div class="light-about-card">
+          <div class="about-card-wrap">
             <div>
-              <div class="light-kicker">TIÊN PHONG CÔNG NGHỆ MÔI TRƯỜNG</div>
+              <div class="section-kicker">TIÊN PHONG CÔNG NGHỆ MÔI TRƯỜNG</div>
               <h2>Về chúng tôi – 5S Service</h2>
-              <p class="light-desc">
+              <p class="about-desc">
                 Chúng tôi là đội ngũ kỹ sư điều khiển & tự động hoá chuyên sâu, tư vấn và triển khai trọn gói hệ thống quan trắc môi trường tự động liên tục (CEMS khí thải, Nước thải), Datalogger công nghiệp và Trợ lý AI chẩn đoán buồng đốt lò hơi.
               </p>
             </div>
 
             <!-- 2x2 Stats Grid -->
-            <div class="light-stats-grid">
-              <div class="light-stat-box">
-                <div class="light-stat-num">1,000+</div>
-                <div class="light-stat-lbl">Điểm quan trắc kết nối</div>
+            <div class="stats-2x2-grid">
+              <div class="stat-item-box">
+                <div class="stat-number-val">1,000+</div>
+                <div class="stat-label-text">Điểm quan trắc kết nối</div>
               </div>
-              <div class="light-stat-box">
-                <div class="light-stat-num">600+</div>
-                <div class="light-stat-lbl">Khách hàng KCN tin dùng</div>
+              <div class="stat-item-box">
+                <div class="stat-number-val">600+</div>
+                <div class="stat-label-text">Khách hàng KCN tin dùng</div>
               </div>
-              <div class="light-stat-box">
-                <div class="light-stat-num">63</div>
-                <div class="light-stat-lbl">Sở TN&MT thông suốt</div>
+              <div class="stat-item-box">
+                <div class="stat-number-val">63</div>
+                <div class="stat-label-text">Sở TN&MT thông suốt</div>
               </div>
-              <div class="light-stat-box">
-                <div class="light-stat-num">99.9%</div>
-                <div class="light-stat-lbl">SLA đường truyền 24/7</div>
+              <div class="stat-item-box">
+                <div class="stat-number-val">99.9%</div>
+                <div class="stat-label-text">SLA đường truyền 24/7</div>
               </div>
             </div>
 
-            <p class="light-desc" style="margin-bottom: 0;">
+            <p class="about-desc" style="margin-bottom: 0;">
               Với hơn 10 năm kinh nghiệm đồng hành cùng các tập đoàn công nghiệp nặng (Nhiệt điện, Xi măng, Thép, Hoá chất), 5S Service cung cấp giải pháp chìa khoá trao tay từ khảo sát tủ CEMS đến hỗ trợ thanh tra.
             </p>
           </div>
 
           <!-- Real Telemetry Table (98mm) -->
-          <div class="light-telemetry-box">
+          <div class="telemetry-preview-box">
             <div>
-              <div class="light-kicker" style="color: #0066CC;">DỮ LIỆU ĐO ĐẠC HIỆN TRƯỜNG</div>
+              <div class="section-kicker" style="color: var(--5s-blue);">DỮ LIỆU ĐO ĐẠC HIỆN TRƯỜNG</div>
               <h3 style="font-size: 8pt; margin-bottom: 1.5mm;">Bảng 8 Chỉ Tiêu Khí Thải CEMS (QCVN 19/2009)</h3>
             </div>
 
@@ -1221,7 +1127,7 @@
               </tbody>
             </table>
 
-            <div style="font-size: 5.4pt; color: var(--ink-muted); border-top: 1px dashed var(--paper-line); padding-top: 1.5px; display: flex; justify-content: space-between;">
+            <div style="font-size: 5.4pt; color: var(--ink-muted); border-top: 1px dashed var(--paper-border); padding-top: 1.5px; display: flex; justify-content: space-between;">
               <span>• Datalogger ARM Cortex-A53 xuất file FTP 5 phút/lần về Sở</span>
               <span>• Camera ATEX chống nổ truyền luồng kép 24/7</span>
             </div>
@@ -1229,21 +1135,21 @@
 
         </div>
 
-        <!-- ================= RIGHT WING: DEEP DARK AI NEURAL CENTER (DARK CANVAS) ================= -->
-        <div class="wing-dark-col">
+        <!-- ================= RIGHT COLUMN: SERVICES & PORTFOLIO ================= -->
+        <div class="spread-col">
           
-          <!-- Dark Services Card (120mm) -->
-          <div class="dark-services-card">
+          <!-- Dark Services Section (120mm) -->
+          <div class="services-dark-wrap">
             <div>
-              <div class="light-kicker" style="color: var(--5s-crimson-glow);">DỊCH VỤ NỔI BẬT</div>
+              <div class="section-kicker" style="color: var(--5s-crimson);">DỊCH VỤ NỔI BẬT</div>
               <h2>Hệ Sinh Thái Dịch Vụ IoT & AI Buồng Đốt</h2>
               <p class="sub">Thiết kế chuyên biệt, đáp ứng 100% Nghị định 08/2022 và Thông tư 10/2021.</p>
             </div>
 
-            <div class="dark-services-3col">
+            <div class="services-3col">
               <!-- Service 1 -->
-              <div class="dark-service-item">
-                <div class="dark-service-icon">
+              <div class="service-card-mini">
+                <div class="service-icon-box">
                   <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
                 </div>
                 <h3>Quan trắc khí thải CEMS</h3>
@@ -1251,17 +1157,17 @@
               </div>
 
               <!-- Service 2 -->
-              <div class="dark-service-item featured">
-                <div class="dark-service-icon">
-                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <div class="service-card-mini featured">
+                <div class="service-icon-box">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                 </div>
                 <h3>Trợ lý AI buồng đốt lò hơi</h3>
                 <p>Phát hiện sớm cháy không hoàn toàn, cân bằng van gió trước 15p, tiết kiệm 5–8% than/gas.</p>
               </div>
 
               <!-- Service 3 -->
-              <div class="dark-service-item">
-                <div class="dark-service-icon">
+              <div class="service-card-mini">
+                <div class="service-icon-box">
                   <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
                 </div>
                 <h3>Nước thải & lấy mẫu tự động</h3>
@@ -1271,10 +1177,10 @@
           </div>
 
           <!-- Portfolio Cards (Real Screenshots) (110mm) -->
-          <div class="dark-portfolio-box">
+          <div class="portfolio-cards-wrap">
             <div>
-              <div class="light-kicker" style="color: #38BDF8;">GIAO DIỆN VẬN HÀNH THỰC TẾ</div>
-              <h3 style="font-size: 8pt; margin-bottom: 1.5mm; color: white;">Dự Án Tiêu Biểu & Giao Diện 5S Command Portal</h3>
+              <div class="section-kicker">GIAO DIỆN VẬN HÀNH THỰC TẾ</div>
+              <h3 style="font-size: 8pt; margin-bottom: 1.5mm;">Dự Án Tiêu Biểu & Giao Diện 5S Command Portal</h3>
             </div>
 
             <div class="portfolio-3grid">
@@ -1303,7 +1209,7 @@
               </div>
             </div>
 
-            <div style="font-size: 5.4pt; color: #94A3B8; border-top: 1px dashed rgba(255, 255, 255, 0.15); padding-top: 1.5px; display: flex; justify-content: space-between;">
+            <div style="font-size: 5.4pt; color: var(--ink-muted); border-top: 1px dashed var(--paper-border); padding-top: 1.5px; display: flex; justify-content: space-between;">
               <span>• So sánh Trước/Sau: Tiết kiệm 80% thời gian báo cáo</span>
               <span>• Ngăn chặn mức phạt 2 tỷ VNĐ theo Nghị định 45</span>
             </div>
@@ -1324,7 +1230,7 @@
         </div>
 
         <div class="kpi-unit">
-          <div class="kpi-big-num" style="color: #0066CC;">-80%</div>
+          <div class="kpi-big-num" style="color: var(--5s-blue);">-80%</div>
           <div class="kpi-meta-text">
             <h6>TIẾT KIỆM THỜI GIAN LẬP BÁO CÁO</h6>
             <p>Trích xuất báo cáo gửi Sở TN&MT chỉ với 1 cú click</p>
@@ -1332,7 +1238,7 @@
         </div>
 
         <div class="kpi-unit">
-          <div class="kpi-big-num" style="color: #059669;">99.9%</div>
+          <div class="kpi-big-num" style="color: var(--5s-green);">99.9%</div>
           <div class="kpi-meta-text">
             <h6>CAM KẾT SLA TRUYỀN NHẬN LIÊN TỤC</h6>
             <p>Hạ tầng Cloud Enterprise, dự phòng đa tầng 24/7</p>
@@ -1352,16 +1258,16 @@
   </div>
 
   <!-- ==========================================================================
-       PAGE 4: BÌA SAU (EXECUTIVE OBSIDIAN DARK CLOSING - A4: 210 x 297mm)
+       PAGE 4: BÌA SAU (EXECUTIVE CLOSING & CONTACT - A4: 210 x 297mm)
        ========================================================================== -->
   <div class="page-a4">
-    <div class="back-dark-closing back-editorial back-unboxed-wrap">
+    <div class="back-closing-page back-editorial back-unboxed-wrap">
 
       <!-- Header -->
-      <div class="back-masthead">
+      <div class="back-header">
         <div class="back-logo">
           <img src="../assets/logo.png" alt="5S Service Logo" />
-          <span>5S SERVICE</span><span class="logo-dot-glow"></span>
+          <span>5S SERVICE</span><span class="hardcover-logo-dot"></span>
         </div>
         <div class="back-title">
           HỆ SINH THÁI QUAN TRẮC MÔI TRƯỜNG <span>5S CLOUD</span>
@@ -1370,41 +1276,41 @@
 
       <!-- 5-Sphere Constellation Visual & Radar Progress (40mm) -->
       <div class="back-ecosystem-box">
-        <div class="constellation-frame">
+        <div class="constellation-img-frame">
           <img src="../assets/banana-back-ecosystem-2k.png" alt="5-Sphere Environmental Data Constellation" />
         </div>
 
-        <div class="radar-stats-card">
-          <div style="font-size: 5.6pt; font-weight: 800; color: white; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1px;">
+        <div class="radar-telemetry-card">
+          <div style="font-size: 5.6pt; font-weight: 800; color: var(--ink-primary); display: flex; justify-content: space-between; border-bottom: 1px solid var(--paper-border); padding-bottom: 1px;">
             <span>CHỈ SỐ ĐÁP ỨNG QUY CHUẨN</span>
-            <span style="color: #38BDF8; font-family: 'JetBrains Mono', monospace;">SLA: 99.9%</span>
+            <span style="color: var(--5s-blue); font-family: 'JetBrains Mono', monospace;">SLA: 99.9%</span>
           </div>
 
-          <div class="radar-stat-row">
+          <div class="radar-row-item">
             <span>1. Khí Thải CEMS (QCVN 19/22)</span>
             <div class="radar-track"><div class="radar-fill" style="width: 99.9%;"></div></div>
             <strong>99.9%</strong>
           </div>
 
-          <div class="radar-stat-row">
+          <div class="radar-row-item">
             <span>2. Nước Thải KCN (QCVN 40)</span>
             <div class="radar-track"><div class="radar-fill" style="width: 99.8%;"></div></div>
             <strong>99.8%</strong>
           </div>
 
-          <div class="radar-stat-row">
+          <div class="radar-row-item">
             <span>3. Không Khí Xung Quanh (QCVN 05)</span>
             <div class="radar-track"><div class="radar-fill" style="width: 99.5%;"></div></div>
             <strong>99.5%</strong>
           </div>
 
-          <div class="radar-stat-row">
+          <div class="radar-row-item">
             <span>4. Tiếng Ồn & Độ Rung (QCVN 26/27)</span>
             <div class="radar-track"><div class="radar-fill" style="width: 99.2%; background: #F59E0B;"></div></div>
             <strong>99.2%</strong>
           </div>
 
-          <div class="radar-stat-row">
+          <div class="radar-row-item">
             <span>5. Nước Ngầm (QCVN 09)</span>
             <div class="radar-track"><div class="radar-fill" style="width: 99.7%;"></div></div>
             <strong>99.7%</strong>
@@ -1414,10 +1320,10 @@
 
       <!-- Legal Table (42mm) -->
       <div class="back-legal-box">
-        <div style="font-size: 6.2pt; font-weight: 800; color: white; text-transform: uppercase;">
+        <div style="font-size: 6.2pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
           <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> CƠ SỞ PHÁP LÝ & KHUNG CHẾ TÀI BẮT BUỘC
         </div>
-        <table class="legal-tbl-dark">
+        <table class="legal-tbl">
           <thead>
             <tr>
               <th style="width: 25%;">Văn Bản Pháp Luật</th>
@@ -1427,17 +1333,17 @@
           </thead>
           <tbody>
             <tr>
-              <td class="law-name">Nghị định 08/2022/NĐ-CP<br><span style="font-size: 4.8pt; font-weight: 400; color: #94A3B8;">Điều 97 & Phụ lục XXVIII</span></td>
+              <td class="law-name">Nghị định 08/2022/NĐ-CP<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--ink-muted);">Điều 97 & Phụ lục XXVIII</span></td>
               <td>Bắt buộc lắp đặt hệ thống quan trắc nước thải, khí thải tự động liên tục trước ngày 31/12.</td>
               <td>Đình chỉ hoạt động nguồn phát sinh chất thải từ 3 - 6 tháng nếu không hoàn thành đúng hạn.</td>
             </tr>
             <tr>
-              <td class="law-name">Thông tư 10/2021/TT-BTNMT<br><span style="font-size: 4.8pt; font-weight: 400; color: #94A3B8;">Kỹ thuật & Quản lý dữ liệu</span></td>
+              <td class="law-name">Thông tư 10/2021/TT-BTNMT<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--ink-muted);">Kỹ thuật & Quản lý dữ liệu</span></td>
               <td>Chuẩn kết nối Datalogger, truyền file 5 phút/lần về Sở TN&MT, nhật ký kiểm chuẩn Zero/Span.</td>
               <td>Thu hồi giấy phép môi trường, buộc kiểm định lại toàn bộ hệ thống đo đạc hiện trường.</td>
             </tr>
             <tr>
-              <td class="law-name">Nghị định 45/2022/NĐ-CP<br><span style="font-size: 4.8pt; font-weight: 400; color: #94A3B8;">Điều 26: Xử phạt hành chính</span></td>
+              <td class="law-name">Nghị định 45/2022/NĐ-CP<br><span style="font-size: 4.8pt; font-weight: 400; color: var(--ink-muted);">Điều 26: Xử phạt hành chính</span></td>
               <td>Xử phạt hành vi không truyền dữ liệu, làm gián đoạn đường truyền hoặc để chỉ tiêu vượt chuẩn.</td>
               <td class="law-fine">Phạt tiền từ 500.000.000 VNĐ đến 2.000.000.000 VNĐ; truy thu phí BVMT.</td>
             </tr>
@@ -1445,12 +1351,12 @@
         </table>
       </div>
 
-      <!-- 3 Tiers Comparison Table on Dark (50mm) -->
+      <!-- 3 Tiers Comparison Table (50mm) -->
       <div class="back-tiers-box">
-        <div style="font-size: 6.2pt; font-weight: 800; color: white; text-transform: uppercase;">
+        <div style="font-size: 6.2pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
           <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> CÁC GÓI GIẢI PHÁP 5S CLOUD CEMS
         </div>
-        <table class="tiers-tbl-dark">
+        <table class="tiers-tbl">
           <thead>
             <tr>
               <th style="width: 26%;">Tính Năng Cung Cấp</th>
@@ -1469,8 +1375,8 @@
             <tr>
               <td><strong>Trợ lý AI Buồng đốt</strong></td>
               <td>—</td>
-              <td><span style="color: var(--5s-crimson-glow); font-weight: 700;">✓ 5S Neural Engine 24/7</span></td>
-              <td><span style="color: var(--5s-crimson-glow); font-weight: 700;">✓ AI Nâng Cao Đa Lò</span></td>
+              <td><span style="color: var(--5s-crimson); font-weight: 700;">✓ 5S Neural Engine 24/7</span></td>
+              <td><span style="color: var(--5s-crimson); font-weight: 700;">✓ AI Nâng Cao Đa Lò</span></td>
             </tr>
             <tr>
               <td><strong>Báo cáo & Phân tích</strong></td>
@@ -1492,7 +1398,7 @@
       <div class="back-clients-strip">
         <div class="clients-head">
           <span>ĐỒNG HÀNH CÙNG CÁC TẬP ĐOÀN CÔNG NGHIỆP HÀNG ĐẦU VIỆT NAM:</span>
-          <span style="color: var(--5s-crimson-glow);">200+ DOANH NGHIỆP TIN DÙNG</span>
+          <span style="color: var(--5s-crimson);">200+ DOANH NGHIỆP TIN DÙNG</span>
         </div>
         <div class="clients-list">
           <div>• <strong>Giấy Pulppy</strong></div>
@@ -1510,7 +1416,7 @@
 
       <!-- Turnkey Roadmap (25mm) -->
       <div class="back-roadmap-box">
-        <div style="font-size: 6.2pt; font-weight: 800; color: white; text-transform: uppercase;">
+        <div style="font-size: 6.2pt; font-weight: 800; color: var(--ink-primary); text-transform: uppercase;">
           QUY TRÌNH 5 BƯỚC TRIỂN KHAI CHÌA KHÓA TRAO TAY (TURNKEY DEPLOYMENT)
         </div>
         <div class="roadmap-grid">
@@ -1589,24 +1495,24 @@
           <div class="qr-card-unit">
             <div class="qr-svg-holder">
               <svg width="34" height="34" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="9" height="9" fill="#E63946" rx="1"/>
+                <rect x="2" y="2" width="9" height="9" fill="#C8102E" rx="1"/>
                 <rect x="4" y="4" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="5.5" y="5.5" width="2" height="2" fill="#E63946"/>
-                <rect x="22" y="2" width="9" height="9" fill="#E63946" rx="1"/>
+                <rect x="5.5" y="5.5" width="2" height="2" fill="#C8102E"/>
+                <rect x="22" y="2" width="9" height="9" fill="#C8102E" rx="1"/>
                 <rect x="24" y="4" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="25.5" y="5.5" width="2" height="2" fill="#E63946"/>
-                <rect x="2" y="22" width="9" height="9" fill="#E63946" rx="1"/>
+                <rect x="25.5" y="5.5" width="2" height="2" fill="#C8102E"/>
+                <rect x="2" y="22" width="9" height="9" fill="#C8102E" rx="1"/>
                 <rect x="4" y="24" width="5" height="5" fill="#0A0A0A"/>
-                <rect x="5.5" y="25.5" width="2" height="2" fill="#E63946"/>
+                <rect x="5.5" y="25.5" width="2" height="2" fill="#C8102E"/>
                 <rect x="14" y="3" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="17" y="4" width="2" height="2" fill="#E63946"/>
+                <rect x="17" y="4" width="2" height="2" fill="#C8102E"/>
                 <rect x="14" y="7" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="3" y="14" width="2" height="2" fill="#E63946"/>
-                <rect x="13" y="13" width="7" height="7" fill="#E63946" rx="1"/>
+                <rect x="3" y="14" width="2" height="2" fill="#C8102E"/>
+                <rect x="13" y="13" width="7" height="7" fill="#C8102E" rx="1"/>
                 <rect x="15" y="15" width="3" height="3" fill="#0A0A0A"/>
                 <rect x="23" y="14" width="2" height="2" fill="#0A0A0A"/>
                 <rect x="14" y="23" width="2" height="2" fill="#0A0A0A"/>
-                <rect x="24" y="24" width="2" height="2" fill="#E63946"/>
+                <rect x="24" y="24" width="2" height="2" fill="#C8102E"/>
                 <rect x="26" y="27" width="2" height="2" fill="#0A0A0A"/>
               </svg>
             </div>
