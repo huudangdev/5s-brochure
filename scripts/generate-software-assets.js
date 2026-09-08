@@ -221,11 +221,12 @@ async function generateHeroMacbook(browser) {
     }
 
     /* Dashboard Inner Application Container */
+    /* Dashboard Inner Application Container (Pure Light Mode) */
     .dashboard-saas-app {
       width: 100%;
       height: 100%;
-      background: #0B132B;
-      color: #FFFFFF;
+      background: #FFFFFF;
+      color: #0B132B;
       display: flex;
       flex-direction: column;
       padding: 10px 14px;
@@ -240,8 +241,7 @@ async function generateHeroMacbook(browser) {
       justify-content: space-between;
       align-items: center;
       padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 8px;
+      border-bottom: 1px solid #E2E8F0;
       flex-shrink: 0;
     }
     .ctrl-left {
@@ -252,8 +252,7 @@ async function generateHeroMacbook(browser) {
     .ctrl-logo {
       font-size: 8.5px;
       font-weight: 900;
-      background: #C8102E;
-      color: white;
+      color: #0B132B;
       padding: 2px 6px;
       border-radius: 4px;
       font-family: 'Montserrat', sans-serif;
@@ -269,11 +268,9 @@ async function generateHeroMacbook(browser) {
       font-weight: 500;
       margin-left: 4px;
       background: rgba(56, 189, 248, 0.15);
-      padding: 1.5px 5px;
-      border-radius: 3px;
-    }
-    .ctrl-right {
-      display: flex;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      color: #0B132B;
       align-items: center;
       gap: 6px;
     }
@@ -297,14 +294,19 @@ async function generateHeroMacbook(browser) {
       align-items: center;
       gap: 3px;
     }
-
-    /* 4 KPI Cards Row */
-    .saas-kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 8px;
-      flex-shrink: 0;
+    .saas-kpi-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 6px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .saas-kpi-box.active {
+      border-color: #0066CC;
+      background: #EFF6FF;
     }
     .saas-kpi-box {
       background: rgba(255, 255, 255, 0.04);
@@ -323,11 +325,7 @@ async function generateHeroMacbook(browser) {
     .kpi-head-row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      font-size: 7.5px;
-      font-weight: 700;
-      color: #94A3B8;
-      margin-bottom: 2px;
+      color: #0B132B;
     }
     .kpi-val-row {
       display: flex;
@@ -342,17 +340,31 @@ async function generateHeroMacbook(browser) {
       line-height: 1;
       color: #FFFFFF;
     }
-    .kpi-unit-lbl {
-      font-size: 7.5px;
-      color: #64748B;
-      font-family: 'JetBrains Mono', monospace;
+    /* Center Big Line/Area Chart */
+    .saas-main-chart-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 10px 6px 10px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 8px rgba(11, 19, 43, 0.04);
     }
-    .kpi-tag-status {
-      font-size: 6.8px;
-      font-weight: 700;
-      padding: 1.5px 5px;
-      border-radius: 3px;
-      align-self: flex-start;
+    .chart-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .chart-title-txt {
+      font-size: 8.5px;
+      font-weight: 800;
+      color: #0B132B;
+      letter-spacing: -0.01em;
     }
     .kpi-tag-status.pass { background: rgba(5, 150, 105, 0.2); color: #34D399; }
     .kpi-tag-status.opt { background: rgba(0, 102, 204, 0.2); color: #38BDF8; }
@@ -390,17 +402,38 @@ async function generateHeroMacbook(browser) {
       font-size: 7px;
       font-weight: 600;
       color: #94A3B8;
+    .widget-panel {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 6px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .leg-dot {
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      margin-right: 3px;
-      vertical-align: middle;
+    .widget-title {
+      font-size: 7.5px;
+      font-weight: 800;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
-    .svg-area-chart {
-      width: 100%;
+    /* Mini Bar Chart */
+    .mini-bar-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 7px;
+      color: #0B132B;
+    }
+    .bar-track {
+      flex: 1;
+      height: 5px;
+      background: #E2E8F0;
+      border-radius: 3px;
+      margin: 0 6px;
+      overflow: hidden;
+    }
       height: 130px;
       overflow: visible;
     }
@@ -1533,7 +1566,7 @@ async function generateMultiPlatform(browser) {
     viewport: { width: 1024, height: 700, deviceScaleFactor: 2 }
   });
 
-  const dashboardHeroB64 = getBase64Image('dashboard-hero.png');
+  const sensorBoardB64 = getBase64Image('sensor-board-8p.png');
 
   const html = `<!DOCTYPE html>
 <html>
@@ -1993,7 +2026,7 @@ async function generateMultiPlatform(browser) {
           </div>
         </div>
         <div class="desktop-body">
-          <img src="${dashboardHeroB64}" alt="Desktop Web Portal" />
+          <img src="${sensorBoardB64}" alt="Desktop Web Portal" />
         </div>
       </div>
 
