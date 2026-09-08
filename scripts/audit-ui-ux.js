@@ -112,16 +112,17 @@ const __dirname = path.dirname(__filename);
     await pagesA4[0].screenshot({ path: path.resolve(__dirname, '../dist/ui-ux-audit/01-front-cover.png') });
     console.log('✓ Saved: dist/ui-ux-audit/01-front-cover.png');
   }
-
-  const spreadEl = await page.$('.spread-a3');
-  if (spreadEl) {
-    await spreadEl.screenshot({ path: path.resolve(__dirname, '../dist/ui-ux-audit/02-inside-spread.png') });
-    console.log('✓ Saved: dist/ui-ux-audit/02-inside-spread.png');
-  }
-
   if (pagesA4.length >= 2) {
-    await pagesA4[1].screenshot({ path: path.resolve(__dirname, '../dist/ui-ux-audit/03-back-cover.png') });
-    console.log('✓ Saved: dist/ui-ux-audit/03-back-cover.png');
+    await pagesA4[1].screenshot({ path: path.resolve(__dirname, '../dist/ui-ux-audit/02-inside-left.png') });
+    console.log('✓ Saved: dist/ui-ux-audit/02-inside-left.png');
+  }
+  if (pagesA4.length >= 3) {
+    await pagesA4[2].screenshot({ path: path.resolve(__dirname, '../dist/ui-ux-audit/03-inside-right.png') });
+    console.log('✓ Saved: dist/ui-ux-audit/03-inside-right.png');
+  }
+  if (pagesA4.length >= 4) {
+    await pagesA4[3].screenshot({ path: path.resolve(__dirname, '../dist/ui-ux-audit/04-back-cover.png') });
+    console.log('✓ Saved: dist/ui-ux-audit/04-back-cover.png');
   }
   await browser.close();
   console.log('\n=== PLAYWRIGHT UI/UX AUDIT COMPLETED ===');

@@ -59,9 +59,10 @@ async function runTests() {
     }
 
     return {
-      cover: auditContainer('Page 1: Cover', '.cover-editorial, .cover-unboxed'),
-      spread: auditContainer('Pages 2-3: Inside Spread', '.spread-container, .spread-unboxed-wrap'),
-      back: auditContainer('Page 4: Back Cover', '.back-editorial, .back-unboxed-wrap')
+      page1: auditContainer('Page 1: Cover', '.cover-editorial, .cover-unboxed'),
+      page2: auditContainer('Page 2: Inside Left', '#page-2 .page-inside-wrap'),
+      page3: auditContainer('Page 3: Inside Right', '#page-3 .page-inside-wrap'),
+      page4: auditContainer('Page 4: Back Cover', '.back-editorial, .back-unboxed-wrap')
     };
   });
 

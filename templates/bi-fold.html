@@ -115,11 +115,6 @@
       margin: 0;
     }
 
-    @page spread {
-      size: 420mm 297mm;
-      margin: 0;
-    }
-
     @media print {
       body {
         background: transparent;
@@ -131,13 +126,8 @@
         margin: 0;
         width: 210mm;
         height: 297mm;
-      }
-      .spread-a3 {
-        box-shadow: none;
-        margin: 0;
-        width: 420mm;
-        height: 297mm;
-        page: spread;
+        page-break-after: always;
+        break-after: page;
       }
     }
 
@@ -644,15 +634,77 @@
     }
 
     /* ==========================================================================
-       PAGES 2-3: SPREAD TRANG ĐÔI (420mm x 297mm - 1123px height)
+       PAGES 2-3: INSIDE EDITORIAL PAGES (210mm x 297mm - 1123px height each)
        ========================================================================== */
-    .spread-container, .spread-unboxed-wrap {
+    .page-inside-wrap {
       height: 297mm;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 7mm 10mm 6mm 10mm;
       background: #F8FAFC;
+    }
+
+    .inside-masthead {
+      height: 10mm;
+      background: white;
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-md);
+      padding: 0 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-xs);
+      flex-shrink: 0;
+    }
+
+    .inside-pipeline-strip {
+      height: 14mm;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      flex-shrink: 0;
+      margin-top: 1.5mm;
+      margin-bottom: 2mm;
+    }
+
+    .inside-cards-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6.5px;
+      min-height: 0;
+    }
+
+    .inside-bottom-kpis {
+      height: 13mm;
+      background: white;
+      border: 1px solid var(--paper-line);
+      border-radius: var(--radius-md);
+      padding: 4px 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: center;
+      box-shadow: var(--shadow-xs);
+      flex-shrink: 0;
+      margin-top: 1.5mm;
+    }
+
+    .inside-footer {
+      height: 5.5mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 5pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--ink-muted);
+      border-top: 1px solid #E2E8F0;
+      padding-top: 2px;
+      margin-top: 1.5mm;
+      flex-shrink: 0;
     }
 
     /* 420mm Spread Header */
@@ -1645,385 +1697,395 @@
   <!-- ==========================================================================
        PAGES 2-3: SPREAD TRANG ĐÔI (A3 LANDSCAPE: 420mm x 297mm)
        ========================================================================== -->
-  <div class="spread-a3">
-    <div class="spread-container spread-unboxed-wrap">
+  <!-- ==========================================================================
+       PAGE 2: RUỘT TRÁI (QUẢN TRỊ & THU THẬP DỮ LIỆU TẬP TRUNG - A4: 210 x 297mm)
+       ========================================================================== -->
+  <div class="page-a4" id="page-2">
+    <div class="page-inside-wrap">
 
-      <!-- 1. Spread Masthead Header -->
-      <div class="spread-masthead">
+      <!-- 1. Masthead Header -->
+      <div class="inside-masthead">
         <div style="display: flex; align-items: center; gap: 8px;">
           <img src="../assets/logo.png" alt="5S Logo" style="height: 20px; width: auto;" />
           <h2 class="spread-title">5S ENTERPRISE SOFTWARE SUITE</h2>
         </div>
         <div class="spread-meta-badges">
-          <span class="spread-badge red">SaaS Cloud &amp; Hybrid On-Premise</span>
-          <span class="spread-badge blue">Open REST API &amp; Webhooks</span>
-          <span class="spread-badge">Uptime SLA 99.9%</span>
+          <span class="spread-badge red">SaaS &amp; On-Premise</span>
+          <span class="spread-badge blue">Multi-Protocol Ingestion</span>
+          <span class="spread-badge">Uptime SLA 99.98%</span>
         </div>
       </div>
 
-      <!-- 2. 4-Module Software Pipeline Banner -->
-      <div class="pipeline-strip">
+      <!-- 2. Pipeline Strip: Steps 01 & 02 -->
+      <div class="inside-pipeline-strip">
         <div class="pipeline-step">
           <div class="step-num-badge">01</div>
           <div class="step-content">
             <div class="step-title">1. Thu Thập Dữ Liệu Tự Động</div>
-            <div class="step-sub">Multi-Protocol Ingestion: Modbus, OPC-UA, MQTT, REST API, FTP (1s - 5p/lần)</div>
+            <div class="step-sub">Multi-Protocol Ingestion: Modbus, OPC-UA, MQTT, REST API, FTP</div>
           </div>
         </div>
         <div class="pipeline-step">
           <div class="step-num-badge">02</div>
           <div class="step-content">
             <div class="step-title">2. Xử Lý Stream Thời Gian Thực</div>
-            <div class="step-sub">Khử nhiễu, chuẩn hóa, phát hiện dị thường &amp; vi phạm ngưỡng trong &lt; 150ms</div>
-          </div>
-        </div>
-        <div class="pipeline-step">
-          <div class="step-num-badge crimson">03</div>
-          <div class="step-content">
-            <div class="step-title">3. Phân Tích AI &amp; Báo Cáo</div>
-            <div class="step-sub">Tự động kết xuất báo cáo Sở TN&amp;MT, dự báo xu hướng vượt ngưỡng 24h</div>
-          </div>
-        </div>
-        <div class="pipeline-step">
-          <div class="step-num-badge">04</div>
-          <div class="step-content">
-            <div class="step-title">4. Tích Hợp API &amp; Cổng Portal</div>
-            <div class="step-sub">Open APIs, Webhooks, Cổng Portal Doanh nghiệp, Mobile App iOS/Android</div>
+            <div class="step-sub">Khử nhiễu, chuẩn hóa, phát hiện vi phạm ngưỡng &lt; 150ms</div>
           </div>
         </div>
       </div>
 
-      <!-- 3. Main 2-Column Work Surface -->
-      <div class="spread-main-grid">
-
-        <!-- ==================== LEFT WING: CÁC PHÂN HỆ PHẦN MỀM CỐT LÕI ==================== -->
-        <div class="spread-col">
-
-          <!-- Card 1: Khối Giới Thiệu Phần Mềm 5S Cloud (Overview) -->
-          <div class="sw-card" style="height: 52mm;">
-            <div class="sw-card-header">
-              <div class="sw-card-title">
-                <svg class="svg-icon md" style="color: var(--5s-crimson);" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                PHÂN HỆ QUẢN TRỊ &amp; ĐIỀU HÀNH DỮ LIỆU TẬP TRUNG (5S CLOUD SAAS)
-              </div>
-              <span class="sw-card-tag crimson">KIẾN TRÚC ENTERPRISE</span>
+      <!-- 3. Left Wing Software Cards (3 Cards) -->
+      <div class="inside-cards-col">
+        <!-- Card 1: Khối Giới Thiệu Phần Mềm (Overview) -->
+        <div class="sw-card" style="height: 52mm;">
+          <div class="sw-card-header">
+            <div class="sw-card-title">
+              <svg class="svg-icon md" style="color: var(--5s-crimson);" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              PHÂN HỆ QUẢN TRỊ &amp; ĐIỀU HÀNH DỮ LIỆU TẬP TRUNG (5S SAAS)
             </div>
-            <div style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 7px; height: calc(100% - 16px); align-items: center;">
-              <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                <p style="font-size: 4.8pt; color: var(--ink-secondary); line-height: 1.35; margin-bottom: 2px;">
-                  Hợp nhất toàn bộ dữ liệu quan trắc khí thải, nước thải và thông số vận hành đa nhà máy vào một nền tảng điều hành duy nhất:
-                </p>
-                <div style="display: flex; flex-direction: column; gap: 2.5px;">
-                  <div class="sw-feature-box" style="padding: 2.5px 5px;">
-                    <div class="sw-feature-title" style="color: var(--5s-navy); font-size: 5.2pt;">Mô Hình SaaS &amp; Hybrid</div>
-                    <div class="sw-feature-desc" style="font-size: 4.4pt;">Linh hoạt triển khai 100% Cloud hoặc On-Premise bảo mật.</div>
-                  </div>
-                  <div class="sw-feature-box" style="padding: 2.5px 5px;">
-                    <div class="sw-feature-title" style="color: var(--5s-blue); font-size: 5.2pt;">Phân Quyền RBAC Đa Cấp</div>
-                    <div class="sw-feature-desc" style="font-size: 4.4pt;">Phân quyền Giám đốc, Kỹ sư, Vận hành và Kiểm toán.</div>
-                  </div>
-                  <div class="sw-feature-box" style="padding: 2.5px 5px;">
-                    <div class="sw-feature-title" style="color: var(--5s-green); font-size: 5.2pt;">Multi-Tenant Cô Lập</div>
-                    <div class="sw-feature-desc" style="font-size: 4.4pt;">Quản lý hàng trăm chi nhánh độc lập an toàn ISO 27001.</div>
-                  </div>
+            <span class="sw-card-tag crimson">KIẾN TRÚC ENTERPRISE</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 7px; height: calc(100% - 16px); align-items: center;">
+            <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+              <p style="font-size: 4.8pt; color: var(--ink-secondary); line-height: 1.35; margin-bottom: 2px;">
+                Hợp nhất toàn bộ dữ liệu quan trắc khí thải, nước thải và thông số vận hành đa nhà máy vào một nền tảng điều hành duy nhất:
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 2.5px;">
+                <div class="sw-feature-box" style="padding: 2.5px 5px;">
+                  <div class="sw-feature-title" style="color: var(--5s-navy); font-size: 5.2pt;">Mô Hình SaaS &amp; Hybrid</div>
+                  <div class="sw-feature-desc" style="font-size: 4.4pt;">Linh hoạt triển khai 100% Cloud hoặc On-Premise bảo mật.</div>
+                </div>
+                <div class="sw-feature-box" style="padding: 2.5px 5px;">
+                  <div class="sw-feature-title" style="color: var(--5s-blue); font-size: 5.2pt;">Phân Quyền RBAC Đa Cấp</div>
+                  <div class="sw-feature-desc" style="font-size: 4.4pt;">Phân quyền Giám đốc, Kỹ sư, Vận hành và Kiểm toán.</div>
+                </div>
+                <div class="sw-feature-box" style="padding: 2.5px 5px;">
+                  <div class="sw-feature-title" style="color: var(--5s-green); font-size: 5.2pt;">Multi-Tenant Cô Lập</div>
+                  <div class="sw-feature-desc" style="font-size: 4.4pt;">Quản lý hàng trăm chi nhánh độc lập an toàn ISO 27001.</div>
                 </div>
               </div>
-              <div class="sw-img-container" style="height: 100%;">
-                <img src="../assets/telemetry-8sensors.png" alt="5S Cloud Centralized Plant Operations Overview" />
-              </div>
+            </div>
+            <div class="sw-img-container" style="height: 100%;">
+              <img src="../assets/telemetry-8sensors.png" alt="5S Centralized Plant Operations Overview" />
             </div>
           </div>
-
-          <!-- Card 2: Dashboard Giám Sát Thời Gian Thực & 8 Chỉ Tiêu -->
-          <div class="sw-card" style="height: 84mm;">
-            <div class="sw-card-header">
-              <div class="sw-card-title">
-                <svg class="svg-icon md" style="color: var(--5s-blue);" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                DASHBOARD GIÁM SÁT THỜI GIAN THỰC &amp; MA TRẬN 8 CHỈ TIÊU
-              </div>
-              <span class="sw-card-tag blue">STREAMING &lt; 150MS</span>
-            </div>
-            <div style="display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 16px); gap: 5px;">
-              <!-- Dual Visual Software Showcase -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; flex: 1; min-height: 0;">
-                <div style="display: flex; flex-direction: column; gap: 2px;">
-                  <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
-                    <span>BẢNG 8 CẢM BIẾN TRỰC TUYẾN</span>
-                    <span style="color: var(--5s-green);">● LIVE 24/7</span>
-                  </div>
-                  <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
-                    <img src="../assets/sensor-board-8p.png" alt="Realtime 8-Parameter Sensor Board on 5S Cloud" />
-                  </div>
-                </div>
-
-                <div style="display: flex; flex-direction: column; gap: 2px;">
-                  <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
-                    <span>ĐỒ THỊ DIỄN BIẾN NỒNG ĐỘ (24H)</span>
-                    <span style="color: var(--5s-blue);">● ĐỐI SOÁT QCVN</span>
-                  </div>
-                  <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
-                    <img src="../assets/trends-chart.png" alt="Multi-Parameter Realtime Trends Chart on 5S Cloud" />
-                  </div>
-                </div>
-              </div>
-
-              <!-- Compact 8-Parameter Realtime Compliance Strip -->
-              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; background: #F8FAFC; border: 1px solid var(--paper-line); border-radius: 6px; padding: 4px 6px; font-size: 4.6pt; flex-shrink: 0;">
-                <div><span style="color: var(--ink-muted);">Bụi PM:</span> <strong>42.5</strong> <span style="color: var(--5s-green); font-weight: 800;">✓ ĐẠT</span></div>
-                <div><span style="color: var(--ink-muted);">Khí SO₂:</span> <strong>148.2</strong> <span style="color: var(--5s-green); font-weight: 800;">✓ ĐẠT</span></div>
-                <div><span style="color: var(--ink-muted);">Khí NOₓ:</span> <strong>215.6</strong> <span style="color: var(--5s-green); font-weight: 800;">✓ ĐẠT</span></div>
-                <div><span style="color: var(--ink-muted);">Khí CO:</span> <strong>320.0</strong> <span style="color: var(--5s-green); font-weight: 800;">✓ ĐẠT</span></div>
-                <div><span style="color: var(--ink-muted);">O₂ dư:</span> <strong>6.8%</strong> <span style="color: var(--5s-blue); font-weight: 800;">● TỐI ƯU</span></div>
-                <div><span style="color: var(--ink-muted);">Nhiệt độ:</span> <strong>165.4°C</strong> <span style="color: var(--5s-blue); font-weight: 800;">● ỔN ĐỊNH</span></div>
-                <div><span style="color: var(--ink-muted);">Lưu lượng:</span> <strong>85,420</strong> <span style="color: var(--5s-green); font-weight: 800;">✓ ĐẠT</span></div>
-                <div><span style="color: var(--ink-muted);">Áp suất:</span> <strong>-145 Pa</strong> <span style="color: var(--5s-blue); font-weight: 800;">● ỔN ĐỊNH</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3: Kiến Trúc Đám Mây & Tích Hợp Đa Nền Tảng -->
-          <div class="sw-card" style="height: 84mm;">
-            <div class="sw-card-header">
-              <div class="sw-card-title">
-                <svg class="svg-icon md" style="color: var(--5s-navy);" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                KIẾN TRÚC ĐÁM MÂY CLOUD &amp; TÍCH HỢP ĐA HỆ THỐNG
-              </div>
-              <span class="sw-card-tag green">OPEN API / REST / WEBHOOK</span>
-            </div>
-            <div style="display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 16px); gap: 5px;">
-              <!-- Dual Visual Architecture Showcase -->
-              <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 6px; flex: 1; min-height: 0;">
-                <div style="display: flex; flex-direction: column; gap: 2px;">
-                  <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
-                    <span>PHÂN TÍCH VI PHẠM ĐA CHI NHÁNH</span>
-                    <span style="color: var(--5s-crimson);">● MULTI-TENANT</span>
-                  </div>
-                  <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
-                    <img src="../assets/violations-trend.png" alt="Multi-Tenant Trend Analytics" />
-                  </div>
-                </div>
-
-                <div style="display: flex; flex-direction: column; gap: 2px;">
-                  <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
-                    <span>SƠ ĐỒ KIẾN TRÚC CLOUD PIPELINE</span>
-                    <span style="color: var(--5s-blue);">● ISO 27001</span>
-                  </div>
-                  <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
-                    <img src="../assets/software-cloud-architecture.png" alt="5S Cloud Microservices & Integration Architecture" />
-                  </div>
-                </div>
-              </div>
-
-              <!-- Compact Architecture Micro-Spec Strip -->
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: #F8FAFC; border: 1px solid var(--paper-line); border-radius: 6px; padding: 4px 6px; font-size: 4.6pt; flex-shrink: 0;">
-                <div><strong>Time-Series TSDB:</strong> <span style="color: var(--ink-secondary);">Lưu trữ 5-10 năm, truy vấn &lt;10ms</span></div>
-                <div><strong>Data Forwarding:</strong> <span style="color: var(--ink-secondary);">Đồng bộ FTP 63 Sở &amp; ERP nội bộ</span></div>
-                <div><strong>OpenAPI / Webhook:</strong> <span style="color: var(--ink-secondary);">Tích hợp 2 chiều SAP, SCADA, Zalo</span></div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        <!-- ==================== RIGHT WING: TRÍ TUỆ NHÂN TẠO & BÁO CÁO THÔNG MINH ==================== -->
-        <div class="spread-col">
-
-          <!-- Card 4: Trợ Lý AI Chẩn Đoán & Tối Ưu Vận Hành -->
-          <div class="sw-card" style="height: 80mm;">
-            <div class="sw-card-header">
-              <div class="sw-card-title">
-                <svg class="svg-icon md" style="color: var(--5s-crimson);" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-4.5a1 1 0 0 1-2 0V7a1 1 0 0 1 2 0z"></path></svg>
-                TRỢ LÝ AI CHẨN ĐOÁN &amp; TỰ ĐỘNG HÓA VẬN HÀNH
-              </div>
-              <span class="sw-card-tag crimson">AI DIAGNOSTICS 24/7</span>
+        <!-- Card 2: Dashboard Giám Sát Thời Gian Thực & 8 Chỉ Tiêu -->
+        <div class="sw-card" style="height: 84mm;">
+          <div class="sw-card-header">
+            <div class="sw-card-title">
+              <svg class="svg-icon md" style="color: var(--5s-blue);" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+              DASHBOARD GIÁM SÁT THỜI GIAN THỰC &amp; MA TRẬN 8 CHỈ TIÊU
             </div>
-            <div style="display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 16px); gap: 5px;">
-              <!-- Dual Visual AI Showcase -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; flex: 1; min-height: 0;">
-                <div style="display: flex; flex-direction: column; gap: 2px;">
-                  <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
-                    <span>CẢNH BÁO TIỆM CẬN NGƯỠNG QCVN</span>
-                    <span style="color: var(--5s-crimson);">⚠ CẢNH BÁO SỚM</span>
-                  </div>
-                  <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
-                    <img src="../assets/warning-telemetry.png" alt="Realtime Threshold Anomaly Alert" />
-                  </div>
-                </div>
-
-                <div style="display: flex; flex-direction: column; gap: 2px;">
-                  <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
-                    <span>AI PHÂN TÍCH NGUYÊN NHÂN SỰ CỐ</span>
-                    <span style="color: var(--5s-blue);">● 5S NEURAL</span>
-                  </div>
-                  <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
-                    <img src="../assets/ai-diagnosis.png" alt="5S Cloud AI Diagnostics Screen" />
-                  </div>
-                </div>
-              </div>
-
-              <!-- 3-Step AI Action Protocol Strip -->
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: #FFF5F6; border: 1px solid var(--5s-crimson-border); border-radius: 6px; padding: 4px 6px; font-size: 4.6pt; flex-shrink: 0;">
-                <div><strong style="color: var(--5s-crimson);">1. Nhận diện:</strong> <span style="color: var(--ink-secondary);">Phát hiện lệch sensor &amp; nghẹt khí</span></div>
-                <div><strong style="color: var(--5s-blue);">2. Cảnh báo:</strong> <span style="color: var(--ink-secondary);">Gửi sự cố đa kênh &lt; 1 giây</span></div>
-                <div><strong style="color: var(--5s-green);">3. Khuyến nghị:</strong> <span style="color: var(--ink-secondary);">Gợi ý chỉnh van gió tiết kiệm 8%</span></div>
-              </div>
-            </div>
+            <span class="sw-card-tag blue">STREAMING &lt; 150MS</span>
           </div>
-
-          <!-- Card 5: Phân Tích Chuyên Sâu Đa Chiều (Heatmap & Trends) -->
-          <div class="sw-card" style="height: 78mm;">
-            <div class="sw-card-header">
-              <div class="sw-card-title">
-                <svg class="svg-icon md" style="color: var(--5s-blue);" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                PHÂN TÍCH CHUYÊN SÂU ĐA CHIỀU (HEATMAP 24X7 &amp; TRENDS)
-              </div>
-              <span class="sw-card-tag blue">DATA ANALYTICS</span>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; height: calc(100% - 16px);">
+          <div style="display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 16px); gap: 5px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; flex: 1; min-height: 0;">
               <div style="display: flex; flex-direction: column; gap: 2px;">
-                <div style="font-size: 4.6pt; font-weight: 700; color: var(--ink-secondary);">Bản đồ nhiệt tải phát thải 24x7 theo kíp:</div>
-                <div class="sw-img-container" style="flex: 1;">
-                  <img src="../assets/heatmap-24x7.png" alt="24x7 Emission Heatmap by shifts" />
+                <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
+                  <span>BẢNG 8 CẢM BIẾN TRỰC TUYẾN</span>
+                  <span style="color: var(--5s-green);">● LIVE 24/7</span>
+                </div>
+                <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
+                  <img src="../assets/sensor-board-8p.png" alt="Realtime 8-Parameter Sensor Board on 5S" />
                 </div>
               </div>
               <div style="display: flex; flex-direction: column; gap: 2px;">
-                <div style="font-size: 4.6pt; font-weight: 700; color: var(--ink-secondary);">Tương quan thông số &amp; đường giới hạn:</div>
-                <div class="sw-img-container" style="flex: 1;">
-                  <img src="../assets/trends-chart.png" alt="Multi-parameter Trends Chart" />
+                <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
+                  <span>ĐỒ THỊ DIỄN BIẾN NỒNG ĐỘ (24H)</span>
+                  <span style="color: var(--5s-blue);">● ĐỐI SOÁT QCVN</span>
+                </div>
+                <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
+                  <img src="../assets/trends-chart.png" alt="Multi-Parameter Realtime Trends Chart on 5S" />
                 </div>
               </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; background: #F8FAFC; border: 1px solid var(--paper-line); border-radius: 6px; padding: 4px 6px; font-size: 4.6pt; flex-shrink: 0;">
+              <div><span style="color: var(--ink-muted);">Bụi PM:</span> <strong>42.5</strong> <span style="color: var(--5s-green); font-weight: 800;">✓ ĐẠT</span></div>
+              <div><span style="color: var(--ink-muted);">Khí SO₂:</span> <strong>148.2</strong> <span style="color: var(--5s-green); font-weight: 800;">✓ ĐẠT</span></div>
+              <div><span style="color: var(--ink-muted);">Khí NOₓ:</span> <strong>215.6</strong> <span style="color: var(--5s-green); font-weight: 800;">✓ ĐẠT</span></div>
+              <div><span style="color: var(--ink-muted);">Khí CO:</span> <strong>320.0</strong> <span style="color: var(--5s-green); font-weight: 800;">✓ ĐẠT</span></div>
+              <div><span style="color: var(--ink-muted);">O₂ dư:</span> <strong>6.8%</strong> <span style="color: var(--5s-blue); font-weight: 800;">● TỐI ƯU</span></div>
+              <div><span style="color: var(--ink-muted);">Nhiệt độ:</span> <strong>165.4°C</strong> <span style="color: var(--5s-blue); font-weight: 800;">● ỔN ĐỊNH</span></div>
+              <div><span style="color: var(--ink-muted);">Lưu lượng:</span> <strong>85,420</strong> <span style="color: var(--5s-green); font-weight: 800;">✓ ĐẠT</span></div>
+              <div><span style="color: var(--ink-muted);">Áp suất:</span> <strong>-145 Pa</strong> <span style="color: var(--5s-blue); font-weight: 800;">● ỔN ĐỊNH</span></div>
             </div>
           </div>
-
-          <!-- Card 6: Bảng So Sánh Giá Trị Phần Mềm (ROI Matrix) -->
-          <div class="sw-card" style="height: 62mm;">
-            <div class="sw-card-header">
-              <div class="sw-card-title">
-                <svg class="svg-icon md" style="color: var(--5s-green);" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                HIỆU QUẢ KINH TẾ &amp; GIÁ TRỊ VẬN HÀNH (TRƯỚC &amp; SAU KHI DÙNG 5S CLOUD)
-              </div>
-            </div>
-            
-            <div style="display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 16px); gap: 4px;">
-              <!-- 3 Quantified Impact Badges -->
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; flex-shrink: 0;">
-                <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 6px; padding: 4px 6px; text-align: center;">
-                  <div style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 900; color: #16A34A; line-height: 1;">0 VNĐ</div>
-                  <div style="font-size: 4.4pt; color: #166534; font-weight: 700; margin-top: 1px;">RỦI RO PHẠT HÀNH CHÍNH</div>
-                </div>
-                <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 6px; padding: 4px 6px; text-align: center;">
-                  <div style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 900; color: #0066CC; line-height: 1;">-98%</div>
-                  <div style="font-size: 4.4pt; color: #1E40AF; font-weight: 700; margin-top: 1px;">THỜI GIAN XUẤT BÁO CÁO</div>
-                </div>
-                <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 6px; padding: 4px 6px; text-align: center;">
-                  <div style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 900; color: #D97706; line-height: 1;">5 - 8%</div>
-                  <div style="font-size: 4.4pt; color: #92400E; font-weight: 700; margin-top: 1px;">TIẾT KIỆM NHIÊN LIỆU LÒ</div>
-                </div>
-              </div>
-
-              <!-- Visual ROI Comparative Progress Bars -->
-              <div style="background: #F8FAFC; border: 1px solid var(--paper-line); border-radius: 6px; padding: 4px 8px; display: flex; flex-direction: column; gap: 3px; flex-shrink: 0;">
-                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 4.4pt; font-weight: 700; border-bottom: 1px solid #E2E8F0; padding-bottom: 2px; margin-bottom: 1px;">
-                  <span style="color: var(--ink-secondary); text-transform: uppercase;">SO SÁNH HIỆU QUẢ VẬN HÀNH:</span>
-                  <div style="display: flex; gap: 8px;">
-                    <span style="color: #EF4444;">● Thủ công / Cũ</span>
-                    <span style="color: #0066CC;">● 5S Cloud SaaS</span>
-                  </div>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 4.6pt;">
-                  <span style="width: 140px; color: var(--ink-secondary);">Thời gian lập báo cáo định kỳ:</span>
-                  <div style="flex: 1; height: 5px; background: #E2E8F0; border-radius: 3px; margin: 0 8px; overflow: hidden; position: relative;">
-                    <div style="width: 98%; height: 100%; background: #EF4444; border-radius: 3px; position: absolute; left: 0;"></div>
-                    <div style="width: 4%; height: 100%; background: #0066CC; border-radius: 3px; position: absolute; left: 0;"></div>
-                  </div>
-                  <span style="font-weight: 800; color: #0066CC; width: 95px; text-align: right;">120p ➔ 2p (-98%)</span>
-                </div>
-
-                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 4.6pt;">
-                  <span style="width: 140px; color: var(--ink-secondary);">Rủi ro vi phạm &amp; xử phạt (NĐ 45):</span>
-                  <div style="flex: 1; height: 5px; background: #E2E8F0; border-radius: 3px; margin: 0 8px; overflow: hidden; position: relative;">
-                    <div style="width: 90%; height: 100%; background: #EF4444; border-radius: 3px; position: absolute; left: 0;"></div>
-                    <div style="width: 0%; height: 100%; background: #10B981; border-radius: 3px; position: absolute; left: 0;"></div>
-                  </div>
-                  <span style="font-weight: 800; color: #059669; width: 95px; text-align: right;">Tới 2 Tỷ ➔ 0 VNĐ</span>
-                </div>
-
-                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 4.6pt;">
-                  <span style="width: 140px; color: var(--ink-secondary);">Tiêu hao nhiên liệu lò buồng đốt:</span>
-                  <div style="flex: 1; height: 5px; background: #E2E8F0; border-radius: 3px; margin: 0 8px; overflow: hidden; position: relative;">
-                    <div style="width: 100%; height: 100%; background: #CBD5E1; border-radius: 3px; position: absolute; left: 0;"></div>
-                    <div style="width: 93%; height: 100%; background: #D97706; border-radius: 3px; position: absolute; left: 0;"></div>
-                  </div>
-                  <span style="font-weight: 800; color: #D97706; width: 95px; text-align: right;">100% ➔ 93% (-7%)</span>
-                </div>
-              </div>
-
-              <!-- Tight 2-Column Comparison Grid -->
-              <div class="roi-compare-grid" style="width: 100%; flex: 1; min-height: 0;">
-                <div class="roi-box before" style="padding: 5px 7px;">
-                  <div class="roi-header" style="font-size: 5.2pt; margin-bottom: 2.5px;">
-                    <svg class="svg-icon sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                    TRƯỚC KHI DÙNG 5S CLOUD (THỦ CÔNG)
-                  </div>
-                  <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✕ <strong>Ghi chép thủ công:</strong> Tốn 2h/ngày, dễ sai sót tính toán.</div>
-                  <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✕ <strong>Phát hiện trễ:</strong> Chỉ biết khi đã vượt chuẩn, nguy cơ phạt 2 tỷ.</div>
-                  <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✕ <strong>Độ trôi sensor:</strong> Không hiệu chuẩn kịp thời, số liệu sai lệch.</div>
-                  <div class="roi-item" style="font-size: 5pt;">✕ <strong>Tổn thất nhiên liệu:</strong> Đốt thừa/thiếu khí, hao hụt than &amp; gas.</div>
-                </div>
-                <div class="roi-box after" style="padding: 5px 7px;">
-                  <div class="roi-header" style="font-size: 5.2pt; margin-bottom: 2.5px;">
-                    <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    SAU KHI TRIỂN KHAI 5S CLOUD SAAS
-                  </div>
-                  <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✓ <strong>Tự động hóa 100%:</strong> Xuất báo cáo Sở chỉ với 1 cú click chuột.</div>
-                  <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✓ <strong>Cảnh báo sớm &lt; 1s:</strong> Thông báo tức thì qua Mobile App &amp; Zalo.</div>
-                  <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✓ <strong>Hiệu chuẩn AI 24/7:</strong> Tự động bù trừ và cảnh báo trôi sensor.</div>
-                  <div class="roi-item" style="font-size: 5pt;">✓ <strong>Tối ưu buồng đốt:</strong> Tiết kiệm 5–8% chi phí nhiên liệu liên tục.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
+        <!-- Card 3: Kiến Trúc Hệ Thống & Tích Hợp Đa Nền Tảng -->
+        <div class="sw-card" style="height: 84mm;">
+          <div class="sw-card-header">
+            <div class="sw-card-title">
+              <svg class="svg-icon md" style="color: var(--5s-navy);" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              KIẾN TRÚC HỆ THỐNG &amp; TÍCH HỢP ĐA NỀN TẢNG
+            </div>
+            <span class="sw-card-tag green">OPEN API / REST / WEBHOOK</span>
+          </div>
+          <div style="display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 16px); gap: 5px;">
+            <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 6px; flex: 1; min-height: 0;">
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
+                  <span>PHÂN TÍCH VI PHẠM ĐA CHI NHÁNH</span>
+                  <span style="color: var(--5s-crimson);">● MULTI-TENANT</span>
+                </div>
+                <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
+                  <img src="../assets/violations-trend.png" alt="Multi-Tenant Trend Analytics" />
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
+                  <span>SƠ ĐỒ KIẾN TRÚC PIPELINE</span>
+                  <span style="color: var(--5s-blue);">● ISO 27001</span>
+                </div>
+                <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
+                  <img src="../assets/software-cloud-architecture.png" alt="5S Microservices & Integration Architecture" />
+                </div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: #F8FAFC; border: 1px solid var(--paper-line); border-radius: 6px; padding: 4px 6px; font-size: 4.6pt; flex-shrink: 0;">
+              <div><strong>Time-Series TSDB:</strong> <span style="color: var(--ink-secondary);">Lưu trữ 5-10 năm, truy vấn &lt;10ms</span></div>
+              <div><strong>Data Forwarding:</strong> <span style="color: var(--ink-secondary);">Đồng bộ FTP 63 Sở &amp; ERP nội bộ</span></div>
+              <div><strong>OpenAPI / Webhook:</strong> <span style="color: var(--ink-secondary);">Tích hợp 2 chiều SAP, SCADA, Zalo</span></div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- 4. Bottom 4-KPI Bar -->
-      <div class="spread-bottom-bar">
+      <!-- 4. Page 2 Bottom 2-KPI Bar -->
+      <div class="inside-bottom-kpis">
         <div class="kpi-unit">
           <div class="kpi-big-num">100%</div>
           <div class="kpi-meta-text">
             <strong>KHÔNG DÙNG SỔ GIẤY</strong>
-            Số hóa toàn diện dữ liệu vận hành
-          </div>
-        </div>
-        <div class="kpi-unit">
-          <div class="kpi-big-num">-80%</div>
-          <div class="kpi-meta-text">
-            <strong>THỜI GIAN BÁO CÁO</strong>
-            Xuất báo cáo Sở chỉ với 1 click
+            Số hóa toàn diện dữ liệu vận hành nhà máy
           </div>
         </div>
         <div class="kpi-unit">
           <div class="kpi-big-num">&lt; 150ms</div>
           <div class="kpi-meta-text">
             <strong>ĐỘ TRỄ XỬ LÝ STREAM</strong>
-            Phát hiện vi phạm tức thời
-          </div>
-        </div>
-        <div class="kpi-unit">
-          <div class="kpi-big-num">99.9%</div>
-          <div class="kpi-meta-text">
-            <strong>CAM KẾT CLOUD SLA</strong>
-            Hạ tầng sẵn sàng cao, sao lưu kép
+            Phát hiện vi phạm ngưỡng &amp; cảnh báo tức thời
           </div>
         </div>
       </div>
 
-      <!-- 5. Spread Footer -->
-      <div class="spread-footer">
-        <div>5S Cloud Enterprise Software Suite // Phân hệ Quản trị &amp; Điều hành Dữ liệu Môi trường Doanh nghiệp</div>
-        <div>Hỗ trợ kỹ thuật 24/7 // Hotline: 1900 5858 // Website: https://5scloud.vn</div>
+      <!-- 5. Page 2 Footer -->
+      <div class="inside-footer">
+        <span>5S ENTERPRISE SOFTWARE SUITE // PHÂN HỆ QUẢN TRỊ &amp; GIÁM SÁT DỮ LIỆU TẬP TRUNG</span>
+        <span style="font-weight: 800; color: var(--5s-crimson); font-family: 'Montserrat', sans-serif;">TRANG 02</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PAGE 3: RUỘT PHẢI (TRÍ TUỆ NHÂN TẠO & HIỆU QUẢ KINH TẾ ROI - A4: 210 x 297mm)
+       ========================================================================== -->
+  <div class="page-a4" id="page-3">
+    <div class="page-inside-wrap">
+
+      <!-- 1. Masthead Header -->
+      <div class="inside-masthead">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <img src="../assets/logo.png" alt="5S Logo" style="height: 20px; width: auto;" />
+          <h2 class="spread-title">TRÍ TUỆ NHÂN TẠO &amp; HIỆU QUẢ ROI</h2>
+        </div>
+        <div class="spread-meta-badges">
+          <span class="spread-badge red">AI Diagnostics 24/7</span>
+          <span class="spread-badge blue">Auto-Reporting TT 10/2021</span>
+          <span class="spread-badge">Tiết Kiệm 5-8% Nhiên Liệu</span>
+        </div>
+      </div>
+
+      <!-- 2. Pipeline Strip: Steps 03 & 04 -->
+      <div class="inside-pipeline-strip">
+        <div class="pipeline-step">
+          <div class="step-num-badge crimson">03</div>
+          <div class="step-content">
+            <div class="step-title">3. Phân Tích AI &amp; Báo Cáo Sở</div>
+            <div class="step-sub">Tự động kết xuất Sở TN&amp;MT, dự báo xu hướng vượt ngưỡng 24h</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num-badge">04</div>
+          <div class="step-content">
+            <div class="step-title">4. Tích Hợp API &amp; Cổng Portal</div>
+            <div class="step-sub">Open APIs, Webhooks, Cổng Portal Doanh nghiệp &amp; Mobile App</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Right Wing Software Cards (3 Cards) -->
+      <div class="inside-cards-col">
+        <!-- Card 4: Trợ Lý AI Chẩn Đoán & Tối Ưu Vận Hành -->
+        <div class="sw-card" style="height: 80mm;">
+          <div class="sw-card-header">
+            <div class="sw-card-title">
+              <svg class="svg-icon md" style="color: var(--5s-crimson);" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-4.5a1 1 0 0 1-2 0V7a1 1 0 0 1 2 0z"></path></svg>
+              TRỢ LÝ AI CHẨN ĐOÁN &amp; TỰ ĐỘNG HÓA VẬN HÀNH
+            </div>
+            <span class="sw-card-tag crimson">AI DIAGNOSTICS 24/7</span>
+          </div>
+          <div style="display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 16px); gap: 5px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; flex: 1; min-height: 0;">
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
+                  <span>CẢNH BÁO TIỆM CẬN NGƯỠNG QCVN</span>
+                  <span style="color: var(--5s-crimson);">⚠ CẢNH BÁO SỚM</span>
+                </div>
+                <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
+                  <img src="../assets/warning-telemetry.png" alt="Realtime Threshold Anomaly Alert" />
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 4.8pt; font-weight: 800; color: var(--ink-secondary); display: flex; justify-content: space-between;">
+                  <span>AI PHÂN TÍCH NGUYÊN NHÂN SỰ CỐ</span>
+                  <span style="color: var(--5s-blue);">● 5S NEURAL</span>
+                </div>
+                <div class="sw-img-container" style="flex: 1; border: 1px solid var(--paper-line); border-radius: 6px; overflow: hidden;">
+                  <img src="../assets/ai-diagnosis.png" alt="5S AI Diagnostics Screen" />
+                </div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: #FFF5F6; border: 1px solid var(--5s-crimson-border); border-radius: 6px; padding: 4px 6px; font-size: 4.6pt; flex-shrink: 0;">
+              <div><strong style="color: var(--5s-crimson);">1. Nhận diện:</strong> <span style="color: var(--ink-secondary);">Phát hiện lệch sensor &amp; nghẹt khí</span></div>
+              <div><strong style="color: var(--5s-blue);">2. Cảnh báo:</strong> <span style="color: var(--ink-secondary);">Gửi sự cố đa kênh &lt; 1 giây</span></div>
+              <div><strong style="color: var(--5s-green);">3. Khuyến nghị:</strong> <span style="color: var(--ink-secondary);">Gợi ý chỉnh van gió tiết kiệm 8%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Phân Tích Chuyên Sâu Đa Chiều (Heatmap 24x7 & Trends) -->
+        <div class="sw-card" style="height: 78mm;">
+          <div class="sw-card-header">
+            <div class="sw-card-title">
+              <svg class="svg-icon md" style="color: var(--5s-blue);" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+              PHÂN TÍCH CHUYÊN SÂU ĐA CHIỀU (HEATMAP 24X7 &amp; TRENDS)
+            </div>
+            <span class="sw-card-tag blue">DATA ANALYTICS</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; height: calc(100% - 16px);">
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <div style="font-size: 4.6pt; font-weight: 700; color: var(--ink-secondary);">Bản đồ nhiệt tải phát thải 24x7 theo kíp:</div>
+              <div class="sw-img-container" style="flex: 1;">
+                <img src="../assets/heatmap-24x7.png" alt="24x7 Emission Heatmap by shifts" />
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <div style="font-size: 4.6pt; font-weight: 700; color: var(--ink-secondary);">Tương quan thông số &amp; đường giới hạn:</div>
+              <div class="sw-img-container" style="flex: 1;">
+                <img src="../assets/trends-chart.png" alt="Multi-parameter Trends Chart" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Bảng So Sánh Giá Trị Phần Mềm (ROI Matrix) -->
+        <div class="sw-card" style="height: 62mm;">
+          <div class="sw-card-header">
+            <div class="sw-card-title">
+              <svg class="svg-icon md" style="color: var(--5s-green);" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              HIỆU QUẢ KINH TẾ &amp; GIÁ TRỊ VẬN HÀNH (TRƯỚC &amp; SAU KHI DÙNG 5S)
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 16px); gap: 4px;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; flex-shrink: 0;">
+              <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 6px; padding: 4px 6px; text-align: center;">
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 900; color: #16A34A; line-height: 1;">0 VNĐ</div>
+                <div style="font-size: 4.4pt; color: #166534; font-weight: 700; margin-top: 1px;">RỦI RO PHẠT HÀNH CHÍNH</div>
+              </div>
+              <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 6px; padding: 4px 6px; text-align: center;">
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 900; color: #0066CC; line-height: 1;">-98%</div>
+                <div style="font-size: 4.4pt; color: #1E40AF; font-weight: 700; margin-top: 1px;">THỜI GIAN XUẤT BÁO CÁO</div>
+              </div>
+              <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 6px; padding: 4px 6px; text-align: center;">
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 900; color: #D97706; line-height: 1;">5 - 8%</div>
+                <div style="font-size: 4.4pt; color: #92400E; font-weight: 700; margin-top: 1px;">TIẾT KIỆM NHIÊN LIỆU LÒ</div>
+              </div>
+            </div>
+            <div style="background: #F8FAFC; border: 1px solid var(--paper-line); border-radius: 6px; padding: 4px 8px; display: flex; flex-direction: column; gap: 3px; flex-shrink: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 4.4pt; font-weight: 700; border-bottom: 1px solid #E2E8F0; padding-bottom: 2px; margin-bottom: 1px;">
+                <span style="color: var(--ink-secondary); text-transform: uppercase;">SO SÁNH HIỆU QUẢ VẬN HÀNH:</span>
+                <div style="display: flex; gap: 8px;">
+                  <span style="color: #EF4444;">● Thủ công / Cũ</span>
+                  <span style="color: #0066CC;">● 5S Enterprise</span>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 4.6pt;">
+                <span style="width: 140px; color: var(--ink-secondary);">Thời gian lập báo cáo định kỳ:</span>
+                <div style="flex: 1; height: 5px; background: #E2E8F0; border-radius: 3px; margin: 0 8px; overflow: hidden; position: relative;">
+                  <div style="width: 98%; height: 100%; background: #EF4444; border-radius: 3px; position: absolute; left: 0;"></div>
+                  <div style="width: 4%; height: 100%; background: #0066CC; border-radius: 3px; position: absolute; left: 0;"></div>
+                </div>
+                <span style="font-weight: 800; color: #0066CC; width: 95px; text-align: right;">120p ➔ 2p (-98%)</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 4.6pt;">
+                <span style="width: 140px; color: var(--ink-secondary);">Rủi ro vi phạm &amp; xử phạt (NĐ 45):</span>
+                <div style="flex: 1; height: 5px; background: #E2E8F0; border-radius: 3px; margin: 0 8px; overflow: hidden; position: relative;">
+                  <div style="width: 90%; height: 100%; background: #EF4444; border-radius: 3px; position: absolute; left: 0;"></div>
+                  <div style="width: 0%; height: 100%; background: #10B981; border-radius: 3px; position: absolute; left: 0;"></div>
+                </div>
+                <span style="font-weight: 800; color: #059669; width: 95px; text-align: right;">Tới 2 Tỷ ➔ 0 VNĐ</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 4.6pt;">
+                <span style="width: 140px; color: var(--ink-secondary);">Tiêu hao nhiên liệu lò buồng đốt:</span>
+                <div style="flex: 1; height: 5px; background: #E2E8F0; border-radius: 3px; margin: 0 8px; overflow: hidden; position: relative;">
+                  <div style="width: 100%; height: 100%; background: #CBD5E1; border-radius: 3px; position: absolute; left: 0;"></div>
+                  <div style="width: 93%; height: 100%; background: #D97706; border-radius: 3px; position: absolute; left: 0;"></div>
+                </div>
+                <span style="font-weight: 800; color: #D97706; width: 95px; text-align: right;">100% ➔ 93% (-7%)</span>
+              </div>
+            </div>
+            <div class="roi-compare-grid" style="width: 100%; flex: 1; min-height: 0;">
+              <div class="roi-box before" style="padding: 5px 7px;">
+                <div class="roi-header" style="font-size: 5.2pt; margin-bottom: 2.5px;">
+                  <svg class="svg-icon sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                  TRƯỚC KHI DÙNG 5S (THỦ CÔNG)
+                </div>
+                <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✕ <strong>Ghi chép thủ công:</strong> Tốn 2h/ngày, dễ sai sót tính toán.</div>
+                <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✕ <strong>Phát hiện trễ:</strong> Chỉ biết khi đã vượt chuẩn, nguy cơ phạt 2 tỷ.</div>
+                <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✕ <strong>Độ trôi sensor:</strong> Không hiệu chuẩn kịp thời, số liệu sai lệch.</div>
+                <div class="roi-item" style="font-size: 5pt;">✕ <strong>Tổn thất nhiên liệu:</strong> Đốt thừa/thiếu khí, hao hụt than &amp; gas.</div>
+              </div>
+              <div class="roi-box after" style="padding: 5px 7px;">
+                <div class="roi-header" style="font-size: 5.2pt; margin-bottom: 2.5px;">
+                  <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  SAU KHI TRIỂN KHAI 5S ENTERPRISE
+                </div>
+                <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✓ <strong>Tự động hóa 100%:</strong> Xuất báo cáo Sở chỉ với 1 cú click chuột.</div>
+                <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✓ <strong>Cảnh báo sớm &lt; 1s:</strong> Thông báo tức thì qua Mobile App &amp; Zalo.</div>
+                <div class="roi-item" style="font-size: 5pt; margin-bottom: 2px;">✓ <strong>Hiệu chuẩn AI 24/7:</strong> Tự động bù trừ và cảnh báo trôi sensor.</div>
+                <div class="roi-item" style="font-size: 5pt;">✓ <strong>Tối ưu buồng đốt:</strong> Tiết kiệm 5–8% chi phí nhiên liệu liên tục.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Page 3 Bottom 2-KPI Bar -->
+      <div class="inside-bottom-kpis">
+        <div class="kpi-unit">
+          <div class="kpi-big-num">-98%</div>
+          <div class="kpi-meta-text">
+            <strong>THỜI GIAN BÁO CÁO</strong>
+            Xuất báo cáo Sở chỉ với 1 click chuột
+          </div>
+        </div>
+        <div class="kpi-unit">
+          <div class="kpi-big-num">99.98%</div>
+          <div class="kpi-meta-text">
+            <strong>CAM KẾT HỆ THỐNG SLA</strong>
+            Hạ tầng sẵn sàng cao, sao lưu dữ liệu kép
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Page 3 Footer -->
+      <div class="inside-footer">
+        <span>5S ENTERPRISE SOFTWARE SUITE // TRÍ TUỆ NHÂN TẠO &amp; HIỆU QUẢ KINH TẾ (ROI)</span>
+        <span style="font-weight: 800; color: var(--5s-crimson); font-family: 'Montserrat', sans-serif;">TRANG 03</span>
       </div>
 
     </div>
